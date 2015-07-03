@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.editors">
+      <editor
+            class="com.abdulaziz.ms.ocv.uml.gef.editor.OCVGraphicalEditor"
+            contributorClass="com.abdulaziz.ms.ocv.uml.gef.editor.OCVActionBarContributor"
+            default="false"
+            extensions="ocv"
+            icon="src/com/abdulaziz/ms/ocv/uml/gef/util/1422308915_Brush.png"
+            id="com.abdulaziz.ms.ocv.gef.OCVEditor"
+            name="OCV Editor">
+      </editor>
+      <editor
+            class="com.abdulaziz.ms.ocv.multiPageEditor.OCVMutiPageEditor"
+            contributorClass="com.abdulaziz.ms.ocv.multiPageEditor.OCVMutiPageEditorContributor"
+            default="false"
+            extensions="mocv"
+            icon="src/com/abdulaziz/ms/ocv/multiPageEditor/multipage_icon.png"
+            id="com.abdulaziz.ms.ocv.gef.mutiTabEditor"
+            name="VOContract">
+      </editor>
+      <editor
+            class="com.abdulaziz.ms.ocv.visualContract.gef.editor.ContractGraphicalEditor"
+            default="false"
+            extensions="vc"
+            id="com.abdulaziz.ms.ocv.gef.VContractEditor"
+            name="VContractEditor">
+      </editor>
+   </extension>
+   
+   
+   <extension
+         point="org.eclipse.ui.views">
+      <view
+            class="com.abdulaziz.ms.view.CustomizedViewPart"
+            icon="src/com/abdulaziz/ms/ocv/uml/gef/util/1422308919_Script.png"
+            id="com.abdulaziz.ms.ocv.gef.view1"
+            name="Customized View"
+            restorable="true">
+      </view>
+      <view
+            class="com.abdulaziz.ms.view.ClassListTreeView"
+            icon="src/com/abdulaziz/ms/ocv/uml/gef/util/C_icon.jpg"
+            id="com.abdulaziz.ms.ocv.gef.TreeView"
+            name="Class List"
+            restorable="true">
+      </view>
+   </extension>
+  
+   
+   
+</plugin>
