@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/com.abdulaziz.ms.ocv.model/src" modelPluginID="com.abdulaziz.ms.ocv.model"
+    modelName="Model" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="7.0" copyrightFields="false"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>model.ecore</foreignModel>
+  <genPackages prefix="OCV" basePackage="com.abdulaziz.ms" disposableProviderFactory="true"
+      ecorePackage="model.ecore#/">
+    <genDataTypes ecoreDataType="model.ecore#//Rectangle"/>
+    <genClasses ecoreClass="model.ecore#//UMLClassDiagram">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference model.ecore#//UMLClassDiagram/classes"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference model.ecore#//UMLClassDiagram/links"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//UMLClassDiagram/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference model.ecore#//UMLClassDiagram/systemOperation"/>
+    </genClasses>
+    <genClasses ecoreClass="model.ecore#//UMLClass">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//UMLClass/constraints"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference model.ecore#//UMLClass/classAttributes"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference model.ecore#//UMLClass/umlDiagram"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference model.ecore#//UMLClass/incomingLinks"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference model.ecore#//UMLClass/outgoingLinks"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//UMLClass/className"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference model.ecore#//UMLClass/VCInstances"/>
+    </genClasses>
+    <genClasses ecoreClass="model.ecore#//UMLVariable">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//UMLVariable/variableName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//UMLVariable/variableType"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference model.ecore#//UMLVariable/umlClass"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference model.ecore#//UMLVariable/OperationParameters"/>
+    </genClasses>
+    <genClasses ecoreClass="model.ecore#//UMLLink">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//UMLLink/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//UMLLink/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//UMLLink/sourceMutiplicity"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//UMLLink/targetMutiplicity"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference model.ecore#//UMLLink/source"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference model.ecore#//UMLLink/target"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference model.ecore#//UMLLink/umlDiagram"/>
+    </genClasses>
+    <genClasses ecoreClass="model.ecore#//VSystemOperationDiagram">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference model.ecore#//VSystemOperationDiagram/classOperations"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//VSystemOperationDiagram/constraints"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//VSystemOperationDiagram/name"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference model.ecore#//VSystemOperationDiagram/umlDiagram"/>
+    </genClasses>
+    <genClasses ecoreClass="model.ecore#//VOperation">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//VOperation/operationName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//VOperation/operationReturnType"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference model.ecore#//VOperation/operationParameters"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference model.ecore#//VOperation/vSystem"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference model.ecore#//VOperation/vcContract"/>
+    </genClasses>
+    <genClasses ecoreClass="model.ecore#//VCContract">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//VCContract/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//VCContract/pageIndex"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference model.ecore#//VCContract/precondition"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference model.ecore#//VCContract/postcondition"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference model.ecore#//VCContract/umlOperation"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="model.ecore#//VContractCondition">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//VContractCondition/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//VContractCondition/constaint"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference model.ecore#//VContractCondition/vcContract"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference model.ecore#//VContractCondition/vcEntities"/>
+      <genOperations ecoreOperation="model.ecore#//VContractCondition/getVContractCondition"/>
+      <genOperations ecoreOperation="model.ecore#//VContractCondition/setVCEntityContract">
+        <genParameters ecoreParameter="model.ecore#//VContractCondition/setVCEntityContract/vcEntity"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="model.ecore#//VContractPrecondition">
+      <genOperations ecoreOperation="model.ecore#//VContractPrecondition/getVContractCondition"/>
+      <genOperations ecoreOperation="model.ecore#//VContractPrecondition/setVCEntityContract">
+        <genParameters ecoreParameter="model.ecore#//VContractPrecondition/setVCEntityContract/vcEntity"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="model.ecore#//VContractPostcondition">
+      <genOperations ecoreOperation="model.ecore#//VContractPostcondition/getVContractCondition"/>
+      <genOperations ecoreOperation="model.ecore#//VContractPostcondition/setVCEntityContract">
+        <genParameters ecoreParameter="model.ecore#//VContractPostcondition/setVCEntityContract/vcEntity"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="model.ecore#//VCLink">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference model.ecore#//VCLink/source"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference model.ecore#//VCLink/target"/>
+    </genClasses>
+    <genClasses ecoreClass="model.ecore#//VCLinkPrePostCondition"/>
+    <genClasses image="false" ecoreClass="model.ecore#//VCEntity">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//VCEntity/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference model.ecore#//VCEntity/incomingLinks"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference model.ecore#//VCEntity/outgoingLinks"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//VCEntity/constraints"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference model.ecore#//VCEntity/vcContract"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference model.ecore#//VCEntity/precondition"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference model.ecore#//VCEntity/postcondition"/>
+      <genOperations ecoreOperation="model.ecore#//VCEntity/setVContractCondition">
+        <genParameters ecoreParameter="model.ecore#//VCEntity/setVContractCondition/vContractCondition"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="model.ecore#//VCValue">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//VCValue/value"/>
+    </genClasses>
+    <genClasses ecoreClass="model.ecore#//VCEquality">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference model.ecore#//VCEquality/souceVCEntity"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference model.ecore#//VCEquality/targetValue"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//VCEquality/type"/>
+    </genClasses>
+    <genClasses ecoreClass="model.ecore#//VCInstance">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference model.ecore#//VCInstance/umlClass"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference model.ecore#//VCInstance/fields"/>
+    </genClasses>
+    <genClasses ecoreClass="model.ecore#//VCInstanceField">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference model.ecore#//VCInstanceField/vCInstance"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference model.ecore#//VCInstanceField/umlClassField"/>
+    </genClasses>
+    <genClasses ecoreClass="model.ecore#//VCAssociation">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference model.ecore#//VCAssociation/firstInstance"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference model.ecore#//VCAssociation/secondInstance"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference model.ecore#//VCAssociation/firstInstanceVariable"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference model.ecore#//VCAssociation/secondInstanceVariable"/>
+    </genClasses>
+    <genClasses ecoreClass="model.ecore#//VCParameter">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference model.ecore#//VCParameter/vCInstance"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference model.ecore#//VCParameter/operationParameter"/>
+    </genClasses>
+    <genClasses ecoreClass="model.ecore#//VCOperationBox">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//VCOperationBox/value"/>
+    </genClasses>
+    <genClasses ecoreClass="model.ecore#//VCReturn">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference model.ecore#//VCReturn/value"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>
