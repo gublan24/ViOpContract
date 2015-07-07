@@ -1,5 +1,7 @@
 package com.abdulaziz.ms.ocv.systemOperation.gef.editor;
 
+import java.util.EventObject;
+
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.gef.DefaultEditDomain;
@@ -7,6 +9,7 @@ import org.eclipse.gef.palette.PaletteRoot;
 import org.eclipse.gef.ui.parts.GraphicalEditorWithFlyoutPalette;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.ui.IEditorInput;
+import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IEditorSite;
 import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.PartInitException;
@@ -15,12 +18,8 @@ import com.abdulaziz.ms.OCV.OCVFactory;
 import com.abdulaziz.ms.OCV.UMLClassDiagram;
 import com.abdulaziz.ms.OCV.VOperation;
 import com.abdulaziz.ms.OCV.VSystemOperationDiagram;
-import com.abdulaziz.ms.OCV.impl.OCVFactoryImpl;
 import com.abdulaziz.ms.ocv.systemOperation.gef.action.EditSystemOperationSelectionAction;
 import com.abdulaziz.ms.ocv.systemOperation.gef.editor.part.SysOperationEditPartFactory;
-import com.abdulaziz.ms.ocv.uml.gef.editor.OCVGraphicalEditorContextMenuProvider;
-import com.abdulaziz.ms.ocv.visualContract.gef.action.VCAssociationUpdateSelectionAction;
-import com.abdulaziz.ms.ocv.visualContract.gef.action.VCAttributeUpdateSelectionAction;
 
 public class SystemOperationGraphicalEditor extends GraphicalEditorWithFlyoutPalette{
 
@@ -41,9 +40,18 @@ public class SystemOperationGraphicalEditor extends GraphicalEditorWithFlyoutPal
 		this.umlClassDiagram = umlClassDiagram;
 		
 	}
-	@Override public void init(IEditorSite site, IEditorInput input) throws PartInitException {
+	
+	@Override
+	public void commandStackChanged(EventObject event) {
+		firePropertyChange(IEditorPart.PROP_DIRTY);
+		super.commandStackChanged(event);
+	}
+	
+	@Override 
+	public void init(IEditorSite site, IEditorInput input) throws PartInitException {
 	    super.init(site, input);
-	 	  }
+	}
+
 	@Override 
 	protected void configureGraphicalViewer()
 	{

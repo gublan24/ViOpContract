@@ -1,5 +1,7 @@
 package com.abdulaziz.ms.ocv.uml.gef.editor;
 
+import java.util.EventObject;
+
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.draw2d.geometry.Point;
 import org.eclipse.draw2d.geometry.Rectangle;
@@ -9,11 +11,9 @@ import org.eclipse.gef.DefaultEditDomain;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPartViewer;
 import org.eclipse.gef.dnd.TemplateTransferDropTargetListener;
-import org.eclipse.gef.editparts.ScalableFreeformRootEditPart;
 import org.eclipse.gef.editparts.ScalableRootEditPart;
 import org.eclipse.gef.editparts.ZoomManager;
 import org.eclipse.gef.palette.PaletteRoot;
-import org.eclipse.gef.ui.actions.DeleteRetargetAction;
 import org.eclipse.gef.ui.actions.ZoomInAction;
 import org.eclipse.gef.ui.actions.ZoomOutAction;
 import org.eclipse.gef.ui.parts.GraphicalEditorWithFlyoutPalette;
@@ -23,6 +23,7 @@ import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.swt.dnd.DropTargetEvent;
 import org.eclipse.ui.IEditorInput;
+import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IEditorSite;
 import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.PartInitException;
@@ -34,43 +35,23 @@ import org.eclipse.ui.views.properties.PropertySheetPage;
 import org.eclipse.ui.views.properties.tabbed.ITabbedPropertySheetPageContributor;
 
 import com.abdulaziz.ms.OCV.OCVFactory;
-import com.abdulaziz.ms.OCV.OCVPackage;
 import com.abdulaziz.ms.OCV.UMLClass;
 import com.abdulaziz.ms.OCV.UMLClassDiagram;
 import com.abdulaziz.ms.OCV.provider.OCVItemProviderAdapterFactory;
 import com.abdulaziz.ms.ocv.uml.gef.action.UMLClassEditSelectionAction;
 import com.abdulaziz.ms.ocv.uml.gef.editor.part.OCVEditPartFactory;
-import com.abdulaziz.ms.ocv.visualContract.gef.action.VCAssociationUpdateSelectionAction;
-import com.abdulaziz.ms.ocv.visualContract.gef.action.VCAttributeUpdateSelectionAction;
 
 public class OCVGraphicalEditor extends GraphicalEditorWithFlyoutPalette implements ITabbedPropertySheetPageContributor{
 
 	private UMLClassDiagram umlClassDiagram;
 	
-	/*
-	public OCVGraphicalEditor() {
-		setEditDomain(new DefaultEditDomain(this));
-		loadInput(getEditorInput());
-		this.setPartName(this.getClass().getName());
-		
-	}
-	*/
-	
 	public OCVGraphicalEditor(UMLClassDiagram umlClassDiagram) {
-		
 		setEditDomain(new DefaultEditDomain(this));
 		this.umlClassDiagram = umlClassDiagram;
 		this.setPartName("OCVGraphicalEditor");
 
 	}
-	/*
-	private void loadInput(IEditorInput input) {
-	
-		if (umlClassDiagram == null) {
-			umlClassDiagram = OCVFactory.eINSTANCE.createUMLClassDiagram();
-		}
-	}
-	*/
+
 	@Override
 	protected void initializeGraphicalViewer()
 	{
@@ -80,6 +61,13 @@ public class OCVGraphicalEditor extends GraphicalEditorWithFlyoutPalette impleme
 		
 		
 	}
+	
+	@Override
+	public void commandStackChanged(EventObject event) {
+		firePropertyChange(IEditorPart.PROP_DIRTY);
+		super.commandStackChanged(event);
+	}
+
 	//
 	
 	private class OCVTemplateTransferDropTargetListener extends
@@ -285,11 +273,17 @@ public class OCVGraphicalEditor extends GraphicalEditorWithFlyoutPalette impleme
 	@Override
 	public void doSave(IProgressMonitor monitor) {
 		// TODO Auto-generated method stub
-
+		
 	}
+	
+	@Override
+	public void doSaveAs() {
+		
+	}
+	
 	@Override public void init(IEditorSite site, IEditorInput input) throws PartInitException {
 	    super.init(site, input);
-	 	  }
+	}
 	 
 	/*
 	  private void loadInput(IEditorInput input) {

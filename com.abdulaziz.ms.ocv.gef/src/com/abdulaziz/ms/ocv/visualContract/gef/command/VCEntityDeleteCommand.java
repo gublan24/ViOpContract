@@ -14,7 +14,6 @@ import com.abdulaziz.ms.OCV.VCInstance;
 import com.abdulaziz.ms.OCV.VCLink;
 import com.abdulaziz.ms.OCV.VContractCondition;
 import com.abdulaziz.ms.OCV.provider.VCEntityItemProvider;
-import com.abdulaziz.ms.ocv.visualContract.gef.editor.part.vcontractCondition.VPostConditionEditPart;
 import com.abdulaziz.ms.ocv.visualContract.gef.util.VCEntitiesRulesManager;
 
 public class VCEntityDeleteCommand extends Command  {

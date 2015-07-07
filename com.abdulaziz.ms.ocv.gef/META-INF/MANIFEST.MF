@@ -14,7 +14,8 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.ui.views.properties.tabbed;bundle-version="3.6.0",
  org.eclipse.ui.workbench,
  org.eclipse.jface,
- org.eclipse.swt
+ org.eclipse.swt,
+ org.eclipse.ui.ide
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-ActivationPolicy: lazy
 Import-Package: com.abdulaziz.ms.OCV.provider,

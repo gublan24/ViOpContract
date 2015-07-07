@@ -72,7 +72,8 @@ public class VContractConditionXYEditPolicy extends XYLayoutEditPolicy {
 		if(request.getNewObject() instanceof VCEntity)
 		{
 			command = new VCEntityCreateCommandByVContractCondition();
-			command.setLocation(request.getLocation());
+			Rectangle constraint = (Rectangle) getConstraintFor(request);
+			command.setLocation(constraint.getLocation());
 			VContractCondition vContractCondition = (VContractCondition) getHost().getModel();
 			command.setvContractCondition(vContractCondition);
 			command.setvEntity((VCEntity)request.getNewObject());

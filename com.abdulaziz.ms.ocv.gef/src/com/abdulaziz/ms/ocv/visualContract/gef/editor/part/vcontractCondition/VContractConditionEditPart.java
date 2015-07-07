@@ -1,42 +1,25 @@
 package com.abdulaziz.ms.ocv.visualContract.gef.editor.part.vcontractCondition;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
-import org.eclipse.draw2d.FreeformLayout;
 import org.eclipse.draw2d.IFigure;
-import org.eclipse.draw2d.LabeledContainer;
-import org.eclipse.draw2d.geometry.Point;
-import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.Notifier;
-import org.eclipse.gef.EditPart;
-import org.eclipse.gef.EditPartViewer;
 import org.eclipse.gef.EditPolicy;
 import org.eclipse.gef.Request;
 import org.eclipse.gef.commands.Command;
-import org.eclipse.gef.dnd.TemplateTransferDropTargetListener;
 import org.eclipse.gef.editparts.AbstractGraphicalEditPart;
-import org.eclipse.gef.editpolicies.ContainerEditPolicy;
-import org.eclipse.gef.editpolicies.NonResizableEditPolicy;
-import org.eclipse.gef.requests.CreateRequest;
-import org.eclipse.swt.dnd.DropTargetEvent;
 
-import com.abdulaziz.ms.OCV.OCVFactory;
-import com.abdulaziz.ms.OCV.UMLClass;
-import com.abdulaziz.ms.OCV.VCContract;
 import com.abdulaziz.ms.OCV.VCInstance;
 import com.abdulaziz.ms.OCV.VContractCondition;
-import com.abdulaziz.ms.ocv.visualContract.gef.command.VCEntityCreateCommand;
-import com.abdulaziz.ms.ocv.visualContract.gef.editor.part.VCContractEditPart;
 import com.abdulaziz.ms.ocv.visualContract.gef.editor.policy.VCContractConditionGraphicalNodeRolePolicy;
 import com.abdulaziz.ms.ocv.visualContract.gef.editor.policy.VContractConditionXYEditPolicy;
 import com.abdulaziz.ms.ocv.visualContract.gef.util.VContractUtility;
 
 
-public abstract class VContractConditionEditPart extends AbstractGraphicalEditPart
+public class VContractConditionEditPart extends AbstractGraphicalEditPart
 {
 	
 
@@ -103,25 +86,18 @@ public abstract class VContractConditionEditPart extends AbstractGraphicalEditPa
 
 	@Override
 	protected IFigure createFigure() {
-		LabeledContainer figure = new LabeledContainer();
-		figure.setLayoutManager(new FreeformLayout());
-		return figure;
-		
+		return new VContractConditionFigure();
 	}
-	
+
 	@Override 
 	protected void refreshVisuals()
 	{
-		
-		LabeledContainer figure = (LabeledContainer) this.getFigure();
+		VContractConditionFigure figure = (VContractConditionFigure) this.getFigure();
 		VContractCondition vContractCondition = (VContractCondition) getModel();		
-		Object constraint = null;
-		figure.setLabel(""+vContractCondition.getType());
-		constraint = vContractCondition.getConstaint();
-		VCContractEditPart vcContractEditPart = (VCContractEditPart) this.getParent();
-		vcContractEditPart.setLayoutConstraint(this, figure,constraint);
-		
+		figure.setLabel(vContractCondition.getType());
+		figure.setLayout(vContractCondition.getConstaint());
 	}
+
 	@Override
 	public List<Object> getModelChildren()
 	{

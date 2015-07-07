@@ -23,7 +23,6 @@ import com.abdulaziz.ms.OCV.VContractAlternativeBox;
 import com.abdulaziz.ms.OCV.VContractCondition;
 import com.abdulaziz.ms.ocv.visualContract.gef.editor.part.vcEntity.VCAlternativeBoxEditPart;
 import com.abdulaziz.ms.ocv.visualContract.gef.editor.part.vcEntity.VCAssociationEditPart;
-import com.abdulaziz.ms.ocv.visualContract.gef.editor.part.vcEntity.VCAttributeEditPart;
 import com.abdulaziz.ms.ocv.visualContract.gef.editor.part.vcEntity.VCCollectionBoxEditPart;
 import com.abdulaziz.ms.ocv.visualContract.gef.editor.part.vcEntity.VCEqualityEditPart;
 import com.abdulaziz.ms.ocv.visualContract.gef.editor.part.vcEntity.VCInstanceEditPart;
@@ -31,14 +30,9 @@ import com.abdulaziz.ms.ocv.visualContract.gef.editor.part.vcEntity.VCInstanceFi
 import com.abdulaziz.ms.ocv.visualContract.gef.editor.part.vcEntity.VCLoopBoxEditPart;
 import com.abdulaziz.ms.ocv.visualContract.gef.editor.part.vcEntity.VCOperationBoxEditPart;
 import com.abdulaziz.ms.ocv.visualContract.gef.editor.part.vcEntity.VCParameterEditPart;
-import com.abdulaziz.ms.ocv.visualContract.gef.editor.part.vcEntity.VCParameterFigure;
 import com.abdulaziz.ms.ocv.visualContract.gef.editor.part.vcEntity.VCReturnEditPart;
 import com.abdulaziz.ms.ocv.visualContract.gef.editor.part.vcEntity.VCValueEditPart;
-import com.abdulaziz.ms.ocv.visualContract.gef.editor.part.vcontractCondition.VPostConditionEditPart;
-import com.abdulaziz.ms.ocv.visualContract.gef.editor.part.vcontractCondition.VPreconditionEditPart;
-import com.abdulaziz.ms.ocv.visualContract.gef.factory.VCCollectionBoxFactory;
-import com.abdulaziz.ms.ocv.visualContract.gef.factory.VCOperationBoxFactory;
-import com.abdulaziz.ms.ocv.visualContract.gef.util.VContractUtility;
+import com.abdulaziz.ms.ocv.visualContract.gef.editor.part.vcontractCondition.VContractConditionEditPart;
 
 public class ContractEditPartFactory implements EditPartFactory {
 
@@ -62,7 +56,7 @@ public class ContractEditPartFactory implements EditPartFactory {
 		}
 
 		else if (model instanceof VContractCondition) {
-			editPart = getVContractConditionFactory(model);
+			editPart = new VContractConditionEditPart();
 		}
 
 		else if (model instanceof VCEntity) {
@@ -143,18 +137,6 @@ public class ContractEditPartFactory implements EditPartFactory {
 		}
 		else 
 		editPart = new VCLinkEditPart();
-		return editPart;
-	}
-
-	private EditPart getVContractConditionFactory(Object model) {
-		EditPart editPart;
-		if(((VContractCondition) model).getType().equals(VContractUtility.POSTCONDITON))
-		{
-			editPart  = new VPostConditionEditPart();
-		}
-		
-		else 
-		editPart = new VPreconditionEditPart();
 		return editPart;
 	}
 

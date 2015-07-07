@@ -9,8 +9,6 @@ import org.eclipse.gef.requests.ReconnectRequest;
 import com.abdulaziz.ms.OCV.VContractCondition;
 import com.abdulaziz.ms.ocv.visualContract.gef.action.GenerateOperationContractAction;
 import com.abdulaziz.ms.ocv.visualContract.gef.command.GenerateOperationContractReportCommand;
-import com.abdulaziz.ms.ocv.visualContract.gef.editor.part.vcontractCondition.VPostConditionEditPart;
-import com.abdulaziz.ms.ocv.visualContract.gef.editor.part.vcontractCondition.VPreconditionEditPart;
 
 public class VCContractConditionGraphicalNodeRolePolicy extends
 		GraphicalNodeEditPolicy {

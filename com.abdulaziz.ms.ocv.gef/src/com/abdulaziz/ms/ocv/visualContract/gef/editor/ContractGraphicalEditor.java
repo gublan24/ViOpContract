@@ -1,12 +1,11 @@
 package com.abdulaziz.ms.ocv.visualContract.gef.editor;
 
+import java.util.EventObject;
+
 import org.eclipse.core.runtime.IProgressMonitor;
-import org.eclipse.draw2d.FigureCanvas;
-import org.eclipse.draw2d.geometry.Point;
-import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.gef.DefaultEditDomain;
-import org.eclipse.gef.EditPartViewer;
 import org.eclipse.gef.GraphicalViewer;
+import org.eclipse.gef.dnd.TemplateTransferDragSourceListener;
 import org.eclipse.gef.dnd.TemplateTransferDropTargetListener;
 import org.eclipse.gef.editparts.ScalableRootEditPart;
 import org.eclipse.gef.editparts.ZoomManager;
@@ -17,41 +16,26 @@ import org.eclipse.gef.ui.parts.GraphicalEditorWithFlyoutPalette;
 import org.eclipse.gef.ui.parts.ScrollingGraphicalViewer;
 import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.viewers.ISelection;
-import org.eclipse.swt.SWT;
-import org.eclipse.swt.dnd.DropTargetEvent;
-import org.eclipse.swt.events.MouseEvent;
-import org.eclipse.swt.events.MouseMoveListener;
 import org.eclipse.swt.widgets.Composite;
-import org.eclipse.swt.widgets.Control;
-import org.eclipse.swt.widgets.Label;
 import org.eclipse.ui.IEditorInput;
+import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IEditorSite;
 import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.PartInitException;
 
-import com.abdulaziz.ms.OCV.OCVFactory;
-import com.abdulaziz.ms.OCV.UMLClass;
-import com.abdulaziz.ms.OCV.UMLClassDiagram;
-import com.abdulaziz.ms.OCV.VCAssociation;
 import com.abdulaziz.ms.OCV.VCContract;
-import com.abdulaziz.ms.OCV.VCInstance;
-import com.abdulaziz.ms.OCV.VOperation;
-import com.abdulaziz.ms.ocv.uml.gef.editor.OCVGraphicalEditorContextMenuProvider;
 import com.abdulaziz.ms.ocv.visualContract.gef.action.GenerateOperationContractAction;
 import com.abdulaziz.ms.ocv.visualContract.gef.action.UpdateEqualitySelectionAction;
 import com.abdulaziz.ms.ocv.visualContract.gef.action.UpdateVCAlternativeSelectionAction;
 import com.abdulaziz.ms.ocv.visualContract.gef.action.UpdateVCCollectionSelectionAction;
 import com.abdulaziz.ms.ocv.visualContract.gef.action.UpdateVCInstanceFieldSelectionAction;
+import com.abdulaziz.ms.ocv.visualContract.gef.action.UpdateVCInstanceSelectionAction;
 import com.abdulaziz.ms.ocv.visualContract.gef.action.UpdateVCLoopSelectionAction;
 import com.abdulaziz.ms.ocv.visualContract.gef.action.UpdateVCParameterSelectionAction;
 import com.abdulaziz.ms.ocv.visualContract.gef.action.UpdateVCValueSelectionAction;
 import com.abdulaziz.ms.ocv.visualContract.gef.action.VCAssociationUpdateSelectionAction;
 import com.abdulaziz.ms.ocv.visualContract.gef.action.VCAttributeUpdateSelectionAction;
-import com.abdulaziz.ms.ocv.visualContract.gef.action.UpdateVCInstanceSelectionAction;
-import com.abdulaziz.ms.ocv.visualContract.gef.command.VCEntityCreateCommand;
 import com.abdulaziz.ms.ocv.visualContract.gef.editor.part.ContractEditPartFactory;
-
-import org.eclipse.swt.widgets.Group;
 
 public class ContractGraphicalEditor extends GraphicalEditorWithFlyoutPalette {
 	
@@ -76,15 +60,14 @@ public class ContractGraphicalEditor extends GraphicalEditorWithFlyoutPalette {
 		setEditDomain( new DefaultEditDomain(this));
 		this.setPartName(this.getClass().getName());
 		this.vcContract = vcContract;
-		
-		
-		
-		
-		
-		
-	
-
 	}
+	
+	@Override
+	public void commandStackChanged(EventObject event) {
+		firePropertyChange(IEditorPart.PROP_DIRTY);
+		super.commandStackChanged(event);
+	}
+
 /*
 	private VCContract loadInput() {
 		vcContract = OCVFactory.eINSTANCE.createVCContract();
@@ -164,12 +147,14 @@ public class ContractGraphicalEditor extends GraphicalEditorWithFlyoutPalette {
 	{
 		super.configureGraphicalViewer();
 		getGraphicalViewer().setEditPartFactory(new ContractEditPartFactory());
-	   ScrollingGraphicalViewer viewer=(ScrollingGraphicalViewer)getGraphicalViewer();
 		 
 	  
-	   viewer.addDropTargetListener(new VCTemplateTransferDropTargetListener(this.getGraphicalViewer()));
-	 
-
+//	   getGraphicalViewer().addDropTargetListener(new VCTemplateTransferDropTargetListener(this.getGraphicalViewer()));
+//	   getEditDomain().getPaletteViewer().addDragSourceListener(
+//			    new TemplateTransferDragSourceListener(getEditDomain().getPaletteViewer()));
+		 getGraphicalViewer().addDropTargetListener(new TemplateTransferDropTargetListener(getGraphicalViewer()));
+		 getEditDomain().getPaletteViewer().addDragSourceListener(
+		    new TemplateTransferDragSourceListener(getEditDomain().getPaletteViewer()));
 
 		ZoomManager zoomManager = 
 				((ScalableRootEditPart) getGraphicalViewer().getRootEditPart()).getZoomManager();

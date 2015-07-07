@@ -6,7 +6,6 @@ import org.eclipse.gef.commands.Command;
 import com.abdulaziz.ms.OCV.VContractCondition;
 import com.abdulaziz.ms.OCV.VContractPostcondition;
 import com.abdulaziz.ms.OCV.VContractPrecondition;
-import com.abdulaziz.ms.ocv.visualContract.gef.util.VContractUtility;
 
 public class VContractConditionCommand extends Command {
 
@@ -44,7 +43,7 @@ public class VContractConditionCommand extends Command {
 	
 	public void execute()
 	{
-			model.setConstaint(constraint);
+		model.setConstaint(constraint);
 				
 	}
 	@Override
@@ -52,18 +51,16 @@ public class VContractConditionCommand extends Command {
 	{
 		if(isPrecondition)
 		{
-			return model.getConstaint().bottom() < post.getConstaint().y;
+			return constraint.bottom() < post.getConstaint().y;
 		}
-		
 		else 
-			
-		return  constraint.y() > pre.getConstaint().bottom();
-		
+		{
+			return  constraint.y() > pre.getConstaint().bottom();
+		}
 	}
 
 	public void setNewConstraints(Rectangle constraint) {
 		this.constraint = constraint;
-		
 	}
 
 }
