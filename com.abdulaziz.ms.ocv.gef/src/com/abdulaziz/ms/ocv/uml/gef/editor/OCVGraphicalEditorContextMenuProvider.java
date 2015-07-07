@@ -4,16 +4,12 @@ import org.eclipse.gef.ContextMenuProvider;
 import org.eclipse.gef.EditPartViewer;
 import org.eclipse.gef.ui.actions.ActionRegistry;
 import org.eclipse.gef.ui.actions.GEFActionConstants;
-import org.eclipse.gef.ui.actions.ZoomInAction;
-import org.eclipse.gef.ui.actions.ZoomInRetargetAction;
-import org.eclipse.gef.ui.actions.ZoomOutAction;
-import org.eclipse.gef.ui.actions.ZoomOutRetargetAction;
 import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.action.IMenuManager;
 import org.eclipse.ui.actions.ActionFactory;
 
+import com.abdulaziz.ms.ocv.multiPageEditor.action.ExportAsImageAction;
 import com.abdulaziz.ms.ocv.uml.gef.action.UMLClassEditSelectionAction;
-import com.abdulaziz.ms.ocv.uml.gef.editor.command.OCVUMLDiagramEditCommand;
 
 public class OCVGraphicalEditorContextMenuProvider extends ContextMenuProvider{
 
@@ -42,9 +38,7 @@ public class OCVGraphicalEditorContextMenuProvider extends ContextMenuProvider{
 		menu.appendToGroup(GEFActionConstants.GROUP_VIEW,getActionRegistry().getAction(GEFActionConstants.ZOOM_IN));
 		menu.appendToGroup(GEFActionConstants.GROUP_VIEW,getActionRegistry().getAction(GEFActionConstants.ZOOM_OUT));
 
-		
-
-		
+		menu.appendToGroup(GEFActionConstants.GROUP_SAVE,getActionRegistry().getAction(ExportAsImageAction.ID));
 	}
 
 	public ActionRegistry getActionRegistry() {

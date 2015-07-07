@@ -24,6 +24,7 @@ import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.PartInitException;
 
 import com.abdulaziz.ms.OCV.VCContract;
+import com.abdulaziz.ms.ocv.multiPageEditor.action.ExportAsImageAction;
 import com.abdulaziz.ms.ocv.visualContract.gef.action.GenerateOperationContractAction;
 import com.abdulaziz.ms.ocv.visualContract.gef.action.UpdateEqualitySelectionAction;
 import com.abdulaziz.ms.ocv.visualContract.gef.action.UpdateVCAlternativeSelectionAction;
@@ -163,7 +164,7 @@ public class ContractGraphicalEditor extends GraphicalEditorWithFlyoutPalette {
 	    getActionRegistry().registerAction(zoomIn);
 	    getActionRegistry().registerAction(zoomOut);
 		getGraphicalViewer().setContextMenu(new VContractGraphicalEditorContextMenuProvider (getGraphicalViewer(),getActionRegistry()));
-		
+		getActionRegistry().registerAction(new ExportAsImageAction(getGraphicalViewer()));
 
 	//	getGraphicalViewer().addDropTargetListener(new VCTemplateTransferDropTargetListener(getGraphicalViewer()));
 	}

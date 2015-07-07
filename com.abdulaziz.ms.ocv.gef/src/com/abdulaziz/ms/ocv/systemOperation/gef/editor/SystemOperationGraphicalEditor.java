@@ -18,6 +18,7 @@ import com.abdulaziz.ms.OCV.OCVFactory;
 import com.abdulaziz.ms.OCV.UMLClassDiagram;
 import com.abdulaziz.ms.OCV.VOperation;
 import com.abdulaziz.ms.OCV.VSystemOperationDiagram;
+import com.abdulaziz.ms.ocv.multiPageEditor.action.ExportAsImageAction;
 import com.abdulaziz.ms.ocv.systemOperation.gef.action.EditSystemOperationSelectionAction;
 import com.abdulaziz.ms.ocv.systemOperation.gef.editor.part.SysOperationEditPartFactory;
 
@@ -59,7 +60,7 @@ public class SystemOperationGraphicalEditor extends GraphicalEditorWithFlyoutPal
 		getGraphicalViewer().setEditPartFactory(new SysOperationEditPartFactory());
 		getGraphicalViewer().setContextMenu(new  SystemOperationContextMenuProvider(getGraphicalViewer(),getActionRegistry()));
 
-
+		getActionRegistry().registerAction(new ExportAsImageAction(getGraphicalViewer()));
 	}
 	@Override
 	protected void initializeGraphicalViewer() {

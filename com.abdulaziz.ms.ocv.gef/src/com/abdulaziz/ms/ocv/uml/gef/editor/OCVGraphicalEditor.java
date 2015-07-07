@@ -38,6 +38,7 @@ import com.abdulaziz.ms.OCV.OCVFactory;
 import com.abdulaziz.ms.OCV.UMLClass;
 import com.abdulaziz.ms.OCV.UMLClassDiagram;
 import com.abdulaziz.ms.OCV.provider.OCVItemProviderAdapterFactory;
+import com.abdulaziz.ms.ocv.multiPageEditor.action.ExportAsImageAction;
 import com.abdulaziz.ms.ocv.uml.gef.action.UMLClassEditSelectionAction;
 import com.abdulaziz.ms.ocv.uml.gef.editor.part.OCVEditPartFactory;
 
@@ -156,6 +157,7 @@ public class OCVGraphicalEditor extends GraphicalEditorWithFlyoutPalette impleme
 	    getActionRegistry().registerAction(zoomIn);
 	    getActionRegistry().registerAction(zoomOut);
 		
+	    getActionRegistry().registerAction(new ExportAsImageAction(getGraphicalViewer()));
 		
 		/*
 		 * the code below does not work very well , there is no way to determine the location of the drop event

@@ -1,30 +1,25 @@
 package com.abdulaziz.ms.ocv.visualContract.gef.editor;
 
-import java.io.InputStream;
-
 import org.eclipse.gef.ContextMenuProvider;
 import org.eclipse.gef.EditPartViewer;
 import org.eclipse.gef.ui.actions.ActionRegistry;
 import org.eclipse.gef.ui.actions.GEFActionConstants;
 import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.action.IMenuManager;
-import org.eclipse.jface.resource.ImageDescriptor;
-import org.eclipse.swt.graphics.Image;
-import org.eclipse.swt.graphics.ImageData;
 import org.eclipse.ui.actions.ActionFactory;
 
-import com.abdulaziz.ms.ocv.uml.gef.editor.figure.UMLClassFigure;
+import com.abdulaziz.ms.ocv.multiPageEditor.action.ExportAsImageAction;
 import com.abdulaziz.ms.ocv.visualContract.gef.action.GenerateOperationContractAction;
 import com.abdulaziz.ms.ocv.visualContract.gef.action.UpdateEqualitySelectionAction;
 import com.abdulaziz.ms.ocv.visualContract.gef.action.UpdateVCAlternativeSelectionAction;
 import com.abdulaziz.ms.ocv.visualContract.gef.action.UpdateVCCollectionSelectionAction;
 import com.abdulaziz.ms.ocv.visualContract.gef.action.UpdateVCInstanceFieldSelectionAction;
+import com.abdulaziz.ms.ocv.visualContract.gef.action.UpdateVCInstanceSelectionAction;
 import com.abdulaziz.ms.ocv.visualContract.gef.action.UpdateVCLoopSelectionAction;
 import com.abdulaziz.ms.ocv.visualContract.gef.action.UpdateVCParameterSelectionAction;
 import com.abdulaziz.ms.ocv.visualContract.gef.action.UpdateVCValueSelectionAction;
 import com.abdulaziz.ms.ocv.visualContract.gef.action.VCAssociationUpdateSelectionAction;
 import com.abdulaziz.ms.ocv.visualContract.gef.action.VCAttributeUpdateSelectionAction;
-import com.abdulaziz.ms.ocv.visualContract.gef.action.UpdateVCInstanceSelectionAction;
 
 public class VContractGraphicalEditorContextMenuProvider extends ContextMenuProvider{
 
@@ -87,6 +82,8 @@ public class VContractGraphicalEditorContextMenuProvider extends ContextMenuProv
 		
 		menu.appendToGroup(GEFActionConstants.GROUP_VIEW,getActionRegistry().getAction(GEFActionConstants.ZOOM_IN));
 		menu.appendToGroup(GEFActionConstants.GROUP_VIEW,getActionRegistry().getAction(GEFActionConstants.ZOOM_OUT));
+		
+		menu.appendToGroup(GEFActionConstants.GROUP_SAVE,getActionRegistry().getAction(ExportAsImageAction.ID));
 		
 	}
 
