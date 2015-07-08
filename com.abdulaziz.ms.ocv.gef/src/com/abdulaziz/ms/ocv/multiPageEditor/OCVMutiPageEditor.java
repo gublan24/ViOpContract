@@ -217,7 +217,7 @@ public class OCVMutiPageEditor extends MultiPageEditorPart implements IResourceC
 	
 	private void markSaveLocation() {
 		for(int idx = 0; idx < getPageCount(); idx++) {
-			CommandStack commandStack = getEditor(idx).getAdapter(CommandStack.class);
+			CommandStack commandStack = (CommandStack) getEditor(idx).getAdapter(CommandStack.class); // caste to CommandStack
 			if(null != commandStack) {
 				commandStack.markSaveLocation();	
 			}
