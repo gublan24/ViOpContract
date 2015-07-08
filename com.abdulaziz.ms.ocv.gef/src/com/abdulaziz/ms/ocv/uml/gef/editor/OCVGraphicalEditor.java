@@ -5,15 +5,18 @@ import java.util.EventObject;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.draw2d.geometry.Point;
 import org.eclipse.draw2d.geometry.Rectangle;
+import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor.PropertyValueWrapper;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryContentProvider;
 import org.eclipse.gef.DefaultEditDomain;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPartViewer;
+import org.eclipse.gef.dnd.TemplateTransferDragSourceListener;
 import org.eclipse.gef.dnd.TemplateTransferDropTargetListener;
 import org.eclipse.gef.editparts.ScalableRootEditPart;
 import org.eclipse.gef.editparts.ZoomManager;
 import org.eclipse.gef.palette.PaletteRoot;
+import org.eclipse.gef.requests.CreationFactory;
 import org.eclipse.gef.ui.actions.ZoomInAction;
 import org.eclipse.gef.ui.actions.ZoomOutAction;
 import org.eclipse.gef.ui.parts.GraphicalEditorWithFlyoutPalette;
@@ -40,6 +43,7 @@ import com.abdulaziz.ms.OCV.UMLClassDiagram;
 import com.abdulaziz.ms.OCV.provider.OCVItemProviderAdapterFactory;
 import com.abdulaziz.ms.ocv.multiPageEditor.action.ExportAsImageAction;
 import com.abdulaziz.ms.ocv.uml.gef.action.UMLClassEditSelectionAction;
+import com.abdulaziz.ms.ocv.uml.gef.editor.factory.EClassCreationFactory;
 import com.abdulaziz.ms.ocv.uml.gef.editor.part.OCVEditPartFactory;
 
 public class OCVGraphicalEditor extends GraphicalEditorWithFlyoutPalette implements ITabbedPropertySheetPageContributor{
@@ -71,70 +75,16 @@ public class OCVGraphicalEditor extends GraphicalEditorWithFlyoutPalette impleme
 
 	//
 	
-	private class OCVTemplateTransferDropTargetListener extends
-			TemplateTransferDropTargetListener {
+	private class OCVTemplateTransferDropTargetListener extends TemplateTransferDropTargetListener {
 
 		public OCVTemplateTransferDropTargetListener(EditPartViewer viewer) {
 			super(viewer);
 		}
-
+		
 		@Override
-		public void drop(DropTargetEvent event) {
-			if (event.data != null) {
-				System.out.println("Drop event --> " + event.data.toString());
-
-			}
-
-			try {
-
-				OCVFactory ocvFactory = OCVFactory.eINSTANCE;
-				UMLClass newUMLClass = ocvFactory.createUMLClass();
-				newUMLClass.setClassName("ClassDrop");
-				Point eventDropLocationPoint = this.getDropLocation();
-				if (eventDropLocationPoint != null)
-					newUMLClass.setConstraints(new Rectangle(eventDropLocationPoint.x, eventDropLocationPoint.y,150, 100));
-				if (event.data instanceof UMLClass) {
-					UMLClass draggedUMLClass = (UMLClass) event.data;
-					newUMLClass.setClassName("Copy of"
-							+ draggedUMLClass.getClassName());
-					newUMLClass.getClassAttributes().addAll(
-							draggedUMLClass.getClassAttributes()); //
-
-				}
-				newUMLClass.setUmlDiagram(umlClassDiagram);
-			    
-			
-				//	
-				/// End of creation of UMLClass variables and operations
-
-			    /*
-				UMLVariable var = OCVFactory.eINSTANCE.createUMLVariable();
-				UMLOperation op = OCVFactory.eINSTANCE.createUMLOperation();
-				UMLVariable var2 = OCVFactory.eINSTANCE.createUMLVariable();
-				
-				var2.setVariableName("Var X");
-				var2.setVariableType("Double");
-				
-				op.getOperationParameters().add(var2);
-				var.setVariableName("Var Y");
-				var.setVariableType("Int");
-				op.setOperationName("operation1");
-				umlClass.getClassOperations().add(op);
-				
-				umlClass.getClassAttributes().add(var);
-				/// End of creation of UMLDiagram & classes
-				 * 
-				 */
-				 
-				}
-				catch(Exception e)
-				{
-					System.out.print("UMLClass can not be droped here ..." +e.toString());
-				}
-				
-			}
-			
-			
+		protected CreationFactory getFactory(Object template) {
+			return new EClassCreationFactory((EClass) template);
+		}		
 			
 		}
 	
@@ -150,7 +100,9 @@ public class OCVGraphicalEditor extends GraphicalEditorWithFlyoutPalette impleme
 	//	getActionRegistry().registerAction(new DeleteRetargetAction());
 	
 		getGraphicalViewer().addDropTargetListener( new OCVTemplateTransferDropTargetListener(getGraphicalViewer()));
-	
+		getEditDomain().getPaletteViewer().addDragSourceListener(
+			    new TemplateTransferDragSourceListener(getEditDomain().getPaletteViewer()));
+		
 		ZoomManager zoomManager = ((ScalableRootEditPart) getGraphicalViewer().getRootEditPart()).getZoomManager();
 	    IAction zoomIn = new ZoomInAction(zoomManager);
 	    IAction zoomOut = new ZoomOutAction(zoomManager);
