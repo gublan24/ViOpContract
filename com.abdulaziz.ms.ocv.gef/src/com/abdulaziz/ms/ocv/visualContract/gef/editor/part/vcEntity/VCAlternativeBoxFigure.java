@@ -1,35 +1,16 @@
 package com.abdulaziz.ms.ocv.visualContract.gef.editor.part.vcEntity;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Iterator;
-
-import org.eclipse.draw2d.Border;
 import org.eclipse.draw2d.ChopboxAnchor;
 import org.eclipse.draw2d.ColorConstants;
 import org.eclipse.draw2d.ConnectionAnchor;
 import org.eclipse.draw2d.Figure;
-import org.eclipse.draw2d.FlowLayout;
-import org.eclipse.draw2d.FreeformLayout;
 import org.eclipse.draw2d.Graphics;
 import org.eclipse.draw2d.GridLayout;
-import org.eclipse.draw2d.IFigure;
-import org.eclipse.draw2d.Label;
-import org.eclipse.draw2d.LabeledContainer;
 import org.eclipse.draw2d.LineBorder;
-import org.eclipse.draw2d.MouseEvent;
-import org.eclipse.draw2d.MouseListener;
-import org.eclipse.draw2d.PositionConstants;
-import org.eclipse.draw2d.TitleBarBorder;
-import org.eclipse.draw2d.ToolbarLayout;
 import org.eclipse.draw2d.XYLayout;
-import org.eclipse.draw2d.geometry.Dimension;
-import org.eclipse.draw2d.geometry.Insets;
 import org.eclipse.draw2d.geometry.Point;
 import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.swt.SWT;
-import org.eclipse.swt.graphics.Color;
 
 import com.abdulaziz.ms.OCV.ConditionOption;
 import com.abdulaziz.ms.ocv.visualContract.gef.editor.figure.VCEntityFigure;
@@ -50,7 +31,7 @@ public class VCAlternativeBoxFigure extends Figure implements VCEntityFigure {
 		layoutManager.marginHeight = 25;
 		layoutManager.marginWidth = 1;
 		//setLayoutManager(layoutManager);
-		setLayoutManager((new FreeformLayout()));
+		setLayoutManager(new XYLayout());
 	}
 	
 	public Point getFigureLocation()
