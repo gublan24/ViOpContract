@@ -6,7 +6,6 @@ import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.gef.DefaultEditDomain;
 import org.eclipse.gef.GraphicalViewer;
 import org.eclipse.gef.dnd.TemplateTransferDragSourceListener;
-import org.eclipse.gef.dnd.TemplateTransferDropTargetListener;
 import org.eclipse.gef.editparts.ScalableRootEditPart;
 import org.eclipse.gef.editparts.ZoomManager;
 import org.eclipse.gef.palette.PaletteRoot;
@@ -149,7 +148,8 @@ public class ContractGraphicalEditor extends GraphicalEditorWithFlyoutPalette {
 		super.configureGraphicalViewer();
 		getGraphicalViewer().setEditPartFactory(new ContractEditPartFactory());
 		 
-		 getGraphicalViewer().addDropTargetListener(new TemplateTransferDropTargetListener(getGraphicalViewer()));
+		 //getGraphicalViewer().addDropTargetListener(new TemplateTransferDropTargetListener(getGraphicalViewer()));
+		 getGraphicalViewer().addDropTargetListener(new VCTemplateTransferDropTargetListener(getGraphicalViewer()));
 		 getEditDomain().getPaletteViewer().addDragSourceListener(
 		    new TemplateTransferDragSourceListener(getEditDomain().getPaletteViewer()));
 
