@@ -1,15 +1,16 @@
 package com.abdulaziz.ms.ocv.uml.gef.editor;
 
 
+import org.eclipse.gef.palette.CombinedTemplateCreationEntry;
 import org.eclipse.gef.palette.ConnectionCreationToolEntry;
 import org.eclipse.gef.palette.CreationToolEntry;
 import org.eclipse.gef.palette.PaletteGroup;
 import org.eclipse.gef.palette.PaletteRoot;
 import org.eclipse.gef.palette.SelectionToolEntry;
 
+import com.abdulaziz.ms.OCV.OCVPackage;
 import com.abdulaziz.ms.ocv.uml.gef.editor.factory.UMLClassFactory;
 import com.abdulaziz.ms.ocv.uml.gef.editor.factory.UMLLinkFactory;
-
 import com.abdulaziz.ms.ocv.uml.gef.util.Icon;
 public class OCVEditorPalette extends PaletteRoot {
 
@@ -37,7 +38,7 @@ public class OCVEditorPalette extends PaletteRoot {
 	private void addUMLClassTool()
 	{
 		
-		CreationToolEntry  entry = new CreationToolEntry("Class", "Create UML class", new UMLClassFactory(), new Icon(OCVEditorPalette.class.getResourceAsStream("ocls_class.png")), null);
+		CreationToolEntry  entry = new CombinedTemplateCreationEntry("Class", "Create UML class", OCVPackage.eINSTANCE.getUMLClass(), new UMLClassFactory(), new Icon(OCVEditorPalette.class.getResourceAsStream("ocls_class.png")), null);
 		group.add(entry);
 	}
 

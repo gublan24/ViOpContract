@@ -149,10 +149,6 @@ public class ContractGraphicalEditor extends GraphicalEditorWithFlyoutPalette {
 		super.configureGraphicalViewer();
 		getGraphicalViewer().setEditPartFactory(new ContractEditPartFactory());
 		 
-	  
-//	   getGraphicalViewer().addDropTargetListener(new VCTemplateTransferDropTargetListener(this.getGraphicalViewer()));
-//	   getEditDomain().getPaletteViewer().addDragSourceListener(
-//			    new TemplateTransferDragSourceListener(getEditDomain().getPaletteViewer()));
 		 getGraphicalViewer().addDropTargetListener(new TemplateTransferDropTargetListener(getGraphicalViewer()));
 		 getEditDomain().getPaletteViewer().addDragSourceListener(
 		    new TemplateTransferDragSourceListener(getEditDomain().getPaletteViewer()));
@@ -165,8 +161,6 @@ public class ContractGraphicalEditor extends GraphicalEditorWithFlyoutPalette {
 	    getActionRegistry().registerAction(zoomOut);
 		getGraphicalViewer().setContextMenu(new VContractGraphicalEditorContextMenuProvider (getGraphicalViewer(),getActionRegistry()));
 		getActionRegistry().registerAction(new ExportAsImageAction(getGraphicalViewer()));
-
-	//	getGraphicalViewer().addDropTargetListener(new VCTemplateTransferDropTargetListener(getGraphicalViewer()));
 	}
 
 	

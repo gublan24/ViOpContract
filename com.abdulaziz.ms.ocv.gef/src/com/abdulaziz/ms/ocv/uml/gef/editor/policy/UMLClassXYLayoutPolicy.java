@@ -32,11 +32,11 @@ public class UMLClassXYLayoutPolicy extends XYLayoutEditPolicy {
 		
 		if (request.getNewObject() instanceof UMLClass)
 		{
-			
 			OCVClassCreateCommand command = new OCVClassCreateCommand();
 			command = new OCVClassCreateCommand();
 			command.setUMLClass(((UMLClass) request.getNewObject()));
-			command.setLocation(request.getLocation());
+			Rectangle constraint = (Rectangle) getConstraintFor(request);
+			command.setLocation(constraint.getLocation());
 			command.setParent((UMLClassDiagram) getHost().getModel());
 			command.setClassName("Class");
 			

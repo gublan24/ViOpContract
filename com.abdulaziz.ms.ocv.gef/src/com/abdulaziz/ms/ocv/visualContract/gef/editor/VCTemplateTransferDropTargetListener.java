@@ -1,55 +1,25 @@
 package com.abdulaziz.ms.ocv.visualContract.gef.editor;
 
-import org.eclipse.draw2d.FigureCanvas;
-import org.eclipse.draw2d.MouseMotionListener;
 import org.eclipse.draw2d.geometry.Point;
 import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPartViewer;
-import org.eclipse.gef.RootEditPart;
 import org.eclipse.gef.commands.CompoundCommand;
 import org.eclipse.gef.dnd.TemplateTransferDropTargetListener;
 import org.eclipse.gef.requests.CreationFactory;
 import org.eclipse.swt.dnd.DropTargetEvent;
-import org.eclipse.swt.events.MouseEvent;
-import org.eclipse.swt.events.MouseListener;
-import org.eclipse.swt.events.MouseMoveListener;
-import org.eclipse.swt.widgets.Control;
 
 import com.abdulaziz.ms.OCV.OCVFactory;
 import com.abdulaziz.ms.OCV.UMLClass;
 import com.abdulaziz.ms.OCV.VCInstance;
 import com.abdulaziz.ms.ocv.visualContract.gef.command.VCEntityCreateCommand;
-import com.abdulaziz.ms.ocv.visualContract.gef.editor.part.VCContractEditPart;
 
-public class VCTemplateTransferDropTargetListener extends
-		TemplateTransferDropTargetListener {  
-
-	/*
-	 * 
-	 * 
-	 */
-
-
-
-
-
-
-
-	public VCTemplateTransferDropTargetListener(EditPartViewer viewer,
-			EditPart editpart) {
-		super(viewer);
-
-		
-	}
+public class VCTemplateTransferDropTargetListener extends TemplateTransferDropTargetListener {  
 
 	public VCTemplateTransferDropTargetListener(EditPartViewer viewer) {
 		super(viewer);
-		
 	}
 				
-
-	
 	@Override
 	public void drop(DropTargetEvent event) {
 		
