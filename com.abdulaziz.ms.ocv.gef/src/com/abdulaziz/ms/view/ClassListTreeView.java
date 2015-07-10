@@ -76,7 +76,7 @@ public class ClassListTreeView extends ViewPart implements ISelectionListener {
 				// --- to match GEF drop
 				if(TemplateTransfer.getInstance().isSupportedType(event.dataType))
 		        event.data = selection.getFirstElement();
-
+				TemplateTransfer.getInstance().setTemplate(selection.getFirstElement());
 		        //
 		        
 		        // to match treeViewer2 textTransfer 
@@ -93,7 +93,7 @@ public class ClassListTreeView extends ViewPart implements ISelectionListener {
 			
 			@Override
 			public void dragFinished(DragSourceEvent event) {
-				
+				TemplateTransfer.getInstance().setTemplate(null);
 			}
 		});
 		
