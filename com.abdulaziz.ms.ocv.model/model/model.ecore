@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="OCV" nsURI="http://www.NULL.com/model" nsPrefix="OCV">
+  <eClassifiers xsi:type="ecore:EDataType" name="AbsoluteBendpoint" instanceClassName="org.eclipse.draw2d.AbsoluteBendpoint"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="Rectangle" instanceClassName="org.eclipse.draw2d.geometry.Rectangle"/>
   <eClassifiers xsi:type="ecore:EClass" name="UMLClassDiagram">
     <eStructuralFeatures xsi:type="ecore:EReference" name="classes" upperBound="-1"
         eType="#//UMLClass" containment="true" eOpposite="#//UMLClass/umlDiagram"/>
@@ -44,7 +46,6 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="umlDiagram" eType="#//UMLClassDiagram"
         eOpposite="#//UMLClassDiagram/links"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EDataType" name="Rectangle" instanceClassName="org.eclipse.draw2d.geometry.Rectangle"/>
   <eClassifiers xsi:type="ecore:EClass" name="VSystemOperationDiagram">
     <eStructuralFeatures xsi:type="ecore:EReference" name="classOperations" upperBound="-1"
         eType="#//VOperation" containment="true"/>
@@ -62,6 +63,8 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="vSystem" eType="#//VSystemOperationDiagram"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="vcContract" eType="#//VCContract"
         containment="true" eOpposite="#//VCContract/umlOperation"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="vcContractCollection" upperBound="-1"
+        eType="#//VCContract"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="VCContract">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -182,16 +185,15 @@
   <eClassifiers xsi:type="ecore:EClass" name="VCReturn" eSuperTypes="#//VCEntity">
     <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="#//VCEntity"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EDataType" name="AbsoluteBendpoint" instanceClassName="org.eclipse.draw2d.AbsoluteBendpoint"/>
-  <eClassifiers xsi:type="ecore:EClass" name="VCAlternativeBox" eSuperTypes="#//VCEntity">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="conditinOptions" upperBound="-1"
-        eType="#//ConditionOption" containment="true" eOpposite="#//ConditionOption/vcAlternativeBox"/>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="VCCollectionBox" eSuperTypes="#//VCEntity">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="VCLoop" eSuperTypes="#//VCEntity">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="iteration" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="VCAlternativeBox" eSuperTypes="#//VCEntity">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="conditinOptions" upperBound="-1"
+        eType="#//ConditionOption" containment="true" eOpposite="#//ConditionOption/vcAlternativeBox"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ConditionOption">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -199,6 +201,12 @@
         eType="#//VContractAlternativeBox" containment="true" eOpposite="#//VContractAlternativeBox/conditionOption"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="vcAlternativeBox" eType="#//VCAlternativeBox"
         eOpposite="#//VCAlternativeBox/conditinOptions"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="vcEntityReference" eType="#//VCEntity"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="displayedConditionStatement"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="conditionValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="MeaningOfConditionStatement"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="VContractAlternativeBox" eSuperTypes="#//VContractCondition">
     <eOperations name="getVContractCondition" eType="#//VContractAlternativeBox"/>

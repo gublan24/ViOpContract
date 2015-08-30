@@ -3,11 +3,14 @@
 package com.abdulaziz.ms.OCV.provider;
 
 import com.abdulaziz.ms.OCV.util.OCVAdapterFactory;
+
 import java.util.ArrayList;
 import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.Notifier;
+
 import org.eclipse.emf.edit.provider.ChangeNotifier;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
@@ -161,6 +164,52 @@ public class OCVItemProviderAdapterFactory extends OCVAdapterFactory implements 
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link com.abdulaziz.ms.OCV.VSystemOperationDiagram} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected VSystemOperationDiagramItemProvider vSystemOperationDiagramItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.abdulaziz.ms.OCV.VSystemOperationDiagram}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createVSystemOperationDiagramAdapter() {
+		if (vSystemOperationDiagramItemProvider == null) {
+			vSystemOperationDiagramItemProvider = new VSystemOperationDiagramItemProvider(this);
+		}
+
+		return vSystemOperationDiagramItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.abdulaziz.ms.OCV.VOperation} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected VOperationItemProvider vOperationItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.abdulaziz.ms.OCV.VOperation}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createVOperationAdapter() {
+		if (vOperationItemProvider == null) {
+			vOperationItemProvider = new VOperationItemProvider(this);
+		}
+
+		return vOperationItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link com.abdulaziz.ms.OCV.VCContract} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -181,6 +230,144 @@ public class OCVItemProviderAdapterFactory extends OCVAdapterFactory implements 
 		}
 
 		return vcContractItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.abdulaziz.ms.OCV.VContractPrecondition} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected VContractPreconditionItemProvider vContractPreconditionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.abdulaziz.ms.OCV.VContractPrecondition}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createVContractPreconditionAdapter() {
+		if (vContractPreconditionItemProvider == null) {
+			vContractPreconditionItemProvider = new VContractPreconditionItemProvider(this);
+		}
+
+		return vContractPreconditionItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.abdulaziz.ms.OCV.VContractPostcondition} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected VContractPostconditionItemProvider vContractPostconditionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.abdulaziz.ms.OCV.VContractPostcondition}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createVContractPostconditionAdapter() {
+		if (vContractPostconditionItemProvider == null) {
+			vContractPostconditionItemProvider = new VContractPostconditionItemProvider(this);
+		}
+
+		return vContractPostconditionItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.abdulaziz.ms.OCV.VCLink} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected VCLinkItemProvider vcLinkItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.abdulaziz.ms.OCV.VCLink}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createVCLinkAdapter() {
+		if (vcLinkItemProvider == null) {
+			vcLinkItemProvider = new VCLinkItemProvider(this);
+		}
+
+		return vcLinkItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.abdulaziz.ms.OCV.VCLinkPrePostCondition} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected VCLinkPrePostConditionItemProvider vcLinkPrePostConditionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.abdulaziz.ms.OCV.VCLinkPrePostCondition}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createVCLinkPrePostConditionAdapter() {
+		if (vcLinkPrePostConditionItemProvider == null) {
+			vcLinkPrePostConditionItemProvider = new VCLinkPrePostConditionItemProvider(this);
+		}
+
+		return vcLinkPrePostConditionItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.abdulaziz.ms.OCV.VCValue} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected VCValueItemProvider vcValueItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.abdulaziz.ms.OCV.VCValue}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createVCValueAdapter() {
+		if (vcValueItemProvider == null) {
+			vcValueItemProvider = new VCValueItemProvider(this);
+		}
+
+		return vcValueItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.abdulaziz.ms.OCV.VCEquality} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected VCEqualityItemProvider vcEqualityItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.abdulaziz.ms.OCV.VCEquality}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createVCEqualityAdapter() {
+		if (vcEqualityItemProvider == null) {
+			vcEqualityItemProvider = new VCEqualityItemProvider(this);
+		}
+
+		return vcEqualityItemProvider;
 	}
 
 	/**
@@ -437,190 +624,6 @@ public class OCVItemProviderAdapterFactory extends OCVAdapterFactory implements 
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link com.abdulaziz.ms.OCV.VCLink} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected VCLinkItemProvider vcLinkItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link com.abdulaziz.ms.OCV.VCLink}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createVCLinkAdapter() {
-		if (vcLinkItemProvider == null) {
-			vcLinkItemProvider = new VCLinkItemProvider(this);
-		}
-
-		return vcLinkItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link com.abdulaziz.ms.OCV.VSystemOperationDiagram} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected VSystemOperationDiagramItemProvider vSystemOperationDiagramItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link com.abdulaziz.ms.OCV.VSystemOperationDiagram}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createVSystemOperationDiagramAdapter() {
-		if (vSystemOperationDiagramItemProvider == null) {
-			vSystemOperationDiagramItemProvider = new VSystemOperationDiagramItemProvider(this);
-		}
-
-		return vSystemOperationDiagramItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link com.abdulaziz.ms.OCV.VOperation} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected VOperationItemProvider vOperationItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link com.abdulaziz.ms.OCV.VOperation}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createVOperationAdapter() {
-		if (vOperationItemProvider == null) {
-			vOperationItemProvider = new VOperationItemProvider(this);
-		}
-
-		return vOperationItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link com.abdulaziz.ms.OCV.VContractPrecondition} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected VContractPreconditionItemProvider vContractPreconditionItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link com.abdulaziz.ms.OCV.VContractPrecondition}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createVContractPreconditionAdapter() {
-		if (vContractPreconditionItemProvider == null) {
-			vContractPreconditionItemProvider = new VContractPreconditionItemProvider(this);
-		}
-
-		return vContractPreconditionItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link com.abdulaziz.ms.OCV.VContractPostcondition} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected VContractPostconditionItemProvider vContractPostconditionItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link com.abdulaziz.ms.OCV.VContractPostcondition}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createVContractPostconditionAdapter() {
-		if (vContractPostconditionItemProvider == null) {
-			vContractPostconditionItemProvider = new VContractPostconditionItemProvider(this);
-		}
-
-		return vContractPostconditionItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link com.abdulaziz.ms.OCV.VCLinkPrePostCondition} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected VCLinkPrePostConditionItemProvider vcLinkPrePostConditionItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link com.abdulaziz.ms.OCV.VCLinkPrePostCondition}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createVCLinkPrePostConditionAdapter() {
-		if (vcLinkPrePostConditionItemProvider == null) {
-			vcLinkPrePostConditionItemProvider = new VCLinkPrePostConditionItemProvider(this);
-		}
-
-		return vcLinkPrePostConditionItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link com.abdulaziz.ms.OCV.VCValue} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected VCValueItemProvider vcValueItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link com.abdulaziz.ms.OCV.VCValue}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createVCValueAdapter() {
-		if (vcValueItemProvider == null) {
-			vcValueItemProvider = new VCValueItemProvider(this);
-		}
-
-		return vcValueItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link com.abdulaziz.ms.OCV.VCEquality} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected VCEqualityItemProvider vcEqualityItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link com.abdulaziz.ms.OCV.VCEquality}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createVCEqualityAdapter() {
-		if (vcEqualityItemProvider == null) {
-			vcEqualityItemProvider = new VCEqualityItemProvider(this);
-		}
-
-		return vcEqualityItemProvider;
-	}
-
-	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -738,9 +741,9 @@ public class OCVItemProviderAdapterFactory extends OCVAdapterFactory implements 
 		if (vcParameterItemProvider != null) vcParameterItemProvider.dispose();
 		if (vcOperationBoxItemProvider != null) vcOperationBoxItemProvider.dispose();
 		if (vcReturnItemProvider != null) vcReturnItemProvider.dispose();
-		if (vcAlternativeBoxItemProvider != null) vcAlternativeBoxItemProvider.dispose();
 		if (vcCollectionBoxItemProvider != null) vcCollectionBoxItemProvider.dispose();
 		if (vcLoopItemProvider != null) vcLoopItemProvider.dispose();
+		if (vcAlternativeBoxItemProvider != null) vcAlternativeBoxItemProvider.dispose();
 		if (conditionOptionItemProvider != null) conditionOptionItemProvider.dispose();
 		if (vContractAlternativeBoxItemProvider != null) vContractAlternativeBoxItemProvider.dispose();
 	}

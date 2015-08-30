@@ -15,6 +15,10 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link com.abdulaziz.ms.OCV.ConditionOption#getName <em>Name</em>}</li>
  *   <li>{@link com.abdulaziz.ms.OCV.ConditionOption#getVcContractAlternativeBox <em>Vc Contract Alternative Box</em>}</li>
  *   <li>{@link com.abdulaziz.ms.OCV.ConditionOption#getVcAlternativeBox <em>Vc Alternative Box</em>}</li>
+ *   <li>{@link com.abdulaziz.ms.OCV.ConditionOption#getVcEntityReference <em>Vc Entity Reference</em>}</li>
+ *   <li>{@link com.abdulaziz.ms.OCV.ConditionOption#getDisplayedConditionStatement <em>Displayed Condition Statement</em>}</li>
+ *   <li>{@link com.abdulaziz.ms.OCV.ConditionOption#getConditionValue <em>Condition Value</em>}</li>
+ *   <li>{@link com.abdulaziz.ms.OCV.ConditionOption#getMeaningOfConditionStatement <em>Meaning Of Condition Statement</em>}</li>
  * </ul>
  * </p>
  *
@@ -104,5 +108,109 @@ public interface ConditionOption extends EObject {
 	 * @generated
 	 */
 	void setVcAlternativeBox(VCAlternativeBox value);
+
+	/**
+	 * Returns the value of the '<em><b>Vc Entity Reference</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Vc Entity Reference</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Vc Entity Reference</em>' reference.
+	 * @see #setVcEntityReference(VCEntity)
+	 * @see com.abdulaziz.ms.OCV.OCVPackage#getConditionOption_VcEntityReference()
+	 * @model
+	 * @generated
+	 */
+	VCEntity getVcEntityReference();
+
+	/**
+	 * Sets the value of the '{@link com.abdulaziz.ms.OCV.ConditionOption#getVcEntityReference <em>Vc Entity Reference</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Vc Entity Reference</em>' reference.
+	 * @see #getVcEntityReference()
+	 * @generated
+	 */
+	void setVcEntityReference(VCEntity value);
+
+	/**
+	 * Returns the value of the '<em><b>Displayed Condition Statement</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Displayed Condition Statement</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Displayed Condition Statement</em>' attribute.
+	 * @see #setDisplayedConditionStatement(String)
+	 * @see com.abdulaziz.ms.OCV.OCVPackage#getConditionOption_DisplayedConditionStatement()
+	 * @model
+	 * @generated
+	 */
+	String getDisplayedConditionStatement();
+
+	/**
+	 * Sets the value of the '{@link com.abdulaziz.ms.OCV.ConditionOption#getDisplayedConditionStatement <em>Displayed Condition Statement</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Displayed Condition Statement</em>' attribute.
+	 * @see #getDisplayedConditionStatement()
+	 * @generated
+	 */
+	void setDisplayedConditionStatement(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Condition Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Condition Value</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Condition Value</em>' attribute.
+	 * @see #setConditionValue(String)
+	 * @see com.abdulaziz.ms.OCV.OCVPackage#getConditionOption_ConditionValue()
+	 * @model
+	 * @generated
+	 */
+	String getConditionValue();
+
+	/**
+	 * Sets the value of the '{@link com.abdulaziz.ms.OCV.ConditionOption#getConditionValue <em>Condition Value</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Condition Value</em>' attribute.
+	 * @see #getConditionValue()
+	 * @generated
+	 */
+	void setConditionValue(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Meaning Of Condition Statement</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Meaning Of Condition Statement</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Meaning Of Condition Statement</em>' attribute.
+	 * @see #setMeaningOfConditionStatement(String)
+	 * @see com.abdulaziz.ms.OCV.OCVPackage#getConditionOption_MeaningOfConditionStatement()
+	 * @model
+	 * @generated
+	 */
+	String getMeaningOfConditionStatement();
+
+	/**
+	 * Sets the value of the '{@link com.abdulaziz.ms.OCV.ConditionOption#getMeaningOfConditionStatement <em>Meaning Of Condition Statement</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Meaning Of Condition Statement</em>' attribute.
+	 * @see #getMeaningOfConditionStatement()
+	 * @generated
+	 */
+	void setMeaningOfConditionStatement(String value);
 
 } // ConditionOption

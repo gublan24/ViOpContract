@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link com.abdulaziz.ms.OCV.VOperation#getOperationParameters <em>Operation Parameters</em>}</li>
  *   <li>{@link com.abdulaziz.ms.OCV.VOperation#getVSystem <em>VSystem</em>}</li>
  *   <li>{@link com.abdulaziz.ms.OCV.VOperation#getVcContract <em>Vc Contract</em>}</li>
+ *   <li>{@link com.abdulaziz.ms.OCV.VOperation#getVcContractCollection <em>Vc Contract Collection</em>}</li>
  * </ul>
  * </p>
  *
@@ -150,5 +151,21 @@ public interface VOperation extends EObject {
 	 * @generated
 	 */
 	void setVcContract(VCContract value);
+
+	/**
+	 * Returns the value of the '<em><b>Vc Contract Collection</b></em>' reference list.
+	 * The list contents are of type {@link com.abdulaziz.ms.OCV.VCContract}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Vc Contract Collection</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Vc Contract Collection</em>' reference list.
+	 * @see com.abdulaziz.ms.OCV.OCVPackage#getVOperation_VcContractCollection()
+	 * @model
+	 * @generated
+	 */
+	EList<VCContract> getVcContractCollection();
 
 } // VOperation

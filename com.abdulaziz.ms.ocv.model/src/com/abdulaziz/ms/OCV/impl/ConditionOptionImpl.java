@@ -5,6 +5,7 @@ package com.abdulaziz.ms.OCV.impl;
 import com.abdulaziz.ms.OCV.ConditionOption;
 import com.abdulaziz.ms.OCV.OCVPackage;
 import com.abdulaziz.ms.OCV.VCAlternativeBox;
+import com.abdulaziz.ms.OCV.VCEntity;
 import com.abdulaziz.ms.OCV.VContractAlternativeBox;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -28,6 +29,10 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  *   <li>{@link com.abdulaziz.ms.OCV.impl.ConditionOptionImpl#getName <em>Name</em>}</li>
  *   <li>{@link com.abdulaziz.ms.OCV.impl.ConditionOptionImpl#getVcContractAlternativeBox <em>Vc Contract Alternative Box</em>}</li>
  *   <li>{@link com.abdulaziz.ms.OCV.impl.ConditionOptionImpl#getVcAlternativeBox <em>Vc Alternative Box</em>}</li>
+ *   <li>{@link com.abdulaziz.ms.OCV.impl.ConditionOptionImpl#getVcEntityReference <em>Vc Entity Reference</em>}</li>
+ *   <li>{@link com.abdulaziz.ms.OCV.impl.ConditionOptionImpl#getDisplayedConditionStatement <em>Displayed Condition Statement</em>}</li>
+ *   <li>{@link com.abdulaziz.ms.OCV.impl.ConditionOptionImpl#getConditionValue <em>Condition Value</em>}</li>
+ *   <li>{@link com.abdulaziz.ms.OCV.impl.ConditionOptionImpl#getMeaningOfConditionStatement <em>Meaning Of Condition Statement</em>}</li>
  * </ul>
  * </p>
  *
@@ -63,6 +68,76 @@ public class ConditionOptionImpl extends MinimalEObjectImpl.Container implements
 	 * @ordered
 	 */
 	protected VContractAlternativeBox vcContractAlternativeBox;
+
+	/**
+	 * The cached value of the '{@link #getVcEntityReference() <em>Vc Entity Reference</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getVcEntityReference()
+	 * @generated
+	 * @ordered
+	 */
+	protected VCEntity vcEntityReference;
+
+	/**
+	 * The default value of the '{@link #getDisplayedConditionStatement() <em>Displayed Condition Statement</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDisplayedConditionStatement()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String DISPLAYED_CONDITION_STATEMENT_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getDisplayedConditionStatement() <em>Displayed Condition Statement</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDisplayedConditionStatement()
+	 * @generated
+	 * @ordered
+	 */
+	protected String displayedConditionStatement = DISPLAYED_CONDITION_STATEMENT_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getConditionValue() <em>Condition Value</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getConditionValue()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String CONDITION_VALUE_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getConditionValue() <em>Condition Value</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getConditionValue()
+	 * @generated
+	 * @ordered
+	 */
+	protected String conditionValue = CONDITION_VALUE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getMeaningOfConditionStatement() <em>Meaning Of Condition Statement</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMeaningOfConditionStatement()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String MEANING_OF_CONDITION_STATEMENT_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getMeaningOfConditionStatement() <em>Meaning Of Condition Statement</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMeaningOfConditionStatement()
+	 * @generated
+	 * @ordered
+	 */
+	protected String meaningOfConditionStatement = MEANING_OF_CONDITION_STATEMENT_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -193,6 +268,107 @@ public class ConditionOptionImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public VCEntity getVcEntityReference() {
+		if (vcEntityReference != null && vcEntityReference.eIsProxy()) {
+			InternalEObject oldVcEntityReference = (InternalEObject)vcEntityReference;
+			vcEntityReference = (VCEntity)eResolveProxy(oldVcEntityReference);
+			if (vcEntityReference != oldVcEntityReference) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, OCVPackage.CONDITION_OPTION__VC_ENTITY_REFERENCE, oldVcEntityReference, vcEntityReference));
+			}
+		}
+		return vcEntityReference;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public VCEntity basicGetVcEntityReference() {
+		return vcEntityReference;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setVcEntityReference(VCEntity newVcEntityReference) {
+		VCEntity oldVcEntityReference = vcEntityReference;
+		vcEntityReference = newVcEntityReference;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, OCVPackage.CONDITION_OPTION__VC_ENTITY_REFERENCE, oldVcEntityReference, vcEntityReference));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getDisplayedConditionStatement() {
+		return displayedConditionStatement;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDisplayedConditionStatement(String newDisplayedConditionStatement) {
+		String oldDisplayedConditionStatement = displayedConditionStatement;
+		displayedConditionStatement = newDisplayedConditionStatement;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, OCVPackage.CONDITION_OPTION__DISPLAYED_CONDITION_STATEMENT, oldDisplayedConditionStatement, displayedConditionStatement));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getConditionValue() {
+		return conditionValue;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setConditionValue(String newConditionValue) {
+		String oldConditionValue = conditionValue;
+		conditionValue = newConditionValue;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, OCVPackage.CONDITION_OPTION__CONDITION_VALUE, oldConditionValue, conditionValue));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getMeaningOfConditionStatement() {
+		return meaningOfConditionStatement;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setMeaningOfConditionStatement(String newMeaningOfConditionStatement) {
+		String oldMeaningOfConditionStatement = meaningOfConditionStatement;
+		meaningOfConditionStatement = newMeaningOfConditionStatement;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, OCVPackage.CONDITION_OPTION__MEANING_OF_CONDITION_STATEMENT, oldMeaningOfConditionStatement, meaningOfConditionStatement));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -252,6 +428,15 @@ public class ConditionOptionImpl extends MinimalEObjectImpl.Container implements
 				return getVcContractAlternativeBox();
 			case OCVPackage.CONDITION_OPTION__VC_ALTERNATIVE_BOX:
 				return getVcAlternativeBox();
+			case OCVPackage.CONDITION_OPTION__VC_ENTITY_REFERENCE:
+				if (resolve) return getVcEntityReference();
+				return basicGetVcEntityReference();
+			case OCVPackage.CONDITION_OPTION__DISPLAYED_CONDITION_STATEMENT:
+				return getDisplayedConditionStatement();
+			case OCVPackage.CONDITION_OPTION__CONDITION_VALUE:
+				return getConditionValue();
+			case OCVPackage.CONDITION_OPTION__MEANING_OF_CONDITION_STATEMENT:
+				return getMeaningOfConditionStatement();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -272,6 +457,18 @@ public class ConditionOptionImpl extends MinimalEObjectImpl.Container implements
 				return;
 			case OCVPackage.CONDITION_OPTION__VC_ALTERNATIVE_BOX:
 				setVcAlternativeBox((VCAlternativeBox)newValue);
+				return;
+			case OCVPackage.CONDITION_OPTION__VC_ENTITY_REFERENCE:
+				setVcEntityReference((VCEntity)newValue);
+				return;
+			case OCVPackage.CONDITION_OPTION__DISPLAYED_CONDITION_STATEMENT:
+				setDisplayedConditionStatement((String)newValue);
+				return;
+			case OCVPackage.CONDITION_OPTION__CONDITION_VALUE:
+				setConditionValue((String)newValue);
+				return;
+			case OCVPackage.CONDITION_OPTION__MEANING_OF_CONDITION_STATEMENT:
+				setMeaningOfConditionStatement((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -294,6 +491,18 @@ public class ConditionOptionImpl extends MinimalEObjectImpl.Container implements
 			case OCVPackage.CONDITION_OPTION__VC_ALTERNATIVE_BOX:
 				setVcAlternativeBox((VCAlternativeBox)null);
 				return;
+			case OCVPackage.CONDITION_OPTION__VC_ENTITY_REFERENCE:
+				setVcEntityReference((VCEntity)null);
+				return;
+			case OCVPackage.CONDITION_OPTION__DISPLAYED_CONDITION_STATEMENT:
+				setDisplayedConditionStatement(DISPLAYED_CONDITION_STATEMENT_EDEFAULT);
+				return;
+			case OCVPackage.CONDITION_OPTION__CONDITION_VALUE:
+				setConditionValue(CONDITION_VALUE_EDEFAULT);
+				return;
+			case OCVPackage.CONDITION_OPTION__MEANING_OF_CONDITION_STATEMENT:
+				setMeaningOfConditionStatement(MEANING_OF_CONDITION_STATEMENT_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -312,6 +521,14 @@ public class ConditionOptionImpl extends MinimalEObjectImpl.Container implements
 				return vcContractAlternativeBox != null;
 			case OCVPackage.CONDITION_OPTION__VC_ALTERNATIVE_BOX:
 				return getVcAlternativeBox() != null;
+			case OCVPackage.CONDITION_OPTION__VC_ENTITY_REFERENCE:
+				return vcEntityReference != null;
+			case OCVPackage.CONDITION_OPTION__DISPLAYED_CONDITION_STATEMENT:
+				return DISPLAYED_CONDITION_STATEMENT_EDEFAULT == null ? displayedConditionStatement != null : !DISPLAYED_CONDITION_STATEMENT_EDEFAULT.equals(displayedConditionStatement);
+			case OCVPackage.CONDITION_OPTION__CONDITION_VALUE:
+				return CONDITION_VALUE_EDEFAULT == null ? conditionValue != null : !CONDITION_VALUE_EDEFAULT.equals(conditionValue);
+			case OCVPackage.CONDITION_OPTION__MEANING_OF_CONDITION_STATEMENT:
+				return MEANING_OF_CONDITION_STATEMENT_EDEFAULT == null ? meaningOfConditionStatement != null : !MEANING_OF_CONDITION_STATEMENT_EDEFAULT.equals(meaningOfConditionStatement);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -319,17 +536,26 @@ public class ConditionOptionImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated not 
 	 */
 	@Override
 	public String toString() {
+		return name;
+		/*
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (name: ");
 		result.append(name);
+		result.append(", displayedConditionStatement: ");
+		result.append(displayedConditionStatement);
+		result.append(", conditionValue: ");
+		result.append(conditionValue);
+		result.append(", MeaningOfConditionStatement: ");
+		result.append(meaningOfConditionStatement);
 		result.append(')');
 		return result.toString();
+		*/
 	}
 
 } //ConditionOptionImpl

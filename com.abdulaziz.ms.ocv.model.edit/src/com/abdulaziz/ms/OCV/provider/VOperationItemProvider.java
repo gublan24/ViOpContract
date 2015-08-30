@@ -66,6 +66,7 @@ public class VOperationItemProvider
 			addOperationNamePropertyDescriptor(object);
 			addOperationReturnTypePropertyDescriptor(object);
 			addVSystemPropertyDescriptor(object);
+			addVcContractCollectionPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -128,6 +129,28 @@ public class VOperationItemProvider
 				 getString("_UI_VOperation_vSystem_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_VOperation_vSystem_feature", "_UI_VOperation_type"),
 				 OCVPackage.Literals.VOPERATION__VSYSTEM,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Vc Contract Collection feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addVcContractCollectionPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_VOperation_vcContractCollection_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_VOperation_vcContractCollection_feature", "_UI_VOperation_type"),
+				 OCVPackage.Literals.VOPERATION__VC_CONTRACT_COLLECTION,
 				 true,
 				 false,
 				 true,

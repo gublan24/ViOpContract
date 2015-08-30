@@ -75,9 +75,9 @@ public class OCVFactoryImpl extends EFactoryImpl implements OCVFactory {
 			case OCVPackage.VC_PARAMETER: return createVCParameter();
 			case OCVPackage.VC_OPERATION_BOX: return createVCOperationBox();
 			case OCVPackage.VC_RETURN: return createVCReturn();
-			case OCVPackage.VC_ALTERNATIVE_BOX: return createVCAlternativeBox();
 			case OCVPackage.VC_COLLECTION_BOX: return createVCCollectionBox();
 			case OCVPackage.VC_LOOP: return createVCLoop();
+			case OCVPackage.VC_ALTERNATIVE_BOX: return createVCAlternativeBox();
 			case OCVPackage.CONDITION_OPTION: return createConditionOption();
 			case OCVPackage.VCONTRACT_ALTERNATIVE_BOX: return createVContractAlternativeBox();
 			default:
@@ -93,10 +93,10 @@ public class OCVFactoryImpl extends EFactoryImpl implements OCVFactory {
 	@Override
 	public Object createFromString(EDataType eDataType, String initialValue) {
 		switch (eDataType.getClassifierID()) {
-			case OCVPackage.RECTANGLE:
-				return createRectangleFromString(eDataType, initialValue);
 			case OCVPackage.ABSOLUTE_BENDPOINT:
 				return createAbsoluteBendpointFromString(eDataType, initialValue);
+			case OCVPackage.RECTANGLE:
+				return createRectangleFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -110,10 +110,10 @@ public class OCVFactoryImpl extends EFactoryImpl implements OCVFactory {
 	@Override
 	public String convertToString(EDataType eDataType, Object instanceValue) {
 		switch (eDataType.getClassifierID()) {
-			case OCVPackage.RECTANGLE:
-				return convertRectangleToString(eDataType, instanceValue);
 			case OCVPackage.ABSOLUTE_BENDPOINT:
 				return convertAbsoluteBendpointToString(eDataType, instanceValue);
+			case OCVPackage.RECTANGLE:
+				return convertRectangleToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}

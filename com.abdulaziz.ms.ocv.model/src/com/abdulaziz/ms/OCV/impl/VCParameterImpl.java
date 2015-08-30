@@ -212,6 +212,17 @@ public class VCParameterImpl extends VCEntityImpl implements VCParameter {
 		return super.eIsSet(featureID);
 	}
 	
+@Override 
+	
+	/* returns the string name value of UMLVariable 
+	 * @generated not 
+	 */
+	public String getName()
+	{
+		return operationParameter.getVariableName();
+	}
+	
+	
 	
 	
 

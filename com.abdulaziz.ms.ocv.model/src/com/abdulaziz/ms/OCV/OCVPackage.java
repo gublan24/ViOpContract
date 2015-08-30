@@ -488,13 +488,22 @@ public interface OCVPackage extends EPackage {
 	int VOPERATION__VC_CONTRACT = 4;
 
 	/**
+	 * The feature id for the '<em><b>Vc Contract Collection</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VOPERATION__VC_CONTRACT_COLLECTION = 5;
+
+	/**
 	 * The number of structural features of the '<em>VOperation</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VOPERATION_FEATURE_COUNT = 5;
+	int VOPERATION_FEATURE_COUNT = 6;
 
 	/**
 	 * The number of operations of the '<em>VOperation</em>' class.
@@ -2139,115 +2148,7 @@ public interface OCVPackage extends EPackage {
 	 * @see com.abdulaziz.ms.OCV.impl.OCVPackageImpl#getVCAlternativeBox()
 	 * @generated
 	 */
-	int VC_ALTERNATIVE_BOX = 21;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VC_ALTERNATIVE_BOX__NAME = VC_ENTITY__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Incoming Links</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VC_ALTERNATIVE_BOX__INCOMING_LINKS = VC_ENTITY__INCOMING_LINKS;
-
-	/**
-	 * The feature id for the '<em><b>Outgoing Links</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VC_ALTERNATIVE_BOX__OUTGOING_LINKS = VC_ENTITY__OUTGOING_LINKS;
-
-	/**
-	 * The feature id for the '<em><b>Constraints</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VC_ALTERNATIVE_BOX__CONSTRAINTS = VC_ENTITY__CONSTRAINTS;
-
-	/**
-	 * The feature id for the '<em><b>Vc Contract</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VC_ALTERNATIVE_BOX__VC_CONTRACT = VC_ENTITY__VC_CONTRACT;
-
-	/**
-	 * The feature id for the '<em><b>Precondition</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VC_ALTERNATIVE_BOX__PRECONDITION = VC_ENTITY__PRECONDITION;
-
-	/**
-	 * The feature id for the '<em><b>Postcondition</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VC_ALTERNATIVE_BOX__POSTCONDITION = VC_ENTITY__POSTCONDITION;
-
-	/**
-	 * The feature id for the '<em><b>Conditin Options</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VC_ALTERNATIVE_BOX__CONDITIN_OPTIONS = VC_ENTITY_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>VC Alternative Box</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VC_ALTERNATIVE_BOX_FEATURE_COUNT = VC_ENTITY_FEATURE_COUNT + 1;
-
-	/**
-	 * The operation id for the '<em>Set VContract Condition</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VC_ALTERNATIVE_BOX___SET_VCONTRACT_CONDITION__VCONTRACTCONDITION = VC_ENTITY___SET_VCONTRACT_CONDITION__VCONTRACTCONDITION;
-
-	/**
-	 * The operation id for the '<em>Get Contract Condition</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VC_ALTERNATIVE_BOX___GET_CONTRACT_CONDITION = VC_ENTITY___GET_CONTRACT_CONDITION;
-
-	/**
-	 * The number of operations of the '<em>VC Alternative Box</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VC_ALTERNATIVE_BOX_OPERATION_COUNT = VC_ENTITY_OPERATION_COUNT + 0;
+	int VC_ALTERNATIVE_BOX = 23;
 
 	/**
 	 * The meta object id for the '{@link com.abdulaziz.ms.OCV.impl.VCCollectionBoxImpl <em>VC Collection Box</em>}' class.
@@ -2257,7 +2158,7 @@ public interface OCVPackage extends EPackage {
 	 * @see com.abdulaziz.ms.OCV.impl.OCVPackageImpl#getVCCollectionBox()
 	 * @generated
 	 */
-	int VC_COLLECTION_BOX = 22;
+	int VC_COLLECTION_BOX = 21;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2375,7 +2276,7 @@ public interface OCVPackage extends EPackage {
 	 * @see com.abdulaziz.ms.OCV.impl.OCVPackageImpl#getVCLoop()
 	 * @generated
 	 */
-	int VC_LOOP = 23;
+	int VC_LOOP = 22;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2486,6 +2387,114 @@ public interface OCVPackage extends EPackage {
 	int VC_LOOP_OPERATION_COUNT = VC_ENTITY_OPERATION_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VC_ALTERNATIVE_BOX__NAME = VC_ENTITY__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Incoming Links</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VC_ALTERNATIVE_BOX__INCOMING_LINKS = VC_ENTITY__INCOMING_LINKS;
+
+	/**
+	 * The feature id for the '<em><b>Outgoing Links</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VC_ALTERNATIVE_BOX__OUTGOING_LINKS = VC_ENTITY__OUTGOING_LINKS;
+
+	/**
+	 * The feature id for the '<em><b>Constraints</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VC_ALTERNATIVE_BOX__CONSTRAINTS = VC_ENTITY__CONSTRAINTS;
+
+	/**
+	 * The feature id for the '<em><b>Vc Contract</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VC_ALTERNATIVE_BOX__VC_CONTRACT = VC_ENTITY__VC_CONTRACT;
+
+	/**
+	 * The feature id for the '<em><b>Precondition</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VC_ALTERNATIVE_BOX__PRECONDITION = VC_ENTITY__PRECONDITION;
+
+	/**
+	 * The feature id for the '<em><b>Postcondition</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VC_ALTERNATIVE_BOX__POSTCONDITION = VC_ENTITY__POSTCONDITION;
+
+	/**
+	 * The feature id for the '<em><b>Conditin Options</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VC_ALTERNATIVE_BOX__CONDITIN_OPTIONS = VC_ENTITY_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>VC Alternative Box</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VC_ALTERNATIVE_BOX_FEATURE_COUNT = VC_ENTITY_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Set VContract Condition</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VC_ALTERNATIVE_BOX___SET_VCONTRACT_CONDITION__VCONTRACTCONDITION = VC_ENTITY___SET_VCONTRACT_CONDITION__VCONTRACTCONDITION;
+
+	/**
+	 * The operation id for the '<em>Get Contract Condition</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VC_ALTERNATIVE_BOX___GET_CONTRACT_CONDITION = VC_ENTITY___GET_CONTRACT_CONDITION;
+
+	/**
+	 * The number of operations of the '<em>VC Alternative Box</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VC_ALTERNATIVE_BOX_OPERATION_COUNT = VC_ENTITY_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link com.abdulaziz.ms.OCV.impl.ConditionOptionImpl <em>Condition Option</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2523,13 +2532,49 @@ public interface OCVPackage extends EPackage {
 	int CONDITION_OPTION__VC_ALTERNATIVE_BOX = 2;
 
 	/**
+	 * The feature id for the '<em><b>Vc Entity Reference</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONDITION_OPTION__VC_ENTITY_REFERENCE = 3;
+
+	/**
+	 * The feature id for the '<em><b>Displayed Condition Statement</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONDITION_OPTION__DISPLAYED_CONDITION_STATEMENT = 4;
+
+	/**
+	 * The feature id for the '<em><b>Condition Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONDITION_OPTION__CONDITION_VALUE = 5;
+
+	/**
+	 * The feature id for the '<em><b>Meaning Of Condition Statement</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONDITION_OPTION__MEANING_OF_CONDITION_STATEMENT = 6;
+
+	/**
 	 * The number of structural features of the '<em>Condition Option</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONDITION_OPTION_FEATURE_COUNT = 3;
+	int CONDITION_OPTION_FEATURE_COUNT = 7;
 
 	/**
 	 * The number of operations of the '<em>Condition Option</em>' class.
@@ -2648,7 +2693,7 @@ public interface OCVPackage extends EPackage {
 	 * @see com.abdulaziz.ms.OCV.impl.OCVPackageImpl#getRectangle()
 	 * @generated
 	 */
-	int RECTANGLE = 26;
+	int RECTANGLE = 27;
 
 	/**
 	 * The meta object id for the '<em>Absolute Bendpoint</em>' data type.
@@ -2658,7 +2703,7 @@ public interface OCVPackage extends EPackage {
 	 * @see com.abdulaziz.ms.OCV.impl.OCVPackageImpl#getAbsoluteBendpoint()
 	 * @generated
 	 */
-	int ABSOLUTE_BENDPOINT = 27;
+	int ABSOLUTE_BENDPOINT = 26;
 
 	/**
 	 * Returns the meta object for class '{@link com.abdulaziz.ms.OCV.UMLClassDiagram <em>UML Class Diagram</em>}'.
@@ -3060,6 +3105,17 @@ public interface OCVPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getVOperation_VcContract();
+
+	/**
+	 * Returns the meta object for the reference list '{@link com.abdulaziz.ms.OCV.VOperation#getVcContractCollection <em>Vc Contract Collection</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Vc Contract Collection</em>'.
+	 * @see com.abdulaziz.ms.OCV.VOperation#getVcContractCollection()
+	 * @see #getVOperation()
+	 * @generated
+	 */
+	EReference getVOperation_VcContractCollection();
 
 	/**
 	 * Returns the meta object for class '{@link com.abdulaziz.ms.OCV.VCContract <em>VC Contract</em>}'.
@@ -3883,6 +3939,50 @@ public interface OCVPackage extends EPackage {
 	EReference getConditionOption_VcAlternativeBox();
 
 	/**
+	 * Returns the meta object for the reference '{@link com.abdulaziz.ms.OCV.ConditionOption#getVcEntityReference <em>Vc Entity Reference</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Vc Entity Reference</em>'.
+	 * @see com.abdulaziz.ms.OCV.ConditionOption#getVcEntityReference()
+	 * @see #getConditionOption()
+	 * @generated
+	 */
+	EReference getConditionOption_VcEntityReference();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.abdulaziz.ms.OCV.ConditionOption#getDisplayedConditionStatement <em>Displayed Condition Statement</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Displayed Condition Statement</em>'.
+	 * @see com.abdulaziz.ms.OCV.ConditionOption#getDisplayedConditionStatement()
+	 * @see #getConditionOption()
+	 * @generated
+	 */
+	EAttribute getConditionOption_DisplayedConditionStatement();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.abdulaziz.ms.OCV.ConditionOption#getConditionValue <em>Condition Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Condition Value</em>'.
+	 * @see com.abdulaziz.ms.OCV.ConditionOption#getConditionValue()
+	 * @see #getConditionOption()
+	 * @generated
+	 */
+	EAttribute getConditionOption_ConditionValue();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.abdulaziz.ms.OCV.ConditionOption#getMeaningOfConditionStatement <em>Meaning Of Condition Statement</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Meaning Of Condition Statement</em>'.
+	 * @see com.abdulaziz.ms.OCV.ConditionOption#getMeaningOfConditionStatement()
+	 * @see #getConditionOption()
+	 * @generated
+	 */
+	EAttribute getConditionOption_MeaningOfConditionStatement();
+
+	/**
 	 * Returns the meta object for class '{@link com.abdulaziz.ms.OCV.VContractAlternativeBox <em>VContract Alternative Box</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4297,6 +4397,14 @@ public interface OCVPackage extends EPackage {
 		 * @generated
 		 */
 		EReference VOPERATION__VC_CONTRACT = eINSTANCE.getVOperation_VcContract();
+
+		/**
+		 * The meta object literal for the '<em><b>Vc Contract Collection</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference VOPERATION__VC_CONTRACT_COLLECTION = eINSTANCE.getVOperation_VcContractCollection();
 
 		/**
 		 * The meta object literal for the '{@link com.abdulaziz.ms.OCV.impl.VCContractImpl <em>VC Contract</em>}' class.
@@ -4951,6 +5059,38 @@ public interface OCVPackage extends EPackage {
 		 * @generated
 		 */
 		EReference CONDITION_OPTION__VC_ALTERNATIVE_BOX = eINSTANCE.getConditionOption_VcAlternativeBox();
+
+		/**
+		 * The meta object literal for the '<em><b>Vc Entity Reference</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CONDITION_OPTION__VC_ENTITY_REFERENCE = eINSTANCE.getConditionOption_VcEntityReference();
+
+		/**
+		 * The meta object literal for the '<em><b>Displayed Condition Statement</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CONDITION_OPTION__DISPLAYED_CONDITION_STATEMENT = eINSTANCE.getConditionOption_DisplayedConditionStatement();
+
+		/**
+		 * The meta object literal for the '<em><b>Condition Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CONDITION_OPTION__CONDITION_VALUE = eINSTANCE.getConditionOption_ConditionValue();
+
+		/**
+		 * The meta object literal for the '<em><b>Meaning Of Condition Statement</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CONDITION_OPTION__MEANING_OF_CONDITION_STATEMENT = eINSTANCE.getConditionOption_MeaningOfConditionStatement();
 
 		/**
 		 * The meta object literal for the '{@link com.abdulaziz.ms.OCV.impl.VContractAlternativeBoxImpl <em>VContract Alternative Box</em>}' class.

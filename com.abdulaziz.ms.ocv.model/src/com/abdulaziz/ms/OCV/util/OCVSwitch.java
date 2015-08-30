@@ -203,13 +203,6 @@ public class OCVSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case OCVPackage.VC_ALTERNATIVE_BOX: {
-				VCAlternativeBox vcAlternativeBox = (VCAlternativeBox)theEObject;
-				T result = caseVCAlternativeBox(vcAlternativeBox);
-				if (result == null) result = caseVCEntity(vcAlternativeBox);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case OCVPackage.VC_COLLECTION_BOX: {
 				VCCollectionBox vcCollectionBox = (VCCollectionBox)theEObject;
 				T result = caseVCCollectionBox(vcCollectionBox);
@@ -221,6 +214,13 @@ public class OCVSwitch<T> extends Switch<T> {
 				VCLoop vcLoop = (VCLoop)theEObject;
 				T result = caseVCLoop(vcLoop);
 				if (result == null) result = caseVCEntity(vcLoop);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case OCVPackage.VC_ALTERNATIVE_BOX: {
+				VCAlternativeBox vcAlternativeBox = (VCAlternativeBox)theEObject;
+				T result = caseVCAlternativeBox(vcAlternativeBox);
+				if (result == null) result = caseVCEntity(vcAlternativeBox);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}

@@ -152,16 +152,16 @@ public class OCVAdapterFactory extends AdapterFactoryImpl {
 				return createVCReturnAdapter();
 			}
 			@Override
-			public Adapter caseVCAlternativeBox(VCAlternativeBox object) {
-				return createVCAlternativeBoxAdapter();
-			}
-			@Override
 			public Adapter caseVCCollectionBox(VCCollectionBox object) {
 				return createVCCollectionBoxAdapter();
 			}
 			@Override
 			public Adapter caseVCLoop(VCLoop object) {
 				return createVCLoopAdapter();
+			}
+			@Override
+			public Adapter caseVCAlternativeBox(VCAlternativeBox object) {
+				return createVCAlternativeBoxAdapter();
 			}
 			@Override
 			public Adapter caseConditionOption(ConditionOption object) {

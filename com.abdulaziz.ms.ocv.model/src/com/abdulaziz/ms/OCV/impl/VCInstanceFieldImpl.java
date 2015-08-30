@@ -6,7 +6,6 @@ import com.abdulaziz.ms.OCV.OCVPackage;
 import com.abdulaziz.ms.OCV.UMLVariable;
 import com.abdulaziz.ms.OCV.VCInstance;
 import com.abdulaziz.ms.OCV.VCInstanceField;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
@@ -263,6 +262,15 @@ public class VCInstanceFieldImpl extends VCEntityImpl implements VCInstanceField
 				return umlClassField != null;
 		}
 		return super.eIsSet(featureID);
+	}
+	@Override 
+	
+	/* returns the string name value of UMLVariable 
+	 * @generated not 
+	 */
+	public String getName()
+	{
+		return getUmlClassField().getVariableName();
 	}
 	
 	

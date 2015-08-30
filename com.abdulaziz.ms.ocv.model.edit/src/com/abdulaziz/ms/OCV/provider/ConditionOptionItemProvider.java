@@ -64,6 +64,10 @@ public class ConditionOptionItemProvider
 			super.getPropertyDescriptors(object);
 
 			addNamePropertyDescriptor(object);
+			addVcEntityReferencePropertyDescriptor(object);
+			addDisplayedConditionStatementPropertyDescriptor(object);
+			addConditionValuePropertyDescriptor(object);
+			addMeaningOfConditionStatementPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -82,6 +86,94 @@ public class ConditionOptionItemProvider
 				 getString("_UI_ConditionOption_name_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_ConditionOption_name_feature", "_UI_ConditionOption_type"),
 				 OCVPackage.Literals.CONDITION_OPTION__NAME,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Vc Entity Reference feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addVcEntityReferencePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ConditionOption_vcEntityReference_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ConditionOption_vcEntityReference_feature", "_UI_ConditionOption_type"),
+				 OCVPackage.Literals.CONDITION_OPTION__VC_ENTITY_REFERENCE,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Displayed Condition Statement feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addDisplayedConditionStatementPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ConditionOption_displayedConditionStatement_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ConditionOption_displayedConditionStatement_feature", "_UI_ConditionOption_type"),
+				 OCVPackage.Literals.CONDITION_OPTION__DISPLAYED_CONDITION_STATEMENT,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Condition Value feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addConditionValuePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ConditionOption_conditionValue_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ConditionOption_conditionValue_feature", "_UI_ConditionOption_type"),
+				 OCVPackage.Literals.CONDITION_OPTION__CONDITION_VALUE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Meaning Of Condition Statement feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addMeaningOfConditionStatementPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ConditionOption_MeaningOfConditionStatement_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ConditionOption_MeaningOfConditionStatement_feature", "_UI_ConditionOption_type"),
+				 OCVPackage.Literals.CONDITION_OPTION__MEANING_OF_CONDITION_STATEMENT,
 				 true,
 				 false,
 				 false,
@@ -158,6 +250,9 @@ public class ConditionOptionItemProvider
 
 		switch (notification.getFeatureID(ConditionOption.class)) {
 			case OCVPackage.CONDITION_OPTION__NAME:
+			case OCVPackage.CONDITION_OPTION__DISPLAYED_CONDITION_STATEMENT:
+			case OCVPackage.CONDITION_OPTION__CONDITION_VALUE:
+			case OCVPackage.CONDITION_OPTION__MEANING_OF_CONDITION_STATEMENT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case OCVPackage.CONDITION_OPTION__VC_CONTRACT_ALTERNATIVE_BOX:

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated model -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="com.abdulaziz.ms.OCV.presentation.OCVModelWizardID"
+            name="%_UI_OCVModelWizard_label"
+            class="com.abdulaziz.ms.OCV.presentation.OCVModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/OCVModelFile.gif">
+         <description>%_UI_OCVModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated model -->
+      <editor
+            id="com.abdulaziz.ms.OCV.presentation.OCVEditorID"
+            name="%_UI_OCVEditor_label"
+            icon="icons/full/obj16/OCVModelFile.gif"
+            extensions="ocv"
+            class="com.abdulaziz.ms.OCV.presentation.OCVEditor"
+            contributorClass="com.abdulaziz.ms.OCV.presentation.OCVActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>
