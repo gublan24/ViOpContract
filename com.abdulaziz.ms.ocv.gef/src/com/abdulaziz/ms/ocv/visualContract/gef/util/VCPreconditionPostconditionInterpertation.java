@@ -198,7 +198,7 @@ public class VCPreconditionPostconditionInterpertation {
 				{
 					VCAlternativeBox secondNodeVCAlternativeBox = (VCAlternativeBox) vLink.getTarget();
 					for (ConditionOption conditionOption : secondNodeVCAlternativeBox.getConditinOptions()) {
-						String  lineInterpretation = "If " + conditionOption.getName() + ": ";
+						String  lineInterpretation = "If " + conditionOption.getVcEntityReference().getName()+" "+conditionOption.getMeaningOfConditionStatement()+" " +conditionOption.getConditionValue() + " : ";
 						interpretation.add(lineInterpretation);
 						VCPreconditionPostconditionInterpertation mm = new VCPreconditionPostconditionInterpertation(conditionOption.getVcContractAlternativeBox());
 						interpretation.addAll(mm.getPostCondition_VContractAlternativeBox_TextualInterpretation());

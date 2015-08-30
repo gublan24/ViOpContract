@@ -5,6 +5,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collections;
+import java.util.Iterator;
 
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IResourceChangeEvent;
@@ -103,21 +104,6 @@ public class OCVMutiPageEditor extends MultiPageEditorPart implements IResourceC
 			OCVGraphicalEditor domainModelPageEditor = new OCVGraphicalEditor(umlClassDiagram);
 			int index = addPage(domainModelPageEditor, getEditorInput());
 			setPageText(index, "Domain Model");
-			
-			
-			
-			//gefEditor.getSite()
-            /*Object c = getSelectedPage();
-            
-            if(c != null)
-            {
-			MenuItem item = new MenuItem(getControl(index).getMenu(), SWT.PUSH);
-			item.setText("Hello");
-            }
-            */
-		
-	//		this.getControl(index)
-			
 		
 		} catch (PartInitException e) {
 			ErrorDialog.openError(getSite().getShell(),
@@ -130,7 +116,6 @@ public class OCVMutiPageEditor extends MultiPageEditorPart implements IResourceC
 	private void createSYSPage() {
 		try {
 
-		
 			//GEF editor 
 			 SystemOperationGraphicalEditor sysOperationEditor = new SystemOperationGraphicalEditor(umlClassDiagram);
 			int index = addPage(sysOperationEditor, getEditorInput());
@@ -153,9 +138,9 @@ public class OCVMutiPageEditor extends MultiPageEditorPart implements IResourceC
 	
 	
 	private void createVContractPage(VCContract vcContract, int index) {
+		
 		try {
-			ContractGraphicalEditor gefEditor = new ContractGraphicalEditor(
-					vcContract);
+			ContractGraphicalEditor gefEditor = new ContractGraphicalEditor(vcContract);
 			addPage(index, gefEditor, this.getEditorInput());
 			setPageText(index, vcContract.getName());
 		} catch (PartInitException e) {
@@ -167,20 +152,20 @@ public class OCVMutiPageEditor extends MultiPageEditorPart implements IResourceC
 
 
 	public void createVContractPage(VCContract vcContract) {
-		
-		
 		try {
 			ContractGraphicalEditor gefEditor = new ContractGraphicalEditor(vcContract);
 			int index = addPage(gefEditor, getEditorInput());
 			vcContract.setPageIndex(index);
 			setPageText(index, vcContract.getName());
-			//this.setActivePage(index);
 		} catch (PartInitException e) {
 			ErrorDialog.openError(getSite().getShell(),
 					"Error in creating VContract editor", null, e.getStatus());
 		}
+		
+	
 
 	}
+	
 
 	@Override
 	public void resourceChanged(IResourceChangeEvent event) {

@@ -17,9 +17,7 @@ public class VCAlternativeModifyCommand extends Command {
 	}
 	public void execute() {
 		Wizard mainWizard = new Wizard() {
-
 			private VCAlternativeBoxWizardPage page;
-
 			public void addPages() {
 				page = new VCAlternativeBoxWizardPage("Update Value");
 				page.setVCAlternativeBox(vcAlternativeBox);

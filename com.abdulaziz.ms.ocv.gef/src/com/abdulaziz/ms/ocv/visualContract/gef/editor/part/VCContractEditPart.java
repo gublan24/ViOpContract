@@ -75,6 +75,7 @@ public class VCContractEditPart extends AbstractGraphicalEditPart{
 
 		
 		VCContract vcContract = (VCContract) getModel();
+		
 		String parameters = "()";
 		if (vcContract.getUmlOperation().getOperationParameters().size() > 0) {
 			parameters = "";

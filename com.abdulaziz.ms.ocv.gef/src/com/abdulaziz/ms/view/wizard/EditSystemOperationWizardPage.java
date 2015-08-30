@@ -109,7 +109,9 @@ public class EditSystemOperationWizardPage extends WizardPage {
 						 
 			 Menu menu = new Menu(table);
 			 table.setMenu(menu);
+		
 			 
+		// add Parameter ------------------------------------------------------------------------------------------------------------------------
 		MenuItem addAttributeMenuItem = new MenuItem(menu, SWT.NONE);
 		addAttributeMenuItem.setText("Add Parameter");
 		addAttributeMenuItem.setImage(AppUtility.ADD_ATTRIBUTE_ICON_IMAGE);
@@ -138,11 +140,11 @@ public class EditSystemOperationWizardPage extends WizardPage {
 			}
 		});
 			 
+		// Delete Parameter ------------------------------------------------------------------------------------------------------------------------
+
 			 MenuItem deleteMenuItem = new MenuItem(menu, SWT.NONE);
 			deleteMenuItem.setImage(AppUtility.DELETE_ICON_IMAGE);
-
 			 deleteMenuItem.setText("Delete");
-			 
 			 deleteMenuItem.addListener(SWT.Selection, new Listener() {
 			      @Override
 				public void handleEvent(Event event) {		        
@@ -169,7 +171,8 @@ public class EditSystemOperationWizardPage extends WizardPage {
 		    
 		    
 			 
-		    
+			// system operation viewer  ------------------------------------------------------------------------------------------------------------------------
+
 		    final TreeViewer treeViewer = new TreeViewer(grpSystemOperationList, SWT.BORDER);
 		    treeViewer.setColumnProperties(new String[] {"col1"});
 		    Tree tree = treeViewer.getTree();
@@ -184,7 +187,6 @@ public class EditSystemOperationWizardPage extends WizardPage {
 		    treeViewer.setLabelProvider(new VOperationContractLabelProvider());
 		    treeViewer.setContentProvider(new VOperationContractContentProvider());
 		    treeViewer.setInput(vSystemOperation);
-		    
 		    treeViewer.addSelectionChangedListener(new ISelectionChangedListener() {
 			
 				@Override
@@ -218,7 +220,8 @@ public class EditSystemOperationWizardPage extends WizardPage {
 		addOperationMenuItem.setText("Add Operation");
 		addOperationMenuItem.setImage(AppUtility.ADD_OPERATION_ICON_IMAGE);
 
-		// add operation 
+		// add operation ------------------------------------------------------------------------------------------------------------------------
+
 		addOperationMenuItem.addSelectionListener(new SelectionListener() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
@@ -285,11 +288,10 @@ public class EditSystemOperationWizardPage extends WizardPage {
 		// )))))))))))))))))))))))
 		
 		
+		// delete operation  ------------------------------------------------------------------------------------------------------------------------
 		final MenuItem deleteOperationMenuItem = new MenuItem(systemOperationTableMenu, SWT.PUSH);		
 		deleteOperationMenuItem.setText("Delete Operation");
 		deleteOperationMenuItem.setImage(AppUtility.DELETE_ICON_IMAGE);
-
-		// delete operation
 		deleteOperationMenuItem.addListener(SWT.Selection, new Listener() {
 		      @Override
 			public void handleEvent(Event event) {		    
@@ -311,7 +313,8 @@ public class EditSystemOperationWizardPage extends WizardPage {
 
 		      }
 		    });
-		
+		// add Operation contract  ------------------------------------------------------------------------------------------------------------------------
+
 		final MenuItem addOperationContractMenuItem = new MenuItem(systemOperationTableMenu, SWT.PUSH);		
 		addOperationContractMenuItem.setText("Add Operation Contract");
 		addOperationContractMenuItem.setImage(AppUtility.ADD_OPERATION_CONRACT_ICON_IMAGE);
@@ -332,7 +335,12 @@ public class EditSystemOperationWizardPage extends WizardPage {
 		                        		   treeViewer.refresh();
 		                        	   }
 		                        	   else
+		                        	   {
 		              					 setErrorMessage("There is already an operation contract associated with "+(((VOperation) selectedObject).getOperationName()));
+		              					 updateMultiPageEditor();
+		              					 VContractUtility.createPrePostCondition2((VOperation) selectedObject, editor);
+		                        		 treeViewer.refresh();
+		                        	   }
 
 		                        	   
 		                           }
@@ -361,8 +369,21 @@ public class EditSystemOperationWizardPage extends WizardPage {
 		                           {
 		                        	   VCContract visualContrct = ((VCContract) selectedObject);
 		                        	   if ( visualContrct != null && visualContrct.getPageIndex() >-1)
-		                        	   editor.removePage(((VCContract) selectedObject).getPageIndex());
-		                     		   ((VCContract) selectedObject).getUmlOperation().setVcContract(null);
+		                        	   {
+		                        		   updateMultiPageEditor();
+		                        		  editor.removePage(((VCContract) selectedObject).getPageIndex());
+		                        	   }
+		                     		  ((VCContract) selectedObject).setPostcondition(null);
+		                     		  ((VCContract) selectedObject).setPrecondition(null);		                     		 
+		                     		  ((VCContract) selectedObject).getUmlOperation().setVcContract(null);
+		                     		  
+		                     		  //TODO delete all referenced VCInstance elements
+		                     		  /*
+		                     		   * 
+		                     		   * 
+		                     		   */
+		                     		  
+		                     		   selectedObject = null;
 		                        	   treeViewer.refresh();
 		                        	   deleteOperationContractMenuItem.setEnabled(false);
 		                        	 
@@ -468,7 +489,7 @@ public class EditSystemOperationWizardPage extends WizardPage {
 		            	 VCContract data = (VCContract) treeItem.getData();
 						data.setName((String) value);
 						treeItem.setText(data.getName());
-						editor.setPageTitle(data.getPageIndex(),(String) value);
+					//	editor.setPageTitle(data.getPageIndex(),(String) value);
 						
 						if(data != null)
 						{

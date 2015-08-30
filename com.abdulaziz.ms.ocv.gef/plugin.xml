@@ -16,10 +16,10 @@
             class="com.abdulaziz.ms.ocv.multiPageEditor.OCVMutiPageEditor"
             contributorClass="com.abdulaziz.ms.ocv.multiPageEditor.OCVMutiPageEditorContributor"
             default="false"
-            extensions="mocv"
+            extensions="voc"
             icon="src/com/abdulaziz/ms/ocv/multiPageEditor/multipage_icon.png"
             id="com.abdulaziz.ms.ocv.gef.mutiTabEditor"
-            name="VOContract">
+            name="ViOpContract">
       </editor>
       <editor
             class="com.abdulaziz.ms.ocv.visualContract.gef.editor.ContractGraphicalEditor"

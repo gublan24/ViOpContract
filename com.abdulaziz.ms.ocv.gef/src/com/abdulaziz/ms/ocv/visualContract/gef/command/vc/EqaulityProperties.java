@@ -40,8 +40,11 @@ public class EqaulityProperties {
 	
 	public boolean equals(Object o)
 	{
+		if(o instanceof VCEquality)
 		return displayedText.trim().equals(((VCEquality)o).getDisplyedText().trim());
-		
+		else 
+			return displayedText.trim().equals(o);
+
 	}
 	public Button getButton() {
 		return button;
