@@ -25,6 +25,7 @@ import com.abdulaziz.ms.OCV.VCInstanceField;
 import com.abdulaziz.ms.OCV.VCLink;
 import com.abdulaziz.ms.OCV.VCParameter;
 import com.abdulaziz.ms.OCV.VContractAlternativeBox;
+import com.abdulaziz.ms.OCV.VContractCollectionBox;
 import com.abdulaziz.ms.ocv.multiPageEditor.MyMultiPageEditorActionBarContributor;
 
 import org.eclipse.swt.widgets.Tree;
@@ -252,27 +253,34 @@ public class VCAlternativeBoxWizardPage extends WizardPage {
 				ConditionOption conditionOption = OCVFactory.eINSTANCE.createConditionOption();
 				conditionOption.setName("new alterative option"+(vcAlternativeBox.getConditinOptions().size()+1));
 				// create Contract alternative box layer for the inner option
-				VContractAlternativeBox rootVContractAlternativeBox = OCVFactory.eINSTANCE	.createVContractAlternativeBox();
+
+				VContractAlternativeBox rootVContractAlternativeBox = OCVFactory.eINSTANCE.createVContractAlternativeBox();
+				
 				conditionOption.setVcContractAlternativeBox(rootVContractAlternativeBox);
+				
 				rootVContractAlternativeBox.setConditionOption(conditionOption);
 
 				// display the new all condition options inside alternative box
-				ListIterator<ConditionOption> i2 = vcAlternativeBox
-						.getConditinOptions().listIterator();
-				Object[] array = vcAlternativeBox.getConditinOptions()
-						.toArray();
+				ListIterator<ConditionOption> i2 = vcAlternativeBox.getConditinOptions().listIterator();
+				
+				Object[] array = vcAlternativeBox.getConditinOptions().toArray();
 				Rectangle r;
 				if (i2.hasNext()) {
 					ConditionOption con = (ConditionOption) array[array.length - 1];
-					r = con.getVcContractAlternativeBox().getConstaint();
-					// r =
-					// i2.next().getVcContractAlternativeBox().getConstaint();
-					r = r.getCopy();
+					r = con.getVcContractAlternativeBox().getConstaint().getCopy();
 					r.setY(r.getBottom().y + 1);
 					rootVContractAlternativeBox.setConstaint(r);
+				}else 
+				{
+					r= new Rectangle(0,20,vcAlternativeBox.getConstraints().width-10,vcAlternativeBox.getConstraints().height/2);
+					rootVContractAlternativeBox.setConstaint(r);
+					
+					
 				}
+				
 				vcAlternativeBox.getConditinOptions().add(conditionOption);
 				conditionOption.setVcAlternativeBox(vcAlternativeBox);
+				
 				alterOprtionsTreeViewer.refresh();
 
 			}

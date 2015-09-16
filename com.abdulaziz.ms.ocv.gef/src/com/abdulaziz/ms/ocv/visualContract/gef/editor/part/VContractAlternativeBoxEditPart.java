@@ -17,7 +17,7 @@ import com.abdulaziz.ms.ocv.visualContract.gef.editor.policy.VContractXYEditPoli
 import com.abdulaziz.ms.ocv.visualContract.gef.util.VContractUtility;
 
 public class VContractAlternativeBoxEditPart extends VContractConditionEditPart {
-	/*
+	
 	@Override
 	protected void createEditPolicies() {
 		super.createEditPolicies();
@@ -25,7 +25,7 @@ public class VContractAlternativeBoxEditPart extends VContractConditionEditPart 
 
 
 	}
-	*/
+	
 	@Override 
 	protected void refreshVisuals()
 	{
@@ -33,14 +33,14 @@ public class VContractAlternativeBoxEditPart extends VContractConditionEditPart 
 		
 		LabeledContainer figure = (LabeledContainer) this.getFigure();
 		VContractAlternativeBox vContractAltBox = (VContractAlternativeBox) getModel();
-		
+	
 		figure.setLabel(""+vContractAltBox.getConditionOption().getName());
 		Rectangle constraint = vContractAltBox.getConstaint();
 		if(constraint == null)
 		constraint = new Rectangle(((VCAlternativeBoxFigure)getFigure().getParent()).getFigureLocation(), new Dimension(100, 100));
 
-		VCAlternativeBoxEditPart vcContractEditPart = (VCAlternativeBoxEditPart) this.getParent();
-		vcContractEditPart.setLayoutConstraint(this, figure,constraint);
+		VCAlternativeBoxEditPart vcAlternativeBoxEditPart = (VCAlternativeBoxEditPart) this.getParent();
+		vcAlternativeBoxEditPart.setLayoutConstraint(this, figure,constraint);
 		
 	}
 	

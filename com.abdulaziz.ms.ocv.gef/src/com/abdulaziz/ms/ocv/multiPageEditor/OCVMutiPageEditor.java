@@ -86,8 +86,12 @@ public class OCVMutiPageEditor extends MultiPageEditorPart implements IResourceC
 
 	private void loadVcContract() {
 		for (VOperation vOperation : umlClassDiagram.getSystemOperation().getClassOperations()) {
-			if(vOperation.getVcContract() !=null)
-			createVContractPage(vOperation.getVcContract(),vOperation.getVcContract().getPageIndex());
+			if(vOperation.getVcContract().size() >0)
+			{
+				for (VCContract iterable_element : vOperation.getVcContract()) {
+					createVContractPage(iterable_element);
+				}
+			}
 		}
 	}
 	

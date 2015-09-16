@@ -25,7 +25,7 @@ public class VCTemplateTransferDropTargetListener extends TemplateTransferDropTa
 				@Override
 				public Object getNewObject() {
 					UMLClass draggedUMLClass = (UMLClass) template;
-					final VCInstance newInstance = OCVFactory.eINSTANCE.createVCInstance();
+					VCInstance newInstance = OCVFactory.eINSTANCE.createVCInstance();
 					newInstance.setUmlClass(draggedUMLClass);
 					newInstance.setInstanceName("newInstance");
 					newInstance.setType(draggedUMLClass.getClassName());

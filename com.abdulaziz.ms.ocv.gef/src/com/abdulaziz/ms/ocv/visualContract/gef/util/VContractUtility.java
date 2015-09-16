@@ -63,41 +63,13 @@ public class VContractUtility {
 		
 		//add new page 
 		
-		vOperation.setVcContract(vcContract);
+		vOperation.getVcContract().add(vcContract);
 		//**
 		//**
 		editor.createVContractPage(vcContract);
 		
 	}
-	public static void  createPrePostCondition2(VOperation vOperation, OCVMutiPageEditor editor)
-	{
-		VCContract vcContract = OCVFactory.eINSTANCE.createVCContract();
-		vcContract.setName(vOperation.getOperationName()+"Contract");
-  	    vcContract.setUmlOperation(vOperation);
-  	    
-  	    
-  	  VContractPrecondition preconditon = OCVFactory.eINSTANCE.createVContractPrecondition();
-		preconditon.setType(PRECONDITON);
-		preconditon.setVcContract(vcContract);
-		vcContract.setPrecondition(preconditon);
-
-		VContractPostcondition postconditon = OCVFactory.eINSTANCE.createVContractPostcondition();
-		postconditon.setType(POSTCONDITON);
-		postconditon.setVcContract(vcContract);
-		vcContract.setPostcondition(postconditon);
 	
-
-		preconditon.setConstaint(new Rectangle(PRECINDITON_TOPLEFT_X, PRECINDITON_TOPLEFT_Y, CONTRACT_CONDITION_WIDTH, CONTRACT_CONDITION_HIEGHT));
-		postconditon.setConstaint(new Rectangle(PRECINDITON_TOPLEFT_X, PRECINDITON_TOPLEFT_Y + PRE_POST_CINDITION_SPACE + CONTRACT_CONDITION_HIEGHT, CONTRACT_CONDITION_WIDTH, CONTRACT_CONDITION_HIEGHT+100));
-		
-		//add new page 
-		//**
-		vOperation.getVcContractCollection().add(vcContract);
-		vcContract.setUmlOperation(vOperation);
-		//**
-		editor.createVContractPage(vcContract);
-		
-	}
 	
 	
 	public static boolean isPostconditon(VContractCondition vContractCondition)

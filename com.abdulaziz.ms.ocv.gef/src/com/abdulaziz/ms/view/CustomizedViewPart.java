@@ -357,7 +357,7 @@ public class CustomizedViewPart extends ViewPart implements ISelectionListener {
 		                           {
 		                        	   
 		                        		//  VSystemOperationDiagram vSystemDiagram = ((VCContract) selectedObject).getUmlOperation().getVSystem();
-		                        	  ((VCContract) selectedObject).getUmlOperation().setVcContract(null);
+		                        	  //((VCContract) selectedObject).getUmlOperation().(null);
 		                        	   if (((VCContract) selectedObject) != null )
 		                        	   editor.removePage(((VCContract) selectedObject).getPageIndex());
 		                     

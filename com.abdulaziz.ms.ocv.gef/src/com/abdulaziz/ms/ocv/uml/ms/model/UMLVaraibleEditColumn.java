@@ -6,6 +6,7 @@ import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.jface.viewers.TextCellEditor;
 
 import com.abdulaziz.ms.OCV.UMLVariable;
+import com.abdulaziz.ms.OCV.VCContract;
 
 public class UMLVaraibleEditColumn extends EditingSupport {
 	private CellEditor editor;
@@ -39,10 +40,13 @@ public class UMLVaraibleEditColumn extends EditingSupport {
 	
 		tviewer.update(element, null);
 		
-		 if(umlvariable.getVOperation() != null && umlvariable.getVOperation().getVcContract()!=null)
+		 if(umlvariable.getVOperation() != null && umlvariable.getVOperation().getVcContract().size()>0)
    	   {     		  
 			 //notify 
-			 umlvariable.getVOperation().getVcContract().setUmlOperation(umlvariable.getVOperation());  
+			 for (VCContract iterable_element : umlvariable.getVOperation().getVcContract()) {
+				 iterable_element.setUmlOperation(umlvariable.getVOperation());  
+
+			}
    	   }
 	
 }

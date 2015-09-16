@@ -24,12 +24,10 @@ public  class VOperationContractContentProvider implements ITreeContentProvider,
 		}
 		else if (parentElement instanceof VOperation)
 		{
-			Object[] object = new Object[1];
-			if ((((VOperation) parentElement).getVcContract()) == null)
+			if ((((VOperation) parentElement).getVcContract()).size() <1)
 			return null;
-			object[0]= ((VOperation)parentElement).getVcContract();
-			
-			return object;
+			else			
+			return ((VOperation)parentElement).getVcContract().toArray();
 		}
 		return null;
 

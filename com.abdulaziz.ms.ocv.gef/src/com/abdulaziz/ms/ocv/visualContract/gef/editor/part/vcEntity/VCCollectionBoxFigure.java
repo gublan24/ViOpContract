@@ -7,6 +7,7 @@ import org.eclipse.draw2d.Figure;
 import org.eclipse.draw2d.Graphics;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.LineBorder;
+import org.eclipse.draw2d.XYLayout;
 import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.swt.SWT;
@@ -23,7 +24,9 @@ public class VCCollectionBoxFigure extends Figure implements VCEntityFigure {
 	
 		 setBorder(new LineBorder(ColorConstants.black, 1));
 		 setOpaque(true);
-		// setLayoutManager(layoutManager);
+		 XYLayout layout = new XYLayout();
+		setLayoutManager(layout);
+			
 	}
 	
 	
@@ -51,8 +54,6 @@ public class VCCollectionBoxFigure extends Figure implements VCEntityFigure {
  	    graphics.drawText(name, x+2, y3);
 
 	    
-	    
-
 	}
 
 	

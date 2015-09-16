@@ -125,7 +125,7 @@ public class EditSystemOperationWizardPage extends WizardPage {
               	   newUMLParameter.setVOperation(operation);
               	   operation.getOperationParameters().add(newUMLParameter); 
               	               
-              	   notifyVcontract(operation.getVcContract()); //notify the vcontract
+              	//   notifyVcontract(operation.getVcContract()); //notify the vcontract
               	 
               		   
 					tableViewer.refresh();
@@ -155,7 +155,7 @@ public class EditSystemOperationWizardPage extends WizardPage {
 						if (operation.getOperationParameters().contains(v))
 						{
 							operation.getOperationParameters().remove(v);
-							notifyVcontract(operation.getVcContract()); //notify the vcontract
+				//			notifyVcontract(operation.getVcContract()); //notify the vcontract
 
 						}
 					}
@@ -328,19 +328,19 @@ public class EditSystemOperationWizardPage extends WizardPage {
 		                           Object selectedObject = item.getData();
 		                           if (selectedObject instanceof VOperation)
 		                           {
-		                        	   if(((VOperation) selectedObject).getVcContract() == null) // does not already have VContract 
-		                        	   {
+		                        	   
 		                        		   updateMultiPageEditor();
 		                        		   VContractUtility.createPrePostCondition((VOperation) selectedObject, editor);
 		                        		   treeViewer.refresh();
-		                        	   }
-		                        	   else
+		                        	   
+		                        		   /*
+		                        	   else 
 		                        	   {
 		              					 setErrorMessage("There is already an operation contract associated with "+(((VOperation) selectedObject).getOperationName()));
 		              					 updateMultiPageEditor();
-		              					 VContractUtility.createPrePostCondition2((VOperation) selectedObject, editor);
 		                        		 treeViewer.refresh();
 		                        	   }
+		                        	   */
 
 		                        	   
 		                           }
@@ -375,7 +375,8 @@ public class EditSystemOperationWizardPage extends WizardPage {
 		                        	   }
 		                     		  ((VCContract) selectedObject).setPostcondition(null);
 		                     		  ((VCContract) selectedObject).setPrecondition(null);		                     		 
-		                     		  ((VCContract) selectedObject).getUmlOperation().setVcContract(null);
+		                     		  ((VCContract) selectedObject).getUmlOperation().getVcContract().remove(selectedObject);
+		                     		  
 		                     		  
 		                     		  //TODO delete all referenced VCInstance elements
 		                     		  /*

@@ -5,6 +5,7 @@ import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.gef.commands.Command;
 
 import com.abdulaziz.ms.OCV.VCEntity;
+import com.abdulaziz.ms.OCV.VContractCollectionBox;
 import com.abdulaziz.ms.OCV.VContractCondition;
 import com.abdulaziz.ms.OCV.VContractPostcondition;
 import com.abdulaziz.ms.ocv.visualContract.gef.util.VCEntitiesRulesManager;
@@ -32,7 +33,7 @@ public class VCEntityCreateCommandByVContractCondition extends Command {
 		}
 		else
 			vEntity.setConstraints(new Rectangle (location,vEntity.getConstraints().getSize()));
-			
+		if (!(vContractCondition instanceof VContractCollectionBox))
 		vEntity.setVContractCondition(vContractCondition);
 		vContractCondition.getVcEntities().add(vEntity);
 		VCEntitiesRulesManager.applyAddEntityRules(vContractCondition, vEntity);
