@@ -7,6 +7,7 @@ import org.eclipse.draw2d.Figure;
 import org.eclipse.draw2d.Graphics;
 import org.eclipse.draw2d.GridLayout;
 import org.eclipse.draw2d.LineBorder;
+import org.eclipse.draw2d.XYLayout;
 import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.swt.SWT;
@@ -22,9 +23,12 @@ public class VCLoopBoxFigure extends Figure implements VCEntityFigure {
 	
 		 setBorder(new LineBorder(ColorConstants.black, 1));
 		 setOpaque(true);
+		 /*
 		 GridLayout layoutManager = new GridLayout(1,false);
 		layoutManager.marginHeight = 25;
 		layoutManager.marginWidth= 1;
+		*/
+		 XYLayout layoutManager = new XYLayout();
 		 setLayoutManager(layoutManager);
 	}
 	
