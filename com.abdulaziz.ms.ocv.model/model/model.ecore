@@ -61,8 +61,8 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="operationParameters" upperBound="-1"
         eType="#//UMLVariable" containment="true" eOpposite="#//UMLVariable/vOperation"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="vSystem" eType="#//VSystemOperationDiagram"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="vcContract" eType="#//VCContract"
-        containment="true" eOpposite="#//VCContract/umlOperation"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="vcContract" upperBound="-1"
+        eType="#//VCContract" containment="true" eOpposite="#//VCContract/umlOperation"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="vcContractCollection" upperBound="-1"
         eType="#//VCContract"/>
   </eClassifiers>
@@ -187,9 +187,13 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="VCCollectionBox" eSuperTypes="#//VCEntity">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="vContractCollectionBox"
+        eType="#//VContractCollectionBox" eOpposite="#//VContractCollectionBox/vcCollectionBox"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="VCLoop" eSuperTypes="#//VCEntity">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="iteration" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="vcContractCollectionBox"
+        eType="#//VContractCollectionBox"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="VCAlternativeBox" eSuperTypes="#//VCEntity">
     <eStructuralFeatures xsi:type="ecore:EReference" name="conditinOptions" upperBound="-1"
@@ -220,5 +224,9 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="vcContract" eType="#//VCContract"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="conditionOption" eType="#//ConditionOption"
         eOpposite="#//ConditionOption/vcContractAlternativeBox"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="VContractCollectionBox" eSuperTypes="#//VContractCondition">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="vcCollectionBox" eType="#//VCCollectionBox"
+        eOpposite="#//VCCollectionBox/vContractCollectionBox"/>
   </eClassifiers>
 </ecore:EPackage>

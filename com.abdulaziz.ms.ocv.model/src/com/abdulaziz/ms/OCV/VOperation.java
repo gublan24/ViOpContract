@@ -125,7 +125,8 @@ public interface VOperation extends EObject {
 	void setVSystem(VSystemOperationDiagram value);
 
 	/**
-	 * Returns the value of the '<em><b>Vc Contract</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Vc Contract</b></em>' containment reference list.
+	 * The list contents are of type {@link com.abdulaziz.ms.OCV.VCContract}.
 	 * It is bidirectional and its opposite is '{@link com.abdulaziz.ms.OCV.VCContract#getUmlOperation <em>Uml Operation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -133,24 +134,13 @@ public interface VOperation extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Vc Contract</em>' containment reference.
-	 * @see #setVcContract(VCContract)
+	 * @return the value of the '<em>Vc Contract</em>' containment reference list.
 	 * @see com.abdulaziz.ms.OCV.OCVPackage#getVOperation_VcContract()
 	 * @see com.abdulaziz.ms.OCV.VCContract#getUmlOperation
 	 * @model opposite="umlOperation" containment="true"
 	 * @generated
 	 */
-	VCContract getVcContract();
-
-	/**
-	 * Sets the value of the '{@link com.abdulaziz.ms.OCV.VOperation#getVcContract <em>Vc Contract</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Vc Contract</em>' containment reference.
-	 * @see #getVcContract()
-	 * @generated
-	 */
-	void setVcContract(VCContract value);
+	EList<VCContract> getVcContract();
 
 	/**
 	 * Returns the value of the '<em><b>Vc Contract Collection</b></em>' reference list.

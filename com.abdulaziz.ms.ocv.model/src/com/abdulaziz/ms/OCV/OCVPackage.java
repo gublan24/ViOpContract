@@ -479,7 +479,7 @@ public interface OCVPackage extends EPackage {
 	int VOPERATION__VSYSTEM = 3;
 
 	/**
-	 * The feature id for the '<em><b>Vc Contract</b></em>' containment reference.
+	 * The feature id for the '<em><b>Vc Contract</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -2233,13 +2233,22 @@ public interface OCVPackage extends EPackage {
 	int VC_COLLECTION_BOX__TYPE = VC_ENTITY_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>VContract Collection Box</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VC_COLLECTION_BOX__VCONTRACT_COLLECTION_BOX = VC_ENTITY_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>VC Collection Box</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VC_COLLECTION_BOX_FEATURE_COUNT = VC_ENTITY_FEATURE_COUNT + 1;
+	int VC_COLLECTION_BOX_FEATURE_COUNT = VC_ENTITY_FEATURE_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Set VContract Condition</em>' operation.
@@ -2351,13 +2360,22 @@ public interface OCVPackage extends EPackage {
 	int VC_LOOP__ITERATION = VC_ENTITY_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Vc Contract Collection Box</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VC_LOOP__VC_CONTRACT_COLLECTION_BOX = VC_ENTITY_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>VC Loop</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VC_LOOP_FEATURE_COUNT = VC_ENTITY_FEATURE_COUNT + 1;
+	int VC_LOOP_FEATURE_COUNT = VC_ENTITY_FEATURE_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Set VContract Condition</em>' operation.
@@ -2686,6 +2704,79 @@ public interface OCVPackage extends EPackage {
 	int VCONTRACT_ALTERNATIVE_BOX_OPERATION_COUNT = VCONTRACT_CONDITION_OPERATION_COUNT + 2;
 
 	/**
+	 * The meta object id for the '{@link com.abdulaziz.ms.OCV.impl.VContractCollectionBoxImpl <em>VContract Collection Box</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.abdulaziz.ms.OCV.impl.VContractCollectionBoxImpl
+	 * @see com.abdulaziz.ms.OCV.impl.OCVPackageImpl#getVContractCollectionBox()
+	 * @generated
+	 */
+	int VCONTRACT_COLLECTION_BOX = 26;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VCONTRACT_COLLECTION_BOX__TYPE = VCONTRACT_CONDITION__TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Constaint</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VCONTRACT_COLLECTION_BOX__CONSTAINT = VCONTRACT_CONDITION__CONSTAINT;
+
+	/**
+	 * The feature id for the '<em><b>Vc Entities</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VCONTRACT_COLLECTION_BOX__VC_ENTITIES = VCONTRACT_CONDITION__VC_ENTITIES;
+
+	/**
+	 * The feature id for the '<em><b>Vc Collection Box</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VCONTRACT_COLLECTION_BOX__VC_COLLECTION_BOX = VCONTRACT_CONDITION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>VContract Collection Box</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VCONTRACT_COLLECTION_BOX_FEATURE_COUNT = VCONTRACT_CONDITION_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Set VC Entity Contract</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VCONTRACT_COLLECTION_BOX___SET_VC_ENTITY_CONTRACT__VCENTITY = VCONTRACT_CONDITION___SET_VC_ENTITY_CONTRACT__VCENTITY;
+
+	/**
+	 * The number of operations of the '<em>VContract Collection Box</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VCONTRACT_COLLECTION_BOX_OPERATION_COUNT = VCONTRACT_CONDITION_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '<em>Rectangle</em>' data type.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2693,7 +2784,7 @@ public interface OCVPackage extends EPackage {
 	 * @see com.abdulaziz.ms.OCV.impl.OCVPackageImpl#getRectangle()
 	 * @generated
 	 */
-	int RECTANGLE = 27;
+	int RECTANGLE = 28;
 
 	/**
 	 * The meta object id for the '<em>Absolute Bendpoint</em>' data type.
@@ -2703,7 +2794,7 @@ public interface OCVPackage extends EPackage {
 	 * @see com.abdulaziz.ms.OCV.impl.OCVPackageImpl#getAbsoluteBendpoint()
 	 * @generated
 	 */
-	int ABSOLUTE_BENDPOINT = 26;
+	int ABSOLUTE_BENDPOINT = 27;
 
 	/**
 	 * Returns the meta object for class '{@link com.abdulaziz.ms.OCV.UMLClassDiagram <em>UML Class Diagram</em>}'.
@@ -3096,10 +3187,10 @@ public interface OCVPackage extends EPackage {
 	EReference getVOperation_VSystem();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link com.abdulaziz.ms.OCV.VOperation#getVcContract <em>Vc Contract</em>}'.
+	 * Returns the meta object for the containment reference list '{@link com.abdulaziz.ms.OCV.VOperation#getVcContract <em>Vc Contract</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Vc Contract</em>'.
+	 * @return the meta object for the containment reference list '<em>Vc Contract</em>'.
 	 * @see com.abdulaziz.ms.OCV.VOperation#getVcContract()
 	 * @see #getVOperation()
 	 * @generated
@@ -3875,6 +3966,17 @@ public interface OCVPackage extends EPackage {
 	EAttribute getVCCollectionBox_Type();
 
 	/**
+	 * Returns the meta object for the reference '{@link com.abdulaziz.ms.OCV.VCCollectionBox#getVContractCollectionBox <em>VContract Collection Box</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>VContract Collection Box</em>'.
+	 * @see com.abdulaziz.ms.OCV.VCCollectionBox#getVContractCollectionBox()
+	 * @see #getVCCollectionBox()
+	 * @generated
+	 */
+	EReference getVCCollectionBox_VContractCollectionBox();
+
+	/**
 	 * Returns the meta object for class '{@link com.abdulaziz.ms.OCV.VCLoop <em>VC Loop</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3894,6 +3996,17 @@ public interface OCVPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getVCLoop_Iteration();
+
+	/**
+	 * Returns the meta object for the reference '{@link com.abdulaziz.ms.OCV.VCLoop#getVcContractCollectionBox <em>Vc Contract Collection Box</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Vc Contract Collection Box</em>'.
+	 * @see com.abdulaziz.ms.OCV.VCLoop#getVcContractCollectionBox()
+	 * @see #getVCLoop()
+	 * @generated
+	 */
+	EReference getVCLoop_VcContractCollectionBox();
 
 	/**
 	 * Returns the meta object for class '{@link com.abdulaziz.ms.OCV.ConditionOption <em>Condition Option</em>}'.
@@ -4044,6 +4157,27 @@ public interface OCVPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getVContractAlternativeBox__SetVCEntityContract__VCEntity();
+
+	/**
+	 * Returns the meta object for class '{@link com.abdulaziz.ms.OCV.VContractCollectionBox <em>VContract Collection Box</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>VContract Collection Box</em>'.
+	 * @see com.abdulaziz.ms.OCV.VContractCollectionBox
+	 * @generated
+	 */
+	EClass getVContractCollectionBox();
+
+	/**
+	 * Returns the meta object for the reference '{@link com.abdulaziz.ms.OCV.VContractCollectionBox#getVcCollectionBox <em>Vc Collection Box</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Vc Collection Box</em>'.
+	 * @see com.abdulaziz.ms.OCV.VContractCollectionBox#getVcCollectionBox()
+	 * @see #getVContractCollectionBox()
+	 * @generated
+	 */
+	EReference getVContractCollectionBox_VcCollectionBox();
 
 	/**
 	 * Returns the meta object for data type '{@link org.eclipse.draw2d.geometry.Rectangle <em>Rectangle</em>}'.
@@ -4391,7 +4525,7 @@ public interface OCVPackage extends EPackage {
 		EReference VOPERATION__VSYSTEM = eINSTANCE.getVOperation_VSystem();
 
 		/**
-		 * The meta object literal for the '<em><b>Vc Contract</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Vc Contract</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -5009,6 +5143,14 @@ public interface OCVPackage extends EPackage {
 		EAttribute VC_COLLECTION_BOX__TYPE = eINSTANCE.getVCCollectionBox_Type();
 
 		/**
+		 * The meta object literal for the '<em><b>VContract Collection Box</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference VC_COLLECTION_BOX__VCONTRACT_COLLECTION_BOX = eINSTANCE.getVCCollectionBox_VContractCollectionBox();
+
+		/**
 		 * The meta object literal for the '{@link com.abdulaziz.ms.OCV.impl.VCLoopImpl <em>VC Loop</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -5025,6 +5167,14 @@ public interface OCVPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute VC_LOOP__ITERATION = eINSTANCE.getVCLoop_Iteration();
+
+		/**
+		 * The meta object literal for the '<em><b>Vc Contract Collection Box</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference VC_LOOP__VC_CONTRACT_COLLECTION_BOX = eINSTANCE.getVCLoop_VcContractCollectionBox();
 
 		/**
 		 * The meta object literal for the '{@link com.abdulaziz.ms.OCV.impl.ConditionOptionImpl <em>Condition Option</em>}' class.
@@ -5141,6 +5291,24 @@ public interface OCVPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation VCONTRACT_ALTERNATIVE_BOX___SET_VC_ENTITY_CONTRACT__VCENTITY = eINSTANCE.getVContractAlternativeBox__SetVCEntityContract__VCEntity();
+
+		/**
+		 * The meta object literal for the '{@link com.abdulaziz.ms.OCV.impl.VContractCollectionBoxImpl <em>VContract Collection Box</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.abdulaziz.ms.OCV.impl.VContractCollectionBoxImpl
+		 * @see com.abdulaziz.ms.OCV.impl.OCVPackageImpl#getVContractCollectionBox()
+		 * @generated
+		 */
+		EClass VCONTRACT_COLLECTION_BOX = eINSTANCE.getVContractCollectionBox();
+
+		/**
+		 * The meta object literal for the '<em><b>Vc Collection Box</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference VCONTRACT_COLLECTION_BOX__VC_COLLECTION_BOX = eINSTANCE.getVContractCollectionBox_VcCollectionBox();
 
 		/**
 		 * The meta object literal for the '<em>Rectangle</em>' data type.

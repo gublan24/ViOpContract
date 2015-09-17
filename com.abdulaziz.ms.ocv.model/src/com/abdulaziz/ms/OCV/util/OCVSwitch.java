@@ -237,6 +237,13 @@ public class OCVSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case OCVPackage.VCONTRACT_COLLECTION_BOX: {
+				VContractCollectionBox vContractCollectionBox = (VContractCollectionBox)theEObject;
+				T result = caseVContractCollectionBox(vContractCollectionBox);
+				if (result == null) result = caseVContractCondition(vContractCollectionBox);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -628,6 +635,21 @@ public class OCVSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseVContractAlternativeBox(VContractAlternativeBox object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>VContract Collection Box</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>VContract Collection Box</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseVContractCollectionBox(VContractCollectionBox object) {
 		return null;
 	}
 

@@ -80,6 +80,7 @@ public class OCVFactoryImpl extends EFactoryImpl implements OCVFactory {
 			case OCVPackage.VC_ALTERNATIVE_BOX: return createVCAlternativeBox();
 			case OCVPackage.CONDITION_OPTION: return createConditionOption();
 			case OCVPackage.VCONTRACT_ALTERNATIVE_BOX: return createVContractAlternativeBox();
+			case OCVPackage.VCONTRACT_COLLECTION_BOX: return createVContractCollectionBox();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -358,6 +359,16 @@ public class OCVFactoryImpl extends EFactoryImpl implements OCVFactory {
 	public VContractAlternativeBox createVContractAlternativeBox() {
 		VContractAlternativeBoxImpl vContractAlternativeBox = new VContractAlternativeBoxImpl();
 		return vContractAlternativeBox;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public VContractCollectionBox createVContractCollectionBox() {
+		VContractCollectionBoxImpl vContractCollectionBox = new VContractCollectionBoxImpl();
+		return vContractCollectionBox;
 	}
 
 	/**

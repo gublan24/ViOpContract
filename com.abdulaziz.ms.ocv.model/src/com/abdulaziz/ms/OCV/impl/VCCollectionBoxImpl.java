@@ -5,10 +5,13 @@ package com.abdulaziz.ms.OCV.impl;
 import com.abdulaziz.ms.OCV.OCVPackage;
 import com.abdulaziz.ms.OCV.VCCollectionBox;
 
+import com.abdulaziz.ms.OCV.VContractCollectionBox;
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
@@ -19,6 +22,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * <ul>
  *   <li>{@link com.abdulaziz.ms.OCV.impl.VCCollectionBoxImpl#getType <em>Type</em>}</li>
+ *   <li>{@link com.abdulaziz.ms.OCV.impl.VCCollectionBoxImpl#getVContractCollectionBox <em>VContract Collection Box</em>}</li>
  * </ul>
  * </p>
  *
@@ -44,6 +48,16 @@ public class VCCollectionBoxImpl extends VCEntityImpl implements VCCollectionBox
 	 * @ordered
 	 */
 	protected String type = TYPE_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getVContractCollectionBox() <em>VContract Collection Box</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getVContractCollectionBox()
+	 * @generated
+	 * @ordered
+	 */
+	protected VContractCollectionBox vContractCollectionBox;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -90,11 +104,104 @@ public class VCCollectionBoxImpl extends VCEntityImpl implements VCCollectionBox
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public VContractCollectionBox getVContractCollectionBox() {
+		if (vContractCollectionBox != null && vContractCollectionBox.eIsProxy()) {
+			InternalEObject oldVContractCollectionBox = (InternalEObject)vContractCollectionBox;
+			vContractCollectionBox = (VContractCollectionBox)eResolveProxy(oldVContractCollectionBox);
+			if (vContractCollectionBox != oldVContractCollectionBox) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, OCVPackage.VC_COLLECTION_BOX__VCONTRACT_COLLECTION_BOX, oldVContractCollectionBox, vContractCollectionBox));
+			}
+		}
+		return vContractCollectionBox;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public VContractCollectionBox basicGetVContractCollectionBox() {
+		return vContractCollectionBox;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetVContractCollectionBox(VContractCollectionBox newVContractCollectionBox, NotificationChain msgs) {
+		VContractCollectionBox oldVContractCollectionBox = vContractCollectionBox;
+		vContractCollectionBox = newVContractCollectionBox;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, OCVPackage.VC_COLLECTION_BOX__VCONTRACT_COLLECTION_BOX, oldVContractCollectionBox, newVContractCollectionBox);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setVContractCollectionBox(VContractCollectionBox newVContractCollectionBox) {
+		if (newVContractCollectionBox != vContractCollectionBox) {
+			NotificationChain msgs = null;
+			if (vContractCollectionBox != null)
+				msgs = ((InternalEObject)vContractCollectionBox).eInverseRemove(this, OCVPackage.VCONTRACT_COLLECTION_BOX__VC_COLLECTION_BOX, VContractCollectionBox.class, msgs);
+			if (newVContractCollectionBox != null)
+				msgs = ((InternalEObject)newVContractCollectionBox).eInverseAdd(this, OCVPackage.VCONTRACT_COLLECTION_BOX__VC_COLLECTION_BOX, VContractCollectionBox.class, msgs);
+			msgs = basicSetVContractCollectionBox(newVContractCollectionBox, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, OCVPackage.VC_COLLECTION_BOX__VCONTRACT_COLLECTION_BOX, newVContractCollectionBox, newVContractCollectionBox));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case OCVPackage.VC_COLLECTION_BOX__VCONTRACT_COLLECTION_BOX:
+				if (vContractCollectionBox != null)
+					msgs = ((InternalEObject)vContractCollectionBox).eInverseRemove(this, OCVPackage.VCONTRACT_COLLECTION_BOX__VC_COLLECTION_BOX, VContractCollectionBox.class, msgs);
+				return basicSetVContractCollectionBox((VContractCollectionBox)otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case OCVPackage.VC_COLLECTION_BOX__VCONTRACT_COLLECTION_BOX:
+				return basicSetVContractCollectionBox(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case OCVPackage.VC_COLLECTION_BOX__TYPE:
 				return getType();
+			case OCVPackage.VC_COLLECTION_BOX__VCONTRACT_COLLECTION_BOX:
+				if (resolve) return getVContractCollectionBox();
+				return basicGetVContractCollectionBox();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -109,6 +216,9 @@ public class VCCollectionBoxImpl extends VCEntityImpl implements VCCollectionBox
 		switch (featureID) {
 			case OCVPackage.VC_COLLECTION_BOX__TYPE:
 				setType((String)newValue);
+				return;
+			case OCVPackage.VC_COLLECTION_BOX__VCONTRACT_COLLECTION_BOX:
+				setVContractCollectionBox((VContractCollectionBox)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -125,6 +235,9 @@ public class VCCollectionBoxImpl extends VCEntityImpl implements VCCollectionBox
 			case OCVPackage.VC_COLLECTION_BOX__TYPE:
 				setType(TYPE_EDEFAULT);
 				return;
+			case OCVPackage.VC_COLLECTION_BOX__VCONTRACT_COLLECTION_BOX:
+				setVContractCollectionBox((VContractCollectionBox)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -139,6 +252,8 @@ public class VCCollectionBoxImpl extends VCEntityImpl implements VCCollectionBox
 		switch (featureID) {
 			case OCVPackage.VC_COLLECTION_BOX__TYPE:
 				return TYPE_EDEFAULT == null ? type != null : !TYPE_EDEFAULT.equals(type);
+			case OCVPackage.VC_COLLECTION_BOX__VCONTRACT_COLLECTION_BOX:
+				return vContractCollectionBox != null;
 		}
 		return super.eIsSet(featureID);
 	}

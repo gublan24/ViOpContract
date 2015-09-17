@@ -238,6 +238,15 @@ public interface OCVFactory extends EFactory {
 	VContractAlternativeBox createVContractAlternativeBox();
 
 	/**
+	 * Returns a new object of class '<em>VContract Collection Box</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>VContract Collection Box</em>'.
+	 * @generated
+	 */
+	VContractCollectionBox createVContractCollectionBox();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

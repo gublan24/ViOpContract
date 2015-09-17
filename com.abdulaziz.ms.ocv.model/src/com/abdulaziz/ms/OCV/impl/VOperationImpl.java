@@ -105,14 +105,14 @@ public class VOperationImpl extends MinimalEObjectImpl.Container implements VOpe
 	protected VSystemOperationDiagram vSystem;
 
 	/**
-	 * The cached value of the '{@link #getVcContract() <em>Vc Contract</em>}' containment reference.
+	 * The cached value of the '{@link #getVcContract() <em>Vc Contract</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getVcContract()
 	 * @generated
 	 * @ordered
 	 */
-	protected VCContract vcContract;
+	protected EList<VCContract> vcContract;
 
 	/**
 	 * The cached value of the '{@link #getVcContractCollection() <em>Vc Contract Collection</em>}' reference list.
@@ -240,42 +240,11 @@ public class VOperationImpl extends MinimalEObjectImpl.Container implements VOpe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public VCContract getVcContract() {
+	public EList<VCContract> getVcContract() {
+		if (vcContract == null) {
+			vcContract = new EObjectContainmentWithInverseEList<VCContract>(VCContract.class, this, OCVPackage.VOPERATION__VC_CONTRACT, OCVPackage.VC_CONTRACT__UML_OPERATION);
+		}
 		return vcContract;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetVcContract(VCContract newVcContract, NotificationChain msgs) {
-		VCContract oldVcContract = vcContract;
-		vcContract = newVcContract;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, OCVPackage.VOPERATION__VC_CONTRACT, oldVcContract, newVcContract);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setVcContract(VCContract newVcContract) {
-		if (newVcContract != vcContract) {
-			NotificationChain msgs = null;
-			if (vcContract != null)
-				msgs = ((InternalEObject)vcContract).eInverseRemove(this, OCVPackage.VC_CONTRACT__UML_OPERATION, VCContract.class, msgs);
-			if (newVcContract != null)
-				msgs = ((InternalEObject)newVcContract).eInverseAdd(this, OCVPackage.VC_CONTRACT__UML_OPERATION, VCContract.class, msgs);
-			msgs = basicSetVcContract(newVcContract, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, OCVPackage.VOPERATION__VC_CONTRACT, newVcContract, newVcContract));
 	}
 
 	/**
@@ -302,9 +271,7 @@ public class VOperationImpl extends MinimalEObjectImpl.Container implements VOpe
 			case OCVPackage.VOPERATION__OPERATION_PARAMETERS:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getOperationParameters()).basicAdd(otherEnd, msgs);
 			case OCVPackage.VOPERATION__VC_CONTRACT:
-				if (vcContract != null)
-					msgs = ((InternalEObject)vcContract).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - OCVPackage.VOPERATION__VC_CONTRACT, null, msgs);
-				return basicSetVcContract((VCContract)otherEnd, msgs);
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getVcContract()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -320,7 +287,7 @@ public class VOperationImpl extends MinimalEObjectImpl.Container implements VOpe
 			case OCVPackage.VOPERATION__OPERATION_PARAMETERS:
 				return ((InternalEList<?>)getOperationParameters()).basicRemove(otherEnd, msgs);
 			case OCVPackage.VOPERATION__VC_CONTRACT:
-				return basicSetVcContract(null, msgs);
+				return ((InternalEList<?>)getVcContract()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -373,7 +340,8 @@ public class VOperationImpl extends MinimalEObjectImpl.Container implements VOpe
 				setVSystem((VSystemOperationDiagram)newValue);
 				return;
 			case OCVPackage.VOPERATION__VC_CONTRACT:
-				setVcContract((VCContract)newValue);
+				getVcContract().clear();
+				getVcContract().addAll((Collection<? extends VCContract>)newValue);
 				return;
 			case OCVPackage.VOPERATION__VC_CONTRACT_COLLECTION:
 				getVcContractCollection().clear();
@@ -404,7 +372,7 @@ public class VOperationImpl extends MinimalEObjectImpl.Container implements VOpe
 				setVSystem((VSystemOperationDiagram)null);
 				return;
 			case OCVPackage.VOPERATION__VC_CONTRACT:
-				setVcContract((VCContract)null);
+				getVcContract().clear();
 				return;
 			case OCVPackage.VOPERATION__VC_CONTRACT_COLLECTION:
 				getVcContractCollection().clear();
@@ -430,7 +398,7 @@ public class VOperationImpl extends MinimalEObjectImpl.Container implements VOpe
 			case OCVPackage.VOPERATION__VSYSTEM:
 				return vSystem != null;
 			case OCVPackage.VOPERATION__VC_CONTRACT:
-				return vcContract != null;
+				return vcContract != null && !vcContract.isEmpty();
 			case OCVPackage.VOPERATION__VC_CONTRACT_COLLECTION:
 				return vcContractCollection != null && !vcContractCollection.isEmpty();
 		}

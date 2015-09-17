@@ -5,10 +5,12 @@ package com.abdulaziz.ms.OCV.impl;
 import com.abdulaziz.ms.OCV.OCVPackage;
 import com.abdulaziz.ms.OCV.VCLoop;
 
+import com.abdulaziz.ms.OCV.VContractCollectionBox;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
@@ -19,6 +21,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * <ul>
  *   <li>{@link com.abdulaziz.ms.OCV.impl.VCLoopImpl#getIteration <em>Iteration</em>}</li>
+ *   <li>{@link com.abdulaziz.ms.OCV.impl.VCLoopImpl#getVcContractCollectionBox <em>Vc Contract Collection Box</em>}</li>
  * </ul>
  * </p>
  *
@@ -44,6 +47,16 @@ public class VCLoopImpl extends VCEntityImpl implements VCLoop {
 	 * @ordered
 	 */
 	protected String iteration = ITERATION_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getVcContractCollectionBox() <em>Vc Contract Collection Box</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getVcContractCollectionBox()
+	 * @generated
+	 * @ordered
+	 */
+	protected VContractCollectionBox vcContractCollectionBox;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -90,11 +103,52 @@ public class VCLoopImpl extends VCEntityImpl implements VCLoop {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public VContractCollectionBox getVcContractCollectionBox() {
+		if (vcContractCollectionBox != null && vcContractCollectionBox.eIsProxy()) {
+			InternalEObject oldVcContractCollectionBox = (InternalEObject)vcContractCollectionBox;
+			vcContractCollectionBox = (VContractCollectionBox)eResolveProxy(oldVcContractCollectionBox);
+			if (vcContractCollectionBox != oldVcContractCollectionBox) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, OCVPackage.VC_LOOP__VC_CONTRACT_COLLECTION_BOX, oldVcContractCollectionBox, vcContractCollectionBox));
+			}
+		}
+		return vcContractCollectionBox;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public VContractCollectionBox basicGetVcContractCollectionBox() {
+		return vcContractCollectionBox;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setVcContractCollectionBox(VContractCollectionBox newVcContractCollectionBox) {
+		VContractCollectionBox oldVcContractCollectionBox = vcContractCollectionBox;
+		vcContractCollectionBox = newVcContractCollectionBox;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, OCVPackage.VC_LOOP__VC_CONTRACT_COLLECTION_BOX, oldVcContractCollectionBox, vcContractCollectionBox));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case OCVPackage.VC_LOOP__ITERATION:
 				return getIteration();
+			case OCVPackage.VC_LOOP__VC_CONTRACT_COLLECTION_BOX:
+				if (resolve) return getVcContractCollectionBox();
+				return basicGetVcContractCollectionBox();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -109,6 +163,9 @@ public class VCLoopImpl extends VCEntityImpl implements VCLoop {
 		switch (featureID) {
 			case OCVPackage.VC_LOOP__ITERATION:
 				setIteration((String)newValue);
+				return;
+			case OCVPackage.VC_LOOP__VC_CONTRACT_COLLECTION_BOX:
+				setVcContractCollectionBox((VContractCollectionBox)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -125,6 +182,9 @@ public class VCLoopImpl extends VCEntityImpl implements VCLoop {
 			case OCVPackage.VC_LOOP__ITERATION:
 				setIteration(ITERATION_EDEFAULT);
 				return;
+			case OCVPackage.VC_LOOP__VC_CONTRACT_COLLECTION_BOX:
+				setVcContractCollectionBox((VContractCollectionBox)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -139,6 +199,8 @@ public class VCLoopImpl extends VCEntityImpl implements VCLoop {
 		switch (featureID) {
 			case OCVPackage.VC_LOOP__ITERATION:
 				return ITERATION_EDEFAULT == null ? iteration != null : !ITERATION_EDEFAULT.equals(iteration);
+			case OCVPackage.VC_LOOP__VC_CONTRACT_COLLECTION_BOX:
+				return vcContractCollectionBox != null;
 		}
 		return super.eIsSet(featureID);
 	}
