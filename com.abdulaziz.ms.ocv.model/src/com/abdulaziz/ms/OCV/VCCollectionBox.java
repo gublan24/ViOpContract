@@ -48,7 +48,7 @@ public interface VCCollectionBox extends VCEntity {
 	void setType(String value);
 
 	/**
-	 * Returns the value of the '<em><b>VContract Collection Box</b></em>' reference.
+	 * Returns the value of the '<em><b>VContract Collection Box</b></em>' containment reference.
 	 * It is bidirectional and its opposite is '{@link com.abdulaziz.ms.OCV.VContractCollectionBox#getVcCollectionBox <em>Vc Collection Box</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -56,20 +56,20 @@ public interface VCCollectionBox extends VCEntity {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>VContract Collection Box</em>' reference.
+	 * @return the value of the '<em>VContract Collection Box</em>' containment reference.
 	 * @see #setVContractCollectionBox(VContractCollectionBox)
 	 * @see com.abdulaziz.ms.OCV.OCVPackage#getVCCollectionBox_VContractCollectionBox()
 	 * @see com.abdulaziz.ms.OCV.VContractCollectionBox#getVcCollectionBox
-	 * @model opposite="vcCollectionBox"
+	 * @model opposite="vcCollectionBox" containment="true"
 	 * @generated
 	 */
 	VContractCollectionBox getVContractCollectionBox();
 
 	/**
-	 * Sets the value of the '{@link com.abdulaziz.ms.OCV.VCCollectionBox#getVContractCollectionBox <em>VContract Collection Box</em>}' reference.
+	 * Sets the value of the '{@link com.abdulaziz.ms.OCV.VCCollectionBox#getVContractCollectionBox <em>VContract Collection Box</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>VContract Collection Box</em>' reference.
+	 * @param value the new value of the '<em>VContract Collection Box</em>' containment reference.
 	 * @see #getVContractCollectionBox()
 	 * @generated
 	 */

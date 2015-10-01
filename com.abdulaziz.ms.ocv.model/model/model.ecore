@@ -188,12 +188,12 @@
   <eClassifiers xsi:type="ecore:EClass" name="VCCollectionBox" eSuperTypes="#//VCEntity">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="vContractCollectionBox"
-        eType="#//VContractCollectionBox" eOpposite="#//VContractCollectionBox/vcCollectionBox"/>
+        eType="#//VContractCollectionBox" containment="true" eOpposite="#//VContractCollectionBox/vcCollectionBox"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="VCLoop" eSuperTypes="#//VCEntity">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="iteration" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="vcContractCollectionBox"
-        eType="#//VContractCollectionBox"/>
+        eType="#//VContractCollectionBox" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="VCAlternativeBox" eSuperTypes="#//VCEntity">
     <eStructuralFeatures xsi:type="ecore:EReference" name="conditinOptions" upperBound="-1"

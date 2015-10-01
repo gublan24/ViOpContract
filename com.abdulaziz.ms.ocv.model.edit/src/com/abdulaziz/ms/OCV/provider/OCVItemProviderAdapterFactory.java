@@ -509,29 +509,6 @@ public class OCVItemProviderAdapterFactory extends OCVAdapterFactory implements 
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link com.abdulaziz.ms.OCV.VCAlternativeBox} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected VCAlternativeBoxItemProvider vcAlternativeBoxItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link com.abdulaziz.ms.OCV.VCAlternativeBox}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createVCAlternativeBoxAdapter() {
-		if (vcAlternativeBoxItemProvider == null) {
-			vcAlternativeBoxItemProvider = new VCAlternativeBoxItemProvider(this);
-		}
-
-		return vcAlternativeBoxItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link com.abdulaziz.ms.OCV.VCCollectionBox} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -578,6 +555,29 @@ public class OCVItemProviderAdapterFactory extends OCVAdapterFactory implements 
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link com.abdulaziz.ms.OCV.VCAlternativeBox} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected VCAlternativeBoxItemProvider vcAlternativeBoxItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.abdulaziz.ms.OCV.VCAlternativeBox}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createVCAlternativeBoxAdapter() {
+		if (vcAlternativeBoxItemProvider == null) {
+			vcAlternativeBoxItemProvider = new VCAlternativeBoxItemProvider(this);
+		}
+
+		return vcAlternativeBoxItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link com.abdulaziz.ms.OCV.ConditionOption} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -621,6 +621,29 @@ public class OCVItemProviderAdapterFactory extends OCVAdapterFactory implements 
 		}
 
 		return vContractAlternativeBoxItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.abdulaziz.ms.OCV.VContractCollectionBox} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected VContractCollectionBoxItemProvider vContractCollectionBoxItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.abdulaziz.ms.OCV.VContractCollectionBox}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createVContractCollectionBoxAdapter() {
+		if (vContractCollectionBoxItemProvider == null) {
+			vContractCollectionBoxItemProvider = new VContractCollectionBoxItemProvider(this);
+		}
+
+		return vContractCollectionBoxItemProvider;
 	}
 
 	/**
@@ -746,6 +769,7 @@ public class OCVItemProviderAdapterFactory extends OCVAdapterFactory implements 
 		if (vcAlternativeBoxItemProvider != null) vcAlternativeBoxItemProvider.dispose();
 		if (conditionOptionItemProvider != null) conditionOptionItemProvider.dispose();
 		if (vContractAlternativeBoxItemProvider != null) vContractAlternativeBoxItemProvider.dispose();
+		if (vContractCollectionBoxItemProvider != null) vContractCollectionBoxItemProvider.dispose();
 	}
 
 }

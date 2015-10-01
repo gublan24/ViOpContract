@@ -50,7 +50,7 @@ public class VCCollectionBoxImpl extends VCEntityImpl implements VCCollectionBox
 	protected String type = TYPE_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getVContractCollectionBox() <em>VContract Collection Box</em>}' reference.
+	 * The cached value of the '{@link #getVContractCollectionBox() <em>VContract Collection Box</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getVContractCollectionBox()
@@ -105,23 +105,6 @@ public class VCCollectionBoxImpl extends VCEntityImpl implements VCCollectionBox
 	 * @generated
 	 */
 	public VContractCollectionBox getVContractCollectionBox() {
-		if (vContractCollectionBox != null && vContractCollectionBox.eIsProxy()) {
-			InternalEObject oldVContractCollectionBox = (InternalEObject)vContractCollectionBox;
-			vContractCollectionBox = (VContractCollectionBox)eResolveProxy(oldVContractCollectionBox);
-			if (vContractCollectionBox != oldVContractCollectionBox) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, OCVPackage.VC_COLLECTION_BOX__VCONTRACT_COLLECTION_BOX, oldVContractCollectionBox, vContractCollectionBox));
-			}
-		}
-		return vContractCollectionBox;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public VContractCollectionBox basicGetVContractCollectionBox() {
 		return vContractCollectionBox;
 	}
 
@@ -169,7 +152,7 @@ public class VCCollectionBoxImpl extends VCEntityImpl implements VCCollectionBox
 		switch (featureID) {
 			case OCVPackage.VC_COLLECTION_BOX__VCONTRACT_COLLECTION_BOX:
 				if (vContractCollectionBox != null)
-					msgs = ((InternalEObject)vContractCollectionBox).eInverseRemove(this, OCVPackage.VCONTRACT_COLLECTION_BOX__VC_COLLECTION_BOX, VContractCollectionBox.class, msgs);
+					msgs = ((InternalEObject)vContractCollectionBox).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - OCVPackage.VC_COLLECTION_BOX__VCONTRACT_COLLECTION_BOX, null, msgs);
 				return basicSetVContractCollectionBox((VContractCollectionBox)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
@@ -200,8 +183,7 @@ public class VCCollectionBoxImpl extends VCEntityImpl implements VCCollectionBox
 			case OCVPackage.VC_COLLECTION_BOX__TYPE:
 				return getType();
 			case OCVPackage.VC_COLLECTION_BOX__VCONTRACT_COLLECTION_BOX:
-				if (resolve) return getVContractCollectionBox();
-				return basicGetVContractCollectionBox();
+				return getVContractCollectionBox();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}

@@ -2233,7 +2233,7 @@ public interface OCVPackage extends EPackage {
 	int VC_COLLECTION_BOX__TYPE = VC_ENTITY_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>VContract Collection Box</b></em>' reference.
+	 * The feature id for the '<em><b>VContract Collection Box</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -2360,7 +2360,7 @@ public interface OCVPackage extends EPackage {
 	int VC_LOOP__ITERATION = VC_ENTITY_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Vc Contract Collection Box</b></em>' reference.
+	 * The feature id for the '<em><b>Vc Contract Collection Box</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -2741,7 +2741,7 @@ public interface OCVPackage extends EPackage {
 	int VCONTRACT_COLLECTION_BOX__VC_ENTITIES = VCONTRACT_CONDITION__VC_ENTITIES;
 
 	/**
-	 * The feature id for the '<em><b>Vc Collection Box</b></em>' reference.
+	 * The feature id for the '<em><b>Vc Collection Box</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -3966,10 +3966,10 @@ public interface OCVPackage extends EPackage {
 	EAttribute getVCCollectionBox_Type();
 
 	/**
-	 * Returns the meta object for the reference '{@link com.abdulaziz.ms.OCV.VCCollectionBox#getVContractCollectionBox <em>VContract Collection Box</em>}'.
+	 * Returns the meta object for the containment reference '{@link com.abdulaziz.ms.OCV.VCCollectionBox#getVContractCollectionBox <em>VContract Collection Box</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>VContract Collection Box</em>'.
+	 * @return the meta object for the containment reference '<em>VContract Collection Box</em>'.
 	 * @see com.abdulaziz.ms.OCV.VCCollectionBox#getVContractCollectionBox()
 	 * @see #getVCCollectionBox()
 	 * @generated
@@ -3998,10 +3998,10 @@ public interface OCVPackage extends EPackage {
 	EAttribute getVCLoop_Iteration();
 
 	/**
-	 * Returns the meta object for the reference '{@link com.abdulaziz.ms.OCV.VCLoop#getVcContractCollectionBox <em>Vc Contract Collection Box</em>}'.
+	 * Returns the meta object for the containment reference '{@link com.abdulaziz.ms.OCV.VCLoop#getVcContractCollectionBox <em>Vc Contract Collection Box</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Vc Contract Collection Box</em>'.
+	 * @return the meta object for the containment reference '<em>Vc Contract Collection Box</em>'.
 	 * @see com.abdulaziz.ms.OCV.VCLoop#getVcContractCollectionBox()
 	 * @see #getVCLoop()
 	 * @generated
@@ -4169,10 +4169,10 @@ public interface OCVPackage extends EPackage {
 	EClass getVContractCollectionBox();
 
 	/**
-	 * Returns the meta object for the reference '{@link com.abdulaziz.ms.OCV.VContractCollectionBox#getVcCollectionBox <em>Vc Collection Box</em>}'.
+	 * Returns the meta object for the container reference '{@link com.abdulaziz.ms.OCV.VContractCollectionBox#getVcCollectionBox <em>Vc Collection Box</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Vc Collection Box</em>'.
+	 * @return the meta object for the container reference '<em>Vc Collection Box</em>'.
 	 * @see com.abdulaziz.ms.OCV.VContractCollectionBox#getVcCollectionBox()
 	 * @see #getVContractCollectionBox()
 	 * @generated
@@ -5143,7 +5143,7 @@ public interface OCVPackage extends EPackage {
 		EAttribute VC_COLLECTION_BOX__TYPE = eINSTANCE.getVCCollectionBox_Type();
 
 		/**
-		 * The meta object literal for the '<em><b>VContract Collection Box</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>VContract Collection Box</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -5169,7 +5169,7 @@ public interface OCVPackage extends EPackage {
 		EAttribute VC_LOOP__ITERATION = eINSTANCE.getVCLoop_Iteration();
 
 		/**
-		 * The meta object literal for the '<em><b>Vc Contract Collection Box</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Vc Contract Collection Box</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -5303,7 +5303,7 @@ public interface OCVPackage extends EPackage {
 		EClass VCONTRACT_COLLECTION_BOX = eINSTANCE.getVContractCollectionBox();
 
 		/**
-		 * The meta object literal for the '<em><b>Vc Collection Box</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Vc Collection Box</b></em>' container reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated

@@ -48,26 +48,26 @@ public interface VCLoop extends VCEntity {
 	void setIteration(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Vc Contract Collection Box</b></em>' reference.
+	 * Returns the value of the '<em><b>Vc Contract Collection Box</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Vc Contract Collection Box</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Vc Contract Collection Box</em>' reference.
+	 * @return the value of the '<em>Vc Contract Collection Box</em>' containment reference.
 	 * @see #setVcContractCollectionBox(VContractCollectionBox)
 	 * @see com.abdulaziz.ms.OCV.OCVPackage#getVCLoop_VcContractCollectionBox()
-	 * @model
+	 * @model containment="true"
 	 * @generated
 	 */
 	VContractCollectionBox getVcContractCollectionBox();
 
 	/**
-	 * Sets the value of the '{@link com.abdulaziz.ms.OCV.VCLoop#getVcContractCollectionBox <em>Vc Contract Collection Box</em>}' reference.
+	 * Sets the value of the '{@link com.abdulaziz.ms.OCV.VCLoop#getVcContractCollectionBox <em>Vc Contract Collection Box</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Vc Contract Collection Box</em>' reference.
+	 * @param value the new value of the '<em>Vc Contract Collection Box</em>' containment reference.
 	 * @see #getVcContractCollectionBox()
 	 * @generated
 	 */
