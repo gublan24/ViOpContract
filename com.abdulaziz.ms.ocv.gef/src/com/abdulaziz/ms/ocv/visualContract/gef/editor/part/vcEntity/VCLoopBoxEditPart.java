@@ -11,8 +11,10 @@ import org.eclipse.gef.editparts.AbstractGraphicalEditPart;
 import com.abdulaziz.ms.OCV.OCVFactory;
 import com.abdulaziz.ms.OCV.VCLoop;
 import com.abdulaziz.ms.OCV.VContractCollectionBox;
+import com.abdulaziz.ms.ocv.visualContract.gef.editor.part.VCContractEditPart;
 import com.abdulaziz.ms.ocv.visualContract.gef.editor.part.VCEntityEditPart;
 import com.abdulaziz.ms.ocv.visualContract.gef.editor.part.vcontractCondition.VContractConditionEditPart;
+import com.abdulaziz.ms.ocv.visualContract.gef.editor.policy.VCContractConditionGraphicalNodeRolePolicy;
 
 public class VCLoopBoxEditPart extends VCEntityEditPart {
 
@@ -36,9 +38,12 @@ public class VCLoopBoxEditPart extends VCEntityEditPart {
 		if(vContractCollectionBox == null)
 		{
 			vContractCollectionBox  = OCVFactory.eINSTANCE.createVContractCollectionBox();
+		
 			vcLoop.setVcContractCollectionBox(vContractCollectionBox);
+
 			EditPart childEditPart = this.createChild(vContractCollectionBox);
 			this.addChild(childEditPart, 0);
+		
 						
 		}
 		for (Object element : this.getChildren()) {

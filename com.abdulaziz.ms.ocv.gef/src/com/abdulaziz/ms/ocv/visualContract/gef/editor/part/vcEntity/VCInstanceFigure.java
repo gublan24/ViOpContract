@@ -130,4 +130,11 @@ public class VCInstanceFigure extends Figure implements VCEntityFigure {
 		this.instanceType = type;
 	}
 
+	public void setFillColorToBlue() {
+		fillColor =new Color(null, 165, 242, 245);
+	
+		
+
+	}
+
 }

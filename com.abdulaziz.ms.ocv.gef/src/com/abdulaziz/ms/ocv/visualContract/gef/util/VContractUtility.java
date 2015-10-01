@@ -34,6 +34,8 @@ public class VContractUtility {
 	public static final String VCINSTANCE_NEW = "new";
 	public static final String VCINSTANCE_CURRENT = "current";
 	public static final String VCINSTANCE_DATASTORE = "dataStore";
+	public static final String VCINSTANCE_PARAMETER = "parameter";
+
 	
 	public static final String DATA_STORE_UNIQUE = "Unique";
 	public static final String DATA_STORE_ALL = "All";

@@ -18,14 +18,7 @@ import com.abdulaziz.ms.ocv.visualContract.gef.util.VContractUtility;
 
 public class VContractAlternativeBoxEditPart extends VContractConditionEditPart {
 	
-	@Override
-	protected void createEditPolicies() {
-		super.createEditPolicies();
-		installEditPolicy(EditPolicy.LAYOUT_ROLE, new VContractXYEditPolicy());
 
-
-	}
-	
 	@Override 
 	protected void refreshVisuals()
 	{
