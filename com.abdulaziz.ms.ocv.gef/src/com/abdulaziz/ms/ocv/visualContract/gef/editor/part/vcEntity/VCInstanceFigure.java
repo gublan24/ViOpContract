@@ -97,10 +97,37 @@ public class VCInstanceFigure extends Figure implements VCEntityFigure {
 			break;
 		}
 		
+		/*
+		 setBackgroundColor(fillColor);
+		graphics.fillOval(r2);
+		graphics.drawOval(r2)
+		 */
+		
+		/*
+		 * Collection case 
+		 */
 		setBackgroundColor(fillColor);
 		graphics.fillOval(r2);
 		graphics.drawOval(r2);
+		Rectangle r3 = r2.getCopy();
+		r2.shrink(3, 3);
+		r3.shrink(3, 3);
+		Rectangle r4 = r3.getCopy();
+		r4.shrink(3, 3);
+
+		r3.x = r3.x +3;
+		r3.y = r3.y +3;
+		r4.x = r4.x +6;
+		r4.y = r4.y +6;
+
+		graphics.drawArc(r3, 0, 270);
+		graphics.drawArc(r4, 0, 270);
+
+
 		
+		
+		
+		// --- 
 		graphics.drawString("<<" + instanceType + ">>", r2.getCenter().x - centerFix, r2.getCenter().y - 6);
 
 		graphics.drawLine(r.getBottomLeft().x - 2, r.getBottomLeft().y - 14,r.getBottomRight().x - 2, r.getBottomLeft().y - 14);
