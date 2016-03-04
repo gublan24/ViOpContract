@@ -192,8 +192,8 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="VCLoop" eSuperTypes="#//VCEntity">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="iteration" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="vcContractCollectionBox"
-        eType="#//VContractCollectionBox" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="vcContractLoopBox" eType="#//VContractLoopBox"
+        containment="true" eOpposite="#//VContractLoopBox/vcCollectionBox"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="VCAlternativeBox" eSuperTypes="#//VCEntity">
     <eStructuralFeatures xsi:type="ecore:EReference" name="conditinOptions" upperBound="-1"
@@ -228,5 +228,9 @@
   <eClassifiers xsi:type="ecore:EClass" name="VContractCollectionBox" eSuperTypes="#//VContractCondition">
     <eStructuralFeatures xsi:type="ecore:EReference" name="vcCollectionBox" eType="#//VCCollectionBox"
         eOpposite="#//VCCollectionBox/vContractCollectionBox"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="VContractLoopBox" eSuperTypes="#//VContractCondition">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="vcCollectionBox" eType="#//VCLoop"
+        eOpposite="#//VCLoop/vcContractLoopBox"/>
   </eClassifiers>
 </ecore:EPackage>

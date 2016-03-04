@@ -19,7 +19,10 @@ public class VCInstanceEditPart extends VCEntityEditPart {
 	protected IFigure createFigure() {
 		return new VCInstanceFigure();
 	}
-
+/*
+ * (non-Javadoc)
+ * @see com.abdulaziz.ms.ocv.visualContract.gef.editor.part.VCEntityEditPart#refreshVisuals()
+ */
 
 	@Override
 	protected void refreshVisuals()
@@ -37,15 +40,9 @@ public class VCInstanceEditPart extends VCEntityEditPart {
 		else 
 		{
 		instanceFigure.setUmlClassName(instanceModel.getUmlClass().getClassName());
-		if(instanceModel.getType().equals(VContractUtility.VCINSTANCE_PARAMETER))
-		{
-	instanceFigure.setFillColorToBlue();
-		}
-		else 
-		instanceFigure.setFillColorToYallow();
+		
 		}
 		instanceFigure.setInstanceType(instanceModel.getType());
-		
 		parentEditPart.setLayoutConstraint(this, instanceFigure, instanceModel.getConstraints());
 		
 	}

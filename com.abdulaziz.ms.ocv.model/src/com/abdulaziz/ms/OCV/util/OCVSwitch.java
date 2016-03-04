@@ -244,6 +244,13 @@ public class OCVSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case OCVPackage.VCONTRACT_LOOP_BOX: {
+				VContractLoopBox vContractLoopBox = (VContractLoopBox)theEObject;
+				T result = caseVContractLoopBox(vContractLoopBox);
+				if (result == null) result = caseVContractCondition(vContractLoopBox);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -650,6 +657,21 @@ public class OCVSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseVContractCollectionBox(VContractCollectionBox object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>VContract Loop Box</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>VContract Loop Box</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseVContractLoopBox(VContractLoopBox object) {
 		return null;
 	}
 

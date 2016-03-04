@@ -14,6 +14,7 @@ import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
@@ -35,7 +36,9 @@ import org.eclipse.ui.part.MultiPageEditorPart;
 
 import com.abdulaziz.ms.OCV.OCVFactory;
 import com.abdulaziz.ms.OCV.OCVPackage;
+import com.abdulaziz.ms.OCV.UMLClass;
 import com.abdulaziz.ms.OCV.UMLClassDiagram;
+import com.abdulaziz.ms.OCV.UMLVariable;
 import com.abdulaziz.ms.OCV.VCContract;
 import com.abdulaziz.ms.OCV.VOperation;
 import com.abdulaziz.ms.ocv.systemOperation.gef.editor.SystemOperationGraphicalEditor;
@@ -81,6 +84,19 @@ public class OCVMutiPageEditor extends MultiPageEditorPart implements IResourceC
 	private void readEMFFile(Resource resource) {
 		if(resource != null && !resource.getContents().isEmpty() && resource.getContents().get(0) instanceof UMLClassDiagram) {
 			umlClassDiagram = (UMLClassDiagram) resource.getContents().get(0);	
+			
+			EList<UMLClass> a = umlClassDiagram.getClasses();
+			for (UMLClass umlClass : a) {
+				System.out.println(umlClass.getClassName());
+				System.out.println("--");
+				EList<UMLVariable> b = umlClass.getClassAttributes();
+				for (UMLVariable umlVariable : b) {
+					System.out.println(umlVariable.getVariableName());
+				} 
+				
+				System.out.println("**********************");
+
+			}
 		}
 	}
 

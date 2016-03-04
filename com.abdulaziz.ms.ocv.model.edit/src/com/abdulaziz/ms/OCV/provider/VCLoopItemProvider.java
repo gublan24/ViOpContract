@@ -98,7 +98,7 @@ public class VCLoopItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(OCVPackage.Literals.VC_LOOP__VC_CONTRACT_COLLECTION_BOX);
+			childrenFeatures.add(OCVPackage.Literals.VC_LOOP__VC_CONTRACT_LOOP_BOX);
 		}
 		return childrenFeatures;
 	}
@@ -156,7 +156,7 @@ public class VCLoopItemProvider
 			case OCVPackage.VC_LOOP__ITERATION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case OCVPackage.VC_LOOP__VC_CONTRACT_COLLECTION_BOX:
+			case OCVPackage.VC_LOOP__VC_CONTRACT_LOOP_BOX:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -176,8 +176,8 @@ public class VCLoopItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(OCVPackage.Literals.VC_LOOP__VC_CONTRACT_COLLECTION_BOX,
-				 OCVFactory.eINSTANCE.createVContractCollectionBox()));
+				(OCVPackage.Literals.VC_LOOP__VC_CONTRACT_LOOP_BOX,
+				 OCVFactory.eINSTANCE.createVContractLoopBox()));
 	}
 
 	/**
@@ -193,7 +193,7 @@ public class VCLoopItemProvider
 
 		boolean qualify =
 			childFeature == OCVPackage.Literals.VC_ENTITY__POSTCONDITION ||
-			childFeature == OCVPackage.Literals.VC_LOOP__VC_CONTRACT_COLLECTION_BOX;
+			childFeature == OCVPackage.Literals.VC_LOOP__VC_CONTRACT_LOOP_BOX;
 
 		if (qualify) {
 			return getString

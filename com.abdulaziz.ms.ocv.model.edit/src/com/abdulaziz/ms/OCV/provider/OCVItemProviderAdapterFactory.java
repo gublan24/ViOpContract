@@ -647,6 +647,29 @@ public class OCVItemProviderAdapterFactory extends OCVAdapterFactory implements 
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link com.abdulaziz.ms.OCV.VContractLoopBox} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected VContractLoopBoxItemProvider vContractLoopBoxItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.abdulaziz.ms.OCV.VContractLoopBox}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createVContractLoopBoxAdapter() {
+		if (vContractLoopBoxItemProvider == null) {
+			vContractLoopBoxItemProvider = new VContractLoopBoxItemProvider(this);
+		}
+
+		return vContractLoopBoxItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -770,6 +793,7 @@ public class OCVItemProviderAdapterFactory extends OCVAdapterFactory implements 
 		if (conditionOptionItemProvider != null) conditionOptionItemProvider.dispose();
 		if (vContractAlternativeBoxItemProvider != null) vContractAlternativeBoxItemProvider.dispose();
 		if (vContractCollectionBoxItemProvider != null) vContractCollectionBoxItemProvider.dispose();
+		if (vContractLoopBoxItemProvider != null) vContractLoopBoxItemProvider.dispose();
 	}
 
 }

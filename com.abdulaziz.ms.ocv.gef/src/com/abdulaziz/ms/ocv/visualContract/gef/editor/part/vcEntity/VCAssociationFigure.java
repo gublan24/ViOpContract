@@ -74,7 +74,10 @@ public class VCAssociationFigure extends Figure implements VCEntityFigure {
 	@Override
 	protected void paintFigure(Graphics graphics)
 	{
-		Rectangle r = getBounds().getCopy();
+		Rectangle mainRectangle = getBounds().getCopy();
+		mainRectangle.shrink(2, 2);
+		/*
+		 * old shape 
 		graphics.setBackgroundColor(fillColor); 
 		graphics.fillOval(r);
 		graphics.setLineWidth(4);
@@ -83,9 +86,46 @@ public class VCAssociationFigure extends Figure implements VCEntityFigure {
 		graphics.drawLine(r.x+r.width, r.y, r.x, r.y+r.height);
 		graphics.setForegroundColor(fillColor);
 		graphics.setLineWidth(2);
-		graphics.drawOval(r);
-
+		*/
+		//graphics.drawOval(r);
 		
+		/*
+		int dimOfIntersection =mainRectangle.width/6;
+		Rectangle leftOval  = new Rectangle(mainRectangle.getTopLeft().x, mainRectangle.getTopLeft().y, mainRectangle.width/2+dimOfIntersection,mainRectangle.height);
+		Rectangle rightOval  = new Rectangle(mainRectangle.getTopLeft().x+mainRectangle.width/2 -dimOfIntersection, mainRectangle.getTopLeft().y, mainRectangle.width/2+dimOfIntersection,mainRectangle.height);
+		Rectangle intersectionBetweenLeftRightOvals = rightOval.getCopy();
+		intersectionBetweenLeftRightOvals.intersect(leftOval);	
+		intersectionBetweenLeftRightOvals.shrink(1, 1);
+		graphics.setBackgroundColor(fillColor);
+		graphics.fillOval(intersectionBetweenLeftRightOvals);
+		graphics.setLineWidth(3);
+		graphics.drawOval(leftOval);
+		graphics.drawOval(rightOval);
+	*/
+		
+	// delete instance shape 
+		int whiteSeprator = mainRectangle.width/10;
+		int dimOfIntersection =mainRectangle.width/6;
+		Rectangle leftOval  = new Rectangle(mainRectangle.getTopLeft().x, mainRectangle.getTopLeft().y, mainRectangle.width/2+dimOfIntersection,mainRectangle.height);
+		Rectangle rightOval  = new Rectangle(mainRectangle.getTopLeft().x+mainRectangle.width/2 -dimOfIntersection, mainRectangle.getTopLeft().y, mainRectangle.width/2+dimOfIntersection,mainRectangle.height);
+		Rectangle intersectionBetweenLeftRightOvals = rightOval.getCopy();
+		graphics.setBackgroundColor(ColorConstants.red);
+		graphics.setLineWidth(3);
+		graphics.fillOval(leftOval);
+		graphics.fillOval(rightOval);
+		graphics.drawOval(leftOval);
+		graphics.drawOval(rightOval);
+		intersectionBetweenLeftRightOvals.intersect(leftOval);	
+		intersectionBetweenLeftRightOvals.expand(2,2);
+		graphics.setBackgroundColor(ColorConstants.white);		
+		graphics.fillOval(intersectionBetweenLeftRightOvals);
+		graphics.drawOval(intersectionBetweenLeftRightOvals);
+		graphics.setLineWidth(whiteSeprator);
+		graphics.setForegroundColor(ColorConstants.white);
+		graphics.drawLine(mainRectangle.getCenter().x, mainRectangle.getTop().y-4,mainRectangle.getCenter().x,mainRectangle.getBottomLeft().y+4);
+		
+
+
 	  //  setConstraint(mainPanelFigure, new Rectangle(0,0,r.width, r.height));
 	    /*
 	    setConstraint(rectangleFigure, new Rectangle(0, 0, r.width, r.height));

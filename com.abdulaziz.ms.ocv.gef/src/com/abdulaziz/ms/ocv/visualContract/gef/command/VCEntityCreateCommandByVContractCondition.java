@@ -7,6 +7,7 @@ import org.eclipse.gef.commands.Command;
 import com.abdulaziz.ms.OCV.VCEntity;
 import com.abdulaziz.ms.OCV.VContractCollectionBox;
 import com.abdulaziz.ms.OCV.VContractCondition;
+import com.abdulaziz.ms.OCV.VContractLoopBox;
 import com.abdulaziz.ms.OCV.VContractPostcondition;
 import com.abdulaziz.ms.ocv.visualContract.gef.util.VCEntitiesRulesManager;
 import com.abdulaziz.ms.ocv.visualContract.gef.util.VContractUtility;
@@ -33,7 +34,7 @@ public class VCEntityCreateCommandByVContractCondition extends Command {
 		}
 		else
 			vEntity.setConstraints(new Rectangle (location,vEntity.getConstraints().getSize()));
-		if (!(vContractCondition instanceof VContractCollectionBox))
+		if ( !((vContractCondition instanceof VContractCollectionBox) || ((vContractCondition instanceof VContractLoopBox))))
 		vEntity.setVContractCondition(vContractCondition);
 		vContractCondition.getVcEntities().add(vEntity);
 		VCEntitiesRulesManager.applyAddEntityRules(vContractCondition, vEntity);

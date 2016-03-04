@@ -52,6 +52,7 @@ public class VCAlternativeBoxEditPart extends VCEntityEditPart {
 		VContractConditionEditPart vContractEditPart = (VContractConditionEditPart) getParent();
 		Rectangle layout = vcEntity.getConstraints();
 		vContractEditPart.setLayoutConstraint(this, figure, layout);
+		
 
 	}
 	

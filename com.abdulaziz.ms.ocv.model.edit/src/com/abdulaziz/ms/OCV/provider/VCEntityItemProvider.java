@@ -279,6 +279,11 @@ public class VCEntityItemProvider
 			(createChildParameter
 				(OCVPackage.Literals.VC_ENTITY__POSTCONDITION,
 				 OCVFactory.eINSTANCE.createVContractCollectionBox()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(OCVPackage.Literals.VC_ENTITY__POSTCONDITION,
+				 OCVFactory.eINSTANCE.createVContractLoopBox()));
 	}
 
 	/**

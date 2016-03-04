@@ -27,6 +27,7 @@ import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Widget;
 
 import com.abdulaziz.ms.ocv.visualContract.gef.editor.figure.VCEntityFigure;
+import com.abdulaziz.ms.ocv.visualContract.gef.util.VContractUtility;
 
 public class VCInstanceFigure extends Figure implements VCEntityFigure {
 
@@ -44,9 +45,9 @@ public class VCInstanceFigure extends Figure implements VCEntityFigure {
 		layout.setSpacing(1);
 		this.setOpaque(true);
 		setLayoutManager(new XYLayout());
-		instanceFilling = new Color(null, 255, 255, 206);
 		setFillColorToYallow();
-
+		
+		
 	}
 	
 	public void setfillColorToRed()
@@ -69,37 +70,53 @@ public class VCInstanceFigure extends Figure implements VCEntityFigure {
 		graphics.setLineWidth(2);
 
 		Rectangle r2 = new Rectangle(x, y, r.width - 2, r.height - 15);
-		setBackgroundColor(fillColor);
 
-		graphics.fillOval(r2);
-		graphics.drawOval(r2);
+		
 
 		int centerFix = 0;
 
 		switch (instanceType) {
-		case "new":
+		case VContractUtility.VCINSTANCE_NEW:
 			centerFix = 27;
+			fillColor = new Color(null, 255, 255, 153);
 			break;
-		case "datastore":
-		case "parameter":
+		case VContractUtility.VCINSTANCE_DATASTORE:
+			centerFix = 40;
+			fillColor = new Color(null, 221, 215, 230);
+			break;
+		case VContractUtility.VCINSTANCE_PARAMETER:
 			centerFix = 45;
+			fillColor = new Color(null, 194, 220, 220);
 			break;
-		case "current":
+		case VContractUtility.VCINSTANCE_CURRENT:
+			fillColor = new Color(null, 253, 200, 100);
 			centerFix = 33;
 			break;
 		default:
 			centerFix = 33;
 			break;
 		}
-		graphics.drawString("<<" + instanceType + ">>", r2.getCenter().x
-				- centerFix, r2.getCenter().y - 6);
+		
+		setBackgroundColor(fillColor);
+		graphics.fillOval(r2);
+		graphics.drawOval(r2);
+		
+		graphics.drawString("<<" + instanceType + ">>", r2.getCenter().x - centerFix, r2.getCenter().y - 6);
 
-		graphics.drawLine(r.getBottomLeft().x - 2, r.getBottomLeft().y - 14,
-				r.getBottomRight().x - 2, r.getBottomLeft().y - 14);
+		graphics.drawLine(r.getBottomLeft().x - 2, r.getBottomLeft().y - 14,r.getBottomRight().x - 2, r.getBottomLeft().y - 14);
 
-		graphics.drawString(instanceName + ":" + umlClassName, r2.x + 4, r.y
-				+ r.height - 12);
-
+		graphics.drawString(instanceName + ":" + umlClassName, r2.x + 4, r.y+ r.height - 12);
+		
+		
+		/*
+		 * Deleted instances
+		
+		graphics.setForegroundColor(ColorConstants.red);
+		graphics.setLineWidth(5);
+		graphics.drawLine(r2.getTopLeft(),r2.getBottomRight());
+		graphics.drawLine(r2.getTopRight(),r2.getBottomLeft());
+		graphics.drawOval(r2);
+ */
 	}
 
 	public void setName(String string) {
@@ -131,7 +148,7 @@ public class VCInstanceFigure extends Figure implements VCEntityFigure {
 	}
 
 	public void setFillColorToBlue() {
-		fillColor =new Color(null, 165, 242, 245);
+		//fillColor =new Color(null, 165, 242, 245);
 	
 		
 

@@ -44,7 +44,7 @@
             class="com.abdulaziz.ms.view.ClassListTreeView"
             icon="src/com/abdulaziz/ms/ocv/uml/gef/util/C_icon.jpg"
             id="com.abdulaziz.ms.ocv.gef.TreeView"
-            name="Class List"
+            name="Domain Entities "
             restorable="true">
       </view>
    </extension>

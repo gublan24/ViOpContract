@@ -4,13 +4,10 @@ package com.abdulaziz.ms.OCV.impl;
 
 import com.abdulaziz.ms.OCV.OCVPackage;
 import com.abdulaziz.ms.OCV.VCLoop;
-
-import com.abdulaziz.ms.OCV.VContractCollectionBox;
+import com.abdulaziz.ms.OCV.VContractLoopBox;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
@@ -22,7 +19,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * <ul>
  *   <li>{@link com.abdulaziz.ms.OCV.impl.VCLoopImpl#getIteration <em>Iteration</em>}</li>
- *   <li>{@link com.abdulaziz.ms.OCV.impl.VCLoopImpl#getVcContractCollectionBox <em>Vc Contract Collection Box</em>}</li>
+ *   <li>{@link com.abdulaziz.ms.OCV.impl.VCLoopImpl#getVcContractLoopBox <em>Vc Contract Loop Box</em>}</li>
  * </ul>
  * </p>
  *
@@ -50,14 +47,14 @@ public class VCLoopImpl extends VCEntityImpl implements VCLoop {
 	protected String iteration = ITERATION_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getVcContractCollectionBox() <em>Vc Contract Collection Box</em>}' containment reference.
+	 * The cached value of the '{@link #getVcContractLoopBox() <em>Vc Contract Loop Box</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getVcContractCollectionBox()
+	 * @see #getVcContractLoopBox()
 	 * @generated
 	 * @ordered
 	 */
-	protected VContractCollectionBox vcContractCollectionBox;
+	protected VContractLoopBox vcContractLoopBox;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -104,8 +101,8 @@ public class VCLoopImpl extends VCEntityImpl implements VCLoop {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public VContractCollectionBox getVcContractCollectionBox() {
-		return vcContractCollectionBox;
+	public VContractLoopBox getVcContractLoopBox() {
+		return vcContractLoopBox;
 	}
 
 	/**
@@ -113,11 +110,11 @@ public class VCLoopImpl extends VCEntityImpl implements VCLoop {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetVcContractCollectionBox(VContractCollectionBox newVcContractCollectionBox, NotificationChain msgs) {
-		VContractCollectionBox oldVcContractCollectionBox = vcContractCollectionBox;
-		vcContractCollectionBox = newVcContractCollectionBox;
+	public NotificationChain basicSetVcContractLoopBox(VContractLoopBox newVcContractLoopBox, NotificationChain msgs) {
+		VContractLoopBox oldVcContractLoopBox = vcContractLoopBox;
+		vcContractLoopBox = newVcContractLoopBox;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, OCVPackage.VC_LOOP__VC_CONTRACT_COLLECTION_BOX, oldVcContractCollectionBox, newVcContractCollectionBox);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, OCVPackage.VC_LOOP__VC_CONTRACT_LOOP_BOX, oldVcContractLoopBox, newVcContractLoopBox);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -128,18 +125,34 @@ public class VCLoopImpl extends VCEntityImpl implements VCLoop {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setVcContractCollectionBox(VContractCollectionBox newVcContractCollectionBox) {
-		if (newVcContractCollectionBox != vcContractCollectionBox) {
+	public void setVcContractLoopBox(VContractLoopBox newVcContractLoopBox) {
+		if (newVcContractLoopBox != vcContractLoopBox) {
 			NotificationChain msgs = null;
-			if (vcContractCollectionBox != null)
-				msgs = ((InternalEObject)vcContractCollectionBox).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - OCVPackage.VC_LOOP__VC_CONTRACT_COLLECTION_BOX, null, msgs);
-			if (newVcContractCollectionBox != null)
-				msgs = ((InternalEObject)newVcContractCollectionBox).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - OCVPackage.VC_LOOP__VC_CONTRACT_COLLECTION_BOX, null, msgs);
-			msgs = basicSetVcContractCollectionBox(newVcContractCollectionBox, msgs);
+			if (vcContractLoopBox != null)
+				msgs = ((InternalEObject)vcContractLoopBox).eInverseRemove(this, OCVPackage.VCONTRACT_LOOP_BOX__VC_COLLECTION_BOX, VContractLoopBox.class, msgs);
+			if (newVcContractLoopBox != null)
+				msgs = ((InternalEObject)newVcContractLoopBox).eInverseAdd(this, OCVPackage.VCONTRACT_LOOP_BOX__VC_COLLECTION_BOX, VContractLoopBox.class, msgs);
+			msgs = basicSetVcContractLoopBox(newVcContractLoopBox, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, OCVPackage.VC_LOOP__VC_CONTRACT_COLLECTION_BOX, newVcContractCollectionBox, newVcContractCollectionBox));
+			eNotify(new ENotificationImpl(this, Notification.SET, OCVPackage.VC_LOOP__VC_CONTRACT_LOOP_BOX, newVcContractLoopBox, newVcContractLoopBox));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case OCVPackage.VC_LOOP__VC_CONTRACT_LOOP_BOX:
+				if (vcContractLoopBox != null)
+					msgs = ((InternalEObject)vcContractLoopBox).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - OCVPackage.VC_LOOP__VC_CONTRACT_LOOP_BOX, null, msgs);
+				return basicSetVcContractLoopBox((VContractLoopBox)otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -150,8 +163,8 @@ public class VCLoopImpl extends VCEntityImpl implements VCLoop {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case OCVPackage.VC_LOOP__VC_CONTRACT_COLLECTION_BOX:
-				return basicSetVcContractCollectionBox(null, msgs);
+			case OCVPackage.VC_LOOP__VC_CONTRACT_LOOP_BOX:
+				return basicSetVcContractLoopBox(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -166,8 +179,8 @@ public class VCLoopImpl extends VCEntityImpl implements VCLoop {
 		switch (featureID) {
 			case OCVPackage.VC_LOOP__ITERATION:
 				return getIteration();
-			case OCVPackage.VC_LOOP__VC_CONTRACT_COLLECTION_BOX:
-				return getVcContractCollectionBox();
+			case OCVPackage.VC_LOOP__VC_CONTRACT_LOOP_BOX:
+				return getVcContractLoopBox();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -183,8 +196,8 @@ public class VCLoopImpl extends VCEntityImpl implements VCLoop {
 			case OCVPackage.VC_LOOP__ITERATION:
 				setIteration((String)newValue);
 				return;
-			case OCVPackage.VC_LOOP__VC_CONTRACT_COLLECTION_BOX:
-				setVcContractCollectionBox((VContractCollectionBox)newValue);
+			case OCVPackage.VC_LOOP__VC_CONTRACT_LOOP_BOX:
+				setVcContractLoopBox((VContractLoopBox)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -201,8 +214,8 @@ public class VCLoopImpl extends VCEntityImpl implements VCLoop {
 			case OCVPackage.VC_LOOP__ITERATION:
 				setIteration(ITERATION_EDEFAULT);
 				return;
-			case OCVPackage.VC_LOOP__VC_CONTRACT_COLLECTION_BOX:
-				setVcContractCollectionBox((VContractCollectionBox)null);
+			case OCVPackage.VC_LOOP__VC_CONTRACT_LOOP_BOX:
+				setVcContractLoopBox((VContractLoopBox)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -218,8 +231,8 @@ public class VCLoopImpl extends VCEntityImpl implements VCLoop {
 		switch (featureID) {
 			case OCVPackage.VC_LOOP__ITERATION:
 				return ITERATION_EDEFAULT == null ? iteration != null : !ITERATION_EDEFAULT.equals(iteration);
-			case OCVPackage.VC_LOOP__VC_CONTRACT_COLLECTION_BOX:
-				return vcContractCollectionBox != null;
+			case OCVPackage.VC_LOOP__VC_CONTRACT_LOOP_BOX:
+				return vcContractLoopBox != null;
 		}
 		return super.eIsSet(featureID);
 	}

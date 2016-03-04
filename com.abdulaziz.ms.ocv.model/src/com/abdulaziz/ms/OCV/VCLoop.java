@@ -12,7 +12,7 @@ package com.abdulaziz.ms.OCV;
  * The following features are supported:
  * <ul>
  *   <li>{@link com.abdulaziz.ms.OCV.VCLoop#getIteration <em>Iteration</em>}</li>
- *   <li>{@link com.abdulaziz.ms.OCV.VCLoop#getVcContractCollectionBox <em>Vc Contract Collection Box</em>}</li>
+ *   <li>{@link com.abdulaziz.ms.OCV.VCLoop#getVcContractLoopBox <em>Vc Contract Loop Box</em>}</li>
  * </ul>
  * </p>
  *
@@ -48,29 +48,31 @@ public interface VCLoop extends VCEntity {
 	void setIteration(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Vc Contract Collection Box</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Vc Contract Loop Box</b></em>' containment reference.
+	 * It is bidirectional and its opposite is '{@link com.abdulaziz.ms.OCV.VContractLoopBox#getVcCollectionBox <em>Vc Collection Box</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Vc Contract Collection Box</em>' reference isn't clear,
+	 * If the meaning of the '<em>Vc Contract Loop Box</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Vc Contract Collection Box</em>' containment reference.
-	 * @see #setVcContractCollectionBox(VContractCollectionBox)
-	 * @see com.abdulaziz.ms.OCV.OCVPackage#getVCLoop_VcContractCollectionBox()
-	 * @model containment="true"
+	 * @return the value of the '<em>Vc Contract Loop Box</em>' containment reference.
+	 * @see #setVcContractLoopBox(VContractLoopBox)
+	 * @see com.abdulaziz.ms.OCV.OCVPackage#getVCLoop_VcContractLoopBox()
+	 * @see com.abdulaziz.ms.OCV.VContractLoopBox#getVcCollectionBox
+	 * @model opposite="vcCollectionBox" containment="true"
 	 * @generated
 	 */
-	VContractCollectionBox getVcContractCollectionBox();
+	VContractLoopBox getVcContractLoopBox();
 
 	/**
-	 * Sets the value of the '{@link com.abdulaziz.ms.OCV.VCLoop#getVcContractCollectionBox <em>Vc Contract Collection Box</em>}' containment reference.
+	 * Sets the value of the '{@link com.abdulaziz.ms.OCV.VCLoop#getVcContractLoopBox <em>Vc Contract Loop Box</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Vc Contract Collection Box</em>' containment reference.
-	 * @see #getVcContractCollectionBox()
+	 * @param value the new value of the '<em>Vc Contract Loop Box</em>' containment reference.
+	 * @see #getVcContractLoopBox()
 	 * @generated
 	 */
-	void setVcContractCollectionBox(VContractCollectionBox value);
+	void setVcContractLoopBox(VContractLoopBox value);
 
 } // VCLoop

@@ -22,6 +22,7 @@ import com.abdulaziz.ms.OCV.VCValue;
 import com.abdulaziz.ms.OCV.VContractAlternativeBox;
 import com.abdulaziz.ms.OCV.VContractCollectionBox;
 import com.abdulaziz.ms.OCV.VContractCondition;
+import com.abdulaziz.ms.OCV.VContractLoopBox;
 import com.abdulaziz.ms.ocv.visualContract.gef.editor.part.vcEntity.VCAlternativeBoxEditPart;
 import com.abdulaziz.ms.ocv.visualContract.gef.editor.part.vcEntity.VCAssociationEditPart;
 import com.abdulaziz.ms.ocv.visualContract.gef.editor.part.vcEntity.VCCollectionBoxEditPart;
@@ -42,7 +43,12 @@ public class ContractEditPartFactory implements EditPartFactory {
 		
 		EditPart editPart = null;
 	
-		 if(model instanceof VContractAlternativeBox)
+		 if(model instanceof VContractLoopBox)
+		{
+			editPart  = new VContractLoopBoxEditPart();
+
+		}
+		 else if(model instanceof VContractAlternativeBox)
 		{
 			editPart  = new VContractAlternativeBoxEditPart();
 

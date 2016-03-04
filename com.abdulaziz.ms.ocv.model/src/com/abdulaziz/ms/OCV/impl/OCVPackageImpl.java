@@ -27,6 +27,7 @@ import com.abdulaziz.ms.OCV.VCValue;
 import com.abdulaziz.ms.OCV.VContractAlternativeBox;
 import com.abdulaziz.ms.OCV.VContractCollectionBox;
 import com.abdulaziz.ms.OCV.VContractCondition;
+import com.abdulaziz.ms.OCV.VContractLoopBox;
 import com.abdulaziz.ms.OCV.VContractPostcondition;
 import com.abdulaziz.ms.OCV.VContractPrecondition;
 import com.abdulaziz.ms.OCV.VOperation;
@@ -236,6 +237,13 @@ public class OCVPackageImpl extends EPackageImpl implements OCVPackage {
 	 * @generated
 	 */
 	private EClass vContractCollectionBoxEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass vContractLoopBoxEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1325,7 +1333,7 @@ public class OCVPackageImpl extends EPackageImpl implements OCVPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getVCLoop_VcContractCollectionBox() {
+	public EReference getVCLoop_VcContractLoopBox() {
 		return (EReference)vcLoopEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -1471,6 +1479,24 @@ public class OCVPackageImpl extends EPackageImpl implements OCVPackage {
 	 */
 	public EReference getVContractCollectionBox_VcCollectionBox() {
 		return (EReference)vContractCollectionBoxEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getVContractLoopBox() {
+		return vContractLoopBoxEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getVContractLoopBox_VcCollectionBox() {
+		return (EReference)vContractLoopBoxEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1651,7 +1677,7 @@ public class OCVPackageImpl extends EPackageImpl implements OCVPackage {
 
 		vcLoopEClass = createEClass(VC_LOOP);
 		createEAttribute(vcLoopEClass, VC_LOOP__ITERATION);
-		createEReference(vcLoopEClass, VC_LOOP__VC_CONTRACT_COLLECTION_BOX);
+		createEReference(vcLoopEClass, VC_LOOP__VC_CONTRACT_LOOP_BOX);
 
 		vcAlternativeBoxEClass = createEClass(VC_ALTERNATIVE_BOX);
 		createEReference(vcAlternativeBoxEClass, VC_ALTERNATIVE_BOX__CONDITIN_OPTIONS);
@@ -1674,6 +1700,9 @@ public class OCVPackageImpl extends EPackageImpl implements OCVPackage {
 
 		vContractCollectionBoxEClass = createEClass(VCONTRACT_COLLECTION_BOX);
 		createEReference(vContractCollectionBoxEClass, VCONTRACT_COLLECTION_BOX__VC_COLLECTION_BOX);
+
+		vContractLoopBoxEClass = createEClass(VCONTRACT_LOOP_BOX);
+		createEReference(vContractLoopBoxEClass, VCONTRACT_LOOP_BOX__VC_COLLECTION_BOX);
 
 		// Create data types
 		absoluteBendpointEDataType = createEDataType(ABSOLUTE_BENDPOINT);
@@ -1724,6 +1753,7 @@ public class OCVPackageImpl extends EPackageImpl implements OCVPackage {
 		vcAlternativeBoxEClass.getESuperTypes().add(this.getVCEntity());
 		vContractAlternativeBoxEClass.getESuperTypes().add(this.getVContractCondition());
 		vContractCollectionBoxEClass.getESuperTypes().add(this.getVContractCondition());
+		vContractLoopBoxEClass.getESuperTypes().add(this.getVContractCondition());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(umlClassDiagramEClass, UMLClassDiagram.class, "UMLClassDiagram", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1869,7 +1899,7 @@ public class OCVPackageImpl extends EPackageImpl implements OCVPackage {
 
 		initEClass(vcLoopEClass, VCLoop.class, "VCLoop", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getVCLoop_Iteration(), ecorePackage.getEString(), "iteration", null, 0, 1, VCLoop.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getVCLoop_VcContractCollectionBox(), this.getVContractCollectionBox(), null, "vcContractCollectionBox", null, 0, 1, VCLoop.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getVCLoop_VcContractLoopBox(), this.getVContractLoopBox(), this.getVContractLoopBox_VcCollectionBox(), "vcContractLoopBox", null, 0, 1, VCLoop.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(vcAlternativeBoxEClass, VCAlternativeBox.class, "VCAlternativeBox", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getVCAlternativeBox_ConditinOptions(), this.getConditionOption(), this.getConditionOption_VcAlternativeBox(), "conditinOptions", null, 0, -1, VCAlternativeBox.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1895,6 +1925,9 @@ public class OCVPackageImpl extends EPackageImpl implements OCVPackage {
 
 		initEClass(vContractCollectionBoxEClass, VContractCollectionBox.class, "VContractCollectionBox", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getVContractCollectionBox_VcCollectionBox(), this.getVCCollectionBox(), this.getVCCollectionBox_VContractCollectionBox(), "vcCollectionBox", null, 0, 1, VContractCollectionBox.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(vContractLoopBoxEClass, VContractLoopBox.class, "VContractLoopBox", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getVContractLoopBox_VcCollectionBox(), this.getVCLoop(), this.getVCLoop_VcContractLoopBox(), "vcCollectionBox", null, 0, 1, VContractLoopBox.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize data types
 		initEDataType(absoluteBendpointEDataType, AbsoluteBendpoint.class, "AbsoluteBendpoint", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);

@@ -46,6 +46,7 @@ public class OCVTests extends TestSuite {
 		suite.addTestSuite(VCAlternativeBoxTest.class);
 		suite.addTestSuite(VContractAlternativeBoxTest.class);
 		suite.addTestSuite(VContractCollectionBoxTest.class);
+		suite.addTestSuite(VContractLoopBoxTest.class);
 		return suite;
 	}
 

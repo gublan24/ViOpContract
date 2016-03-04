@@ -11,6 +11,7 @@ import org.eclipse.gef.editparts.AbstractGraphicalEditPart;
 import com.abdulaziz.ms.OCV.OCVFactory;
 import com.abdulaziz.ms.OCV.VCLoop;
 import com.abdulaziz.ms.OCV.VContractCollectionBox;
+import com.abdulaziz.ms.OCV.VContractLoopBox;
 import com.abdulaziz.ms.ocv.visualContract.gef.editor.part.VCContractEditPart;
 import com.abdulaziz.ms.ocv.visualContract.gef.editor.part.VCEntityEditPart;
 import com.abdulaziz.ms.ocv.visualContract.gef.editor.part.vcontractCondition.VContractConditionEditPart;
@@ -32,41 +33,28 @@ public class VCLoopBoxEditPart extends VCEntityEditPart {
 		Rectangle constraint = vcLoop.getConstraints().getCopy();
 		vContractEditPart.setLayoutConstraint(this, figure, constraint);
 		// ---
-		VContractCollectionBox vContractCollectionBox = vcLoop.getVcContractCollectionBox();
+		VContractLoopBox vContractLoopBox = vcLoop.getVcContractLoopBox();
 		
-		
-		if(vContractCollectionBox == null)
+		if(vContractLoopBox == null)
 		{
-			vContractCollectionBox  = OCVFactory.eINSTANCE.createVContractCollectionBox();
-		
-			vcLoop.setVcContractCollectionBox(vContractCollectionBox);
-
-			EditPart childEditPart = this.createChild(vContractCollectionBox);
+			vContractLoopBox  = OCVFactory.eINSTANCE.createVContractLoopBox();
+			vcLoop.setVcContractLoopBox(vContractLoopBox);
+			EditPart childEditPart = this.createChild(vContractLoopBox);
 			this.addChild(childEditPart, 0);
-		
-						
 		}
 		for (Object element : this.getChildren()) {
 			((EditPart) element).refresh();
-			
 		}
-		
-		
 	
-		
-		
-
-
 	}
 	@Override
 	public List<Object> getModelChildren()
 	{
 		VCLoop vcCollectionBox = (VCLoop) getModel();
 		List<Object> list = new ArrayList<>();
-		list.add(vcCollectionBox.getVcContractCollectionBox());
+		list.add(vcCollectionBox.getVcContractLoopBox());
 		return list;
 		
-	
 	}
 	
 
