@@ -161,6 +161,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="identifier" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="notes" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Deleted" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="collection" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="VCInstanceField" eSuperTypes="#//VCEntity">
     <eStructuralFeatures xsi:type="ecore:EReference" name="vCInstance" eType="#//VCInstance"
@@ -174,6 +176,7 @@
         eType="#//UMLVariable"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="secondInstanceVariable"
         eType="#//UMLVariable"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="unidirectional" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="VCParameter" eSuperTypes="#//VCEntity">
     <eStructuralFeatures xsi:type="ecore:EReference" name="vCInstance" eType="#//VCInstance"/>
@@ -233,4 +236,5 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="vcCollectionBox" eType="#//VCLoop"
         eOpposite="#//VCLoop/vcContractLoopBox"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="VCAssociationDeletion" eSuperTypes="#//VCEntity"/>
 </ecore:EPackage>

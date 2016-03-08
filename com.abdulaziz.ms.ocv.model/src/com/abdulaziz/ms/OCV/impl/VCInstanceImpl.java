@@ -31,6 +31,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.abdulaziz.ms.OCV.impl.VCInstanceImpl#getType <em>Type</em>}</li>
  *   <li>{@link com.abdulaziz.ms.OCV.impl.VCInstanceImpl#getIdentifier <em>Identifier</em>}</li>
  *   <li>{@link com.abdulaziz.ms.OCV.impl.VCInstanceImpl#getNotes <em>Notes</em>}</li>
+ *   <li>{@link com.abdulaziz.ms.OCV.impl.VCInstanceImpl#isDeleted <em>Deleted</em>}</li>
+ *   <li>{@link com.abdulaziz.ms.OCV.impl.VCInstanceImpl#isCollection <em>Collection</em>}</li>
  * </ul>
  * </p>
  *
@@ -136,6 +138,46 @@ public class VCInstanceImpl extends VCEntityImpl implements VCInstance {
 	 * @ordered
 	 */
 	protected String notes = NOTES_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #isDeleted() <em>Deleted</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isDeleted()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean DELETED_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isDeleted() <em>Deleted</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isDeleted()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean deleted = DELETED_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #isCollection() <em>Collection</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isCollection()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean COLLECTION_EDEFAULT = false; // TODO The default value literal "" is not valid.
+
+	/**
+	 * The cached value of the '{@link #isCollection() <em>Collection</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isCollection()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean collection = COLLECTION_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -317,6 +359,48 @@ public class VCInstanceImpl extends VCEntityImpl implements VCInstance {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean isCollection() {
+		return collection;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setCollection(boolean newCollection) {
+		boolean oldCollection = collection;
+		collection = newCollection;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, OCVPackage.VC_INSTANCE__COLLECTION, oldCollection, collection));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isDeleted() {
+		return deleted;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDeleted(boolean newDeleted) {
+		boolean oldDeleted = deleted;
+		deleted = newDeleted;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, OCVPackage.VC_INSTANCE__DELETED, oldDeleted, deleted));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -368,6 +452,10 @@ public class VCInstanceImpl extends VCEntityImpl implements VCInstance {
 				return getIdentifier();
 			case OCVPackage.VC_INSTANCE__NOTES:
 				return getNotes();
+			case OCVPackage.VC_INSTANCE__DELETED:
+				return isDeleted();
+			case OCVPackage.VC_INSTANCE__COLLECTION:
+				return isCollection();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -400,6 +488,12 @@ public class VCInstanceImpl extends VCEntityImpl implements VCInstance {
 			case OCVPackage.VC_INSTANCE__NOTES:
 				setNotes((String)newValue);
 				return;
+			case OCVPackage.VC_INSTANCE__DELETED:
+				setDeleted((Boolean)newValue);
+				return;
+			case OCVPackage.VC_INSTANCE__COLLECTION:
+				setCollection((Boolean)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -430,6 +524,12 @@ public class VCInstanceImpl extends VCEntityImpl implements VCInstance {
 			case OCVPackage.VC_INSTANCE__NOTES:
 				setNotes(NOTES_EDEFAULT);
 				return;
+			case OCVPackage.VC_INSTANCE__DELETED:
+				setDeleted(DELETED_EDEFAULT);
+				return;
+			case OCVPackage.VC_INSTANCE__COLLECTION:
+				setCollection(COLLECTION_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -454,6 +554,10 @@ public class VCInstanceImpl extends VCEntityImpl implements VCInstance {
 				return IDENTIFIER_EDEFAULT == null ? identifier != null : !IDENTIFIER_EDEFAULT.equals(identifier);
 			case OCVPackage.VC_INSTANCE__NOTES:
 				return NOTES_EDEFAULT == null ? notes != null : !NOTES_EDEFAULT.equals(notes);
+			case OCVPackage.VC_INSTANCE__DELETED:
+				return deleted != DELETED_EDEFAULT;
+			case OCVPackage.VC_INSTANCE__COLLECTION:
+				return collection != COLLECTION_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -476,6 +580,10 @@ public class VCInstanceImpl extends VCEntityImpl implements VCInstance {
 		result.append(identifier);
 		result.append(", notes: ");
 		result.append(notes);
+		result.append(", Deleted: ");
+		result.append(deleted);
+		result.append(", collection: ");
+		result.append(collection);
 		result.append(')');
 		return result.toString();
 	}

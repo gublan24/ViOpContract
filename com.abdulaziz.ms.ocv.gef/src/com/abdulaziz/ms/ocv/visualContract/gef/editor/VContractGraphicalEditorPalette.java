@@ -13,7 +13,8 @@ import com.abdulaziz.ms.ocv.visualContract.gef.editor.figure.VCEntityFigure;
 import com.abdulaziz.ms.ocv.visualContract.gef.editor.part.vcEntity.VCInstanceFigure;
 import com.abdulaziz.ms.ocv.visualContract.gef.editor.part.vcEntity.VCReturnFigure;
 import com.abdulaziz.ms.ocv.visualContract.gef.factory.VCAlterBox;
-import com.abdulaziz.ms.ocv.visualContract.gef.factory.VCAssociationFactory;
+import com.abdulaziz.ms.ocv.visualContract.gef.factory.VCAssociationCreationFactory;
+import com.abdulaziz.ms.ocv.visualContract.gef.factory.VCAssociationDeletionFactory;
 import com.abdulaziz.ms.ocv.visualContract.gef.factory.VCCollectionBoxFactory;
 import com.abdulaziz.ms.ocv.visualContract.gef.factory.VCEqaulityFactory;
 import com.abdulaziz.ms.ocv.visualContract.gef.factory.VCInstanceFactory;
@@ -51,11 +52,11 @@ public class VContractGraphicalEditorPalette extends PaletteRoot {
 	private void addVContactTool() {
 		
 		CreationToolEntry operationContractParameterCTE = new CreationToolEntry(
-				"Operation Parameter", "Operation Parameter",
+				"Primitive Parameter", "Operation Parameter",
 				new VCParameterFactory(), new Icon(VContractGraphicalEditorPalette.class.getResourceAsStream("parameter_icon.png")), null);
 		group.add(operationContractParameterCTE);
 
-		CreationToolEntry equalityCTE = new CreationToolEntry("Equality ",
+		CreationToolEntry equalityCTE = new CreationToolEntry("Comparator ",
 				"creating new equality  ", new VCEqaulityFactory(), new Icon(VContractGraphicalEditorPalette.class.getResourceAsStream("equal_icon.png")), null);
 		group.add(equalityCTE);
 
@@ -75,11 +76,11 @@ public class VContractGraphicalEditorPalette extends PaletteRoot {
 
 		CreationToolEntry associationCreationEntry = new CreationToolEntry(
 				"Asscoiation Creation", "creating new association ",
-				new VCAssociationFactory(), new Icon(VContractGraphicalEditorPalette.class.getResourceAsStream("association_icon.png")), null);
+				new VCAssociationCreationFactory(), new Icon(VContractGraphicalEditorPalette.class.getResourceAsStream("association_icon.png")), null);
 		group.add(associationCreationEntry);
 		CreationToolEntry associationDeletionEntry = new CreationToolEntry(
-				"Asscoiation Deletion -", "creating new association ",
-				new VCAssociationFactory(), null, null);
+				"Asscoiation Deletion -", "---",
+				new VCAssociationDeletionFactory(), null, null);
 		group.add(associationDeletionEntry);
 		
 		

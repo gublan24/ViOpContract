@@ -245,6 +245,11 @@ public class VContractConditionItemProvider
 			(createChildParameter
 				(OCVPackage.Literals.VCONTRACT_CONDITION__VC_ENTITIES,
 				 OCVFactory.eINSTANCE.createVCAlternativeBox()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(OCVPackage.Literals.VCONTRACT_CONDITION__VC_ENTITIES,
+				 OCVFactory.eINSTANCE.createVCAssociationDeletion()));
 	}
 
 	/**

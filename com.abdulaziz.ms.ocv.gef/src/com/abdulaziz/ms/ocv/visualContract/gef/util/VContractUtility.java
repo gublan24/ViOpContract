@@ -32,8 +32,8 @@ public class VContractUtility {
 
 
 	public static final String VCINSTANCE_NEW = "new";
-	public static final String VCINSTANCE_CURRENT = "existing";
-	public static final String VCINSTANCE_DATASTORE = "retrieved";
+	public static final String VCINSTANCE_EXISTING = "existing";
+	public static final String VCINSTANCE_RETRIEVED = "retrieved";
 	public static final String VCINSTANCE_PARAMETER = "parameter";
 	public static final String VCINSTANCE_TEMPORARY = "temporary";
 

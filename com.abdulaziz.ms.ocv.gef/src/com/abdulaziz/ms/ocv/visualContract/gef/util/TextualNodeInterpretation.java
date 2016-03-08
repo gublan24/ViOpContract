@@ -44,12 +44,12 @@ public class TextualNodeInterpretation {
 		// precondition
 		if (vcInstance.getPrecondition() != null) {
 			if (vcInstance.getType()
-					.equals(VContractUtility.VCINSTANCE_CURRENT))
+					.equals(VContractUtility.VCINSTANCE_EXISTING))
 				interpretation = "There is a current instance "
 						+ vcInstance.getInstanceName() + " of class "
 						+ vcInstance.getUmlClass().getClassName();
 			else if (vcInstance.getType().equals(
-					VContractUtility.VCINSTANCE_DATASTORE))
+					VContractUtility.VCINSTANCE_RETRIEVED))
 				interpretation = "There is an instance "
 						+ vcInstance.getInstanceName() + " of class "
 						+ vcInstance.getUmlClass().getClassName()
@@ -59,7 +59,7 @@ public class TextualNodeInterpretation {
 		// post condition
 		else if (vcInstance.getPostcondition() != null) {
 			if (vcInstance.getType().equals(
-					VContractUtility.VCINSTANCE_DATASTORE))
+					VContractUtility.VCINSTANCE_RETRIEVED))
 				interpretation = "An instance " + vcInstance.getInstanceName()
 						+ " of class "
 						+ vcInstance.getUmlClass().getClassName()

@@ -18,6 +18,8 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link com.abdulaziz.ms.OCV.VCInstance#getType <em>Type</em>}</li>
  *   <li>{@link com.abdulaziz.ms.OCV.VCInstance#getIdentifier <em>Identifier</em>}</li>
  *   <li>{@link com.abdulaziz.ms.OCV.VCInstance#getNotes <em>Notes</em>}</li>
+ *   <li>{@link com.abdulaziz.ms.OCV.VCInstance#isDeleted <em>Deleted</em>}</li>
+ *   <li>{@link com.abdulaziz.ms.OCV.VCInstance#isCollection <em>Collection</em>}</li>
  * </ul>
  * </p>
  *
@@ -175,5 +177,57 @@ public interface VCInstance extends VCEntity {
 	 * @generated
 	 */
 	void setNotes(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Collection</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Collection</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Collection</em>' attribute.
+	 * @see #setCollection(boolean)
+	 * @see com.abdulaziz.ms.OCV.OCVPackage#getVCInstance_Collection()
+	 * @model
+	 * @generated
+	 */
+	boolean isCollection();
+
+	/**
+	 * Sets the value of the '{@link com.abdulaziz.ms.OCV.VCInstance#isCollection <em>Collection</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Collection</em>' attribute.
+	 * @see #isCollection()
+	 * @generated
+	 */
+	void setCollection(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Deleted</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Deleted</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Deleted</em>' attribute.
+	 * @see #setDeleted(boolean)
+	 * @see com.abdulaziz.ms.OCV.OCVPackage#getVCInstance_Deleted()
+	 * @model
+	 * @generated
+	 */
+	boolean isDeleted();
+
+	/**
+	 * Sets the value of the '{@link com.abdulaziz.ms.OCV.VCInstance#isDeleted <em>Deleted</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Deleted</em>' attribute.
+	 * @see #isDeleted()
+	 * @generated
+	 */
+	void setDeleted(boolean value);
 
 } // VCInstance

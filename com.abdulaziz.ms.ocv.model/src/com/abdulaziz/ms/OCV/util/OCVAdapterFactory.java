@@ -180,6 +180,10 @@ public class OCVAdapterFactory extends AdapterFactoryImpl {
 				return createVContractLoopBoxAdapter();
 			}
 			@Override
+			public Adapter caseVCAssociationDeletion(VCAssociationDeletion object) {
+				return createVCAssociationDeletionAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -588,6 +592,20 @@ public class OCVAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createVContractLoopBoxAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.abdulaziz.ms.OCV.VCAssociationDeletion <em>VC Association Deletion</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.abdulaziz.ms.OCV.VCAssociationDeletion
+	 * @generated
+	 */
+	public Adapter createVCAssociationDeletionAdapter() {
 		return null;
 	}
 

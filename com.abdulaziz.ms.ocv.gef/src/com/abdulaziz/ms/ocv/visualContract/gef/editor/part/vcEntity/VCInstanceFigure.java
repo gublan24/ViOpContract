@@ -26,6 +26,7 @@ import org.eclipse.swt.graphics.RGB;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Widget;
 
+import com.abdulaziz.ms.OCV.VCInstance;
 import com.abdulaziz.ms.ocv.visualContract.gef.editor.figure.VCEntityFigure;
 import com.abdulaziz.ms.ocv.visualContract.gef.util.VContractUtility;
 
@@ -38,6 +39,7 @@ public class VCInstanceFigure extends Figure implements VCEntityFigure {
 	private static String ICON = "entity.gif";
 	private Color fillColor ;
 	private Color instanceFilling;
+	private VCInstance vcInstnace;
 	public VCInstanceFigure() {
 
 		ToolbarLayout layout = new ToolbarLayout();
@@ -63,13 +65,13 @@ public class VCInstanceFigure extends Figure implements VCEntityFigure {
 
 	@Override
 	protected void paintFigure(Graphics graphics) {
-		Rectangle r = getBounds().getCopy();
+		Rectangle mainRectangle = getBounds().getCopy();
 
-		int x = r.x;
-		int y = r.y;
+		int x = mainRectangle.x;
+		int y = mainRectangle.y;
 		graphics.setLineWidth(2);
 
-		Rectangle r2 = new Rectangle(x, y, r.width - 2, r.height - 15);
+		Rectangle shapeRrectangle = new Rectangle(x, y, mainRectangle.width - 2, mainRectangle.height - 15);
 
 		
 
@@ -80,7 +82,7 @@ public class VCInstanceFigure extends Figure implements VCEntityFigure {
 			centerFix = 27;
 			fillColor = new Color(null, 255, 255, 153);
 			break;
-		case VContractUtility.VCINSTANCE_DATASTORE:
+		case VContractUtility.VCINSTANCE_RETRIEVED:
 			centerFix = 40;
 			fillColor = new Color(null, 221, 215, 230);
 			break;
@@ -88,62 +90,69 @@ public class VCInstanceFigure extends Figure implements VCEntityFigure {
 			centerFix = 45;
 			fillColor = new Color(null, 194, 220, 220);
 			break;
-		case VContractUtility.VCINSTANCE_CURRENT:
+		case VContractUtility.VCINSTANCE_EXISTING:
 			fillColor = new Color(null, 253, 200, 100);
 			centerFix = 33;
 			break;
+		case VContractUtility.VCINSTANCE_TEMPORARY:
+			fillColor = new Color(null, 250,250,250);
+			centerFix = 40;
+
+			break;
 		default:
 			centerFix = 33;
-			break;
 		}
 		
-		/*
-		 setBackgroundColor(fillColor);
-		graphics.fillOval(r2);
-		graphics.drawOval(r2)
-		 */
-		
-		/*
-		 * Collection case 
-		 */
 		setBackgroundColor(fillColor);
-		graphics.fillOval(r2);
-		graphics.drawOval(r2);
-		Rectangle r3 = r2.getCopy();
-		r2.shrink(3, 3);
-		r3.shrink(3, 3);
-		Rectangle r4 = r3.getCopy();
-		r4.shrink(3, 3);
-
-		r3.x = r3.x +3;
-		r3.y = r3.y +3;
-		r4.x = r4.x +6;
-		r4.y = r4.y +6;
-
-		graphics.drawArc(r3, 0, 270);
-		graphics.drawArc(r4, 0, 270);
-
-
-		
-		
-		
-		// --- 
-		graphics.drawString("<<" + instanceType + ">>", r2.getCenter().x - centerFix, r2.getCenter().y - 6);
-
-		graphics.drawLine(r.getBottomLeft().x - 2, r.getBottomLeft().y - 14,r.getBottomRight().x - 2, r.getBottomLeft().y - 14);
-
-		graphics.drawString(instanceName + ":" + umlClassName, r2.x + 4, r.y+ r.height - 12);
-		
+		graphics.fillOval(shapeRrectangle);
+		graphics.drawOval(shapeRrectangle);
+		 
 		
 		/*
-		 * Deleted instances
+		 * Collection Case 
+		 */
 		
+		if (vcInstnace.isCollection()) {
+			setBackgroundColor(fillColor);
+			graphics.fillOval(shapeRrectangle);
+			graphics.drawOval(shapeRrectangle);
+			Rectangle arc1Rectangle = shapeRrectangle.getCopy();
+			shapeRrectangle.shrink(3, 3);
+			arc1Rectangle.shrink(3, 3);
+			Rectangle arc2Rectangle = arc1Rectangle.getCopy();
+			arc2Rectangle.shrink(3, 3);
+
+			arc1Rectangle.x = arc1Rectangle.x + 3;
+			arc1Rectangle.y = arc1Rectangle.y + 3;
+			arc2Rectangle.x = arc2Rectangle.x + 6;
+			arc2Rectangle.y = arc2Rectangle.y + 6;
+
+			graphics.drawArc(arc1Rectangle, 0, 270);
+			graphics.drawArc(arc2Rectangle, 0, 270);
+
+		}
+		// --- END Collection Case 
+		graphics.drawString("<<" + instanceType + ">>", shapeRrectangle.getCenter().x - centerFix, shapeRrectangle.getCenter().y - 6);
+		graphics.drawLine(mainRectangle.getBottomLeft().x - 2, mainRectangle.getBottomLeft().y - 14,mainRectangle.getBottomRight().x - 2, mainRectangle.getBottomLeft().y - 14);
+		graphics.drawString(instanceName + ":" + umlClassName, shapeRrectangle.x + 4, mainRectangle.y+ mainRectangle.height - 12);
+		
+		
+		// Deleted Instance case 
+		if(vcInstnace.isDeleted())
+		{
 		graphics.setForegroundColor(ColorConstants.red);
 		graphics.setLineWidth(5);
-		graphics.drawLine(r2.getTopLeft(),r2.getBottomRight());
-		graphics.drawLine(r2.getTopRight(),r2.getBottomLeft());
-		graphics.drawOval(r2);
- */
+		shapeRrectangle.shrink(2,2);
+		Rectangle r = shapeRrectangle.getCopy();
+		r.shrink(2,40);
+		//graphics.drawLine(shapeRrectangle.getTopRight(),shapeRrectangle.getBottomLeft());
+		graphics.drawLine(shapeRrectangle.getTopLeft(),shapeRrectangle.getBottomRight());
+		graphics.drawLine(shapeRrectangle.getTopRight(),shapeRrectangle.getBottomLeft());
+		graphics.setLineWidth(7);
+		graphics.drawOval(shapeRrectangle);
+		}
+		// --- End Deleted Instance case
+ 
 	}
 
 	public void setName(String string) {
@@ -179,6 +188,10 @@ public class VCInstanceFigure extends Figure implements VCEntityFigure {
 	
 		
 
+	}
+
+	public void setVCInstance(VCInstance instanceModel) {
+		this.vcInstnace = instanceModel;
 	}
 
 }

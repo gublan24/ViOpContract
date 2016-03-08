@@ -63,6 +63,8 @@ public class VCInstanceItemProvider
 			addTypePropertyDescriptor(object);
 			addIdentifierPropertyDescriptor(object);
 			addNotesPropertyDescriptor(object);
+			addDeletedPropertyDescriptor(object);
+			addCollectionPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -200,6 +202,50 @@ public class VCInstanceItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Collection feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addCollectionPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_VCInstance_collection_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_VCInstance_collection_feature", "_UI_VCInstance_type"),
+				 OCVPackage.Literals.VC_INSTANCE__COLLECTION,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Deleted feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addDeletedPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_VCInstance_Deleted_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_VCInstance_Deleted_feature", "_UI_VCInstance_type"),
+				 OCVPackage.Literals.VC_INSTANCE__DELETED,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This returns VCInstance.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -240,6 +286,8 @@ public class VCInstanceItemProvider
 			case OCVPackage.VC_INSTANCE__TYPE:
 			case OCVPackage.VC_INSTANCE__IDENTIFIER:
 			case OCVPackage.VC_INSTANCE__NOTES:
+			case OCVPackage.VC_INSTANCE__DELETED:
+			case OCVPackage.VC_INSTANCE__COLLECTION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

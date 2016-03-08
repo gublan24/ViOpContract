@@ -6,6 +6,7 @@ import org.eclipse.gef.EditPartFactory;
 import com.abdulaziz.ms.OCV.ConditionOption;
 import com.abdulaziz.ms.OCV.VCAlternativeBox;
 import com.abdulaziz.ms.OCV.VCAssociation;
+import com.abdulaziz.ms.OCV.VCAssociationDeletion;
 import com.abdulaziz.ms.OCV.VCCollectionBox;
 import com.abdulaziz.ms.OCV.VCContract;
 import com.abdulaziz.ms.OCV.VCEntity;
@@ -26,6 +27,7 @@ import com.abdulaziz.ms.OCV.VContractLoopBox;
 import com.abdulaziz.ms.ocv.visualContract.gef.editor.part.vcEntity.VCAlternativeBoxEditPart;
 import com.abdulaziz.ms.ocv.visualContract.gef.editor.part.vcEntity.VCAssociationEditPart;
 import com.abdulaziz.ms.ocv.visualContract.gef.editor.part.vcEntity.VCCollectionBoxEditPart;
+import com.abdulaziz.ms.ocv.visualContract.gef.editor.part.vcEntity.VCDeleteAssociationEditPart;
 import com.abdulaziz.ms.ocv.visualContract.gef.editor.part.vcEntity.VCEqualityEditPart;
 import com.abdulaziz.ms.ocv.visualContract.gef.editor.part.vcEntity.VCInstanceEditPart;
 import com.abdulaziz.ms.ocv.visualContract.gef.editor.part.vcEntity.VCInstanceFieldEditPart;
@@ -92,13 +94,16 @@ public class ContractEditPartFactory implements EditPartFactory {
 		if (model instanceof VCInstance) {
 			
 			editPart = new VCInstanceEditPart();
-			
+
+		} else if (model instanceof VCAssociationDeletion) {
+
+			editPart = new VCDeleteAssociationEditPart();
+
 		} else if (model instanceof VCAssociation) {
-			
+
 			editPart = new VCAssociationEditPart();
-			
-		}  else if (model instanceof VCParameter)
-		{
+
+		} else if (model instanceof VCParameter) {
 			editPart = new VCParameterEditPart();
 		}
 		else if (model instanceof VCValue)

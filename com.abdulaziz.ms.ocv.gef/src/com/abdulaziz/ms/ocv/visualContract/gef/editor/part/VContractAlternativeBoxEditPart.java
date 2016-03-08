@@ -40,7 +40,7 @@ public class VContractAlternativeBoxEditPart extends VContractConditionEditPart 
 	protected  void addDroppedVCInstance(VCInstance newInstance)
 	{
 		VContractAlternativeBox vcContractCondition = (VContractAlternativeBox) getModel();
-		newInstance.setType(VContractUtility.VCINSTANCE_DATASTORE);
+		newInstance.setType(VContractUtility.VCINSTANCE_RETRIEVED);
 		newInstance.setVContractCondition(vcContractCondition);		
 		
 		vcContractCondition.getVcEntities().add(newInstance);

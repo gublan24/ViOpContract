@@ -82,6 +82,7 @@ public class OCVFactoryImpl extends EFactoryImpl implements OCVFactory {
 			case OCVPackage.VCONTRACT_ALTERNATIVE_BOX: return createVContractAlternativeBox();
 			case OCVPackage.VCONTRACT_COLLECTION_BOX: return createVContractCollectionBox();
 			case OCVPackage.VCONTRACT_LOOP_BOX: return createVContractLoopBox();
+			case OCVPackage.VC_ASSOCIATION_DELETION: return createVCAssociationDeletion();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -380,6 +381,16 @@ public class OCVFactoryImpl extends EFactoryImpl implements OCVFactory {
 	public VContractLoopBox createVContractLoopBox() {
 		VContractLoopBoxImpl vContractLoopBox = new VContractLoopBoxImpl();
 		return vContractLoopBox;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public VCAssociationDeletion createVCAssociationDeletion() {
+		VCAssociationDeletionImpl vcAssociationDeletion = new VCAssociationDeletionImpl();
+		return vcAssociationDeletion;
 	}
 
 	/**

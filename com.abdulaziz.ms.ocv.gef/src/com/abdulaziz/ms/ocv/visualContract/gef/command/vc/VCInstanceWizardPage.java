@@ -39,6 +39,9 @@ public class VCInstanceWizardPage extends WizardPage {
 	private Button parameterRadioButton;
 	private Group parameterGroup;
 	private List list;
+	private Button collectionCheckButton;
+	private Button deletedInstanceCheckButton;
+	
 	protected VCInstanceWizardPage(String pageName) {
 		super(pageName);
 		setTitle("Domain Instance Property");
@@ -67,19 +70,19 @@ public class VCInstanceWizardPage extends WizardPage {
 		instanceNametext.setText(instance.getInstanceName());
 		
 		newRadioButton = new Button(container, SWT.RADIO);
-		newRadioButton.setBounds(102, 60, 90, 16);
+		newRadioButton.setBounds(102, 60, 58, 16);
 		newRadioButton.setText(VContractUtility.VCINSTANCE_NEW);
 		InnerRadioSelectionListener listener = new InnerRadioSelectionListener();
 		newRadioButton.addSelectionListener( listener);
 			
 		Button currentRadioButton = new Button(container, SWT.RADIO);
-		currentRadioButton.setBounds(102, 80, 90, 16);
-		currentRadioButton.setText(VContractUtility.VCINSTANCE_CURRENT);
+		currentRadioButton.setBounds(102, 80, 66, 16);
+		currentRadioButton.setText(VContractUtility.VCINSTANCE_EXISTING);
 		currentRadioButton.addSelectionListener( listener);
 
 		datastoreRadioButton = new Button(container, SWT.RADIO);
 		datastoreRadioButton.setBounds(102, 100, 90, 16);
-		datastoreRadioButton.setText(VContractUtility.VCINSTANCE_DATASTORE);
+		datastoreRadioButton.setText(VContractUtility.VCINSTANCE_RETRIEVED);
 		
 		notesText = new Text(container, SWT.BORDER | SWT.V_SCROLL | SWT.MULTI);
 		notesText.setBounds(57, 256, 419, 42);
@@ -87,28 +90,6 @@ public class VCInstanceWizardPage extends WizardPage {
 		Label lblNotes = new Label(container, SWT.NONE);
 		lblNotes.setBounds(10, 259, 43, 15);
 		lblNotes.setText("Notes:");
-		
-		dataStoreIdentifierGroup = new Group(container, SWT.NONE);
-		dataStoreIdentifierGroup.setLocation(11, 138);
-		dataStoreIdentifierGroup.setSize(302, 100);
-		dataStoreIdentifierGroup.setText("Data Store Identifier");
-		
-		uniqueRadioButton = new Button(dataStoreIdentifierGroup, SWT.RADIO);
-		uniqueRadioButton.setBounds(10, 22, 90, 16);
-		uniqueRadioButton.setText("Unique");
-		uniqueRadioButton.setData(VContractUtility.DATA_STORE_UNIQUE);
-		
-			allRadioButton = new Button(dataStoreIdentifierGroup, SWT.RADIO);
-			allRadioButton.setBounds(10, 44, 139, 16);
-			allRadioButton.setText("All (collection)");
-			allRadioButton.setData(VContractUtility.DATA_STORE_ALL);
-			
-			notExistsRadioButton = new Button(dataStoreIdentifierGroup, SWT.RADIO);
-			notExistsRadioButton.setBounds(10, 66, 90, 16);
-			notExistsRadioButton.setText("Not exists ");
-			notExistsRadioButton.setData(VContractUtility.DATA_STORE_NOT_EXISTS);
-			
-			dataStoreIdentifierGroup.setVisible(false);
 		
 		parameterRadioButton = new Button(container, SWT.RADIO);
 		parameterRadioButton.setBounds(102, 122, 90, 16);
@@ -118,12 +99,50 @@ public class VCInstanceWizardPage extends WizardPage {
 		parameterRadioButton.setEnabled(false);
 		
 		parameterGroup = new Group(container, SWT.NONE);
-		parameterGroup.setBounds(319, 138, 315, 100);
+		parameterGroup.setBounds(161, 144, 487, 100);
 		parameterGroup.setVisible(false);
 		parameterGroup.setText("Available parameters: ");
-			
-		list = new List(parameterGroup, SWT.BORDER);
-		list.setBounds(20, 20, 224, 70);
+		
+		collectionCheckButton = new Button(container, SWT.CHECK);
+		collectionCheckButton.setBounds(10, 154, 93, 16);
+		collectionCheckButton.setText("Collection");
+		collectionCheckButton.setSelection(instance.isCollection());
+		
+		deletedInstanceCheckButton = new Button(container, SWT.CHECK);
+		deletedInstanceCheckButton.setBounds(10, 178, 130, 16);
+		deletedInstanceCheckButton.setText("Delete Instance ");
+		deletedInstanceCheckButton.setSelection(instance.isDeleted());
+		
+		dataStoreIdentifierGroup = new Group(container, SWT.NONE);
+		dataStoreIdentifierGroup.setBounds(135, 144, 302, 100);
+		dataStoreIdentifierGroup.setText("Data Store Identifier");
+		
+		uniqueRadioButton = new Button(dataStoreIdentifierGroup, SWT.RADIO);
+		uniqueRadioButton.setBounds(10, 22, 90, 16);
+		uniqueRadioButton.setText("Unique");
+		uniqueRadioButton.setData(VContractUtility.DATA_STORE_UNIQUE);
+
+		allRadioButton = new Button(dataStoreIdentifierGroup, SWT.RADIO);
+		allRadioButton.setBounds(10, 44, 139, 16);
+		allRadioButton.setText("All (collection)");
+		allRadioButton.setData(VContractUtility.DATA_STORE_ALL);
+
+		notExistsRadioButton = new Button(dataStoreIdentifierGroup, SWT.RADIO);
+		notExistsRadioButton.setBounds(10, 66, 90, 16);
+		notExistsRadioButton.setText("Not exists ");
+		notExistsRadioButton.setData(VContractUtility.DATA_STORE_NOT_EXISTS);
+
+		dataStoreIdentifierGroup.setVisible(false);
+
+		list = new List(dataStoreIdentifierGroup, SWT.BORDER);
+		list.setBounds(165, 19, 224, 70);
+		
+		Button temporaryRadioButton = new Button(container, SWT.RADIO);
+		temporaryRadioButton.setBounds(174, 60, 90, 16);
+		temporaryRadioButton.setText("temporary");
+		temporaryRadioButton.setData(VContractUtility.VCINSTANCE_TEMPORARY);
+		temporaryRadioButton.addSelectionListener( listener);
+
 		
 
 		if(instance.getType().equals(VContractUtility.VCINSTANCE_PARAMETER))
@@ -162,9 +181,11 @@ public class VCInstanceWizardPage extends WizardPage {
 		datastoreRadioButton.addSelectionListener( listener);
 		if(instance.getType().equals(VContractUtility.VCINSTANCE_NEW))
 			newRadioButton.setSelection(true);
-		if(instance.getType().equals(VContractUtility.VCINSTANCE_CURRENT))
+		if(instance.getType().equals(VContractUtility.VCINSTANCE_EXISTING))
 			currentRadioButton.setSelection(true);
-		if(instance.getType().equals(VContractUtility.VCINSTANCE_DATASTORE))
+		if(instance.getType().equals(VContractUtility.VCINSTANCE_TEMPORARY))
+		temporaryRadioButton.setSelection(true);
+		if(instance.getType().equals(VContractUtility.VCINSTANCE_RETRIEVED))
 		{
 			datastoreRadioButton.setSelection(true);
 			dataStoreIdentifierGroup.setVisible(true);
@@ -233,6 +254,10 @@ public class VCInstanceWizardPage extends WizardPage {
 	}
 	public void updateModel()
 	{
+	
+		instance.setCollection(collectionCheckButton.getSelection());
+		instance.setDeleted(deletedInstanceCheckButton.getSelection());
+		
 		if (dataStoreIdentifierGroup.isVisible()) {
 			if (uniqueRadioButton.getSelection())
 				instance.setIdentifier((String) uniqueRadioButton.getData());

@@ -25,6 +25,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *   <li>{@link com.abdulaziz.ms.OCV.impl.VCAssociationImpl#getSecondInstance <em>Second Instance</em>}</li>
  *   <li>{@link com.abdulaziz.ms.OCV.impl.VCAssociationImpl#getFirstInstanceVariable <em>First Instance Variable</em>}</li>
  *   <li>{@link com.abdulaziz.ms.OCV.impl.VCAssociationImpl#getSecondInstanceVariable <em>Second Instance Variable</em>}</li>
+ *   <li>{@link com.abdulaziz.ms.OCV.impl.VCAssociationImpl#isUnidirectional <em>Unidirectional</em>}</li>
  * </ul>
  * </p>
  *
@@ -70,6 +71,26 @@ public class VCAssociationImpl extends VCEntityImpl implements VCAssociation {
 	 * @ordered
 	 */
 	protected UMLVariable secondInstanceVariable;
+
+	/**
+	 * The default value of the '{@link #isUnidirectional() <em>Unidirectional</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isUnidirectional()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean UNIDIRECTIONAL_EDEFAULT = false; // TODO The default value literal "" is not valid.
+
+	/**
+	 * The cached value of the '{@link #isUnidirectional() <em>Unidirectional</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isUnidirectional()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean unidirectional = UNIDIRECTIONAL_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -247,6 +268,27 @@ public class VCAssociationImpl extends VCEntityImpl implements VCAssociation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean isUnidirectional() {
+		return unidirectional;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setUnidirectional(boolean newUnidirectional) {
+		boolean oldUnidirectional = unidirectional;
+		unidirectional = newUnidirectional;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, OCVPackage.VC_ASSOCIATION__UNIDIRECTIONAL, oldUnidirectional, unidirectional));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -262,6 +304,8 @@ public class VCAssociationImpl extends VCEntityImpl implements VCAssociation {
 			case OCVPackage.VC_ASSOCIATION__SECOND_INSTANCE_VARIABLE:
 				if (resolve) return getSecondInstanceVariable();
 				return basicGetSecondInstanceVariable();
+			case OCVPackage.VC_ASSOCIATION__UNIDIRECTIONAL:
+				return isUnidirectional();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -285,6 +329,9 @@ public class VCAssociationImpl extends VCEntityImpl implements VCAssociation {
 				return;
 			case OCVPackage.VC_ASSOCIATION__SECOND_INSTANCE_VARIABLE:
 				setSecondInstanceVariable((UMLVariable)newValue);
+				return;
+			case OCVPackage.VC_ASSOCIATION__UNIDIRECTIONAL:
+				setUnidirectional((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -310,6 +357,9 @@ public class VCAssociationImpl extends VCEntityImpl implements VCAssociation {
 			case OCVPackage.VC_ASSOCIATION__SECOND_INSTANCE_VARIABLE:
 				setSecondInstanceVariable((UMLVariable)null);
 				return;
+			case OCVPackage.VC_ASSOCIATION__UNIDIRECTIONAL:
+				setUnidirectional(UNIDIRECTIONAL_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -330,8 +380,26 @@ public class VCAssociationImpl extends VCEntityImpl implements VCAssociation {
 				return firstInstanceVariable != null;
 			case OCVPackage.VC_ASSOCIATION__SECOND_INSTANCE_VARIABLE:
 				return secondInstanceVariable != null;
+			case OCVPackage.VC_ASSOCIATION__UNIDIRECTIONAL:
+				return unidirectional != UNIDIRECTIONAL_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (unidirectional: ");
+		result.append(unidirectional);
+		result.append(')');
+		return result.toString();
 	}
 
 } //VCAssociationImpl

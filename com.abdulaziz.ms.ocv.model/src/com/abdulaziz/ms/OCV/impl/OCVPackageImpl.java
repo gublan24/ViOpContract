@@ -11,6 +11,7 @@ import com.abdulaziz.ms.OCV.UMLLink;
 import com.abdulaziz.ms.OCV.UMLVariable;
 import com.abdulaziz.ms.OCV.VCAlternativeBox;
 import com.abdulaziz.ms.OCV.VCAssociation;
+import com.abdulaziz.ms.OCV.VCAssociationDeletion;
 import com.abdulaziz.ms.OCV.VCCollectionBox;
 import com.abdulaziz.ms.OCV.VCContract;
 import com.abdulaziz.ms.OCV.VCEntity;
@@ -244,6 +245,13 @@ public class OCVPackageImpl extends EPackageImpl implements OCVPackage {
 	 * @generated
 	 */
 	private EClass vContractLoopBoxEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass vcAssociationDeletionEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1135,6 +1143,24 @@ public class OCVPackageImpl extends EPackageImpl implements OCVPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getVCInstance_Collection() {
+		return (EAttribute)vcInstanceEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getVCInstance_Deleted() {
+		return (EAttribute)vcInstanceEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getVCInstanceField() {
 		return vcInstanceFieldEClass;
 	}
@@ -1200,6 +1226,15 @@ public class OCVPackageImpl extends EPackageImpl implements OCVPackage {
 	 */
 	public EReference getVCAssociation_SecondInstanceVariable() {
 		return (EReference)vcAssociationEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getVCAssociation_Unidirectional() {
+		return (EAttribute)vcAssociationEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -1504,6 +1539,15 @@ public class OCVPackageImpl extends EPackageImpl implements OCVPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getVCAssociationDeletion() {
+		return vcAssociationDeletionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EDataType getRectangle() {
 		return rectangleEDataType;
 	}
@@ -1650,6 +1694,8 @@ public class OCVPackageImpl extends EPackageImpl implements OCVPackage {
 		createEAttribute(vcInstanceEClass, VC_INSTANCE__TYPE);
 		createEAttribute(vcInstanceEClass, VC_INSTANCE__IDENTIFIER);
 		createEAttribute(vcInstanceEClass, VC_INSTANCE__NOTES);
+		createEAttribute(vcInstanceEClass, VC_INSTANCE__DELETED);
+		createEAttribute(vcInstanceEClass, VC_INSTANCE__COLLECTION);
 
 		vcInstanceFieldEClass = createEClass(VC_INSTANCE_FIELD);
 		createEReference(vcInstanceFieldEClass, VC_INSTANCE_FIELD__VC_INSTANCE);
@@ -1660,6 +1706,7 @@ public class OCVPackageImpl extends EPackageImpl implements OCVPackage {
 		createEReference(vcAssociationEClass, VC_ASSOCIATION__SECOND_INSTANCE);
 		createEReference(vcAssociationEClass, VC_ASSOCIATION__FIRST_INSTANCE_VARIABLE);
 		createEReference(vcAssociationEClass, VC_ASSOCIATION__SECOND_INSTANCE_VARIABLE);
+		createEAttribute(vcAssociationEClass, VC_ASSOCIATION__UNIDIRECTIONAL);
 
 		vcParameterEClass = createEClass(VC_PARAMETER);
 		createEReference(vcParameterEClass, VC_PARAMETER__VC_INSTANCE);
@@ -1703,6 +1750,8 @@ public class OCVPackageImpl extends EPackageImpl implements OCVPackage {
 
 		vContractLoopBoxEClass = createEClass(VCONTRACT_LOOP_BOX);
 		createEReference(vContractLoopBoxEClass, VCONTRACT_LOOP_BOX__VC_COLLECTION_BOX);
+
+		vcAssociationDeletionEClass = createEClass(VC_ASSOCIATION_DELETION);
 
 		// Create data types
 		absoluteBendpointEDataType = createEDataType(ABSOLUTE_BENDPOINT);
@@ -1754,6 +1803,7 @@ public class OCVPackageImpl extends EPackageImpl implements OCVPackage {
 		vContractAlternativeBoxEClass.getESuperTypes().add(this.getVContractCondition());
 		vContractCollectionBoxEClass.getESuperTypes().add(this.getVContractCondition());
 		vContractLoopBoxEClass.getESuperTypes().add(this.getVContractCondition());
+		vcAssociationDeletionEClass.getESuperTypes().add(this.getVCEntity());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(umlClassDiagramEClass, UMLClassDiagram.class, "UMLClassDiagram", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1872,6 +1922,8 @@ public class OCVPackageImpl extends EPackageImpl implements OCVPackage {
 		initEAttribute(getVCInstance_Type(), ecorePackage.getEString(), "type", null, 0, 1, VCInstance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getVCInstance_Identifier(), ecorePackage.getEString(), "identifier", null, 0, 1, VCInstance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getVCInstance_Notes(), ecorePackage.getEString(), "notes", null, 0, 1, VCInstance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getVCInstance_Deleted(), ecorePackage.getEBoolean(), "Deleted", null, 0, 1, VCInstance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getVCInstance_Collection(), ecorePackage.getEBoolean(), "collection", null, 0, 1, VCInstance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(vcInstanceFieldEClass, VCInstanceField.class, "VCInstanceField", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getVCInstanceField_VCInstance(), this.getVCInstance(), this.getVCInstance_Fields(), "vCInstance", null, 0, 1, VCInstanceField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1882,6 +1934,7 @@ public class OCVPackageImpl extends EPackageImpl implements OCVPackage {
 		initEReference(getVCAssociation_SecondInstance(), this.getVCInstance(), null, "secondInstance", null, 0, 1, VCAssociation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getVCAssociation_FirstInstanceVariable(), this.getUMLVariable(), null, "firstInstanceVariable", null, 0, 1, VCAssociation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getVCAssociation_SecondInstanceVariable(), this.getUMLVariable(), null, "secondInstanceVariable", null, 0, 1, VCAssociation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getVCAssociation_Unidirectional(), ecorePackage.getEBoolean(), "unidirectional", null, 0, 1, VCAssociation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(vcParameterEClass, VCParameter.class, "VCParameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getVCParameter_VCInstance(), this.getVCInstance(), null, "vCInstance", null, 0, 1, VCParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1928,6 +1981,8 @@ public class OCVPackageImpl extends EPackageImpl implements OCVPackage {
 
 		initEClass(vContractLoopBoxEClass, VContractLoopBox.class, "VContractLoopBox", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getVContractLoopBox_VcCollectionBox(), this.getVCLoop(), this.getVCLoop_VcContractLoopBox(), "vcCollectionBox", null, 0, 1, VContractLoopBox.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(vcAssociationDeletionEClass, VCAssociationDeletion.class, "VCAssociationDeletion", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Initialize data types
 		initEDataType(absoluteBendpointEDataType, AbsoluteBendpoint.class, "AbsoluteBendpoint", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);

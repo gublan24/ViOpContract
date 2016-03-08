@@ -40,6 +40,8 @@ public class VCInstanceEditPart extends VCEntityEditPart {
 		else 
 		{
 		instanceFigure.setUmlClassName(instanceModel.getUmlClass().getClassName());
+		instanceFigure.setVCInstance(instanceModel);
+
 		
 		}
 		instanceFigure.setInstanceType(instanceModel.getType());

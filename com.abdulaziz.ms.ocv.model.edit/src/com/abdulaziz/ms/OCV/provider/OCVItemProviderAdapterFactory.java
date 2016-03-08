@@ -670,6 +670,29 @@ public class OCVItemProviderAdapterFactory extends OCVAdapterFactory implements 
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link com.abdulaziz.ms.OCV.VCAssociationDeletion} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected VCAssociationDeletionItemProvider vcAssociationDeletionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.abdulaziz.ms.OCV.VCAssociationDeletion}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createVCAssociationDeletionAdapter() {
+		if (vcAssociationDeletionItemProvider == null) {
+			vcAssociationDeletionItemProvider = new VCAssociationDeletionItemProvider(this);
+		}
+
+		return vcAssociationDeletionItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -794,6 +817,7 @@ public class OCVItemProviderAdapterFactory extends OCVAdapterFactory implements 
 		if (vContractAlternativeBoxItemProvider != null) vContractAlternativeBoxItemProvider.dispose();
 		if (vContractCollectionBoxItemProvider != null) vContractCollectionBoxItemProvider.dispose();
 		if (vContractLoopBoxItemProvider != null) vContractLoopBoxItemProvider.dispose();
+		if (vcAssociationDeletionItemProvider != null) vcAssociationDeletionItemProvider.dispose();
 	}
 
 }

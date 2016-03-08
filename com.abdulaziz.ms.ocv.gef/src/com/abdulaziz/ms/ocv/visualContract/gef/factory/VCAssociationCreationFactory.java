@@ -6,13 +6,13 @@ import org.eclipse.gef.requests.CreationFactory;
 import com.abdulaziz.ms.OCV.OCVFactory;
 import com.abdulaziz.ms.OCV.VCAssociation;
 
-public class VCAssociationFactory implements CreationFactory {
+public class VCAssociationCreationFactory implements CreationFactory {
 
 	@Override
 	public Object getNewObject() {
-		VCAssociation a = OCVFactory.eINSTANCE.createVCAssociation();
-		a.setConstraints(new Rectangle(10,10,35,35));
-		return a;
+		VCAssociation associationModel = OCVFactory.eINSTANCE.createVCAssociation();
+		associationModel.setConstraints(new Rectangle(10,10,35,35));
+		return associationModel;
 	}
 
 	@Override

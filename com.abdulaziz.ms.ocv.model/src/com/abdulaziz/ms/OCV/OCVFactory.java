@@ -256,6 +256,15 @@ public interface OCVFactory extends EFactory {
 	VContractLoopBox createVContractLoopBox();
 
 	/**
+	 * Returns a new object of class '<em>VC Association Deletion</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>VC Association Deletion</em>'.
+	 * @generated
+	 */
+	VCAssociationDeletion createVCAssociationDeletion();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

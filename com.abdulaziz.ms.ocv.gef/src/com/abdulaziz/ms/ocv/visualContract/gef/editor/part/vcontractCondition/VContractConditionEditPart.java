@@ -75,7 +75,7 @@ public class VContractConditionEditPart extends AbstractGraphicalEditPart
 	protected  void addDroppedVCInstance(VCInstance newInstance)
 	{
 		VContractCondition vcContractCondition = (VContractCondition) getModel();
-		newInstance.setType(VContractUtility.VCINSTANCE_DATASTORE);
+		newInstance.setType(VContractUtility.VCINSTANCE_RETRIEVED);
 		newInstance.setVContractCondition(vcContractCondition);		
 		
 		vcContractCondition.getVcEntities().add(newInstance);

@@ -17,9 +17,10 @@ import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.Image;
 
 import com.abdulaziz.ms.OCV.VCAssociation;
+import com.abdulaziz.ms.OCV.VCAssociationDeletion;
 import com.abdulaziz.ms.ocv.visualContract.gef.editor.figure.VCEntityFigure;
 
-public class VCAssociationFigure extends Figure implements VCEntityFigure {
+public class VCDeleteAssociationFigure extends Figure implements VCEntityFigure {
 	
 	private static final String ICON = "link-icon.gif";
 	private Label label;
@@ -27,7 +28,7 @@ public class VCAssociationFigure extends Figure implements VCEntityFigure {
 	private ConnectionAnchor connectionAnchor;
 	private Panel mainPanelFigure;
 	private ImageFigure image;
-	private VCAssociation vAssociation;
+	private VCAssociationDeletion vAssociationDeletion;
 	private Color greenFillColor;
 	private Color redFillColor;
 	private Color fillColor;
@@ -42,7 +43,7 @@ public class VCAssociationFigure extends Figure implements VCEntityFigure {
 			
 	}
 	
-	public VCAssociationFigure()
+	public VCDeleteAssociationFigure()
 	{
 		ToolbarLayout layout = new ToolbarLayout();
 
@@ -89,7 +90,7 @@ public class VCAssociationFigure extends Figure implements VCEntityFigure {
 		*/
 		//graphics.drawOval(r);
 		
-		
+		/*
 		int dimOfIntersection =mainRectangle.width/6;
 		Rectangle leftOval  = new Rectangle(mainRectangle.getTopLeft().x, mainRectangle.getTopLeft().y, mainRectangle.width/2+dimOfIntersection,mainRectangle.height);
 		Rectangle rightOval  = new Rectangle(mainRectangle.getTopLeft().x+mainRectangle.width/2 -dimOfIntersection, mainRectangle.getTopLeft().y, mainRectangle.width/2+dimOfIntersection,mainRectangle.height);
@@ -101,7 +102,7 @@ public class VCAssociationFigure extends Figure implements VCEntityFigure {
 		graphics.setLineWidth(3);
 		graphics.drawOval(leftOval);
 		graphics.drawOval(rightOval);
-	/*
+	*/
 		
 	// delete instance shape 
 		int whiteSeprator = mainRectangle.width/10;
@@ -123,7 +124,7 @@ public class VCAssociationFigure extends Figure implements VCEntityFigure {
 		graphics.setLineWidth(whiteSeprator);
 		graphics.setForegroundColor(ColorConstants.white);
 		graphics.drawLine(mainRectangle.getCenter().x, mainRectangle.getTop().y-4,mainRectangle.getCenter().x,mainRectangle.getBottomLeft().y+4);
-		*/
+		
 
 
 	  //  setConstraint(mainPanelFigure, new Rectangle(0,0,r.width, r.height));
@@ -161,9 +162,12 @@ public class VCAssociationFigure extends Figure implements VCEntityFigure {
 		setText(string);
 		
 	}
-	public void setvAssociation(VCAssociation vAssociation) {
-		this.vAssociation = vAssociation;
+
+	public void setVCAssociationDeletion(VCAssociationDeletion vcEntity) {
+		this.vAssociationDeletion = vcEntity;
+		
 	}
+
 	
 
 }

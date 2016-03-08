@@ -1470,13 +1470,31 @@ public interface OCVPackage extends EPackage {
 	int VC_INSTANCE__NOTES = VC_ENTITY_FEATURE_COUNT + 5;
 
 	/**
+	 * The feature id for the '<em><b>Deleted</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VC_INSTANCE__DELETED = VC_ENTITY_FEATURE_COUNT + 6;
+
+	/**
+	 * The feature id for the '<em><b>Collection</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VC_INSTANCE__COLLECTION = VC_ENTITY_FEATURE_COUNT + 7;
+
+	/**
 	 * The number of structural features of the '<em>VC Instance</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VC_INSTANCE_FEATURE_COUNT = VC_ENTITY_FEATURE_COUNT + 6;
+	int VC_INSTANCE_FEATURE_COUNT = VC_ENTITY_FEATURE_COUNT + 8;
 
 	/**
 	 * The operation id for the '<em>Set VContract Condition</em>' operation.
@@ -1742,13 +1760,22 @@ public interface OCVPackage extends EPackage {
 	int VC_ASSOCIATION__SECOND_INSTANCE_VARIABLE = VC_ENTITY_FEATURE_COUNT + 3;
 
 	/**
+	 * The feature id for the '<em><b>Unidirectional</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VC_ASSOCIATION__UNIDIRECTIONAL = VC_ENTITY_FEATURE_COUNT + 4;
+
+	/**
 	 * The number of structural features of the '<em>VC Association</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VC_ASSOCIATION_FEATURE_COUNT = VC_ENTITY_FEATURE_COUNT + 4;
+	int VC_ASSOCIATION_FEATURE_COUNT = VC_ENTITY_FEATURE_COUNT + 5;
 
 	/**
 	 * The operation id for the '<em>Set VContract Condition</em>' operation.
@@ -2850,6 +2877,115 @@ public interface OCVPackage extends EPackage {
 	int VCONTRACT_LOOP_BOX_OPERATION_COUNT = VCONTRACT_CONDITION_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link com.abdulaziz.ms.OCV.impl.VCAssociationDeletionImpl <em>VC Association Deletion</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.abdulaziz.ms.OCV.impl.VCAssociationDeletionImpl
+	 * @see com.abdulaziz.ms.OCV.impl.OCVPackageImpl#getVCAssociationDeletion()
+	 * @generated
+	 */
+	int VC_ASSOCIATION_DELETION = 28;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VC_ASSOCIATION_DELETION__NAME = VC_ENTITY__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Incoming Links</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VC_ASSOCIATION_DELETION__INCOMING_LINKS = VC_ENTITY__INCOMING_LINKS;
+
+	/**
+	 * The feature id for the '<em><b>Outgoing Links</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VC_ASSOCIATION_DELETION__OUTGOING_LINKS = VC_ENTITY__OUTGOING_LINKS;
+
+	/**
+	 * The feature id for the '<em><b>Constraints</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VC_ASSOCIATION_DELETION__CONSTRAINTS = VC_ENTITY__CONSTRAINTS;
+
+	/**
+	 * The feature id for the '<em><b>Vc Contract</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VC_ASSOCIATION_DELETION__VC_CONTRACT = VC_ENTITY__VC_CONTRACT;
+
+	/**
+	 * The feature id for the '<em><b>Precondition</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VC_ASSOCIATION_DELETION__PRECONDITION = VC_ENTITY__PRECONDITION;
+
+	/**
+	 * The feature id for the '<em><b>Postcondition</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VC_ASSOCIATION_DELETION__POSTCONDITION = VC_ENTITY__POSTCONDITION;
+
+	/**
+	 * The number of structural features of the '<em>VC Association Deletion</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VC_ASSOCIATION_DELETION_FEATURE_COUNT = VC_ENTITY_FEATURE_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Set VContract Condition</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VC_ASSOCIATION_DELETION___SET_VCONTRACT_CONDITION__VCONTRACTCONDITION = VC_ENTITY___SET_VCONTRACT_CONDITION__VCONTRACTCONDITION;
+
+	/**
+	 * The operation id for the '<em>Get Contract Condition</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VC_ASSOCIATION_DELETION___GET_CONTRACT_CONDITION = VC_ENTITY___GET_CONTRACT_CONDITION;
+
+	/**
+	 * The number of operations of the '<em>VC Association Deletion</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VC_ASSOCIATION_DELETION_OPERATION_COUNT = VC_ENTITY_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '<em>Rectangle</em>' data type.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2857,7 +2993,7 @@ public interface OCVPackage extends EPackage {
 	 * @see com.abdulaziz.ms.OCV.impl.OCVPackageImpl#getRectangle()
 	 * @generated
 	 */
-	int RECTANGLE = 29;
+	int RECTANGLE = 30;
 
 	/**
 	 * The meta object id for the '<em>Absolute Bendpoint</em>' data type.
@@ -2867,7 +3003,7 @@ public interface OCVPackage extends EPackage {
 	 * @see com.abdulaziz.ms.OCV.impl.OCVPackageImpl#getAbsoluteBendpoint()
 	 * @generated
 	 */
-	int ABSOLUTE_BENDPOINT = 28;
+	int ABSOLUTE_BENDPOINT = 29;
 
 	/**
 	 * Returns the meta object for class '{@link com.abdulaziz.ms.OCV.UMLClassDiagram <em>UML Class Diagram</em>}'.
@@ -3837,6 +3973,28 @@ public interface OCVPackage extends EPackage {
 	EAttribute getVCInstance_Notes();
 
 	/**
+	 * Returns the meta object for the attribute '{@link com.abdulaziz.ms.OCV.VCInstance#isCollection <em>Collection</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Collection</em>'.
+	 * @see com.abdulaziz.ms.OCV.VCInstance#isCollection()
+	 * @see #getVCInstance()
+	 * @generated
+	 */
+	EAttribute getVCInstance_Collection();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.abdulaziz.ms.OCV.VCInstance#isDeleted <em>Deleted</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Deleted</em>'.
+	 * @see com.abdulaziz.ms.OCV.VCInstance#isDeleted()
+	 * @see #getVCInstance()
+	 * @generated
+	 */
+	EAttribute getVCInstance_Deleted();
+
+	/**
 	 * Returns the meta object for class '{@link com.abdulaziz.ms.OCV.VCInstanceField <em>VC Instance Field</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3921,6 +4079,17 @@ public interface OCVPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getVCAssociation_SecondInstanceVariable();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.abdulaziz.ms.OCV.VCAssociation#isUnidirectional <em>Unidirectional</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Unidirectional</em>'.
+	 * @see com.abdulaziz.ms.OCV.VCAssociation#isUnidirectional()
+	 * @see #getVCAssociation()
+	 * @generated
+	 */
+	EAttribute getVCAssociation_Unidirectional();
 
 	/**
 	 * Returns the meta object for class '{@link com.abdulaziz.ms.OCV.VCParameter <em>VC Parameter</em>}'.
@@ -4272,6 +4441,16 @@ public interface OCVPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getVContractLoopBox_VcCollectionBox();
+
+	/**
+	 * Returns the meta object for class '{@link com.abdulaziz.ms.OCV.VCAssociationDeletion <em>VC Association Deletion</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>VC Association Deletion</em>'.
+	 * @see com.abdulaziz.ms.OCV.VCAssociationDeletion
+	 * @generated
+	 */
+	EClass getVCAssociationDeletion();
 
 	/**
 	 * Returns the meta object for data type '{@link org.eclipse.draw2d.geometry.Rectangle <em>Rectangle</em>}'.
@@ -5071,6 +5250,22 @@ public interface OCVPackage extends EPackage {
 		EAttribute VC_INSTANCE__NOTES = eINSTANCE.getVCInstance_Notes();
 
 		/**
+		 * The meta object literal for the '<em><b>Collection</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute VC_INSTANCE__COLLECTION = eINSTANCE.getVCInstance_Collection();
+
+		/**
+		 * The meta object literal for the '<em><b>Deleted</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute VC_INSTANCE__DELETED = eINSTANCE.getVCInstance_Deleted();
+
+		/**
 		 * The meta object literal for the '{@link com.abdulaziz.ms.OCV.impl.VCInstanceFieldImpl <em>VC Instance Field</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -5137,6 +5332,14 @@ public interface OCVPackage extends EPackage {
 		 * @generated
 		 */
 		EReference VC_ASSOCIATION__SECOND_INSTANCE_VARIABLE = eINSTANCE.getVCAssociation_SecondInstanceVariable();
+
+		/**
+		 * The meta object literal for the '<em><b>Unidirectional</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute VC_ASSOCIATION__UNIDIRECTIONAL = eINSTANCE.getVCAssociation_Unidirectional();
 
 		/**
 		 * The meta object literal for the '{@link com.abdulaziz.ms.OCV.impl.VCParameterImpl <em>VC Parameter</em>}' class.
@@ -5421,6 +5624,16 @@ public interface OCVPackage extends EPackage {
 		 * @generated
 		 */
 		EReference VCONTRACT_LOOP_BOX__VC_COLLECTION_BOX = eINSTANCE.getVContractLoopBox_VcCollectionBox();
+
+		/**
+		 * The meta object literal for the '{@link com.abdulaziz.ms.OCV.impl.VCAssociationDeletionImpl <em>VC Association Deletion</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.abdulaziz.ms.OCV.impl.VCAssociationDeletionImpl
+		 * @see com.abdulaziz.ms.OCV.impl.OCVPackageImpl#getVCAssociationDeletion()
+		 * @generated
+		 */
+		EClass VC_ASSOCIATION_DELETION = eINSTANCE.getVCAssociationDeletion();
 
 		/**
 		 * The meta object literal for the '<em>Rectangle</em>' data type.
