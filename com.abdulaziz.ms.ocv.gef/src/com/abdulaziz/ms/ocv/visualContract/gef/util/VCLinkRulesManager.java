@@ -9,6 +9,7 @@ import com.abdulaziz.ms.OCV.VCInstanceField;
 import com.abdulaziz.ms.OCV.VCLink;
 import com.abdulaziz.ms.OCV.VCLoop;
 import com.abdulaziz.ms.OCV.impl.VCAlternativeBoxImpl;
+import com.abdulaziz.ms.OCV.impl.VCAssociationDeletionImpl;
 import com.abdulaziz.ms.OCV.impl.VCAssociationImpl;
 import com.abdulaziz.ms.OCV.impl.VCCollectionBoxImpl;
 import com.abdulaziz.ms.OCV.impl.VCEqualityImpl;
@@ -19,7 +20,8 @@ import com.abdulaziz.ms.OCV.impl.VCParameterImpl;
 import com.abdulaziz.ms.OCV.impl.VCValueImpl;
 
 public class VCLinkRulesManager {
-	final static String OPERATION_PARAMETER_ACCEPTED_SOURCES =" " + VCEqualityImpl.class.getSimpleName() +",";
+	final static String OPERATION_PARAMETER_ACCEPTED_SOURCES =" " + VCEqualityImpl.class.getSimpleName() +","
+			+ VCInstanceFieldImpl.class.getSimpleName() + " , ";
 	final static String EQAULITY_ACCEPTED_SOURCES = " "
 			+ VCParameterImpl.class.getSimpleName() + ", "
 			+ VCInstanceFieldImpl.class.getSimpleName();
@@ -35,23 +37,15 @@ public class VCLinkRulesManager {
 			+ VCInstanceImpl.class.getSimpleName() + " , "
 			+ VCEqualityImpl.class.getSimpleName();
 	final static String INSTANCE_ACCEPTED_SOURCES = " "
-			+ VCAssociationImpl.class.getSimpleName();
+			+ VCAssociationImpl.class.getSimpleName() + " , " + VCAssociationDeletionImpl.class.getSimpleName();
 	final static String ASSOCIATION_ACCEPTED_SOURCES = " "
+			+ VCInstanceImpl.class.getSimpleName();
+	final static String ASSOCIATION_DELETION_ACCEPTED_SOURCES = " "
 			+ VCInstanceImpl.class.getSimpleName();
 	final static String VALUE_ACCEPTED_SOURCES = " "
 			+ VCEqualityImpl.class.getSimpleName();
-	/*
-	public static void flipAssociation(VCLink vcLink)
-	{
-		if (vcLink.getSource() instanceof VCInstance && vcLink.getTarget() instanceof VCAssociation)
-		{
-			VCEntity temp = vcLink.getSource();
-			vcLink.setSource(vcLink.getTarget());
-			vcLink.setTarget(temp);
-		}
-		
-	}
-	*/
+
+
 	
 	public static boolean isTargetAcceptLink(VCEntity targetVCEntity)
 	{		
@@ -75,6 +69,9 @@ public class VCLinkRulesManager {
 			return true;
 		case "VCAssociationImpl":
 			return targetVCEntity.getIncomingLinks().size()<2;
+		case "VCAssociationDeletionImpl":
+			return targetVCEntity.getIncomingLinks().size()<2;
+
 			
 		default:
 			return false;
@@ -91,8 +88,7 @@ public class VCLinkRulesManager {
 
 		switch (targetClassName) {
 		case "VCParameterImpl":
-			return (OPERATION_PARAMETER_ACCEPTED_SOURCES
-					.contains(sourceClassName));
+			return (OPERATION_PARAMETER_ACCEPTED_SOURCES.contains(sourceClassName));
 		case "VCEqualityImpl":
 		case "VCAlternativeBoxImpl":
 		case "VCCollectionBoxImpl":
@@ -117,6 +113,8 @@ public class VCLinkRulesManager {
 			return (INSTANCE_ACCEPTED_SOURCES.contains(sourceClassName));
 		case "VCAssociationImpl":
 			return (ASSOCIATION_ACCEPTED_SOURCES.contains(sourceClassName));
+		case "VCAssociationDeletionImpl" :
+			return ASSOCIATION_DELETION_ACCEPTED_SOURCES.contains(sourceClassName);
 		default:
 			return false;
 
