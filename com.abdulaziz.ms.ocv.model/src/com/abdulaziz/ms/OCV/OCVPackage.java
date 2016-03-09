@@ -1760,13 +1760,13 @@ public interface OCVPackage extends EPackage {
 	int VC_ASSOCIATION__SECOND_INSTANCE_VARIABLE = VC_ENTITY_FEATURE_COUNT + 3;
 
 	/**
-	 * The feature id for the '<em><b>Unidirectional</b></em>' attribute.
+	 * The feature id for the '<em><b>Directional</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VC_ASSOCIATION__UNIDIRECTIONAL = VC_ENTITY_FEATURE_COUNT + 4;
+	int VC_ASSOCIATION__DIRECTIONAL = VC_ENTITY_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of structural features of the '<em>VC Association</em>' class.
@@ -4081,15 +4081,15 @@ public interface OCVPackage extends EPackage {
 	EReference getVCAssociation_SecondInstanceVariable();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.abdulaziz.ms.OCV.VCAssociation#isUnidirectional <em>Unidirectional</em>}'.
+	 * Returns the meta object for the attribute '{@link com.abdulaziz.ms.OCV.VCAssociation#isDirectional <em>Directional</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Unidirectional</em>'.
-	 * @see com.abdulaziz.ms.OCV.VCAssociation#isUnidirectional()
+	 * @return the meta object for the attribute '<em>Directional</em>'.
+	 * @see com.abdulaziz.ms.OCV.VCAssociation#isDirectional()
 	 * @see #getVCAssociation()
 	 * @generated
 	 */
-	EAttribute getVCAssociation_Unidirectional();
+	EAttribute getVCAssociation_Directional();
 
 	/**
 	 * Returns the meta object for class '{@link com.abdulaziz.ms.OCV.VCParameter <em>VC Parameter</em>}'.
@@ -5334,12 +5334,12 @@ public interface OCVPackage extends EPackage {
 		EReference VC_ASSOCIATION__SECOND_INSTANCE_VARIABLE = eINSTANCE.getVCAssociation_SecondInstanceVariable();
 
 		/**
-		 * The meta object literal for the '<em><b>Unidirectional</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Directional</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute VC_ASSOCIATION__UNIDIRECTIONAL = eINSTANCE.getVCAssociation_Unidirectional();
+		EAttribute VC_ASSOCIATION__DIRECTIONAL = eINSTANCE.getVCAssociation_Directional();
 
 		/**
 		 * The meta object literal for the '{@link com.abdulaziz.ms.OCV.impl.VCParameterImpl <em>VC Parameter</em>}' class.

@@ -10,6 +10,7 @@ import org.eclipse.gef.EditPart;
 import org.eclipse.gef.Request;
 import org.eclipse.gef.RequestConstants;
 import org.eclipse.gef.commands.CompoundCommand;
+import org.eclipse.gef.editparts.AbstractGraphicalEditPart;
 
 import com.abdulaziz.ms.OCV.UMLClass;
 import com.abdulaziz.ms.OCV.UMLClassDiagram;
@@ -58,6 +59,7 @@ public class VCAssociationEditPart extends VCEntityEditPart {
 	protected  void refreshVisuals()
 	{
 		VCAssociationFigure figure = (VCAssociationFigure) getFigure();
+	
 		VCAssociation vcEntity = (VCAssociation) getModel();
 		figure.setText(vcEntity.getName());
 		figure.setvAssociation(vcEntity);
@@ -67,7 +69,9 @@ public class VCAssociationEditPart extends VCEntityEditPart {
 		}
 		VContractConditionEditPart vContractEditPart = (VContractConditionEditPart) getParent();
 		Rectangle layout = vcEntity.getConstraints();
+		
 		vContractEditPart.setLayoutConstraint(this, figure, layout);
+		//vContractEditPart.setLayoutConstraint(child, childFigure, constraint);
 
 	}
 

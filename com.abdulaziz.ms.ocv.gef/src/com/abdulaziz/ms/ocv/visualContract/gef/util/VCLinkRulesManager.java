@@ -35,7 +35,9 @@ public class VCLinkRulesManager {
 			VCCollectionBoxImpl.class.getSimpleName();
 	final static String INSTANCE_FIELD_ACCEPTED_SOURCES = " "
 			+ VCInstanceImpl.class.getSimpleName() + " , "
-			+ VCEqualityImpl.class.getSimpleName();
+			+ VCEqualityImpl.class.getSimpleName()
+			+ VCInstanceFieldImpl.class.getSimpleName() + " , ";
+
 	final static String INSTANCE_ACCEPTED_SOURCES = " "
 			+ VCAssociationImpl.class.getSimpleName() + " , " + VCAssociationDeletionImpl.class.getSimpleName();
 	final static String ASSOCIATION_ACCEPTED_SOURCES = " "
@@ -43,7 +45,9 @@ public class VCLinkRulesManager {
 	final static String ASSOCIATION_DELETION_ACCEPTED_SOURCES = " "
 			+ VCInstanceImpl.class.getSimpleName();
 	final static String VALUE_ACCEPTED_SOURCES = " "
-			+ VCEqualityImpl.class.getSimpleName();
+			+ VCEqualityImpl.class.getSimpleName() +" , "
+	+ VCInstanceFieldImpl.class.getSimpleName() + " , ";
+
 
 
 	

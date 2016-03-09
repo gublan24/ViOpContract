@@ -25,7 +25,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *   <li>{@link com.abdulaziz.ms.OCV.impl.VCAssociationImpl#getSecondInstance <em>Second Instance</em>}</li>
  *   <li>{@link com.abdulaziz.ms.OCV.impl.VCAssociationImpl#getFirstInstanceVariable <em>First Instance Variable</em>}</li>
  *   <li>{@link com.abdulaziz.ms.OCV.impl.VCAssociationImpl#getSecondInstanceVariable <em>Second Instance Variable</em>}</li>
- *   <li>{@link com.abdulaziz.ms.OCV.impl.VCAssociationImpl#isUnidirectional <em>Unidirectional</em>}</li>
+ *   <li>{@link com.abdulaziz.ms.OCV.impl.VCAssociationImpl#isDirectional <em>Directional</em>}</li>
  * </ul>
  * </p>
  *
@@ -73,24 +73,24 @@ public class VCAssociationImpl extends VCEntityImpl implements VCAssociation {
 	protected UMLVariable secondInstanceVariable;
 
 	/**
-	 * The default value of the '{@link #isUnidirectional() <em>Unidirectional</em>}' attribute.
+	 * The default value of the '{@link #isDirectional() <em>Directional</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #isUnidirectional()
+	 * @see #isDirectional()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final boolean UNIDIRECTIONAL_EDEFAULT = false; // TODO The default value literal "" is not valid.
+	protected static final boolean DIRECTIONAL_EDEFAULT = false;
 
 	/**
-	 * The cached value of the '{@link #isUnidirectional() <em>Unidirectional</em>}' attribute.
+	 * The cached value of the '{@link #isDirectional() <em>Directional</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #isUnidirectional()
+	 * @see #isDirectional()
 	 * @generated
 	 * @ordered
 	 */
-	protected boolean unidirectional = UNIDIRECTIONAL_EDEFAULT;
+	protected boolean directional = DIRECTIONAL_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -268,8 +268,8 @@ public class VCAssociationImpl extends VCEntityImpl implements VCAssociation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean isUnidirectional() {
-		return unidirectional;
+	public boolean isDirectional() {
+		return directional;
 	}
 
 	/**
@@ -277,11 +277,11 @@ public class VCAssociationImpl extends VCEntityImpl implements VCAssociation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setUnidirectional(boolean newUnidirectional) {
-		boolean oldUnidirectional = unidirectional;
-		unidirectional = newUnidirectional;
+	public void setDirectional(boolean newDirectional) {
+		boolean oldDirectional = directional;
+		directional = newDirectional;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, OCVPackage.VC_ASSOCIATION__UNIDIRECTIONAL, oldUnidirectional, unidirectional));
+			eNotify(new ENotificationImpl(this, Notification.SET, OCVPackage.VC_ASSOCIATION__DIRECTIONAL, oldDirectional, directional));
 	}
 
 	/**
@@ -304,8 +304,8 @@ public class VCAssociationImpl extends VCEntityImpl implements VCAssociation {
 			case OCVPackage.VC_ASSOCIATION__SECOND_INSTANCE_VARIABLE:
 				if (resolve) return getSecondInstanceVariable();
 				return basicGetSecondInstanceVariable();
-			case OCVPackage.VC_ASSOCIATION__UNIDIRECTIONAL:
-				return isUnidirectional();
+			case OCVPackage.VC_ASSOCIATION__DIRECTIONAL:
+				return isDirectional();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -330,8 +330,8 @@ public class VCAssociationImpl extends VCEntityImpl implements VCAssociation {
 			case OCVPackage.VC_ASSOCIATION__SECOND_INSTANCE_VARIABLE:
 				setSecondInstanceVariable((UMLVariable)newValue);
 				return;
-			case OCVPackage.VC_ASSOCIATION__UNIDIRECTIONAL:
-				setUnidirectional((Boolean)newValue);
+			case OCVPackage.VC_ASSOCIATION__DIRECTIONAL:
+				setDirectional((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -357,8 +357,8 @@ public class VCAssociationImpl extends VCEntityImpl implements VCAssociation {
 			case OCVPackage.VC_ASSOCIATION__SECOND_INSTANCE_VARIABLE:
 				setSecondInstanceVariable((UMLVariable)null);
 				return;
-			case OCVPackage.VC_ASSOCIATION__UNIDIRECTIONAL:
-				setUnidirectional(UNIDIRECTIONAL_EDEFAULT);
+			case OCVPackage.VC_ASSOCIATION__DIRECTIONAL:
+				setDirectional(DIRECTIONAL_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -380,8 +380,8 @@ public class VCAssociationImpl extends VCEntityImpl implements VCAssociation {
 				return firstInstanceVariable != null;
 			case OCVPackage.VC_ASSOCIATION__SECOND_INSTANCE_VARIABLE:
 				return secondInstanceVariable != null;
-			case OCVPackage.VC_ASSOCIATION__UNIDIRECTIONAL:
-				return unidirectional != UNIDIRECTIONAL_EDEFAULT;
+			case OCVPackage.VC_ASSOCIATION__DIRECTIONAL:
+				return directional != DIRECTIONAL_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -396,8 +396,8 @@ public class VCAssociationImpl extends VCEntityImpl implements VCAssociation {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (unidirectional: ");
-		result.append(unidirectional);
+		result.append(" (directional: ");
+		result.append(directional);
 		result.append(')');
 		return result.toString();
 	}

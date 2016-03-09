@@ -4,6 +4,8 @@ import java.util.HashMap;
 
 import org.eclipse.jface.wizard.WizardPage;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.events.SelectionEvent;
+import org.eclipse.swt.events.SelectionListener;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Combo;
@@ -26,6 +28,8 @@ public class AssociationWizardPage extends WizardPage {
 	private UMLClass secondClass;
 	private HashMap<String, UMLVariable> firstUMLVariableHashMap;
 	private HashMap<String, UMLVariable> secondClassUMLVariableHashMap;
+	private Button unidirectionalAssociationCheckBox;
+	private Group group;
 	
 	 
 	/**
@@ -50,12 +54,81 @@ public class AssociationWizardPage extends WizardPage {
 	 * Create contents of the wizard.
 	 * @param parent
 	 */
+
 	public void createControl(Composite parent) {
 		Composite container = new Composite(parent, SWT.NULL);
 
 		setControl(container);
 		
 		createUserInterfaceDesign(container);
+		
+		unidirectionalAssociationCheckBox = new Button(container, SWT.CHECK);
+		unidirectionalAssociationCheckBox.setBounds(10, 10, 214, 16);
+		unidirectionalAssociationCheckBox.setText("unidirectional association ");
+		unidirectionalAssociationCheckBox.setSelection(!this.vcAssociation.isDirectional());
+		unidirectionalAssociationCheckBox.addSelectionListener(new SelectionListener() {
+			
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				if(((Button)e.getSource()).getSelection())
+					group.setEnabled(false);
+				else 
+					group.setEnabled(true);
+			}
+			
+			@Override
+			public void widgetDefaultSelected(SelectionEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
+		
+		group = new Group(container, SWT.NONE);
+		group.setBounds(20, 55, 529, 216);
+		Label pageLabel = new Label(group, SWT.NONE);
+		pageLabel.setSize(389, 15);
+		pageLabel.setText("Select the attribute of the target on which the association will based  :");
+		
+		Group secondInstanceGroup = new Group(group, SWT.NONE);
+		secondInstanceGroup.setLocation(89, 23);
+		secondInstanceGroup.setSize(302, 91);
+		
+		secondInstanceGroup.setText("Second Instance");
+		
+		Label label_2_1 = new Label(secondInstanceGroup, SWT.NONE);
+		label_2_1.setText("Instance Variable:");
+		label_2_1.setBounds(10, 24, 95, 15);
+		
+		Label secondInstanceNameLabel = new Label(secondInstanceGroup, SWT.NONE);
+		secondInstanceNameLabel.setBounds(111, 24, 131, 15);
+		secondInstanceNameLabel.setText(secondClass.getClassName());
+		
+		Label label_2_2 = new Label(secondInstanceGroup, SWT.NONE);
+		label_2_2.setText("Instance Attribute:");
+		label_2_2.setBounds(10, 57, 108, 15);
+		
+		secondInstanceAttributesCombo = new Combo(secondInstanceGroup, SWT.NONE);
+		secondInstanceAttributesCombo.setBounds(124, 49, 131, 23);
+		
+		Group firstGroup = new Group(group, SWT.NONE);
+		firstGroup.setLocation(26, 115);
+		firstGroup.setSize(302, 91);
+		firstGroup.setText("First Instance");
+		
+		Label label_1_1 = new Label(firstGroup, SWT.NONE);
+		label_1_1.setBounds(10, 24, 97, 15);
+		label_1_1.setText("Instance Variable:");
+		
+		Label firstInstanceNameLabel = new Label(firstGroup, SWT.NONE);
+		firstInstanceNameLabel.setBounds(111, 24, 131, 15);
+		firstInstanceNameLabel.setText(firstClass.getClassName());
+		
+		Label label_1_2 = new Label(firstGroup, SWT.NONE);
+		label_1_2.setText("Instance Attribute:");
+		label_1_2.setBounds(10, 57, 108, 15);
+		
+		firstInstanceAttributesCombo = new Combo(firstGroup, SWT.NONE);
+		firstInstanceAttributesCombo.setBounds(124, 54, 131, 23);
 		firstUMLVariableHashMap = new HashMap<>();
 		secondClassUMLVariableHashMap = new HashMap<>();
 		fillData();
@@ -102,53 +175,22 @@ public class AssociationWizardPage extends WizardPage {
 	}
 
 	private void createUserInterfaceDesign(Composite container) {
-		Label pageLabel = new Label(container, SWT.NONE);
-		pageLabel.setBounds(10, 10, 333, 15);
-		pageLabel.setText("Select the attributes on which the association will based  :");
-		
-		Group firstGroup = new Group(container, SWT.NONE);
-		firstGroup.setText("First Instance");
-		firstGroup.setBounds(10, 45, 302, 91);
-		
-		Label label_1_1 = new Label(firstGroup, SWT.NONE);
-		label_1_1.setBounds(10, 24, 97, 15);
-		label_1_1.setText("Instance Variable:");
-		
-		Label firstInstanceNameLabel = new Label(firstGroup, SWT.NONE);
-		firstInstanceNameLabel.setBounds(111, 24, 131, 15);
-		firstInstanceNameLabel.setText(firstClass.getClassName());
-		
-		Label label_1_2 = new Label(firstGroup, SWT.NONE);
-		label_1_2.setText("Instance Attribute:");
-		label_1_2.setBounds(10, 57, 108, 15);
-		
-	 firstInstanceAttributesCombo = new Combo(firstGroup, SWT.NONE);
-		firstInstanceAttributesCombo.setBounds(124, 54, 131, 23);
-		
-		Group secondInstanceGroup = new Group(container, SWT.NONE);
-		secondInstanceGroup.setText("Second Instance");
-		secondInstanceGroup.setBounds(10, 148, 302, 91);
-		
-		Label label_2_1 = new Label(secondInstanceGroup, SWT.NONE);
-		label_2_1.setText("Instance Variable:");
-		label_2_1.setBounds(10, 24, 95, 15);
-		
-		Label secondInstanceNameLabel = new Label(secondInstanceGroup, SWT.NONE);
-		secondInstanceNameLabel.setBounds(111, 24, 131, 15);
-		secondInstanceNameLabel.setText(secondClass.getClassName());
-		
-		Label label_2_2 = new Label(secondInstanceGroup, SWT.NONE);
-		label_2_2.setText("Instance Attribute:");
-		label_2_2.setBounds(10, 57, 108, 15);
-		
-		secondInstanceAttributesCombo = new Combo(secondInstanceGroup, SWT.NONE);
-		secondInstanceAttributesCombo.setBounds(124, 49, 131, 23);
 		
 	}
 	
 	public void execute()
 	{
 		
+		vcAssociation.setDirectional(!unidirectionalAssociationCheckBox.getSelection());
+		if (unidirectionalAssociationCheckBox.getSelection())
+		{
+			vcAssociation.setFirstInstanceVariable(null);
+			vcAssociation.setFirstInstance(null);
+			vcAssociation.setSecondInstanceVariable(null);
+			vcAssociation.setSecondInstance(null);
+		}
+		else 
+		{
 		UMLVariable wizardFirstUMLVariable = getFirstSelectedUMLVariable();
 		UMLVariable wizardSecondUMLVariable = getSecondSelectedUMLVariable();
 		if (wizardFirstUMLVariable != null && wizardSecondUMLVariable != null) {
@@ -158,13 +200,7 @@ public class AssociationWizardPage extends WizardPage {
 			vcAssociation.setSecondInstanceVariable(wizardSecondUMLVariable);
 			vcAssociation.setSecondInstance((VCInstance) vcAssociation
 					.getIncomingLinks().get(1).getSource());
-		} else {
-
-			vcAssociation.setFirstInstanceVariable(null);
-			vcAssociation.setFirstInstance(null);
-			vcAssociation.setSecondInstanceVariable(null);
-			vcAssociation.setSecondInstance(null);
-
+		}
 		}
 		
 		

@@ -61,7 +61,7 @@ public class VCAssociationItemProvider
 			addSecondInstancePropertyDescriptor(object);
 			addFirstInstanceVariablePropertyDescriptor(object);
 			addSecondInstanceVariablePropertyDescriptor(object);
-			addUnidirectionalPropertyDescriptor(object);
+			addDirectionalPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -155,19 +155,19 @@ public class VCAssociationItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Unidirectional feature.
+	 * This adds a property descriptor for the Directional feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addUnidirectionalPropertyDescriptor(Object object) {
+	protected void addDirectionalPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_VCAssociation_unidirectional_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_VCAssociation_unidirectional_feature", "_UI_VCAssociation_type"),
-				 OCVPackage.Literals.VC_ASSOCIATION__UNIDIRECTIONAL,
+				 getString("_UI_VCAssociation_directional_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_VCAssociation_directional_feature", "_UI_VCAssociation_type"),
+				 OCVPackage.Literals.VC_ASSOCIATION__DIRECTIONAL,
 				 true,
 				 false,
 				 false,
@@ -213,7 +213,7 @@ public class VCAssociationItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(VCAssociation.class)) {
-			case OCVPackage.VC_ASSOCIATION__UNIDIRECTIONAL:
+			case OCVPackage.VC_ASSOCIATION__DIRECTIONAL:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

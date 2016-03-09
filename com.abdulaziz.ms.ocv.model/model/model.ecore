@@ -176,7 +176,7 @@
         eType="#//UMLVariable"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="secondInstanceVariable"
         eType="#//UMLVariable"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="unidirectional" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="directional" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="VCParameter" eSuperTypes="#//VCEntity">
     <eStructuralFeatures xsi:type="ecore:EReference" name="vCInstance" eType="#//VCInstance"/>

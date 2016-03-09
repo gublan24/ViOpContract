@@ -53,7 +53,6 @@ public class VCParameterFigure extends Figure implements VCEntityFigure {
 	public VCParameterFigure()
 	{
 		setLayoutManager(new XYLayout());
-		setBackgroundColor(ColorConstants.darkGreen);
 		 operationParameter = new Label();
 		 setOpaque(true);
 		 operationParameter. setBackgroundColor(new Color(null, 165, 242, 245));
@@ -72,8 +71,29 @@ public class VCParameterFigure extends Figure implements VCEntityFigure {
 			operationParameter.setText(vcParameter.getOperationParameter().getVariableName());
 
 		Rectangle r = getBounds().getCopy();
-	    setConstraint(operationParameter, new Rectangle(0,0,r.width, r.height));
-	    
+
+		int shrinkAmount = r.height/7;
+		r.shrink(shrinkAmount,shrinkAmount);
+
+	   setConstraint(operationParameter, new Rectangle(shrinkAmount,shrinkAmount,r.width, r.height));
+		Rectangle r2 = getBounds().getCopy();
+		r2.shrink(shrinkAmount,shrinkAmount);
+		int xArrowPoint = 2*shrinkAmount;
+		Point upperPoint= new Point(getBounds().x + xArrowPoint, getBounds().y);
+		Point lowerPoint = new Point(r.x + xArrowPoint - shrinkAmount,r.y);
+		
+		int y2 = shrinkAmount -2;
+		int x3 = lowerPoint.x + y2;
+		int x4 = lowerPoint.x - y2; 
+		Point p3 = new Point(x3,lowerPoint.y-y2);
+		Point p4 = new Point(x4,lowerPoint.y - y2);
+
+		graphics.drawRectangle(r2);
+
+	    graphics.setLineWidth(2);
+		graphics.drawLine(upperPoint, lowerPoint);
+		graphics.drawLine(lowerPoint, p3);
+		graphics.drawLine(lowerPoint, p4);
 	}
 
 	@Override

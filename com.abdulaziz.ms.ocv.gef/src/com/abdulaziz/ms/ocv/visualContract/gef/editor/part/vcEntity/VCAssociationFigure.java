@@ -5,28 +5,35 @@ import org.eclipse.draw2d.ColorConstants;
 import org.eclipse.draw2d.ConnectionAnchor;
 import org.eclipse.draw2d.Figure;
 import org.eclipse.draw2d.Graphics;
+import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.ImageFigure;
 import org.eclipse.draw2d.Label;
+import org.eclipse.draw2d.LineBorder;
 import org.eclipse.draw2d.Panel;
 import org.eclipse.draw2d.RectangleFigure;
 import org.eclipse.draw2d.ToolbarLayout;
+import org.eclipse.draw2d.XYAnchor;
 import org.eclipse.draw2d.XYLayout;
 import org.eclipse.draw2d.geometry.Rectangle;
+import org.eclipse.gef.editparts.AbstractGraphicalEditPart;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
+import org.eclipse.swt.graphics.Font;
 import org.eclipse.swt.graphics.Image;
+import org.eclipse.swt.graphics.TextLayout;
+import org.eclipse.swt.internal.gdip.Rect;
 
 import com.abdulaziz.ms.OCV.VCAssociation;
 import com.abdulaziz.ms.ocv.visualContract.gef.editor.figure.VCEntityFigure;
 
 public class VCAssociationFigure extends Figure implements VCEntityFigure {
 	
-	private static final String ICON = "link-icon.gif";
+	//private static final String ICON = "link-icon.gif";
 	private Label label;
 	private RectangleFigure rectangleFigure;
 	private ConnectionAnchor connectionAnchor;
-	private Panel mainPanelFigure;
-	private ImageFigure image;
+	//private Panel mainPanelFigure;
+	//private ImageFigure image;
 	private VCAssociation vAssociation;
 	private Color greenFillColor;
 	private Color redFillColor;
@@ -44,6 +51,7 @@ public class VCAssociationFigure extends Figure implements VCEntityFigure {
 	
 	public VCAssociationFigure()
 	{
+		
 		ToolbarLayout layout = new ToolbarLayout();
 
 		layout.setMinorAlignment(ToolbarLayout.ALIGN_CENTER);
@@ -54,42 +62,23 @@ public class VCAssociationFigure extends Figure implements VCEntityFigure {
 		fillColor = redFillColor;
 		setLayoutManager(new XYLayout());
 		setOpaque(true);
-		
-	//	mainPanelFigure = new Panel();
-		//mainPanelFigure.setLayoutManager(layout);
-		
-	//	add(mainPanelFigure);
-		label = new Label();/*
-	//	image = new ImageFigure(new Image(null, VCInstanceFigure.class.getResourceAsStream(ICON)));
-	//	rectangleFigure = new RectangleFigure();
-		//add(rectangleFigure);
-		//add(label);
-	//	mainPanelFigure.add(image);
-	//	mainPanelFigure.add(label);
-		//add(mainPanelFigure);
-		*/
+		label = new Label();
+		label.setOpaque(true);
+		label.setForegroundColor(ColorConstants.black);
+		this.add(label);
+	
 		
 		
 	}
 	@Override
 	protected void paintFigure(Graphics graphics)
 	{
+		
+		String attributeText = "userId";
 		Rectangle mainRectangle = getBounds().getCopy();
-		mainRectangle.shrink(2, 2);
-		/*
-		 * old shape 
-		graphics.setBackgroundColor(fillColor); 
-		graphics.fillOval(r);
-		graphics.setLineWidth(4);
-		graphics.setForegroundColor(ColorConstants.white);
-		graphics.drawLine(r.x, r.y, r.x+r.width, r.y+r.height);
-		graphics.drawLine(r.x+r.width, r.y, r.x, r.y+r.height);
-		graphics.setForegroundColor(fillColor);
-		graphics.setLineWidth(2);
-		*/
-		//graphics.drawOval(r);
-		
-		
+		int sh = 10;
+		mainRectangle.shrink(1, sh);
+		mainRectangle.y = mainRectangle.y-sh/2;
 		int dimOfIntersection =mainRectangle.width/6;
 		Rectangle leftOval  = new Rectangle(mainRectangle.getTopLeft().x, mainRectangle.getTopLeft().y, mainRectangle.width/2+dimOfIntersection,mainRectangle.height);
 		Rectangle rightOval  = new Rectangle(mainRectangle.getTopLeft().x+mainRectangle.width/2 -dimOfIntersection, mainRectangle.getTopLeft().y, mainRectangle.width/2+dimOfIntersection,mainRectangle.height);
@@ -101,36 +90,15 @@ public class VCAssociationFigure extends Figure implements VCEntityFigure {
 		graphics.setLineWidth(3);
 		graphics.drawOval(leftOval);
 		graphics.drawOval(rightOval);
-	/*
+		int x = attributeText.length();
+		graphics.setLineWidthFloat((float) 0.3);
+		//graphics.drawText(attributeText, mainRectangle.x, mainRectangle.getBottom().y);
+		if(!vAssociation.isDirectional())
+			label.setText("");
+		else 
+			label.setText(attributeText);
+		setConstraint(label, new Rectangle(0,mainRectangle.height +sh-1 , mainRectangle.width, sh));
 		
-	// delete instance shape 
-		int whiteSeprator = mainRectangle.width/10;
-		int dimOfIntersection =mainRectangle.width/6;
-		Rectangle leftOval  = new Rectangle(mainRectangle.getTopLeft().x, mainRectangle.getTopLeft().y, mainRectangle.width/2+dimOfIntersection,mainRectangle.height);
-		Rectangle rightOval  = new Rectangle(mainRectangle.getTopLeft().x+mainRectangle.width/2 -dimOfIntersection, mainRectangle.getTopLeft().y, mainRectangle.width/2+dimOfIntersection,mainRectangle.height);
-		Rectangle intersectionBetweenLeftRightOvals = rightOval.getCopy();
-		graphics.setBackgroundColor(ColorConstants.red);
-		graphics.setLineWidth(3);
-		graphics.fillOval(leftOval);
-		graphics.fillOval(rightOval);
-		graphics.drawOval(leftOval);
-		graphics.drawOval(rightOval);
-		intersectionBetweenLeftRightOvals.intersect(leftOval);	
-		intersectionBetweenLeftRightOvals.expand(2,2);
-		graphics.setBackgroundColor(ColorConstants.white);		
-		graphics.fillOval(intersectionBetweenLeftRightOvals);
-		graphics.drawOval(intersectionBetweenLeftRightOvals);
-		graphics.setLineWidth(whiteSeprator);
-		graphics.setForegroundColor(ColorConstants.white);
-		graphics.drawLine(mainRectangle.getCenter().x, mainRectangle.getTop().y-4,mainRectangle.getCenter().x,mainRectangle.getBottomLeft().y+4);
-		*/
-
-
-	  //  setConstraint(mainPanelFigure, new Rectangle(0,0,r.width, r.height));
-	    /*
-	    setConstraint(rectangleFigure, new Rectangle(0, 0, r.width, r.height));
-	    setConstraint(label, new Rectangle(0, 0, r.width, r.height));
-	    */
 	}
 	public Label getLabel() {
 		return label;
@@ -150,6 +118,7 @@ public class VCAssociationFigure extends Figure implements VCEntityFigure {
 	}
 	@Override
 	public ConnectionAnchor getConnectionAnchor() {
+		
 		if(connectionAnchor ==null)
 		{
 			connectionAnchor = new ChopboxAnchor(this);
@@ -164,6 +133,8 @@ public class VCAssociationFigure extends Figure implements VCEntityFigure {
 	public void setvAssociation(VCAssociation vAssociation) {
 		this.vAssociation = vAssociation;
 	}
+
+	
 	
 
 }

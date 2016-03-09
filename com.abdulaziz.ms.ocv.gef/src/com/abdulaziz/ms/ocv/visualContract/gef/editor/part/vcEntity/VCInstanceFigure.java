@@ -88,7 +88,7 @@ public class VCInstanceFigure extends Figure implements VCEntityFigure {
 			break;
 		case VContractUtility.VCINSTANCE_PARAMETER:
 			centerFix = 45;
-			fillColor = new Color(null, 194, 220, 220);
+			fillColor = new Color(null, 165, 242, 245);
 			break;
 		case VContractUtility.VCINSTANCE_EXISTING:
 			fillColor = new Color(null, 253, 200, 100);

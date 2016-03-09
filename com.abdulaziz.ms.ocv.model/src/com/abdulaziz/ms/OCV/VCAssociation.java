@@ -15,7 +15,7 @@ package com.abdulaziz.ms.OCV;
  *   <li>{@link com.abdulaziz.ms.OCV.VCAssociation#getSecondInstance <em>Second Instance</em>}</li>
  *   <li>{@link com.abdulaziz.ms.OCV.VCAssociation#getFirstInstanceVariable <em>First Instance Variable</em>}</li>
  *   <li>{@link com.abdulaziz.ms.OCV.VCAssociation#getSecondInstanceVariable <em>Second Instance Variable</em>}</li>
- *   <li>{@link com.abdulaziz.ms.OCV.VCAssociation#isUnidirectional <em>Unidirectional</em>}</li>
+ *   <li>{@link com.abdulaziz.ms.OCV.VCAssociation#isDirectional <em>Directional</em>}</li>
  * </ul>
  * </p>
  *
@@ -129,29 +129,29 @@ public interface VCAssociation extends VCEntity {
 	void setSecondInstanceVariable(UMLVariable value);
 
 	/**
-	 * Returns the value of the '<em><b>Unidirectional</b></em>' attribute.
+	 * Returns the value of the '<em><b>Directional</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Unidirectional</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Directional</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Unidirectional</em>' attribute.
-	 * @see #setUnidirectional(boolean)
-	 * @see com.abdulaziz.ms.OCV.OCVPackage#getVCAssociation_Unidirectional()
+	 * @return the value of the '<em>Directional</em>' attribute.
+	 * @see #setDirectional(boolean)
+	 * @see com.abdulaziz.ms.OCV.OCVPackage#getVCAssociation_Directional()
 	 * @model
 	 * @generated
 	 */
-	boolean isUnidirectional();
+	boolean isDirectional();
 
 	/**
-	 * Sets the value of the '{@link com.abdulaziz.ms.OCV.VCAssociation#isUnidirectional <em>Unidirectional</em>}' attribute.
+	 * Sets the value of the '{@link com.abdulaziz.ms.OCV.VCAssociation#isDirectional <em>Directional</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Unidirectional</em>' attribute.
-	 * @see #isUnidirectional()
+	 * @param value the new value of the '<em>Directional</em>' attribute.
+	 * @see #isDirectional()
 	 * @generated
 	 */
-	void setUnidirectional(boolean value);
+	void setDirectional(boolean value);
 
 } // VCAssociation
