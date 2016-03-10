@@ -19,8 +19,8 @@ import com.abdulaziz.ms.ocv.visualContract.gef.util.VCPreconditionPostconditionI
 
 public class VCOperationReportPage extends WizardPage {
 	
-	private VContractCondition vPostCondition;
-	private VContractCondition vPreCondition;
+	private VContractPostcondition vPostCondition;
+	private VContractPrecondition vPreCondition;
 	private StyledText text;
 	
 	protected VCOperationReportPage(String pageName) {
@@ -48,7 +48,7 @@ public class VCOperationReportPage extends WizardPage {
 				/*
 				 Operation: enterItem(itemID : ItemID, quantity : integer)
 				 */
-				VCPreconditionPostconditionInterpertation wrapper = new VCPreconditionPostconditionInterpertation((VContractPrecondition)vPreCondition,(VContractPostcondition)vPostCondition);	
+				VCPreconditionPostconditionInterpertation wrapper = new VCPreconditionPostconditionInterpertation(vPreCondition,vPostCondition);	
 				String newLineSeperator ="\r\n";
 				String operationContractReportText = "Precondition : " +newLineSeperator;
 				int number = 1;
@@ -96,12 +96,16 @@ public class VCOperationReportPage extends WizardPage {
 
 	}
 
-	public void setVCPrCondition(VContractCondition vPreCondition) {
-		this.vPreCondition  = vPreCondition;
+	public void setVCPrCondition(VContractPrecondition vPreCondition) {
+this.vPreCondition = vPreCondition;		
 	}
 
-	public void setVCPostConition(VContractCondition vPostCondition) {
-		this.vPostCondition = vPostCondition;
-		
+	public void setVCPostConition(VContractPostcondition vPostCondition) {
+this.vPostCondition = vPostCondition;		
 	}
+
+	
+	
+
+	
 }

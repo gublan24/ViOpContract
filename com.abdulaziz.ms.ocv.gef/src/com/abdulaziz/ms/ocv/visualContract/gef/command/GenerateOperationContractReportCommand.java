@@ -6,14 +6,17 @@ import org.eclipse.jface.wizard.WizardDialog;
 import org.eclipse.jface.wizard.WizardPage;
 import org.eclipse.swt.widgets.Control;
 
+import com.abdulaziz.ms.OCV.VCContract;
 import com.abdulaziz.ms.OCV.VContractCondition;
+import com.abdulaziz.ms.OCV.VContractPostcondition;
 import com.abdulaziz.ms.OCV.VContractPrecondition;
 import com.abdulaziz.ms.ocv.visualContract.gef.command.vc.VCValueWizardPage;
+import com.abdulaziz.ms.ocv.visualContract.gef.util.TextualTransfomratiomHandler;
 
 public class GenerateOperationContractReportCommand extends Command {
 
-	private VContractCondition vPostCondition;
-	private VContractCondition vPreCondition;
+	private VContractPostcondition vPostCondition;
+	private VContractPrecondition vPreCondition;
 	private Control control;
 
 
@@ -33,6 +36,12 @@ public class GenerateOperationContractReportCommand extends Command {
 				page.setVCPrCondition(vPreCondition);
 				page.setVCPostConition(vPostCondition);
 				addPage(page);
+				
+				TextualTransfomratiomHandler a = new TextualTransfomratiomHandler(vPreCondition);
+				TextualTransfomratiomHandler b = new TextualTransfomratiomHandler(vPostCondition);
+
+				a.getInterpertation();
+				b.getInterpertation();
 
 			}
 
@@ -59,6 +68,12 @@ public class GenerateOperationContractReportCommand extends Command {
 		
 		this.vPreCondition = model.getPreConditon();
 		this.vPostCondition = model.getPostConditon();
+	}
+
+	public void setVCContract(VCContract vcContract) {
+		this.vPreCondition = (VContractPrecondition) vcContract.getPrecondition();
+		this.vPostCondition = (VContractPostcondition) vcContract.getPostcondition();
+		
 	}
 	
 

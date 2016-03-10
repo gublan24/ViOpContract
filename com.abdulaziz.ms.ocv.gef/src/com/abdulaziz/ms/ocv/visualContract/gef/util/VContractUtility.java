@@ -50,7 +50,7 @@ public class VContractUtility {
   	    vcContract.setUmlOperation(vOperation);
   	    
   	    
-  	  VContractPrecondition preconditon = OCVFactory.eINSTANCE.createVContractPrecondition();
+  	    VContractPrecondition preconditon = OCVFactory.eINSTANCE.createVContractPrecondition();
 		preconditon.setType(PRECONDITON);
 		preconditon.setVcContract(vcContract);
 		vcContract.setPrecondition(preconditon);

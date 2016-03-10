@@ -153,8 +153,7 @@ public class ContractGraphicalEditor extends GraphicalEditorWithFlyoutPalette {
 		 getEditDomain().getPaletteViewer().addDragSourceListener(
 		    new TemplateTransferDragSourceListener(getEditDomain().getPaletteViewer()));
 
-		ZoomManager zoomManager = 
-				((ScalableRootEditPart) getGraphicalViewer().getRootEditPart()).getZoomManager();
+		ZoomManager zoomManager = ((ScalableRootEditPart) getGraphicalViewer().getRootEditPart()).getZoomManager();
 	    IAction zoomIn = new ZoomInAction(zoomManager);
 	    IAction zoomOut = new ZoomOutAction(zoomManager);
 	    getActionRegistry().registerAction(zoomIn);

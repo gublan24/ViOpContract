@@ -16,7 +16,6 @@ import com.abdulaziz.ms.OCV.VContractAlternativeBox;
 import com.abdulaziz.ms.OCV.VContractCondition;
 import com.abdulaziz.ms.ocv.uml.gef.editor.part.link.OCVLinkEditPart;
 import com.abdulaziz.ms.ocv.visualContract.gef.command.VCEntityChangeConstraintsCommand;
-import com.abdulaziz.ms.ocv.visualContract.gef.command.VCEntityCreateCommand;
 import com.abdulaziz.ms.ocv.visualContract.gef.command.VCEntityCreateCommandByVContractCondition;
 import com.abdulaziz.ms.ocv.visualContract.gef.command.VContractAlternativeBoxChangeConstraintsCommand;
 import com.abdulaziz.ms.ocv.visualContract.gef.command.VContractConditionCommand;

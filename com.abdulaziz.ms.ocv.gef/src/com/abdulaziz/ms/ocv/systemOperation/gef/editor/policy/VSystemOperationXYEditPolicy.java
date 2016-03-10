@@ -12,7 +12,6 @@ import com.abdulaziz.ms.OCV.VCInstance;
 import com.abdulaziz.ms.OCV.VSystemOperationDiagram;
 import com.abdulaziz.ms.ocv.systemOperation.gef.command.VSystemOperationDiagramChangeConstraintsCommand;
 import com.abdulaziz.ms.ocv.visualContract.gef.command.VCEntityChangeConstraintsCommand;
-import com.abdulaziz.ms.ocv.visualContract.gef.command.VCEntityCreateCommand;
 
 public class VSystemOperationXYEditPolicy extends XYLayoutEditPolicy {
 	
