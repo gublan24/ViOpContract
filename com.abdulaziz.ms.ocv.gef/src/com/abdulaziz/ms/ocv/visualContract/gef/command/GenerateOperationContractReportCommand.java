@@ -1,5 +1,7 @@
 package com.abdulaziz.ms.ocv.visualContract.gef.command;
 
+import java.util.ArrayList;
+
 import org.eclipse.gef.commands.Command;
 import org.eclipse.jface.wizard.Wizard;
 import org.eclipse.jface.wizard.WizardDialog;
@@ -37,11 +39,7 @@ public class GenerateOperationContractReportCommand extends Command {
 				page.setVCPostConition(vPostCondition);
 				addPage(page);
 				
-				TextualTransfomratiomHandler a = new TextualTransfomratiomHandler(vPreCondition);
-				TextualTransfomratiomHandler b = new TextualTransfomratiomHandler(vPostCondition);
-
-				a.getInterpertation();
-				b.getInterpertation();
+			
 
 			}
 

@@ -1,6 +1,7 @@
 package com.abdulaziz.ms.ocv.visualContract.gef.command;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 import org.eclipse.jface.wizard.WizardPage;
 import org.eclipse.swt.SWT;
@@ -15,6 +16,7 @@ import org.eclipse.swt.events.SelectionEvent;
 import com.abdulaziz.ms.OCV.VContractCondition;
 import com.abdulaziz.ms.OCV.VContractPostcondition;
 import com.abdulaziz.ms.OCV.VContractPrecondition;
+import com.abdulaziz.ms.ocv.visualContract.gef.util.TextualTransfomratiomHandler;
 import com.abdulaziz.ms.ocv.visualContract.gef.util.VCPreconditionPostconditionInterpertation;
 
 public class VCOperationReportPage extends WizardPage {
@@ -71,11 +73,22 @@ public class VCOperationReportPage extends WizardPage {
 					operationContractReportText = operationContractReportText+number + ") " + postConditionStringLine +"." + newLineSeperator;
 					number++;
 				}
+				
+				TextualTransfomratiomHandler preconditonTextOperationContract = new TextualTransfomratiomHandler(vPreCondition);
+				TextualTransfomratiomHandler postconditionTextOperationContract = new TextualTransfomratiomHandler(vPostCondition);
 
+				ArrayList<String> pre = preconditonTextOperationContract.getInterpertation();
+				ArrayList<String> post = postconditionTextOperationContract.getInterpertation();
+
+				operationContractReportText += newLineSeperator+" **** UPDATED **** "+newLineSeperator+"Preconditon"+newLineSeperator 
+						+Arrays.toString(pre.toArray())+newLineSeperator+"Post:" +newLineSeperator+ Arrays.toString(post.toArray())
+						;
 				text.setText(operationContractReportText);
+				/*
 				text.setLineAlignment(0, text.getLineCount() -1, SWT.CENTER);
 				text.setLineAlignment(0, 1, SWT.LEFT);
 				text.setLineAlignment(postconditionLineIndex-1, 1, SWT.LEFT);
+				*/
 				text.setLineSpacing(2);
 
 
