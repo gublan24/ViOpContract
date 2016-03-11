@@ -2,6 +2,7 @@ package com.abdulaziz.ms.ocv.visualContract.gef.util;
 
 import com.abdulaziz.ms.OCV.VCAlternativeBox;
 import com.abdulaziz.ms.OCV.VCAssociation;
+import com.abdulaziz.ms.OCV.VCAssociationDeletion;
 import com.abdulaziz.ms.OCV.VCEntity;
 import com.abdulaziz.ms.OCV.VCEquality;
 import com.abdulaziz.ms.OCV.VCInstance;
@@ -95,6 +96,22 @@ public class PreconditonVisualToTextual extends VisualToTextualRepresentationHan
 		return "interpertDirectionalAssociationFormation XXX";
 	}
 	
+	
+	@Override
+	public String interpertDirectionalAssociationDeletion(
+			VCAssociationDeletion vcAssociation) {
+		String line = "" ;
+		VCInstance sourceVCInstance = (VCInstance) getSourceVEntity(vcAssociation);
+		VCInstance targetVCInstance = (VCInstance) getTargetVEntity(vcAssociation);
+		return sourceVCInstance.getInstanceName()+"  is disassociated with "+targetVCInstance.getInstanceName();
+	}
+	
+	@Override
+	public String interpertUndirectionalAssociationDeletion(
+			VCAssociationDeletion vcAssociation) {
+		
+		return this.interpertDirectionalAssociationDeletion(vcAssociation);
+	}
 	/*
 	 “A ”, <ClassName> ,” instance “, <instanceName> ,“ is retrieved from the domain data.”. |
 “A ”, <ClassName>,”  instance “,<instanceName>,” is received from the operation parameters.” |

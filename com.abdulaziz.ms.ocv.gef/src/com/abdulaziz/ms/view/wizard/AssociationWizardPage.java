@@ -43,9 +43,8 @@ public class AssociationWizardPage extends WizardPage {
 		setTitle("Wizard Page title");
 		setDescription("Wizard Page description");
 		this.vcAssociation = vcAssociation;
-		this.firstClass= ((VCInstance) vcAssociation.getIncomingLinks().get(0).getSource()).getUmlClass();
-		this.secondClass= ((VCInstance) vcAssociation.getIncomingLinks().get(1).getSource()).getUmlClass();	
-		
+		this.firstClass= vcAssociation.getFirstInstance().getUmlClass();
+		this.secondClass= vcAssociation.getSecondInstance().getUmlClass();
 	}
 
 
@@ -139,7 +138,7 @@ public class AssociationWizardPage extends WizardPage {
 	private void fillData() {
 		
 		
-		
+	
 		for (UMLVariable umlVariable:firstClass.getClassAttributes())
 		{
 			firstUMLVariableHashMap.put( umlVariable.getVariableName(),umlVariable);
@@ -160,6 +159,8 @@ public class AssociationWizardPage extends WizardPage {
 			int i = secondInstanceAttributesCombo.indexOf(vcAssociation.getSecondInstanceVariable().getVariableName());
 			secondInstanceAttributesCombo.select(i);
 		}
+		
+		
 		
 	}
 	
@@ -182,24 +183,27 @@ public class AssociationWizardPage extends WizardPage {
 	{
 		
 		vcAssociation.setDirectional(!unidirectionalAssociationCheckBox.getSelection());
+		
 		if (unidirectionalAssociationCheckBox.getSelection())
 		{
+			/*
 			vcAssociation.setFirstInstanceVariable(null);
 			vcAssociation.setFirstInstance(null);
 			vcAssociation.setSecondInstanceVariable(null);
 			vcAssociation.setSecondInstance(null);
+			*/
 		}
 		else 
 		{
+			
 		UMLVariable wizardFirstUMLVariable = getFirstSelectedUMLVariable();
 		UMLVariable wizardSecondUMLVariable = getSecondSelectedUMLVariable();
-		if (wizardFirstUMLVariable != null && wizardSecondUMLVariable != null) {
-			vcAssociation.setFirstInstanceVariable(wizardFirstUMLVariable);
-			vcAssociation.setFirstInstance((VCInstance) vcAssociation
-					.getIncomingLinks().get(0).getSource());
+		if (wizardFirstUMLVariable != null )
+						vcAssociation.setFirstInstanceVariable(wizardFirstUMLVariable);
+
+		if (wizardSecondUMLVariable != null) {
 			vcAssociation.setSecondInstanceVariable(wizardSecondUMLVariable);
-			vcAssociation.setSecondInstance((VCInstance) vcAssociation
-					.getIncomingLinks().get(1).getSource());
+		
 		}
 		}
 		

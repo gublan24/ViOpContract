@@ -1769,13 +1769,22 @@ public interface OCVPackage extends EPackage {
 	int VC_ASSOCIATION__DIRECTIONAL = VC_ENTITY_FEATURE_COUNT + 4;
 
 	/**
+	 * The feature id for the '<em><b>Based Attribute</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VC_ASSOCIATION__BASED_ATTRIBUTE = VC_ENTITY_FEATURE_COUNT + 5;
+
+	/**
 	 * The number of structural features of the '<em>VC Association</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VC_ASSOCIATION_FEATURE_COUNT = VC_ENTITY_FEATURE_COUNT + 5;
+	int VC_ASSOCIATION_FEATURE_COUNT = VC_ENTITY_FEATURE_COUNT + 6;
 
 	/**
 	 * The operation id for the '<em>Set VContract Condition</em>' operation.
@@ -4092,6 +4101,17 @@ public interface OCVPackage extends EPackage {
 	EAttribute getVCAssociation_Directional();
 
 	/**
+	 * Returns the meta object for the attribute '{@link com.abdulaziz.ms.OCV.VCAssociation#getBasedAttribute <em>Based Attribute</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Based Attribute</em>'.
+	 * @see com.abdulaziz.ms.OCV.VCAssociation#getBasedAttribute()
+	 * @see #getVCAssociation()
+	 * @generated
+	 */
+	EAttribute getVCAssociation_BasedAttribute();
+
+	/**
 	 * Returns the meta object for class '{@link com.abdulaziz.ms.OCV.VCParameter <em>VC Parameter</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5340,6 +5360,14 @@ public interface OCVPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute VC_ASSOCIATION__DIRECTIONAL = eINSTANCE.getVCAssociation_Directional();
+
+		/**
+		 * The meta object literal for the '<em><b>Based Attribute</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute VC_ASSOCIATION__BASED_ATTRIBUTE = eINSTANCE.getVCAssociation_BasedAttribute();
 
 		/**
 		 * The meta object literal for the '{@link com.abdulaziz.ms.OCV.impl.VCParameterImpl <em>VC Parameter</em>}' class.

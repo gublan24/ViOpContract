@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.resource.Resource;
 import com.abdulaziz.ms.OCV.ConditionOption;
 import com.abdulaziz.ms.OCV.VCAlternativeBox;
 import com.abdulaziz.ms.OCV.VCAssociation;
+import com.abdulaziz.ms.OCV.VCAssociationDeletion;
 import com.abdulaziz.ms.OCV.VCContract;
 import com.abdulaziz.ms.OCV.VCEntity;
 import com.abdulaziz.ms.OCV.VCEquality;
@@ -107,16 +108,34 @@ public class PostconditonVisualToTextual extends VisualToTextualRepresentationHa
 		
 		VCInstance sourceVCInstance = (VCInstance) getSourceVEntity(vcAssociation);
 		VCInstance targetVCInstance = (VCInstance) getTargetVEntity(vcAssociation);
-		return line +sourceVCInstance.getInstanceName()+"  was associated with "+targetVCInstance.getInstanceName();
+		return sourceVCInstance.getInstanceName()+"  was associated from "+targetVCInstance.getInstanceName();
+	}
+
+	@Override
+	public String interpertDirectionalAssociationDeletion(
+			VCAssociationDeletion vcAssociation) {
+		String line = "" ;
+		VCInstance sourceVCInstance = (VCInstance) getSourceVEntity(vcAssociation);
+		VCInstance targetVCInstance = (VCInstance) getTargetVEntity(vcAssociation);
+		return sourceVCInstance.getInstanceName()+"  was disassociated from "+targetVCInstance.getInstanceName() ;
+	}
+	
+	@Override
+	public String interpertUndirectionalAssociationDeletion(
+			VCAssociationDeletion vcAssociation) {
+		
+		return this.interpertDirectionalAssociationDeletion(vcAssociation);
 	}
 
 	@Override
 	public String interpertDirectionalAssociationFormation(
 			VCAssociation vcAssociation) {
-		String line = "";
-		// TODO Auto-generated method stub
-		return "interpertDirectionalAssociationFormation XXX";
+		String line = "" ;
+		VCInstance sourceVCInstance = (VCInstance) getSourceVEntity(vcAssociation);
+		VCInstance targetVCInstance = (VCInstance) getTargetVEntity(vcAssociation);
+		return sourceVCInstance.getInstanceName()+"  was associated with "+targetVCInstance.getInstanceName()+" based on "+vcAssociation.getSecondInstanceVariable().getVariableName() + " match" ;
 	}
+
 
 
 

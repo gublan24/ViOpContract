@@ -2,6 +2,7 @@ package com.abdulaziz.ms.ocv.visualContract.gef.util;
 
 import com.abdulaziz.ms.OCV.VCAlternativeBox;
 import com.abdulaziz.ms.OCV.VCAssociation;
+import com.abdulaziz.ms.OCV.VCAssociationDeletion;
 import com.abdulaziz.ms.OCV.VCEntity;
 import com.abdulaziz.ms.OCV.VCEquality;
 import com.abdulaziz.ms.OCV.VCInstance;
@@ -48,7 +49,7 @@ public abstract class VisualToTextualRepresentationHandler {
 		VCEntity target = null;
 		for(VCLink outgoingLink:currentVCEntity.getOutgoingLinks())
 		{
-			target = outgoingLink.getSource();
+			target = outgoingLink.getTarget();
 		}
 	
 		return target;
@@ -71,6 +72,12 @@ public abstract class VisualToTextualRepresentationHandler {
 	public abstract String inerpertEquality(VCEquality vcEquality);
 
 	public abstract String interpertAlternativeBox(VCAlternativeBox alternative);
+
+	public abstract String interpertDirectionalAssociationDeletion(
+			VCAssociationDeletion vcAssociation);
+
+	public abstract String interpertUndirectionalAssociationDeletion(
+			VCAssociationDeletion vcAssociation);
 
 
 }

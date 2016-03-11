@@ -26,6 +26,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *   <li>{@link com.abdulaziz.ms.OCV.impl.VCAssociationImpl#getFirstInstanceVariable <em>First Instance Variable</em>}</li>
  *   <li>{@link com.abdulaziz.ms.OCV.impl.VCAssociationImpl#getSecondInstanceVariable <em>Second Instance Variable</em>}</li>
  *   <li>{@link com.abdulaziz.ms.OCV.impl.VCAssociationImpl#isDirectional <em>Directional</em>}</li>
+ *   <li>{@link com.abdulaziz.ms.OCV.impl.VCAssociationImpl#getBasedAttribute <em>Based Attribute</em>}</li>
  * </ul>
  * </p>
  *
@@ -91,6 +92,26 @@ public class VCAssociationImpl extends VCEntityImpl implements VCAssociation {
 	 * @ordered
 	 */
 	protected boolean directional = DIRECTIONAL_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getBasedAttribute() <em>Based Attribute</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getBasedAttribute()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String BASED_ATTRIBUTE_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getBasedAttribute() <em>Based Attribute</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getBasedAttribute()
+	 * @generated
+	 * @ordered
+	 */
+	protected String basedAttribute = BASED_ATTRIBUTE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -289,6 +310,27 @@ public class VCAssociationImpl extends VCEntityImpl implements VCAssociation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getBasedAttribute() {
+		return basedAttribute;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setBasedAttribute(String newBasedAttribute) {
+		String oldBasedAttribute = basedAttribute;
+		basedAttribute = newBasedAttribute;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, OCVPackage.VC_ASSOCIATION__BASED_ATTRIBUTE, oldBasedAttribute, basedAttribute));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -306,6 +348,8 @@ public class VCAssociationImpl extends VCEntityImpl implements VCAssociation {
 				return basicGetSecondInstanceVariable();
 			case OCVPackage.VC_ASSOCIATION__DIRECTIONAL:
 				return isDirectional();
+			case OCVPackage.VC_ASSOCIATION__BASED_ATTRIBUTE:
+				return getBasedAttribute();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -332,6 +376,9 @@ public class VCAssociationImpl extends VCEntityImpl implements VCAssociation {
 				return;
 			case OCVPackage.VC_ASSOCIATION__DIRECTIONAL:
 				setDirectional((Boolean)newValue);
+				return;
+			case OCVPackage.VC_ASSOCIATION__BASED_ATTRIBUTE:
+				setBasedAttribute((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -360,6 +407,9 @@ public class VCAssociationImpl extends VCEntityImpl implements VCAssociation {
 			case OCVPackage.VC_ASSOCIATION__DIRECTIONAL:
 				setDirectional(DIRECTIONAL_EDEFAULT);
 				return;
+			case OCVPackage.VC_ASSOCIATION__BASED_ATTRIBUTE:
+				setBasedAttribute(BASED_ATTRIBUTE_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -382,6 +432,8 @@ public class VCAssociationImpl extends VCEntityImpl implements VCAssociation {
 				return secondInstanceVariable != null;
 			case OCVPackage.VC_ASSOCIATION__DIRECTIONAL:
 				return directional != DIRECTIONAL_EDEFAULT;
+			case OCVPackage.VC_ASSOCIATION__BASED_ATTRIBUTE:
+				return BASED_ATTRIBUTE_EDEFAULT == null ? basedAttribute != null : !BASED_ATTRIBUTE_EDEFAULT.equals(basedAttribute);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -398,6 +450,8 @@ public class VCAssociationImpl extends VCEntityImpl implements VCAssociation {
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (directional: ");
 		result.append(directional);
+		result.append(", basedAttribute: ");
+		result.append(basedAttribute);
 		result.append(')');
 		return result.toString();
 	}

@@ -74,7 +74,7 @@ public class VCAssociationFigure extends Figure implements VCEntityFigure {
 	protected void paintFigure(Graphics graphics)
 	{
 		
-		String attributeText = "userId";
+		
 		Rectangle mainRectangle = getBounds().getCopy();
 		int sh = 10;
 		mainRectangle.shrink(1, sh);
@@ -90,13 +90,12 @@ public class VCAssociationFigure extends Figure implements VCEntityFigure {
 		graphics.setLineWidth(3);
 		graphics.drawOval(leftOval);
 		graphics.drawOval(rightOval);
-		int x = attributeText.length();
 		graphics.setLineWidthFloat((float) 0.3);
 		//graphics.drawText(attributeText, mainRectangle.x, mainRectangle.getBottom().y);
 		if(!vAssociation.isDirectional())
 			label.setText("");
 		else 
-			label.setText(attributeText);
+			label.setText(""+vAssociation.getSecondInstanceVariable().getVariableName());
 		setConstraint(label, new Rectangle(0,mainRectangle.height +sh-1 , mainRectangle.width, sh));
 		
 	}

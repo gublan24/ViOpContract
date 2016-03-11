@@ -6,6 +6,7 @@ import org.eclipse.emf.ecore.EObject;
 
 import com.abdulaziz.ms.OCV.VCAlternativeBox;
 import com.abdulaziz.ms.OCV.VCAssociation;
+import com.abdulaziz.ms.OCV.VCAssociationDeletion;
 import com.abdulaziz.ms.OCV.VCContract;
 import com.abdulaziz.ms.OCV.VCEntity;
 import com.abdulaziz.ms.OCV.VCEquality;
@@ -28,6 +29,7 @@ public class TextualTransfomratiomHandler {
 	private ArrayList<VCEquality> vcEqualitiesList;
 	private ArrayList <VCAlternativeBox> alternativeBoxsList;
 	private ArrayList<VCAssociation> vcAssociationList;
+	private ArrayList<VCAssociationDeletion> vcDeleteAssociationList;
 	
 	public TextualTransfomratiomHandler(VContractCondition contractLayer,  PreconditonVisualToTextual s) {
 		this.contractLayer = contractLayer;
@@ -54,6 +56,7 @@ public class TextualTransfomratiomHandler {
 		 vcEqualitiesList =  new ArrayList<>();
 		 alternativeBoxsList = new ArrayList<>();
 		 vcAssociationList = new ArrayList<VCAssociation>();
+		 vcDeleteAssociationList = new ArrayList<>();
 
 
 		for (VCEntity vcEntity : contractLayer.getVcEntities()) {
@@ -67,6 +70,8 @@ public class TextualTransfomratiomHandler {
 				alternativeBoxsList.add((VCAlternativeBox) vcEntity);
 			if (vcEntity instanceof VCAssociation)
 				vcAssociationList.add((VCAssociation) vcEntity);
+			if(vcEntity instanceof VCAssociationDeletion)
+				vcDeleteAssociationList.add((VCAssociationDeletion) vcEntity);
 		}
 		
 		
@@ -108,6 +113,13 @@ public class TextualTransfomratiomHandler {
 		for (VCAssociation vsAssociation : vcAssociationList) {
 			
 			text.add(visualToTextualhandler.interpertAssociationFormation(vsAssociation));
+		}
+		
+		// delete associations
+		
+		for (VCAssociationDeletion vcAssociation : vcDeleteAssociationList) {
+					
+			text.add(visualToTextualhandler.interpertDirectionalAssociationDeletion(vcAssociation));
 		}
 		
 		// alternativeBoxes

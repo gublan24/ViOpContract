@@ -62,6 +62,7 @@ public class VCAssociationItemProvider
 			addFirstInstanceVariablePropertyDescriptor(object);
 			addSecondInstanceVariablePropertyDescriptor(object);
 			addDirectionalPropertyDescriptor(object);
+			addBasedAttributePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -177,6 +178,28 @@ public class VCAssociationItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Based Attribute feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addBasedAttributePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_VCAssociation_basedAttribute_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_VCAssociation_basedAttribute_feature", "_UI_VCAssociation_type"),
+				 OCVPackage.Literals.VC_ASSOCIATION__BASED_ATTRIBUTE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This returns VCAssociation.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -214,6 +237,7 @@ public class VCAssociationItemProvider
 
 		switch (notification.getFeatureID(VCAssociation.class)) {
 			case OCVPackage.VC_ASSOCIATION__DIRECTIONAL:
+			case OCVPackage.VC_ASSOCIATION__BASED_ATTRIBUTE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

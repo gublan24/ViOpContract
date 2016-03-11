@@ -17,7 +17,7 @@ public class VCAssociationModifyCommand extends Command {
 	
 	public boolean canExecute(){
 		
-		return vcAssociation.getIncomingLinks().size() ==2;
+		return vcAssociation.getFirstInstance() != null && vcAssociation.getSecondInstance() != null;
 		
 	}
 	

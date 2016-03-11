@@ -1242,6 +1242,15 @@ public class OCVPackageImpl extends EPackageImpl implements OCVPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getVCAssociation_BasedAttribute() {
+		return (EAttribute)vcAssociationEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getVCParameter() {
 		return vcParameterEClass;
 	}
@@ -1707,6 +1716,7 @@ public class OCVPackageImpl extends EPackageImpl implements OCVPackage {
 		createEReference(vcAssociationEClass, VC_ASSOCIATION__FIRST_INSTANCE_VARIABLE);
 		createEReference(vcAssociationEClass, VC_ASSOCIATION__SECOND_INSTANCE_VARIABLE);
 		createEAttribute(vcAssociationEClass, VC_ASSOCIATION__DIRECTIONAL);
+		createEAttribute(vcAssociationEClass, VC_ASSOCIATION__BASED_ATTRIBUTE);
 
 		vcParameterEClass = createEClass(VC_PARAMETER);
 		createEReference(vcParameterEClass, VC_PARAMETER__VC_INSTANCE);
@@ -1935,6 +1945,7 @@ public class OCVPackageImpl extends EPackageImpl implements OCVPackage {
 		initEReference(getVCAssociation_FirstInstanceVariable(), this.getUMLVariable(), null, "firstInstanceVariable", null, 0, 1, VCAssociation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getVCAssociation_SecondInstanceVariable(), this.getUMLVariable(), null, "secondInstanceVariable", null, 0, 1, VCAssociation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getVCAssociation_Directional(), ecorePackage.getEBoolean(), "directional", null, 0, 1, VCAssociation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getVCAssociation_BasedAttribute(), ecorePackage.getEString(), "basedAttribute", null, 0, 1, VCAssociation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(vcParameterEClass, VCParameter.class, "VCParameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getVCParameter_VCInstance(), this.getVCInstance(), null, "vCInstance", null, 0, 1, VCParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

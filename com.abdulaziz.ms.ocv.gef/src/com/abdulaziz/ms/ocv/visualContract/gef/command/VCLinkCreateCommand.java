@@ -48,13 +48,24 @@ public class VCLinkCreateCommand extends Command {
 		
 		if (source instanceof VCAssociation && target instanceof VCInstance) 
 		{
+			((VCAssociation)source).setSecondInstance((VCInstance) target);
+			/*
 			vLink.setSource(target);
 			vLink.setTarget(source);
 			target.getOutgoingLinks().add(vLink);
 			source.getIncomingLinks().add(vLink);
+			*/
 
 		} 
-		else 
+		if (target instanceof VCAssociation && source instanceof VCInstance) 
+		{
+			((VCAssociation)target).setFirstInstance((VCInstance) source);
+			
+
+		} 
+		
+		
+		
 		{
 			vLink.setSource(source);
 			vLink.setTarget(target);
