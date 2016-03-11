@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import org.eclipse.emf.ecore.EObject;
 
 import com.abdulaziz.ms.OCV.VCAlternativeBox;
+import com.abdulaziz.ms.OCV.VCAssociation;
 import com.abdulaziz.ms.OCV.VCContract;
 import com.abdulaziz.ms.OCV.VCEntity;
 import com.abdulaziz.ms.OCV.VCEquality;
@@ -26,6 +27,7 @@ public class TextualTransfomratiomHandler {
 	private ArrayList<VCInstanceField> instanceFieldsList;
 	private ArrayList<VCEquality> vcEqualitiesList;
 	private ArrayList <VCAlternativeBox> alternativeBoxsList;
+	private ArrayList<VCAssociation> vcAssociationList;
 	
 	public TextualTransfomratiomHandler(VContractCondition contractLayer,  PreconditonVisualToTextual s) {
 		this.contractLayer = contractLayer;
@@ -51,6 +53,7 @@ public class TextualTransfomratiomHandler {
 		 instanceFieldsList =  new ArrayList<>();
 		 vcEqualitiesList =  new ArrayList<>();
 		 alternativeBoxsList = new ArrayList<>();
+		 vcAssociationList = new ArrayList<VCAssociation>();
 
 
 		for (VCEntity vcEntity : contractLayer.getVcEntities()) {
@@ -62,7 +65,8 @@ public class TextualTransfomratiomHandler {
 				instanceFieldsList.add((VCInstanceField) vcEntity);
 			if (vcEntity instanceof VCAlternativeBox)
 				alternativeBoxsList.add((VCAlternativeBox) vcEntity);
-				
+			if (vcEntity instanceof VCAssociation)
+				vcAssociationList.add((VCAssociation) vcEntity);
 		}
 		
 		
@@ -97,6 +101,13 @@ public class TextualTransfomratiomHandler {
 			
 			text.add(visualToTextualhandler.inerpertEquality(vcEquality));
 			
+		}
+		
+		// associations
+		
+		for (VCAssociation vsAssociation : vcAssociationList) {
+			
+			text.add(visualToTextualhandler.interpertAssociationFormation(vsAssociation));
 		}
 		
 		// alternativeBoxes

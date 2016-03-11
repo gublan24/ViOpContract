@@ -1,6 +1,7 @@
 package com.abdulaziz.ms.ocv.visualContract.gef.util;
 
 import com.abdulaziz.ms.OCV.VCAlternativeBox;
+import com.abdulaziz.ms.OCV.VCAssociation;
 import com.abdulaziz.ms.OCV.VCEntity;
 import com.abdulaziz.ms.OCV.VCEquality;
 import com.abdulaziz.ms.OCV.VCInstance;
@@ -78,6 +79,20 @@ public class PreconditonVisualToTextual extends VisualToTextualRepresentationHan
 	public String interpertAlternativeBox(VCAlternativeBox alternative) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public String interpertUndirectionalAssociationFormation(
+			VCAssociation vcAssociation) {
+		// TODO Auto-generated method stub
+		return " ** interpertUndirectionalAssociationFormation XXX";
+	}
+
+	@Override
+	public String interpertDirectionalAssociationFormation(
+			VCAssociation vcAssociation) {
+		// TODO Auto-generated method stub
+		return "interpertDirectionalAssociationFormation XXX";
 	}
 	
 	/*

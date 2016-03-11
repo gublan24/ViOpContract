@@ -81,8 +81,18 @@ public class VCOperationReportPage extends WizardPage {
 				ArrayList<String> post = postconditionTextOperationContract.getInterpertation();
 
 				operationContractReportText += newLineSeperator+" **** UPDATED **** "+newLineSeperator+"Preconditon"+newLineSeperator 
-						+Arrays.toString(pre.toArray())+newLineSeperator+"Post:" +newLineSeperator+ Arrays.toString(post.toArray())
 						;
+				
+				for(String line :pre)
+				{
+					operationContractReportText += line +newLineSeperator; 
+				}
+				operationContractReportText += newLineSeperator+"Postconditon"+newLineSeperator;
+
+				for(String line :post)
+				{
+					operationContractReportText += line +newLineSeperator; 
+				}
 				text.setText(operationContractReportText);
 				/*
 				text.setLineAlignment(0, text.getLineCount() -1, SWT.CENTER);

@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.resource.Resource;
 
 import com.abdulaziz.ms.OCV.ConditionOption;
 import com.abdulaziz.ms.OCV.VCAlternativeBox;
+import com.abdulaziz.ms.OCV.VCAssociation;
 import com.abdulaziz.ms.OCV.VCContract;
 import com.abdulaziz.ms.OCV.VCEntity;
 import com.abdulaziz.ms.OCV.VCEquality;
@@ -86,15 +87,37 @@ public class PostconditonVisualToTextual extends VisualToTextualRepresentationHa
 	@Override
 	public String interpertAlternativeBox(VCAlternativeBox alternative) {
 		String alternativeBoxText = "";
+		int i =1;
 		
 		for (ConditionOption con:alternative.getConditinOptions())
 		{
 			con.getVcContractAlternativeBox();
 			TextualTransfomratiomHandler levelHandelr = new TextualTransfomratiomHandler(con.getVcContractAlternativeBox(),new PostconditonVisualToTextual());
 			
-			alternativeBoxText = alternativeBoxText+ Arrays.toString(levelHandelr.getInterpertation().toArray());
+			alternativeBoxText = alternativeBoxText+ i+ Arrays.toString(levelHandelr.getInterpertation().toArray()) +"\r\n";
+			i++;
 		}
 		return alternativeBoxText;
 	}
+
+	@Override
+	public String interpertUndirectionalAssociationFormation(
+			VCAssociation vcAssociation) {
+		String line ="";
+		
+		VCInstance sourceVCInstance = (VCInstance) getSourceVEntity(vcAssociation);
+		VCInstance targetVCInstance = (VCInstance) getTargetVEntity(vcAssociation);
+		return line +sourceVCInstance.getInstanceName()+"  was associated with "+targetVCInstance.getInstanceName();
+	}
+
+	@Override
+	public String interpertDirectionalAssociationFormation(
+			VCAssociation vcAssociation) {
+		String line = "";
+		// TODO Auto-generated method stub
+		return "interpertDirectionalAssociationFormation XXX";
+	}
+
+
 
 }
