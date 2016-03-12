@@ -87,29 +87,24 @@ public class PostconditonVisualToTextual extends VisualToTextualRepresentationHa
 
 	@Override
 	public String interpertAlternativeBox(VCAlternativeBox alternative) {
-		String alternativeBoxText = "";
-		int i =1;
 		
+		
+		String alternativeBoxText = "";
+		String condition ="A is greater than B";
 		for (ConditionOption con:alternative.getConditinOptions())
 		{
 			con.getVcContractAlternativeBox();
 			TextualTransfomratiomHandler levelHandelr = new TextualTransfomratiomHandler(con.getVcContractAlternativeBox(),new PostconditonVisualToTextual());
+			alternativeBoxText +="If "+condition+" : " +"\r\n";
+			for (String line : levelHandelr.getInterpertation()) {
+				alternativeBoxText =alternativeBoxText +"    " +line +"\r\n";
+			}
+		
 			
-			alternativeBoxText = alternativeBoxText+ i+ Arrays.toString(levelHandelr.getInterpertation().toArray()) +"\r\n";
-			i++;
 		}
-		return alternativeBoxText;
+		return alternativeBoxText ;
 	}
 
-	@Override
-	public String interpertUndirectionalAssociationFormation(
-			VCAssociation vcAssociation) {
-		String line ="";
-		
-		VCInstance sourceVCInstance = (VCInstance) getSourceVEntity(vcAssociation);
-		VCInstance targetVCInstance = (VCInstance) getTargetVEntity(vcAssociation);
-		return sourceVCInstance.getInstanceName()+"  was associated from "+targetVCInstance.getInstanceName();
-	}
 
 	@Override
 	public String interpertDirectionalAssociationDeletion(
@@ -119,21 +114,30 @@ public class PostconditonVisualToTextual extends VisualToTextualRepresentationHa
 		VCInstance targetVCInstance = (VCInstance) getTargetVEntity(vcAssociation);
 		return sourceVCInstance.getInstanceName()+"  was disassociated from "+targetVCInstance.getInstanceName() ;
 	}
-	
-	@Override
-	public String interpertUndirectionalAssociationDeletion(
-			VCAssociationDeletion vcAssociation) {
-		
-		return this.interpertDirectionalAssociationDeletion(vcAssociation);
-	}
-
-	@Override
+		@Override
 	public String interpertDirectionalAssociationFormation(
 			VCAssociation vcAssociation) {
 		String line = "" ;
 		VCInstance sourceVCInstance = (VCInstance) getSourceVEntity(vcAssociation);
 		VCInstance targetVCInstance = (VCInstance) getTargetVEntity(vcAssociation);
 		return sourceVCInstance.getInstanceName()+"  was associated with "+targetVCInstance.getInstanceName()+" based on "+vcAssociation.getSecondInstanceVariable().getVariableName() + " match" ;
+	}
+
+	@Override
+	public String interpertUndirectionalAssociationFormation(
+			VCAssociation vcAssociation) {
+		String line ="";
+		
+		VCInstance sourceVCInstance = (VCInstance) getSourceVEntity(vcAssociation);
+		VCInstance targetVCInstance = (VCInstance) getTargetVEntity(vcAssociation);
+		return sourceVCInstance.getInstanceName()+"  was associated with "+targetVCInstance.getInstanceName();
+	}
+
+	@Override
+	public String interpertUndirectionalAssociationDeletion(
+			VCAssociationDeletion vcAssociation) {
+		
+		return this.interpertDirectionalAssociationDeletion(vcAssociation);
 	}
 
 
