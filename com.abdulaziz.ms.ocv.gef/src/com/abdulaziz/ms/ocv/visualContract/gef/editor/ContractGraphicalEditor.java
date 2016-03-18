@@ -33,6 +33,7 @@ import com.abdulaziz.ms.ocv.visualContract.gef.action.UpdateVCInstanceSelectionA
 import com.abdulaziz.ms.ocv.visualContract.gef.action.UpdateVCLoopSelectionAction;
 import com.abdulaziz.ms.ocv.visualContract.gef.action.UpdateVCParameterSelectionAction;
 import com.abdulaziz.ms.ocv.visualContract.gef.action.UpdateVCValueSelectionAction;
+import com.abdulaziz.ms.ocv.visualContract.gef.action.VCAssociationDeletionUpdateSelectionAction;
 import com.abdulaziz.ms.ocv.visualContract.gef.action.VCAssociationUpdateSelectionAction;
 import com.abdulaziz.ms.ocv.visualContract.gef.action.VCAttributeUpdateSelectionAction;
 import com.abdulaziz.ms.ocv.visualContract.gef.editor.part.ContractEditPartFactory;
@@ -195,8 +196,8 @@ public class ContractGraphicalEditor extends GraphicalEditorWithFlyoutPalette {
 	    UpdateVCLoopSelectionAction action9 = new UpdateVCLoopSelectionAction(this);
 	    UpdateVCParameterSelectionAction action10 = new UpdateVCParameterSelectionAction(this);
 	    UpdateVCValueSelectionAction action11 = new UpdateVCValueSelectionAction(this);
-	    
 	    GenerateOperationContractAction action12 = new GenerateOperationContractAction(this);
+	    VCAssociationDeletionUpdateSelectionAction action13 = new VCAssociationDeletionUpdateSelectionAction(this);
 	
 		getActionRegistry().registerAction(action4);
 		getSelectionActions().add(action4.getId());
@@ -217,6 +218,8 @@ public class ContractGraphicalEditor extends GraphicalEditorWithFlyoutPalette {
 		getActionRegistry().registerAction(action12);
 		getSelectionActions().add(action12.getId());
 
+		getActionRegistry().registerAction(action13);
+		getSelectionActions().add(action13.getId());
 	 
 	    super.createActions();
 	}

@@ -10,6 +10,7 @@ import com.abdulaziz.ms.OCV.VCAssociation;
 import com.abdulaziz.ms.view.wizard.ModifyAssociationWizard;
 
 public class VCAssociationModifyCommand extends Command {
+	
 
 	private VCAssociation vcAssociation;
 	private Control control;

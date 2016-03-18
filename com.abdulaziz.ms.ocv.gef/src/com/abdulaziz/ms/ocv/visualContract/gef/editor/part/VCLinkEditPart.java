@@ -22,6 +22,7 @@ import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.widgets.Display;
 
 import com.abdulaziz.ms.OCV.VCAssociation;
+import com.abdulaziz.ms.OCV.VCAssociationDeletion;
 import com.abdulaziz.ms.OCV.VCInstance;
 import com.abdulaziz.ms.OCV.VCInstanceField;
 import com.abdulaziz.ms.OCV.VCLink;
@@ -145,7 +146,6 @@ public class VCLinkEditPart extends AbstractConnectionEditPart {
 			else 
 			{
 				fffigure.setTargetDecoration(createTargetDecoration());
-	
 			}
 		
 		}	
@@ -161,6 +161,32 @@ public class VCLinkEditPart extends AbstractConnectionEditPart {
 	
 			}
 		}
+		
+		// - - -- - -
+		if  (((VCLink) getModel()).getSource() instanceof VCAssociationDeletion)
+		{
+			if (!((VCAssociationDeletion)((VCLink) getModel()).getSource()).isDirectional())
+			{
+				fffigure.setTargetDecoration(null);
+			}
+			else 
+			{
+				fffigure.setTargetDecoration(createTargetDecoration());
+	
+			}
+		}
+		else  if (((VCLink) getModel()).getTarget() instanceof VCAssociationDeletion )
+			{
+				if (!((VCAssociationDeletion)((VCLink) getModel()).getTarget()).isDirectional())
+				{
+					fffigure.setTargetDecoration(null);
+				}
+				else 
+				{
+					fffigure.setTargetDecoration(createTargetDecoration());
+				}
+			
+			}	
 		
 		
 	}

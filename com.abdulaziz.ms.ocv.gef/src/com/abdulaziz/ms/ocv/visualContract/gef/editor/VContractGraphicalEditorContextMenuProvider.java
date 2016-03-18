@@ -18,6 +18,7 @@ import com.abdulaziz.ms.ocv.visualContract.gef.action.UpdateVCInstanceSelectionA
 import com.abdulaziz.ms.ocv.visualContract.gef.action.UpdateVCLoopSelectionAction;
 import com.abdulaziz.ms.ocv.visualContract.gef.action.UpdateVCParameterSelectionAction;
 import com.abdulaziz.ms.ocv.visualContract.gef.action.UpdateVCValueSelectionAction;
+import com.abdulaziz.ms.ocv.visualContract.gef.action.VCAssociationDeletionUpdateSelectionAction;
 import com.abdulaziz.ms.ocv.visualContract.gef.action.VCAssociationUpdateSelectionAction;
 import com.abdulaziz.ms.ocv.visualContract.gef.action.VCAttributeUpdateSelectionAction;
 
@@ -78,6 +79,9 @@ public class VContractGraphicalEditorContextMenuProvider extends ContextMenuProv
 		menu.appendToGroup(GEFActionConstants.GROUP_EDIT, action);
 		
 		action = getActionRegistry().getAction(GenerateOperationContractAction.GENERATE_OPERATION_CONTRACT);
+		menu.appendToGroup(GEFActionConstants.GROUP_EDIT, action);
+		
+		action = getActionRegistry().getAction(VCAssociationDeletionUpdateSelectionAction.UPDATE_VC_ASSOCIATION_DELETION);
 		menu.appendToGroup(GEFActionConstants.GROUP_EDIT, action);
 		
 		menu.appendToGroup(GEFActionConstants.GROUP_VIEW,getActionRegistry().getAction(GEFActionConstants.ZOOM_IN));

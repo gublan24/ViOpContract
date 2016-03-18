@@ -11,6 +11,7 @@ import org.eclipse.ui.internal.actions.CommandAction;
 
 import com.abdulaziz.ms.OCV.VCAlternativeBox;
 import com.abdulaziz.ms.OCV.VCAssociation;
+import com.abdulaziz.ms.OCV.VCAssociationDeletion;
 import com.abdulaziz.ms.OCV.VCEntity;
 import com.abdulaziz.ms.OCV.VCEquality;
 import com.abdulaziz.ms.OCV.VCInstance;
@@ -20,6 +21,7 @@ import com.abdulaziz.ms.OCV.VCParameter;
 import com.abdulaziz.ms.OCV.VCValue;
 import com.abdulaziz.ms.OCV.VContractCondition;
 import com.abdulaziz.ms.ocv.visualContract.gef.action.UpdateVCValueSelectionAction;
+import com.abdulaziz.ms.ocv.visualContract.gef.action.VCAssociationDeletionUpdateSelectionAction;
 import com.abdulaziz.ms.ocv.visualContract.gef.action.VCAssociationUpdateSelectionAction;
 import com.abdulaziz.ms.ocv.visualContract.gef.action.VCAttributeUpdateSelectionAction;
 import com.abdulaziz.ms.ocv.visualContract.gef.action.UpdateEqualitySelectionAction;
@@ -29,6 +31,7 @@ import com.abdulaziz.ms.ocv.visualContract.gef.action.UpdateVCInstanceFieldSelec
 import com.abdulaziz.ms.ocv.visualContract.gef.action.UpdateVCInstanceSelectionAction;
 import com.abdulaziz.ms.ocv.visualContract.gef.action.UpdateVCLoopSelectionAction;
 import com.abdulaziz.ms.ocv.visualContract.gef.action.UpdateVCParameterSelectionAction;
+import com.abdulaziz.ms.ocv.visualContract.gef.command.VCAssociationDeletionCommand;
 import com.abdulaziz.ms.ocv.visualContract.gef.command.VCAssociationModifyCommand;
 import com.abdulaziz.ms.ocv.visualContract.gef.command.VCAttributeModifyCommand;
 import com.abdulaziz.ms.ocv.visualContract.gef.command.VCLinkCreateCommand;
@@ -125,9 +128,20 @@ public class VCEntityGraphicalNodeEditPolicy extends GraphicalNodeEditPolicy  {
         {
         	return updateAlternativeCommand();
         }
+        else if (request.getType().equals(VCAssociationDeletionUpdateSelectionAction.REQ_UPDATE_VC_ASSOCIATION_DELETION))
+        {
+        	return updateAssociationDeletion();
+        }
         return super.getCommand(request);
 
 }
+
+	private Command updateAssociationDeletion() {
+		VCAssociationDeletionCommand command = new VCAssociationDeletionCommand();
+		command.setVCAssociationDeletion((VCAssociationDeletion)getHost().getModel());
+		command.setControl(getHost().getViewer().getControl());
+		return command;
+	}
 
 	private Command updateLoopCommand() {
 		VCLoopModifyCommand command = new VCLoopModifyCommand();

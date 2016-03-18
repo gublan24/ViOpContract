@@ -86,13 +86,13 @@ public class AssociationWizardPage extends WizardPage {
 		});
 		
 		group = new Group(container, SWT.NONE);
-		group.setBounds(20, 55, 529, 216);
+		group.setBounds(20, 55, 453, 220);
 		Label pageLabel = new Label(group, SWT.NONE);
 		pageLabel.setSize(389, 15);
 		pageLabel.setText("Select the attribute of the target on which the association will based  :");
 		
 		Group secondInstanceGroup = new Group(group, SWT.NONE);
-		secondInstanceGroup.setLocation(89, 23);
+		secondInstanceGroup.setLocation(10, 28);
 		secondInstanceGroup.setSize(302, 91);
 		
 		secondInstanceGroup.setText("Second Instance");
@@ -113,7 +113,7 @@ public class AssociationWizardPage extends WizardPage {
 		secondInstanceAttributesCombo.setBounds(124, 49, 131, 23);
 		
 		Group firstGroup = new Group(group, SWT.NONE);
-		firstGroup.setLocation(26, 115);
+		firstGroup.setLocation(10, 120);
 		firstGroup.setSize(302, 91);
 		firstGroup.setText("First Instance");
 		

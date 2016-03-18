@@ -57,23 +57,18 @@ public class VCLinkCreateCommand extends Command {
 			*/
 
 		} 
-		if (target instanceof VCAssociation && source instanceof VCInstance) 
-		{
-			((VCAssociation)target).setFirstInstance((VCInstance) source);
-			
+		if (target instanceof VCAssociation && source instanceof VCInstance) {
+			((VCAssociation) target).setFirstInstance((VCInstance) source);
 
-		} 
-		
+		}
+
 		vLink.setSource(source);
 		vLink.setTarget(target);
 		source.getOutgoingLinks().add(vLink);
 		target.getIncomingLinks().add(vLink);
-		
-	
-		
+
 		EObject eContainer = source.eContainer();
-		while(! (eContainer instanceof VCContract))
-		{
+		while (!(eContainer instanceof VCContract)) {
 			eContainer = eContainer.eContainer();
 		}
 		vcContract = (VCContract) eContainer;
@@ -91,21 +86,15 @@ public class VCLinkCreateCommand extends Command {
 			vLink = OCVFactory.eINSTANCE.createVCLinkPrePostCondition();
 	}
 	
-	
-
 	@Override
 	public boolean canExecute()
 	{
-		
-		
-		return source != null && target != null && vLink != null && !(target.equals(source));
-		
+		return source != null && target != null && vLink != null && !(target.equals(source));	
 	}
 	
 	@Override
 	public void undo()
-	{
-		
+	{	
 		vLink.getSource().getOutgoingLinks().remove(vLink);
 		vLink.setSource(null);
 		vLink.getTarget().getIncomingLinks().remove(vLink);
