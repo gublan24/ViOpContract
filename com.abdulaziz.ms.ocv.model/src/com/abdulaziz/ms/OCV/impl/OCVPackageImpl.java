@@ -1557,6 +1557,15 @@ public class OCVPackageImpl extends EPackageImpl implements OCVPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getVCAssociationDeletion_Directional() {
+		return (EAttribute)vcAssociationDeletionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EDataType getRectangle() {
 		return rectangleEDataType;
 	}
@@ -1762,6 +1771,7 @@ public class OCVPackageImpl extends EPackageImpl implements OCVPackage {
 		createEReference(vContractLoopBoxEClass, VCONTRACT_LOOP_BOX__VC_COLLECTION_BOX);
 
 		vcAssociationDeletionEClass = createEClass(VC_ASSOCIATION_DELETION);
+		createEAttribute(vcAssociationDeletionEClass, VC_ASSOCIATION_DELETION__DIRECTIONAL);
 
 		// Create data types
 		absoluteBendpointEDataType = createEDataType(ABSOLUTE_BENDPOINT);
@@ -1994,6 +2004,7 @@ public class OCVPackageImpl extends EPackageImpl implements OCVPackage {
 		initEReference(getVContractLoopBox_VcCollectionBox(), this.getVCLoop(), this.getVCLoop_VcContractLoopBox(), "vcCollectionBox", null, 0, 1, VContractLoopBox.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(vcAssociationDeletionEClass, VCAssociationDeletion.class, "VCAssociationDeletion", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getVCAssociationDeletion_Directional(), ecorePackage.getEBoolean(), "directional", null, 0, 1, VCAssociationDeletion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize data types
 		initEDataType(absoluteBendpointEDataType, AbsoluteBendpoint.class, "AbsoluteBendpoint", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);

@@ -2959,13 +2959,22 @@ public interface OCVPackage extends EPackage {
 	int VC_ASSOCIATION_DELETION__POSTCONDITION = VC_ENTITY__POSTCONDITION;
 
 	/**
+	 * The feature id for the '<em><b>Directional</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VC_ASSOCIATION_DELETION__DIRECTIONAL = VC_ENTITY_FEATURE_COUNT + 0;
+
+	/**
 	 * The number of structural features of the '<em>VC Association Deletion</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VC_ASSOCIATION_DELETION_FEATURE_COUNT = VC_ENTITY_FEATURE_COUNT + 0;
+	int VC_ASSOCIATION_DELETION_FEATURE_COUNT = VC_ENTITY_FEATURE_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Set VContract Condition</em>' operation.
@@ -4473,6 +4482,17 @@ public interface OCVPackage extends EPackage {
 	EClass getVCAssociationDeletion();
 
 	/**
+	 * Returns the meta object for the attribute '{@link com.abdulaziz.ms.OCV.VCAssociationDeletion#isDirectional <em>Directional</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Directional</em>'.
+	 * @see com.abdulaziz.ms.OCV.VCAssociationDeletion#isDirectional()
+	 * @see #getVCAssociationDeletion()
+	 * @generated
+	 */
+	EAttribute getVCAssociationDeletion_Directional();
+
+	/**
 	 * Returns the meta object for data type '{@link org.eclipse.draw2d.geometry.Rectangle <em>Rectangle</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5662,6 +5682,14 @@ public interface OCVPackage extends EPackage {
 		 * @generated
 		 */
 		EClass VC_ASSOCIATION_DELETION = eINSTANCE.getVCAssociationDeletion();
+
+		/**
+		 * The meta object literal for the '<em><b>Directional</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute VC_ASSOCIATION_DELETION__DIRECTIONAL = eINSTANCE.getVCAssociationDeletion_Directional();
 
 		/**
 		 * The meta object literal for the '<em>Rectangle</em>' data type.
