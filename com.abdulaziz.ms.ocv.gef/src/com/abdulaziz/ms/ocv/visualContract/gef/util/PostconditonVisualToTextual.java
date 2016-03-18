@@ -71,8 +71,10 @@ public class PostconditonVisualToTextual extends VisualToTextualRepresentationHa
 		String source = "";
 		String target ="";
 		
+		VCEntity vcSource = null;
 		for(VCLink incomeLink:vcEquality.getIncomingLinks())
 		{
+			vcSource = incomeLink.getSource();
 			source = inerpertValue(incomeLink.getSource());
 		}
 		for(VCLink outLink:vcEquality.getOutgoingLinks())
@@ -80,6 +82,11 @@ public class PostconditonVisualToTextual extends VisualToTextualRepresentationHa
 			target = inerpertValue(outLink.getTarget());
 		}
 		
+		if(vcSource instanceof VCInstance)
+		{
+			return ((VCInstance) vcSource).getInstanceName() +" "+vcEquality.getMeaning()+ " "+target;
+
+		}
 		return source +" was set to a value "+vcEquality.getMeaning()+ " "+target;
 	}
 	

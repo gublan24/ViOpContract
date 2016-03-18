@@ -24,6 +24,8 @@ public class VCLinkRulesManager {
 			+ VCInstanceFieldImpl.class.getSimpleName() + " , ";
 	final static String EQAULITY_ACCEPTED_SOURCES = " "
 			+ VCParameterImpl.class.getSimpleName() + ", "
+						+ VCInstanceImpl.class.getSimpleName() + ", "
+
 			+ VCInstanceFieldImpl.class.getSimpleName();
 	final static String OPERATION_RETURN_ACCEPTED_SOURCES = " "
 			+ VCInstanceImpl.class.getSimpleName() + ", "
