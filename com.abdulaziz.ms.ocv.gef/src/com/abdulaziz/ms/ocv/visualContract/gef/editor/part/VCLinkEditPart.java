@@ -46,6 +46,24 @@ public class VCLinkEditPart extends AbstractConnectionEditPart {
 		installEditPolicy(EditPolicy.CONNECTION_ROLE, new VCLinkConnectionEditPolicy());
 	}
 	
+	public PolygonDecoration createTargetDecoration()
+	{
+		if(this.decoration == null)
+		{
+			decoration = new PolygonDecoration();
+			Display display = Display.getCurrent();
+		    Color connectionColor = display.getSystemColor(SWT.COLOR_BLUE);
+			decoration.setBackgroundColor(connectionColor);
+			PointList decorationPointList = new PointList();
+			decorationPointList.addPoint(0, 0);
+			decorationPointList.addPoint(-2, 2);
+			decorationPointList.addPoint(-2, -2);
+			decoration.setTemplate(decorationPointList);
+		}
+		
+		return decoration;
+	}
+	PolygonDecoration decoration;
 	@Override
 	protected IFigure createFigure() {
 		PolylineConnection  conn = new PolylineConnection ();
@@ -65,7 +83,7 @@ public class VCLinkEditPart extends AbstractConnectionEditPart {
 		decorationPointList.addPoint(-2, -2);
 		decoration.setTemplate(decorationPointList);
 		
-		check(conn, decoration);
+		addTargetDecoration(conn, decoration);
 		
 		
 		
@@ -73,17 +91,35 @@ public class VCLinkEditPart extends AbstractConnectionEditPart {
 		return conn;
 	}
 	
-	public void check(PolylineConnection conn, RotatableDecoration decoration)
-	{
-		if (!
-				(
-						(((VCLink) getModel()).getTarget() instanceof VCInstanceField) &&  (((VCLink) getModel()).getSource() instanceof VCInstance)
-						|| ((VCLink) getModel()).getTarget() instanceof VCAssociation || ((VCLink) getModel()).getTarget() instanceof VCInstance))
+	public void addTargetDecoration(PolylineConnection conn, RotatableDecoration decoration)
+	{	
+
+		if (!((((VCLink) getModel()).getTarget() instanceof VCInstanceField) &&  (((VCLink) getModel()).getSource() instanceof VCInstance)))		
 		{
 					
 			conn.setTargetDecoration(decoration);
 
 		}
+
+		/*
+		
+		if (((VCLink) getModel()).getTarget() instanceof VCAssociation )
+			if (((VCAssociation)((VCLink) getModel()).getTarget()).isDirectional())
+			{
+				conn.setTargetDecoration(decoration);
+			}
+			
+		if  (((VCLink) getModel()).getSource() instanceof VCAssociation)
+		{
+			if (((VCAssociation)((VCLink) getModel()).getSource()).isDirectional())
+			{
+				conn.setTargetDecoration(decoration);
+			}
+		}
+		
+		*/
+		
+
 		
 	}
 	
@@ -98,6 +134,34 @@ public class VCLinkEditPart extends AbstractConnectionEditPart {
 			
 		}
 		connection.setRoutingConstraint(points);
+		PolylineConnection fffigure = (PolylineConnection)this.getFigure();
+		
+		if (((VCLink) getModel()).getTarget() instanceof VCAssociation )
+		{
+			if (!((VCAssociation)((VCLink) getModel()).getTarget()).isDirectional())
+			{
+				fffigure.setTargetDecoration(null);
+			}
+			else 
+			{
+				fffigure.setTargetDecoration(createTargetDecoration());
+	
+			}
+		
+		}	
+		if  (((VCLink) getModel()).getSource() instanceof VCAssociation)
+		{
+			if (!((VCAssociation)((VCLink) getModel()).getSource()).isDirectional())
+			{
+				fffigure.setTargetDecoration(null);
+			}
+			else 
+			{
+				fffigure.setTargetDecoration(createTargetDecoration());
+	
+			}
+		}
+		
 		
 	}
 	
@@ -122,6 +186,8 @@ public class VCLinkEditPart extends AbstractConnectionEditPart {
 		@Override
 		public void notifyChanged(Notification notification) {
 			refreshVisuals();
+			
+			
 		}
 
 		@Override

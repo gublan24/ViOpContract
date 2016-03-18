@@ -64,14 +64,12 @@ public class VCLinkCreateCommand extends Command {
 
 		} 
 		
+		vLink.setSource(source);
+		vLink.setTarget(target);
+		source.getOutgoingLinks().add(vLink);
+		target.getIncomingLinks().add(vLink);
 		
-		
-		{
-			vLink.setSource(source);
-			vLink.setTarget(target);
-			source.getOutgoingLinks().add(vLink);
-			target.getIncomingLinks().add(vLink);
-		}
+	
 		
 		EObject eContainer = source.eContainer();
 		while(! (eContainer instanceof VCContract))

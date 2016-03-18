@@ -92,7 +92,8 @@ public class VCAssociationFigure extends Figure implements VCEntityFigure {
 		graphics.drawOval(rightOval);
 		graphics.setLineWidthFloat((float) 0.3);
 		//graphics.drawText(attributeText, mainRectangle.x, mainRectangle.getBottom().y);
-		if(!vAssociation.isDirectional())
+		
+		if(!vAssociation.isDirectional()) // == unidirectional 
 			label.setText("");
 		else 
 			label.setText(""+vAssociation.getSecondInstanceVariable().getVariableName());

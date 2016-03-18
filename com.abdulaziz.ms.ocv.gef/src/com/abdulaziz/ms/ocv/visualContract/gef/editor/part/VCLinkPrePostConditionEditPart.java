@@ -41,7 +41,7 @@ public class VCLinkPrePostConditionEditPart extends VCLinkEditPart {
 		decorationPointList.addPoint(-2, 2);
 		decorationPointList.addPoint(-2, -2);
 		decoration.setTemplate(decorationPointList);
-		super.check(conn, decoration);
+		super.addTargetDecoration(conn, decoration);
 		
 		return conn;
 	}

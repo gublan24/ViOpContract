@@ -15,8 +15,11 @@ import com.abdulaziz.ms.OCV.UMLClass;
 import com.abdulaziz.ms.OCV.UMLVariable;
 import com.abdulaziz.ms.OCV.VCAssociation;
 import com.abdulaziz.ms.OCV.VCInstance;
+import com.abdulaziz.ms.OCV.VCLink;
 
 import org.eclipse.draw2d.Panel;
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.impl.NotificationImpl;
 import org.eclipse.swt.widgets.Button;
 
 public class AssociationWizardPage extends WizardPage {
@@ -70,9 +73,9 @@ public class AssociationWizardPage extends WizardPage {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
 				if(((Button)e.getSource()).getSelection())
-					group.setEnabled(false);
+					group.setVisible(false);
 				else 
-					group.setEnabled(true);
+					group.setVisible(true);
 			}
 			
 			@Override
@@ -131,6 +134,9 @@ public class AssociationWizardPage extends WizardPage {
 		firstUMLVariableHashMap = new HashMap<>();
 		secondClassUMLVariableHashMap = new HashMap<>();
 		fillData();
+		
+		group.setVisible(vcAssociation.isDirectional());
+
 		
 		
 	}
@@ -207,6 +213,16 @@ public class AssociationWizardPage extends WizardPage {
 		}
 		}
 		
+		NotificationImpl x = new NotificationImpl(INFORMATION, vcAssociation, vcAssociation);
+		for (VCLink asspciationFormationOutGoingLink:vcAssociation.getOutgoingLinks())
+		{
+			asspciationFormationOutGoingLink.eNotify(x);
+		}
+		for (VCLink asspciationFormationIncomingLink:vcAssociation.getIncomingLinks())
+		{
+			asspciationFormationIncomingLink.eNotify(x);
+		}
+
 		
 	}
 }
