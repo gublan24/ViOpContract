@@ -2622,13 +2622,31 @@ public interface OCVPackage extends EPackage {
 	int CONDITION_OPTION__MEANING_OF_CONDITION_STATEMENT = 6;
 
 	/**
+	 * The feature id for the '<em><b>Condition Block</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONDITION_OPTION__CONDITION_BLOCK = 7;
+
+	/**
+	 * The feature id for the '<em><b>Result Block</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONDITION_OPTION__RESULT_BLOCK = 8;
+
+	/**
 	 * The number of structural features of the '<em>Condition Option</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONDITION_OPTION_FEATURE_COUNT = 7;
+	int CONDITION_OPTION_FEATURE_COUNT = 9;
 
 	/**
 	 * The number of operations of the '<em>Condition Option</em>' class.
@@ -2695,7 +2713,7 @@ public interface OCVPackage extends EPackage {
 	int VCONTRACT_ALTERNATIVE_BOX__VC_CONTRACT = VCONTRACT_CONDITION_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Condition Option</b></em>' container reference.
+	 * The feature id for the '<em><b>Condition Option</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -4367,6 +4385,28 @@ public interface OCVPackage extends EPackage {
 	EAttribute getConditionOption_MeaningOfConditionStatement();
 
 	/**
+	 * Returns the meta object for the containment reference '{@link com.abdulaziz.ms.OCV.ConditionOption#getConditionBlock <em>Condition Block</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Condition Block</em>'.
+	 * @see com.abdulaziz.ms.OCV.ConditionOption#getConditionBlock()
+	 * @see #getConditionOption()
+	 * @generated
+	 */
+	EReference getConditionOption_ConditionBlock();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link com.abdulaziz.ms.OCV.ConditionOption#getResultBlock <em>Result Block</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Result Block</em>'.
+	 * @see com.abdulaziz.ms.OCV.ConditionOption#getResultBlock()
+	 * @see #getConditionOption()
+	 * @generated
+	 */
+	EReference getConditionOption_ResultBlock();
+
+	/**
 	 * Returns the meta object for class '{@link com.abdulaziz.ms.OCV.VContractAlternativeBox <em>VContract Alternative Box</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4399,10 +4439,10 @@ public interface OCVPackage extends EPackage {
 	EReference getVContractAlternativeBox_VcContract();
 
 	/**
-	 * Returns the meta object for the container reference '{@link com.abdulaziz.ms.OCV.VContractAlternativeBox#getConditionOption <em>Condition Option</em>}'.
+	 * Returns the meta object for the reference '{@link com.abdulaziz.ms.OCV.VContractAlternativeBox#getConditionOption <em>Condition Option</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Condition Option</em>'.
+	 * @return the meta object for the reference '<em>Condition Option</em>'.
 	 * @see com.abdulaziz.ms.OCV.VContractAlternativeBox#getConditionOption()
 	 * @see #getVContractAlternativeBox()
 	 * @generated
@@ -5588,6 +5628,22 @@ public interface OCVPackage extends EPackage {
 		EAttribute CONDITION_OPTION__MEANING_OF_CONDITION_STATEMENT = eINSTANCE.getConditionOption_MeaningOfConditionStatement();
 
 		/**
+		 * The meta object literal for the '<em><b>Condition Block</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CONDITION_OPTION__CONDITION_BLOCK = eINSTANCE.getConditionOption_ConditionBlock();
+
+		/**
+		 * The meta object literal for the '<em><b>Result Block</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CONDITION_OPTION__RESULT_BLOCK = eINSTANCE.getConditionOption_ResultBlock();
+
+		/**
 		 * The meta object literal for the '{@link com.abdulaziz.ms.OCV.impl.VContractAlternativeBoxImpl <em>VContract Alternative Box</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -5614,7 +5670,7 @@ public interface OCVPackage extends EPackage {
 		EReference VCONTRACT_ALTERNATIVE_BOX__VC_CONTRACT = eINSTANCE.getVContractAlternativeBox_VcContract();
 
 		/**
-		 * The meta object literal for the '<em><b>Condition Option</b></em>' container reference feature.
+		 * The meta object literal for the '<em><b>Condition Option</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated

@@ -27,7 +27,7 @@ public class VContractAlternativeBoxEditPart extends VContractConditionEditPart 
 		LabeledContainer figure = (LabeledContainer) this.getFigure();
 		VContractAlternativeBox vContractAltBox = (VContractAlternativeBox) getModel();
 	
-		figure.setLabel(""+vContractAltBox.getConditionOption().getName());
+		figure.setLabel(""+vContractAltBox.getType());
 		Rectangle constraint = vContractAltBox.getConstaint();
 		if(constraint == null)
 		constraint = new Rectangle(((VCAlternativeBoxFigure)getFigure().getParent()).getFigureLocation(), new Dimension(100, 100));

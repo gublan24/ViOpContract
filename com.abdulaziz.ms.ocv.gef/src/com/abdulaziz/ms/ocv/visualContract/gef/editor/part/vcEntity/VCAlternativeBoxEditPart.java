@@ -64,6 +64,12 @@ public class VCAlternativeBoxEditPart extends VCEntityEditPart {
 		List<Object> list = new ArrayList<>();
 		for (ConditionOption object : vcAltBox.getConditinOptions()) {
 			list.add(object.getVcContractAlternativeBox());
+			if(object.getConditionBlock() != null)
+			{
+			list.add(object.getConditionBlock());
+			list.add(object.getResultBlock());
+			}
+
 
 		}
 		

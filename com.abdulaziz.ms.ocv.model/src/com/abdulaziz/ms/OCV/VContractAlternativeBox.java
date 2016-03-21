@@ -75,28 +75,26 @@ public interface VContractAlternativeBox extends VContractCondition {
 	void setVcContract(VCContract value);
 
 	/**
-	 * Returns the value of the '<em><b>Condition Option</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link com.abdulaziz.ms.OCV.ConditionOption#getVcContractAlternativeBox <em>Vc Contract Alternative Box</em>}'.
+	 * Returns the value of the '<em><b>Condition Option</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Condition Option</em>' container reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Condition Option</em>' container reference.
+	 * @return the value of the '<em>Condition Option</em>' reference.
 	 * @see #setConditionOption(ConditionOption)
 	 * @see com.abdulaziz.ms.OCV.OCVPackage#getVContractAlternativeBox_ConditionOption()
-	 * @see com.abdulaziz.ms.OCV.ConditionOption#getVcContractAlternativeBox
-	 * @model opposite="vcContractAlternativeBox" transient="false"
+	 * @model
 	 * @generated
 	 */
 	ConditionOption getConditionOption();
 
 	/**
-	 * Sets the value of the '{@link com.abdulaziz.ms.OCV.VContractAlternativeBox#getConditionOption <em>Condition Option</em>}' container reference.
+	 * Sets the value of the '{@link com.abdulaziz.ms.OCV.VContractAlternativeBox#getConditionOption <em>Condition Option</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Condition Option</em>' container reference.
+	 * @param value the new value of the '<em>Condition Option</em>' reference.
 	 * @see #getConditionOption()
 	 * @generated
 	 */

@@ -252,11 +252,31 @@ public class VCAlternativeBoxWizardPage extends WizardPage {
 				// create new inner alternative option
 				ConditionOption conditionOption = OCVFactory.eINSTANCE.createConditionOption();
 				conditionOption.setName("new alterative option"+(vcAlternativeBox.getConditinOptions().size()+1));
+				
 				// create Contract alternative box layer for the inner option
 
 				VContractAlternativeBox rootVContractAlternativeBox = OCVFactory.eINSTANCE.createVContractAlternativeBox();
 				
+				VContractAlternativeBox condition = OCVFactory.eINSTANCE.createVContractAlternativeBox();
+				VContractAlternativeBox result = OCVFactory.eINSTANCE.createVContractAlternativeBox();
+				
+				condition.setType("alt condition block");
+				result.setType("alt result block");		
+				
 				conditionOption.setVcContractAlternativeBox(rootVContractAlternativeBox);
+
+				
+					
+
+				conditionOption.setConditionBlock(condition);
+				conditionOption.setResultBlock(result);
+				
+				condition.setConditionOption(conditionOption);
+				result.setConditionOption(conditionOption);
+				
+				Rectangle r1= new Rectangle(0,30,vcAlternativeBox.getConstraints().width-5,vcAlternativeBox.getConstraints().height/2);
+				condition.setConstaint(r1.getCopy().shrink(2, 2));
+				result.setConstaint(r1.getCopy().shrink(1, 1));
 				
 				rootVContractAlternativeBox.setConditionOption(conditionOption);
 
@@ -277,6 +297,7 @@ public class VCAlternativeBoxWizardPage extends WizardPage {
 					
 					
 				}
+				
 				
 				vcAlternativeBox.getConditinOptions().add(conditionOption);
 				conditionOption.setVcAlternativeBox(vcAlternativeBox);

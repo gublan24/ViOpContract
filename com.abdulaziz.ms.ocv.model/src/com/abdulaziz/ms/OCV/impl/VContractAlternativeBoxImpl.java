@@ -7,20 +7,12 @@ import com.abdulaziz.ms.OCV.OCVPackage;
 import com.abdulaziz.ms.OCV.VCContract;
 import com.abdulaziz.ms.OCV.VCEntity;
 import com.abdulaziz.ms.OCV.VContractAlternativeBox;
-
 import java.lang.reflect.InvocationTargetException;
-
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
-import org.eclipse.emf.ecore.util.EcoreUtil;
 
 /**
  * <!-- begin-user-doc -->
@@ -67,6 +59,16 @@ public class VContractAlternativeBoxImpl extends VContractConditionImpl implemen
 	 * @ordered
 	 */
 	protected VCContract vcContract;
+
+	/**
+	 * The cached value of the '{@link #getConditionOption() <em>Condition Option</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getConditionOption()
+	 * @generated
+	 * @ordered
+	 */
+	protected ConditionOption conditionOption;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -152,8 +154,15 @@ public class VContractAlternativeBoxImpl extends VContractConditionImpl implemen
 	 * @generated
 	 */
 	public ConditionOption getConditionOption() {
-		if (eContainerFeatureID() != OCVPackage.VCONTRACT_ALTERNATIVE_BOX__CONDITION_OPTION) return null;
-		return (ConditionOption)eInternalContainer();
+		if (conditionOption != null && conditionOption.eIsProxy()) {
+			InternalEObject oldConditionOption = (InternalEObject)conditionOption;
+			conditionOption = (ConditionOption)eResolveProxy(oldConditionOption);
+			if (conditionOption != oldConditionOption) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, OCVPackage.VCONTRACT_ALTERNATIVE_BOX__CONDITION_OPTION, oldConditionOption, conditionOption));
+			}
+		}
+		return conditionOption;
 	}
 
 	/**
@@ -161,9 +170,8 @@ public class VContractAlternativeBoxImpl extends VContractConditionImpl implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetConditionOption(ConditionOption newConditionOption, NotificationChain msgs) {
-		msgs = eBasicSetContainer((InternalEObject)newConditionOption, OCVPackage.VCONTRACT_ALTERNATIVE_BOX__CONDITION_OPTION, msgs);
-		return msgs;
+	public ConditionOption basicGetConditionOption() {
+		return conditionOption;
 	}
 
 	/**
@@ -172,19 +180,10 @@ public class VContractAlternativeBoxImpl extends VContractConditionImpl implemen
 	 * @generated
 	 */
 	public void setConditionOption(ConditionOption newConditionOption) {
-		if (newConditionOption != eInternalContainer() || (eContainerFeatureID() != OCVPackage.VCONTRACT_ALTERNATIVE_BOX__CONDITION_OPTION && newConditionOption != null)) {
-			if (EcoreUtil.isAncestor(this, newConditionOption))
-				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
-			NotificationChain msgs = null;
-			if (eInternalContainer() != null)
-				msgs = eBasicRemoveFromContainer(msgs);
-			if (newConditionOption != null)
-				msgs = ((InternalEObject)newConditionOption).eInverseAdd(this, OCVPackage.CONDITION_OPTION__VC_CONTRACT_ALTERNATIVE_BOX, ConditionOption.class, msgs);
-			msgs = basicSetConditionOption(newConditionOption, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, OCVPackage.VCONTRACT_ALTERNATIVE_BOX__CONDITION_OPTION, newConditionOption, newConditionOption));
+		ConditionOption oldConditionOption = conditionOption;
+		conditionOption = newConditionOption;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, OCVPackage.VCONTRACT_ALTERNATIVE_BOX__CONDITION_OPTION, oldConditionOption, conditionOption));
 	}
 
 	/**
@@ -215,50 +214,6 @@ public class VContractAlternativeBoxImpl extends VContractConditionImpl implemen
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case OCVPackage.VCONTRACT_ALTERNATIVE_BOX__CONDITION_OPTION:
-				if (eInternalContainer() != null)
-					msgs = eBasicRemoveFromContainer(msgs);
-				return basicSetConditionOption((ConditionOption)otherEnd, msgs);
-		}
-		return super.eInverseAdd(otherEnd, featureID, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case OCVPackage.VCONTRACT_ALTERNATIVE_BOX__CONDITION_OPTION:
-				return basicSetConditionOption(null, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
-		switch (eContainerFeatureID()) {
-			case OCVPackage.VCONTRACT_ALTERNATIVE_BOX__CONDITION_OPTION:
-				return eInternalContainer().eInverseRemove(this, OCVPackage.CONDITION_OPTION__VC_CONTRACT_ALTERNATIVE_BOX, ConditionOption.class, msgs);
-		}
-		return super.eBasicRemoveFromContainerFeature(msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case OCVPackage.VCONTRACT_ALTERNATIVE_BOX__VC_RETURN_INCLUDED:
@@ -267,7 +222,8 @@ public class VContractAlternativeBoxImpl extends VContractConditionImpl implemen
 				if (resolve) return getVcContract();
 				return basicGetVcContract();
 			case OCVPackage.VCONTRACT_ALTERNATIVE_BOX__CONDITION_OPTION:
-				return getConditionOption();
+				if (resolve) return getConditionOption();
+				return basicGetConditionOption();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -327,7 +283,7 @@ public class VContractAlternativeBoxImpl extends VContractConditionImpl implemen
 			case OCVPackage.VCONTRACT_ALTERNATIVE_BOX__VC_CONTRACT:
 				return vcContract != null;
 			case OCVPackage.VCONTRACT_ALTERNATIVE_BOX__CONDITION_OPTION:
-				return getConditionOption() != null;
+				return conditionOption != null;
 		}
 		return super.eIsSet(featureID);
 	}

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Hashtable;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.gef.commands.Command;
 import org.eclipse.swt.widgets.List;
 
@@ -11,6 +12,7 @@ import com.abdulaziz.ms.OCV.UMLClass;
 import com.abdulaziz.ms.OCV.VCContract;
 import com.abdulaziz.ms.OCV.VCEntity;
 import com.abdulaziz.ms.OCV.VCInstance;
+import com.abdulaziz.ms.OCV.VCInstanceField;
 import com.abdulaziz.ms.OCV.VCLink;
 import com.abdulaziz.ms.OCV.VContractCondition;
 import com.abdulaziz.ms.OCV.provider.VCEntityItemProvider;
@@ -60,9 +62,17 @@ public class VCEntityDeleteCommand extends Command  {
 			}
 			
 		}
+		if(vcEntity instanceof VCInstanceField)
+		{
+			VCInstance temp = ((VCInstanceField)vcEntity).getVCInstance();
+			if (temp != null)
+			temp.getFields().remove((VCInstanceField)vcEntity);
+			
+		}
 		
 		vContractCondition.getVcEntities().remove(vcEntity); 
 		VCEntitiesRulesManager.applyDeleteVCEntityRules(vContractCondition, vcEntity);
+		
 
 		vcEntity = null;
 		

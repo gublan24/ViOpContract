@@ -195,6 +195,8 @@ public class ConditionOptionItemProvider
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(OCVPackage.Literals.CONDITION_OPTION__VC_CONTRACT_ALTERNATIVE_BOX);
+			childrenFeatures.add(OCVPackage.Literals.CONDITION_OPTION__CONDITION_BLOCK);
+			childrenFeatures.add(OCVPackage.Literals.CONDITION_OPTION__RESULT_BLOCK);
 		}
 		return childrenFeatures;
 	}
@@ -256,6 +258,8 @@ public class ConditionOptionItemProvider
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case OCVPackage.CONDITION_OPTION__VC_CONTRACT_ALTERNATIVE_BOX:
+			case OCVPackage.CONDITION_OPTION__CONDITION_BLOCK:
+			case OCVPackage.CONDITION_OPTION__RESULT_BLOCK:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -277,6 +281,40 @@ public class ConditionOptionItemProvider
 			(createChildParameter
 				(OCVPackage.Literals.CONDITION_OPTION__VC_CONTRACT_ALTERNATIVE_BOX,
 				 OCVFactory.eINSTANCE.createVContractAlternativeBox()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(OCVPackage.Literals.CONDITION_OPTION__CONDITION_BLOCK,
+				 OCVFactory.eINSTANCE.createVContractAlternativeBox()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(OCVPackage.Literals.CONDITION_OPTION__RESULT_BLOCK,
+				 OCVFactory.eINSTANCE.createVContractAlternativeBox()));
+	}
+
+	/**
+	 * This returns the label text for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getCreateChildText(Object owner, Object feature, Object child, Collection<?> selection) {
+		Object childFeature = feature;
+		Object childObject = child;
+
+		boolean qualify =
+			childFeature == OCVPackage.Literals.CONDITION_OPTION__VC_CONTRACT_ALTERNATIVE_BOX ||
+			childFeature == OCVPackage.Literals.CONDITION_OPTION__CONDITION_BLOCK ||
+			childFeature == OCVPackage.Literals.CONDITION_OPTION__RESULT_BLOCK;
+
+		if (qualify) {
+			return getString
+				("_UI_CreateChild_text2",
+				 new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
+		}
+		return super.getCreateChildText(owner, feature, child, selection);
 	}
 
 	/**

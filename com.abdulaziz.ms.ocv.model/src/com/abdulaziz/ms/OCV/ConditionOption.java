@@ -19,6 +19,8 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link com.abdulaziz.ms.OCV.ConditionOption#getDisplayedConditionStatement <em>Displayed Condition Statement</em>}</li>
  *   <li>{@link com.abdulaziz.ms.OCV.ConditionOption#getConditionValue <em>Condition Value</em>}</li>
  *   <li>{@link com.abdulaziz.ms.OCV.ConditionOption#getMeaningOfConditionStatement <em>Meaning Of Condition Statement</em>}</li>
+ *   <li>{@link com.abdulaziz.ms.OCV.ConditionOption#getConditionBlock <em>Condition Block</em>}</li>
+ *   <li>{@link com.abdulaziz.ms.OCV.ConditionOption#getResultBlock <em>Result Block</em>}</li>
  * </ul>
  * </p>
  *
@@ -55,7 +57,6 @@ public interface ConditionOption extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Vc Contract Alternative Box</b></em>' containment reference.
-	 * It is bidirectional and its opposite is '{@link com.abdulaziz.ms.OCV.VContractAlternativeBox#getConditionOption <em>Condition Option</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Vc Contract Alternative Box</em>' containment reference isn't clear,
@@ -65,8 +66,7 @@ public interface ConditionOption extends EObject {
 	 * @return the value of the '<em>Vc Contract Alternative Box</em>' containment reference.
 	 * @see #setVcContractAlternativeBox(VContractAlternativeBox)
 	 * @see com.abdulaziz.ms.OCV.OCVPackage#getConditionOption_VcContractAlternativeBox()
-	 * @see com.abdulaziz.ms.OCV.VContractAlternativeBox#getConditionOption
-	 * @model opposite="conditionOption" containment="true"
+	 * @model containment="true"
 	 * @generated
 	 */
 	VContractAlternativeBox getVcContractAlternativeBox();
@@ -212,5 +212,57 @@ public interface ConditionOption extends EObject {
 	 * @generated
 	 */
 	void setMeaningOfConditionStatement(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Condition Block</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Condition Block</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Condition Block</em>' containment reference.
+	 * @see #setConditionBlock(VContractAlternativeBox)
+	 * @see com.abdulaziz.ms.OCV.OCVPackage#getConditionOption_ConditionBlock()
+	 * @model containment="true"
+	 * @generated
+	 */
+	VContractAlternativeBox getConditionBlock();
+
+	/**
+	 * Sets the value of the '{@link com.abdulaziz.ms.OCV.ConditionOption#getConditionBlock <em>Condition Block</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Condition Block</em>' containment reference.
+	 * @see #getConditionBlock()
+	 * @generated
+	 */
+	void setConditionBlock(VContractAlternativeBox value);
+
+	/**
+	 * Returns the value of the '<em><b>Result Block</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Result Block</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Result Block</em>' containment reference.
+	 * @see #setResultBlock(VContractAlternativeBox)
+	 * @see com.abdulaziz.ms.OCV.OCVPackage#getConditionOption_ResultBlock()
+	 * @model containment="true"
+	 * @generated
+	 */
+	VContractAlternativeBox getResultBlock();
+
+	/**
+	 * Sets the value of the '{@link com.abdulaziz.ms.OCV.ConditionOption#getResultBlock <em>Result Block</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Result Block</em>' containment reference.
+	 * @see #getResultBlock()
+	 * @generated
+	 */
+	void setResultBlock(VContractAlternativeBox value);
 
 } // ConditionOption

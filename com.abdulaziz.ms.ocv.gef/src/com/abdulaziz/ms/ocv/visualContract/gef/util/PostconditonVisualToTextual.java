@@ -95,15 +95,21 @@ public class PostconditonVisualToTextual extends VisualToTextualRepresentationHa
 	@Override
 	public String interpertAlternativeBox(VCAlternativeBox alternative) {
 		
-		
+		//TODO printed text style 
 		String alternativeBoxText = "";
-		String condition ="A is greater than B";
 		for (ConditionOption con:alternative.getConditinOptions())
 		{
 			con.getVcContractAlternativeBox();
-			TextualTransfomratiomHandler levelHandelr = new TextualTransfomratiomHandler(con.getVcContractAlternativeBox(),new PostconditonVisualToTextual());
-			alternativeBoxText +="If "+condition+" : " +"\r\n";
-			for (String line : levelHandelr.getInterpertation()) {
+			TextualTransfomratiomHandler conditionLevelHandelr = new TextualTransfomratiomHandler(con.getConditionBlock(),new PostconditonVisualToTextual());
+			TextualTransfomratiomHandler resultLevelHandelr = new TextualTransfomratiomHandler(con.getResultBlock(),new PostconditonVisualToTextual());
+
+			alternativeBoxText +="If ( ";
+			for (String line : conditionLevelHandelr.getInterpertation()) {
+				alternativeBoxText =alternativeBoxText +"    " +line +"\r\n";
+			}
+			alternativeBoxText +=") ";
+
+			for (String line : resultLevelHandelr.getInterpertation()) {
 				alternativeBoxText =alternativeBoxText +"    " +line +"\r\n";
 			}
 		

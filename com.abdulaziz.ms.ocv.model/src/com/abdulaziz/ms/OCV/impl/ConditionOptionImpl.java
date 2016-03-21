@@ -33,6 +33,8 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  *   <li>{@link com.abdulaziz.ms.OCV.impl.ConditionOptionImpl#getDisplayedConditionStatement <em>Displayed Condition Statement</em>}</li>
  *   <li>{@link com.abdulaziz.ms.OCV.impl.ConditionOptionImpl#getConditionValue <em>Condition Value</em>}</li>
  *   <li>{@link com.abdulaziz.ms.OCV.impl.ConditionOptionImpl#getMeaningOfConditionStatement <em>Meaning Of Condition Statement</em>}</li>
+ *   <li>{@link com.abdulaziz.ms.OCV.impl.ConditionOptionImpl#getConditionBlock <em>Condition Block</em>}</li>
+ *   <li>{@link com.abdulaziz.ms.OCV.impl.ConditionOptionImpl#getResultBlock <em>Result Block</em>}</li>
  * </ul>
  * </p>
  *
@@ -140,6 +142,26 @@ public class ConditionOptionImpl extends MinimalEObjectImpl.Container implements
 	protected String meaningOfConditionStatement = MEANING_OF_CONDITION_STATEMENT_EDEFAULT;
 
 	/**
+	 * The cached value of the '{@link #getConditionBlock() <em>Condition Block</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getConditionBlock()
+	 * @generated
+	 * @ordered
+	 */
+	protected VContractAlternativeBox conditionBlock;
+
+	/**
+	 * The cached value of the '{@link #getResultBlock() <em>Result Block</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getResultBlock()
+	 * @generated
+	 * @ordered
+	 */
+	protected VContractAlternativeBox resultBlock;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -212,9 +234,9 @@ public class ConditionOptionImpl extends MinimalEObjectImpl.Container implements
 		if (newVcContractAlternativeBox != vcContractAlternativeBox) {
 			NotificationChain msgs = null;
 			if (vcContractAlternativeBox != null)
-				msgs = ((InternalEObject)vcContractAlternativeBox).eInverseRemove(this, OCVPackage.VCONTRACT_ALTERNATIVE_BOX__CONDITION_OPTION, VContractAlternativeBox.class, msgs);
+				msgs = ((InternalEObject)vcContractAlternativeBox).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - OCVPackage.CONDITION_OPTION__VC_CONTRACT_ALTERNATIVE_BOX, null, msgs);
 			if (newVcContractAlternativeBox != null)
-				msgs = ((InternalEObject)newVcContractAlternativeBox).eInverseAdd(this, OCVPackage.VCONTRACT_ALTERNATIVE_BOX__CONDITION_OPTION, VContractAlternativeBox.class, msgs);
+				msgs = ((InternalEObject)newVcContractAlternativeBox).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - OCVPackage.CONDITION_OPTION__VC_CONTRACT_ALTERNATIVE_BOX, null, msgs);
 			msgs = basicSetVcContractAlternativeBox(newVcContractAlternativeBox, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
@@ -369,13 +391,95 @@ public class ConditionOptionImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public VContractAlternativeBox getConditionBlock() {
+		return conditionBlock;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetConditionBlock(VContractAlternativeBox newConditionBlock, NotificationChain msgs) {
+		VContractAlternativeBox oldConditionBlock = conditionBlock;
+		conditionBlock = newConditionBlock;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, OCVPackage.CONDITION_OPTION__CONDITION_BLOCK, oldConditionBlock, newConditionBlock);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setConditionBlock(VContractAlternativeBox newConditionBlock) {
+		if (newConditionBlock != conditionBlock) {
+			NotificationChain msgs = null;
+			if (conditionBlock != null)
+				msgs = ((InternalEObject)conditionBlock).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - OCVPackage.CONDITION_OPTION__CONDITION_BLOCK, null, msgs);
+			if (newConditionBlock != null)
+				msgs = ((InternalEObject)newConditionBlock).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - OCVPackage.CONDITION_OPTION__CONDITION_BLOCK, null, msgs);
+			msgs = basicSetConditionBlock(newConditionBlock, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, OCVPackage.CONDITION_OPTION__CONDITION_BLOCK, newConditionBlock, newConditionBlock));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public VContractAlternativeBox getResultBlock() {
+		return resultBlock;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetResultBlock(VContractAlternativeBox newResultBlock, NotificationChain msgs) {
+		VContractAlternativeBox oldResultBlock = resultBlock;
+		resultBlock = newResultBlock;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, OCVPackage.CONDITION_OPTION__RESULT_BLOCK, oldResultBlock, newResultBlock);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setResultBlock(VContractAlternativeBox newResultBlock) {
+		if (newResultBlock != resultBlock) {
+			NotificationChain msgs = null;
+			if (resultBlock != null)
+				msgs = ((InternalEObject)resultBlock).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - OCVPackage.CONDITION_OPTION__RESULT_BLOCK, null, msgs);
+			if (newResultBlock != null)
+				msgs = ((InternalEObject)newResultBlock).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - OCVPackage.CONDITION_OPTION__RESULT_BLOCK, null, msgs);
+			msgs = basicSetResultBlock(newResultBlock, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, OCVPackage.CONDITION_OPTION__RESULT_BLOCK, newResultBlock, newResultBlock));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case OCVPackage.CONDITION_OPTION__VC_CONTRACT_ALTERNATIVE_BOX:
-				if (vcContractAlternativeBox != null)
-					msgs = ((InternalEObject)vcContractAlternativeBox).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - OCVPackage.CONDITION_OPTION__VC_CONTRACT_ALTERNATIVE_BOX, null, msgs);
-				return basicSetVcContractAlternativeBox((VContractAlternativeBox)otherEnd, msgs);
 			case OCVPackage.CONDITION_OPTION__VC_ALTERNATIVE_BOX:
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
@@ -396,6 +500,10 @@ public class ConditionOptionImpl extends MinimalEObjectImpl.Container implements
 				return basicSetVcContractAlternativeBox(null, msgs);
 			case OCVPackage.CONDITION_OPTION__VC_ALTERNATIVE_BOX:
 				return basicSetVcAlternativeBox(null, msgs);
+			case OCVPackage.CONDITION_OPTION__CONDITION_BLOCK:
+				return basicSetConditionBlock(null, msgs);
+			case OCVPackage.CONDITION_OPTION__RESULT_BLOCK:
+				return basicSetResultBlock(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -437,6 +545,10 @@ public class ConditionOptionImpl extends MinimalEObjectImpl.Container implements
 				return getConditionValue();
 			case OCVPackage.CONDITION_OPTION__MEANING_OF_CONDITION_STATEMENT:
 				return getMeaningOfConditionStatement();
+			case OCVPackage.CONDITION_OPTION__CONDITION_BLOCK:
+				return getConditionBlock();
+			case OCVPackage.CONDITION_OPTION__RESULT_BLOCK:
+				return getResultBlock();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -469,6 +581,12 @@ public class ConditionOptionImpl extends MinimalEObjectImpl.Container implements
 				return;
 			case OCVPackage.CONDITION_OPTION__MEANING_OF_CONDITION_STATEMENT:
 				setMeaningOfConditionStatement((String)newValue);
+				return;
+			case OCVPackage.CONDITION_OPTION__CONDITION_BLOCK:
+				setConditionBlock((VContractAlternativeBox)newValue);
+				return;
+			case OCVPackage.CONDITION_OPTION__RESULT_BLOCK:
+				setResultBlock((VContractAlternativeBox)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -503,6 +621,12 @@ public class ConditionOptionImpl extends MinimalEObjectImpl.Container implements
 			case OCVPackage.CONDITION_OPTION__MEANING_OF_CONDITION_STATEMENT:
 				setMeaningOfConditionStatement(MEANING_OF_CONDITION_STATEMENT_EDEFAULT);
 				return;
+			case OCVPackage.CONDITION_OPTION__CONDITION_BLOCK:
+				setConditionBlock((VContractAlternativeBox)null);
+				return;
+			case OCVPackage.CONDITION_OPTION__RESULT_BLOCK:
+				setResultBlock((VContractAlternativeBox)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -529,6 +653,10 @@ public class ConditionOptionImpl extends MinimalEObjectImpl.Container implements
 				return CONDITION_VALUE_EDEFAULT == null ? conditionValue != null : !CONDITION_VALUE_EDEFAULT.equals(conditionValue);
 			case OCVPackage.CONDITION_OPTION__MEANING_OF_CONDITION_STATEMENT:
 				return MEANING_OF_CONDITION_STATEMENT_EDEFAULT == null ? meaningOfConditionStatement != null : !MEANING_OF_CONDITION_STATEMENT_EDEFAULT.equals(meaningOfConditionStatement);
+			case OCVPackage.CONDITION_OPTION__CONDITION_BLOCK:
+				return conditionBlock != null;
+			case OCVPackage.CONDITION_OPTION__RESULT_BLOCK:
+				return resultBlock != null;
 		}
 		return super.eIsSet(featureID);
 	}

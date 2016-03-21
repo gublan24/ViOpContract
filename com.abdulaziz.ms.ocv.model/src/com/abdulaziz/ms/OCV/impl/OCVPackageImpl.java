@@ -1458,6 +1458,24 @@ public class OCVPackageImpl extends EPackageImpl implements OCVPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getConditionOption_ConditionBlock() {
+		return (EReference)conditionOptionEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getConditionOption_ResultBlock() {
+		return (EReference)conditionOptionEClass.getEStructuralFeatures().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getVContractAlternativeBox() {
 		return vContractAlternativeBoxEClass;
 	}
@@ -1756,6 +1774,8 @@ public class OCVPackageImpl extends EPackageImpl implements OCVPackage {
 		createEAttribute(conditionOptionEClass, CONDITION_OPTION__DISPLAYED_CONDITION_STATEMENT);
 		createEAttribute(conditionOptionEClass, CONDITION_OPTION__CONDITION_VALUE);
 		createEAttribute(conditionOptionEClass, CONDITION_OPTION__MEANING_OF_CONDITION_STATEMENT);
+		createEReference(conditionOptionEClass, CONDITION_OPTION__CONDITION_BLOCK);
+		createEReference(conditionOptionEClass, CONDITION_OPTION__RESULT_BLOCK);
 
 		vContractAlternativeBoxEClass = createEClass(VCONTRACT_ALTERNATIVE_BOX);
 		createEAttribute(vContractAlternativeBoxEClass, VCONTRACT_ALTERNATIVE_BOX__VC_RETURN_INCLUDED);
@@ -1980,17 +2000,19 @@ public class OCVPackageImpl extends EPackageImpl implements OCVPackage {
 
 		initEClass(conditionOptionEClass, ConditionOption.class, "ConditionOption", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getConditionOption_Name(), ecorePackage.getEString(), "name", null, 0, 1, ConditionOption.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getConditionOption_VcContractAlternativeBox(), this.getVContractAlternativeBox(), this.getVContractAlternativeBox_ConditionOption(), "vcContractAlternativeBox", null, 0, 1, ConditionOption.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getConditionOption_VcContractAlternativeBox(), this.getVContractAlternativeBox(), null, "vcContractAlternativeBox", null, 0, 1, ConditionOption.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getConditionOption_VcAlternativeBox(), this.getVCAlternativeBox(), this.getVCAlternativeBox_ConditinOptions(), "vcAlternativeBox", null, 0, 1, ConditionOption.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getConditionOption_VcEntityReference(), this.getVCEntity(), null, "vcEntityReference", null, 0, 1, ConditionOption.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getConditionOption_DisplayedConditionStatement(), ecorePackage.getEString(), "displayedConditionStatement", null, 0, 1, ConditionOption.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getConditionOption_ConditionValue(), ecorePackage.getEString(), "conditionValue", null, 0, 1, ConditionOption.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getConditionOption_MeaningOfConditionStatement(), ecorePackage.getEString(), "MeaningOfConditionStatement", null, 0, 1, ConditionOption.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getConditionOption_ConditionBlock(), this.getVContractAlternativeBox(), null, "conditionBlock", null, 0, 1, ConditionOption.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getConditionOption_ResultBlock(), this.getVContractAlternativeBox(), null, "resultBlock", null, 0, 1, ConditionOption.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(vContractAlternativeBoxEClass, VContractAlternativeBox.class, "VContractAlternativeBox", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getVContractAlternativeBox_VCReturnIncluded(), ecorePackage.getEBoolean(), "VCReturnIncluded", null, 0, 1, VContractAlternativeBox.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getVContractAlternativeBox_VcContract(), this.getVCContract(), null, "vcContract", null, 0, 1, VContractAlternativeBox.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getVContractAlternativeBox_ConditionOption(), this.getConditionOption(), this.getConditionOption_VcContractAlternativeBox(), "conditionOption", null, 0, 1, VContractAlternativeBox.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getVContractAlternativeBox_ConditionOption(), this.getConditionOption(), null, "conditionOption", null, 0, 1, VContractAlternativeBox.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getVContractAlternativeBox__GetVContractCondition(), this.getVContractAlternativeBox(), "getVContractCondition", 0, 1, IS_UNIQUE, IS_ORDERED);
 

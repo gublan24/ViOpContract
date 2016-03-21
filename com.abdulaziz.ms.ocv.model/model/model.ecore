@@ -206,7 +206,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="ConditionOption">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="vcContractAlternativeBox"
-        eType="#//VContractAlternativeBox" containment="true" eOpposite="#//VContractAlternativeBox/conditionOption"/>
+        eType="#//VContractAlternativeBox" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="vcAlternativeBox" eType="#//VCAlternativeBox"
         eOpposite="#//VCAlternativeBox/conditinOptions"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="vcEntityReference" eType="#//VCEntity"/>
@@ -215,6 +215,10 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="conditionValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="MeaningOfConditionStatement"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="conditionBlock" eType="#//VContractAlternativeBox"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="resultBlock" eType="#//VContractAlternativeBox"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="VContractAlternativeBox" eSuperTypes="#//VContractCondition">
     <eOperations name="getVContractCondition" eType="#//VContractAlternativeBox"/>
@@ -226,8 +230,7 @@
     </eOperations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="VCReturnIncluded" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="vcContract" eType="#//VCContract"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="conditionOption" eType="#//ConditionOption"
-        eOpposite="#//ConditionOption/vcContractAlternativeBox"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="conditionOption" eType="#//ConditionOption"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="VContractCollectionBox" eSuperTypes="#//VContractCondition">
     <eStructuralFeatures xsi:type="ecore:EReference" name="vcCollectionBox" eType="#//VCCollectionBox"
