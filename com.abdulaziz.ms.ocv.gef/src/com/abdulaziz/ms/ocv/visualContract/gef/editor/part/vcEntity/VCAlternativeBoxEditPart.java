@@ -47,7 +47,7 @@ public class VCAlternativeBoxEditPart extends VCEntityEditPart {
 	protected  void refreshVisuals()
 	{
 		VCAlternativeBoxFigure figure = (VCAlternativeBoxFigure) getFigure();
-		figure.setOptionsArraly(((VCAlternativeBox) getModel()).getConditinOptions());
+	//	figure.setOptionsArraly(((VCAlternativeBox) getModel()).getConditinOptions());
 		VCEntity vcEntity = (VCEntity) getModel();		
 		VContractConditionEditPart vContractEditPart = (VContractConditionEditPart) getParent();
 		Rectangle layout = vcEntity.getConstraints();
@@ -57,22 +57,19 @@ public class VCAlternativeBoxEditPart extends VCEntityEditPart {
 	}
 	
 	@Override
-	public List<Object> getModelChildren()
-	{
-		
+	public List<Object> getModelChildren() {
+
 		VCAlternativeBox vcAltBox = (VCAlternativeBox) getModel();
 		List<Object> list = new ArrayList<>();
-		for (ConditionOption object : vcAltBox.getConditinOptions()) {
-			list.add(object.getVcContractAlternativeBox());
-			if(object.getConditionBlock() != null)
-			{
-			list.add(object.getConditionBlock());
-			list.add(object.getResultBlock());
+		for (ConditionOption conditionOption : vcAltBox.getConditinOptions()) {
+			// list.add(conditionOption.getVcContractAlternativeBox());
+			if (conditionOption.getConditionBlock() != null && conditionOption.getResultBlock() != null) {
+				list.add(conditionOption.getConditionBlock());
+				list.add(conditionOption.getResultBlock());
 			}
 
-
 		}
-		
+
 		return list;
 
 	}

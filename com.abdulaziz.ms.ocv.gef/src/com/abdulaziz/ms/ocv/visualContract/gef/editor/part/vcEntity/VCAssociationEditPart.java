@@ -63,10 +63,13 @@ public class VCAssociationEditPart extends VCEntityEditPart {
 		VCAssociation vcEntity = (VCAssociation) getModel();
 		figure.setText(vcEntity.getName());
 		figure.setvAssociation(vcEntity);
-		if (((VCAssociation) getModel()).getIncomingLinks().size() == 2) {
+	/*	if (((VCAssociation) getModel()).getIncomingLinks().size() == 2) {
 				figure.setColor(checkDomianDiagramDirectLink((VCAssociation) getModel()));
 			
-		}
+		}*/
+		
+		figure.setColor(true);
+
 		VContractConditionEditPart vContractEditPart = (VContractConditionEditPart) getParent();
 		Rectangle layout = vcEntity.getConstraints();
 		

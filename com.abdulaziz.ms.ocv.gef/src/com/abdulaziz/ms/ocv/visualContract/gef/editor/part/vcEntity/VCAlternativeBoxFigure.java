@@ -20,17 +20,18 @@ public class VCAlternativeBoxFigure extends Figure implements VCEntityFigure {
 
 	private ConnectionAnchor connectionAnchor;
 	private String name = " alt";
-	private EList<ConditionOption> optionsArrayList;
 	private Point xy;
 	public VCAlternativeBoxFigure()
 	{
 	
 		setBorder(new LineBorder(ColorConstants.black, 1));
 		setOpaque(true);
+		/*
 		GridLayout layoutManager = new GridLayout(1, false);
 		layoutManager.marginHeight = 25;
-		layoutManager.marginWidth = 1;
-		//setLayoutManager(layoutManager);
+		layoutManager.marginWidth = 1;		
+		setLayoutManager(layoutManager);
+		*/
 		setLayoutManager(new XYLayout());
 	}
 	
@@ -134,12 +135,7 @@ public class VCAlternativeBoxFigure extends Figure implements VCEntityFigure {
 		return connectionAnchor;
 	}
 
-	public void setOptionsArraly(EList<ConditionOption> eList) {
-		
-		optionsArrayList = eList;
-		
-		
-	}
+
 
 
 

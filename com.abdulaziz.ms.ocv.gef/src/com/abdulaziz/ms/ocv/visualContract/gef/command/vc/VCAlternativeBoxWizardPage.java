@@ -53,7 +53,6 @@ public class VCAlternativeBoxWizardPage extends WizardPage {
 	private String conditionStatement;	private String meaningOfConditionStatement;
 	private VCEntity selectedVCEntity;
 	private VCAlternativeBox vcAlternativeBox;
-	private Text valueText;
 	private ConditionOption selectedConditionOption;
 	private HashMap<String, VCEntity> compoHashMap;
 	private HashMap<Button, EqaulityProperties> buttonEqaulityPropertiesHashMap;
@@ -113,66 +112,39 @@ public class VCAlternativeBoxWizardPage extends WizardPage {
 
 		}
 	};
-	private Combo inputVCEntityCombo;
 
 	protected VCAlternativeBoxWizardPage(String pageName) {
 		super(pageName);
-		// TODO Auto-generated constructor stub
+		setTitle("Alternative Box Properties");
+		setDescription("To add/remove options for the alternative box");
 	}
 
 	@Override
 	public void createControl(Composite parent) {
 		Composite container = new Composite(parent, SWT.NULL);
 		setControl(container);
-		inputVCEntityCombo = new Combo(container, SWT.NONE);
 		compoHashMap = new HashMap<>();
-		inputVCEntityCombo.setBounds(224, 34, 155, 23);
 		ListIterator<VCLink> iterator = vcAlternativeBox.getIncomingLinks()
 				.listIterator();
 		while (iterator.hasNext()) {
 			VCEntity sourceEntity = iterator.next().getSource();
-			inputVCEntityCombo.add(sourceEntity.getName());
+			//inputVCEntityCombo.add(sourceEntity.getName());
 			compoHashMap.put(sourceEntity.getName(), sourceEntity);
 		}
 
 		buttonEqaulityPropertiesHashMap = new HashMap<>();
 		container.setLayout(null);
 
-		Button btnEqual = new Button(container, SWT.RADIO);
-		btnEqual.setBounds(398, 38, 95, 16);
-		btnEqual.setText("=  Equal");
-		buttonEqaulityPropertiesHashMap.put(btnEqual, new EqaulityProperties(EqaulityProperties.EQUAL_MEANING,EqaulityProperties.EQUAL_DISPLAY, btnEqual));
-		btnEqual.addSelectionListener(listener);
-
-		Button btnGTThan = new Button(container, SWT.RADIO);
-		btnGTThan.setBounds(398, 60, 126, 16);
-		btnGTThan.setText("> Greater than");
-		buttonEqaulityPropertiesHashMap.put(btnGTThan, new EqaulityProperties(
-				"greater than", ">", btnGTThan));
-		btnGTThan.addSelectionListener(listener);
-
-		Button btnLessThan = new Button(container, SWT.RADIO);
-		btnLessThan.setBounds(398, 82, 126, 16);
-		btnLessThan.setText("< Less than");
-		buttonEqaulityPropertiesHashMap.put(btnLessThan, new EqaulityProperties("less than", "<", btnLessThan));
-		btnLessThan.addSelectionListener(listener);
-
-		Button btnNotEqual = new Button(container, SWT.RADIO);
-		btnNotEqual.setBounds(398, 104, 126, 16);
-		btnNotEqual.setText("<> Not equal");
-		buttonEqaulityPropertiesHashMap.put(btnNotEqual,
-				new EqaulityProperties("Not equal", "<>", btnNotEqual));
-		btnNotEqual.addSelectionListener(listener);
-
 		final TreeViewer alterOprtionsTreeViewer = new TreeViewer(container,
 				SWT.BORDER);
 		Tree tree = alterOprtionsTreeViewer.getTree();
-		tree.setBounds(6, 31, 212, 205);
+		tree.setBounds(24, 27, 262, 226);
 		tree.setHeaderVisible(true);
 		tree.setLinesVisible(true);
 		TreeColumn columnName = new TreeColumn(tree, SWT.NONE);
-		columnName.setWidth(208);
+		columnName.setWidth(258);
 		columnName.setText("Conditon Options");
+		
 		alterOprtionsTreeViewer	.addSelectionChangedListener(new ISelectionChangedListener() {
 
 					@Override
@@ -185,10 +157,10 @@ public class VCAlternativeBoxWizardPage extends WizardPage {
 							Object selectedObject = item.getData();
 							if (selectedObject instanceof ConditionOption) {
 								selectedConditionOption = (ConditionOption) selectedObject;
-								if( selectedConditionOption.getConditionValue() !=null )
+								/*						if( selectedConditionOption.getConditionValue() !=null )
 								{
-									inputVCEntityCombo.select(inputVCEntityCombo.indexOf(selectedConditionOption.getVcEntityReference().getName()));
-									valueText.setText(selectedConditionOption.getConditionValue());
+							//		inputVCEntityCombo.select(inputVCEntityCombo.indexOf(selectedConditionOption.getVcEntityReference().getName()));
+							//		valueText.setText(selectedConditionOption.getConditionValue());
 									
 									for (EqaulityProperties element : buttonEqaulityPropertiesHashMap.values()) {
 										element.getButton().setSelection(false);
@@ -197,14 +169,15 @@ public class VCAlternativeBoxWizardPage extends WizardPage {
 											element.getButton().setSelection(true);
 										}
 									}
+									
 								}
 								else 
 								{
 									
-									valueText.setText("");
+							//		valueText.setText("");
 								}
 								
-								
+								*/
 								
 							}
 						}
@@ -212,7 +185,12 @@ public class VCAlternativeBoxWizardPage extends WizardPage {
 
 
 					}
+					
+					
 				});
+				
+				
+				
 
 		Menu menu = new Menu(tree);
 		tree.setMenu(menu);
@@ -226,12 +204,12 @@ public class VCAlternativeBoxWizardPage extends WizardPage {
 			public void widgetSelected(SelectionEvent e) {
 				if(! vcAlternativeBox.getConditinOptions().contains(selectedConditionOption))
 					return;
+				
 				vcAlternativeBox.getConditinOptions().remove(selectedConditionOption);
 				selectedConditionOption.setVcAlternativeBox(null);
 				selectedConditionOption = null;
 				alterOprtionsTreeViewer.refresh();
 
-				
 			}
 			
 			@Override
@@ -243,61 +221,67 @@ public class VCAlternativeBoxWizardPage extends WizardPage {
 
 		// add -----------------------------------------------------------------------------------------------------------------------
 		MenuItem addOption = new MenuItem(menu, SWT.NONE);
-		addOption.setText("add new option");
+		addOption.setText("add a new option");
 		addOption.addSelectionListener(new SelectionListener() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
 				//
-
-				// create new inner alternative option
+				// create new a conditionBlock and a resultBlock
 				ConditionOption conditionOption = OCVFactory.eINSTANCE.createConditionOption();
-				conditionOption.setName("new alterative option"+(vcAlternativeBox.getConditinOptions().size()+1));
+				conditionOption.setName("Option Block"+(vcAlternativeBox.getConditinOptions().size()+1));
 				
-				// create Contract alternative box layer for the inner option
+				
 
-				VContractAlternativeBox rootVContractAlternativeBox = OCVFactory.eINSTANCE.createVContractAlternativeBox();
-				
+			/*
+			  create Contract alternative box layer for the inner option
+			  VContractAlternativeBox rootVContractAlternativeBox = OCVFactory.eINSTANCE.createVContractAlternativeBox();
+								conditionOption.setVcContractAlternativeBox(rootVContractAlternativeBox);				
+								rootVContractAlternativeBox.setConditionOption(conditionOption);
+
+
+			*/
 				VContractAlternativeBox condition = OCVFactory.eINSTANCE.createVContractAlternativeBox();
 				VContractAlternativeBox result = OCVFactory.eINSTANCE.createVContractAlternativeBox();
-				
-				condition.setType("alt condition block");
-				result.setType("alt result block");		
-				
-				conditionOption.setVcContractAlternativeBox(rootVContractAlternativeBox);
-
-				
 					
-
 				conditionOption.setConditionBlock(condition);
 				conditionOption.setResultBlock(result);
-				
 				condition.setConditionOption(conditionOption);
 				result.setConditionOption(conditionOption);
+				int numberOfConditionOpitions = (vcAlternativeBox.getConditinOptions().size()+1);
+				condition.setType("condition block "+numberOfConditionOpitions);
+				result.setType("result block "+numberOfConditionOpitions );	
 				
-				Rectangle r1= new Rectangle(0,30,vcAlternativeBox.getConstraints().width-5,vcAlternativeBox.getConstraints().height/2);
-				condition.setConstaint(r1.getCopy().shrink(2, 2));
-				result.setConstaint(r1.getCopy().shrink(1, 1));
 				
-				rootVContractAlternativeBox.setConditionOption(conditionOption);
+				
 
-				// display the new all condition options inside alternative box
-				ListIterator<ConditionOption> i2 = vcAlternativeBox.getConditinOptions().listIterator();
-				
-				Object[] array = vcAlternativeBox.getConditinOptions().toArray();
-				Rectangle r;
-				if (i2.hasNext()) {
-					ConditionOption con = (ConditionOption) array[array.length - 1];
-					r = con.getVcContractAlternativeBox().getConstaint().getCopy();
-					r.setY(r.getBottom().y + 1);
-					rootVContractAlternativeBox.setConstaint(r);
-				}else 
+				if (numberOfConditionOpitions == 1)
 				{
-					r= new Rectangle(0,20,vcAlternativeBox.getConstraints().width-10,vcAlternativeBox.getConstraints().height/2);
-					rootVContractAlternativeBox.setConstaint(r);
-					
+					Rectangle r1= new Rectangle(0,30,vcAlternativeBox.getConstraints().width-5,vcAlternativeBox.getConstraints().height/3);
+					condition.setConstaint(r1.getCopy().shrink(2, 2));
+					result.setConstaint(r1.getCopy().shrink(2, 2));
+					result.getConstaint().setLocation(r1.getBottomLeft());
 					
 				}
+				 else 
+				 {
 				
+					// display the new all condition options inside alternative
+					// box
+					ListIterator<ConditionOption> i2 = vcAlternativeBox.getConditinOptions().listIterator();
+
+					Object[] array = vcAlternativeBox.getConditinOptions().toArray();
+					Rectangle r;
+					if (i2.hasNext()) {
+						ConditionOption con = (ConditionOption) array[array.length - 1];
+						r = con.getResultBlock().getConstaint().getCopy();
+						r.setY(r.getBottom().y + 1);
+						condition.setConstaint(r.getCopy());
+						result.setConstaint(r.getCopy());
+						result.getConstaint().setLocation(r.getBottomLeft());
+						// rootVContractAlternativeBox.setConstaint(r);
+					}
+
+				}
 				
 				vcAlternativeBox.getConditinOptions().add(conditionOption);
 				conditionOption.setVcAlternativeBox(vcAlternativeBox);
@@ -349,34 +333,6 @@ public class VCAlternativeBoxWizardPage extends WizardPage {
 				return true;
 			}
 		});
-
-		valueText = new Text(container, SWT.BORDER);
-		valueText.setBounds(500, 37, 116, 21);
-
-		// save modification
-		// TODO
-		Button btnSaveModification = new Button(container, SWT.NONE);
-		btnSaveModification.addSelectionListener(new SelectionAdapter() {
-		
-
-
-			@Override
-			public void widgetSelected(SelectionEvent e) {
-
-				
-				selectedVCEntity = compoHashMap.get(inputVCEntityCombo.getItem(inputVCEntityCombo.getSelectionIndex()));
-
-				selectedConditionOption.setConditionValue(valueText.getText());
-				selectedConditionOption.setDisplayedConditionStatement(conditionStatement);
-				selectedConditionOption.setMeaningOfConditionStatement(meaningOfConditionStatement);
-				selectedConditionOption.setVcEntityReference(selectedVCEntity);
-				
-				selectedConditionOption.setName(selectedVCEntity.getName() +" "+ conditionStatement + valueText.getText());
-
-			}
-		});
-		btnSaveModification.setBounds(235, 167, 106, 25);
-		btnSaveModification.setText("save modification");
 
 	}
 

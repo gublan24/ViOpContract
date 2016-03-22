@@ -105,9 +105,11 @@ public class PostconditonVisualToTextual extends VisualToTextualRepresentationHa
 
 			alternativeBoxText +="If ( ";
 			for (String line : conditionLevelHandelr.getInterpertation()) {
-				alternativeBoxText =alternativeBoxText +"    " +line +"\r\n";
-			}
-			alternativeBoxText +=") ";
+				alternativeBoxText =alternativeBoxText +line +"\r\n";
+			}	
+			alternativeBoxText = alternativeBoxText.substring(0, alternativeBoxText.lastIndexOf("\r\n"));
+
+			alternativeBoxText +=" )"+"\r\n";
 
 			for (String line : resultLevelHandelr.getInterpertation()) {
 				alternativeBoxText =alternativeBoxText +"    " +line +"\r\n";

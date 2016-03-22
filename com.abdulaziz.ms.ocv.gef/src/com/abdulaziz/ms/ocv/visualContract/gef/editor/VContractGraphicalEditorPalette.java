@@ -79,26 +79,27 @@ public class VContractGraphicalEditorPalette extends PaletteRoot {
 				new VCAssociationCreationFactory(), new Icon(VContractGraphicalEditorPalette.class.getResourceAsStream("association_icon.png")), null);
 		group.add(associationCreationEntry);
 		CreationToolEntry associationDeletionEntry = new CreationToolEntry(
-				"Asscoiation Deletion -", "---",
-				new VCAssociationDeletionFactory(), null, null);
+				"Asscoiation Deletion", "---",
+				new VCAssociationDeletionFactory(), new Icon(VContractGraphicalEditorPalette.class.getResourceAsStream("association-delete_icon.png")), null);
 		group.add(associationDeletionEntry);
 		
 		
-		CreationToolEntry operationReturnEntry = new CreationToolEntry(
+	/*	CreationToolEntry operationReturnEntry = new CreationToolEntry(
 				"Operation Return ", "", new VCReturnFactory(), new Icon(VContractGraphicalEditorPalette.class.getResourceAsStream("return_icon.png")), null);
-		group.add(operationReturnEntry);
+		group.add(operationReturnEntry);*/
 		
 		CreationToolEntry alternativeCTE = new CreationToolEntry(
 				"Alternative", "", new VCAlterBox(),   new Icon(VContractGraphicalEditorPalette.class.getResourceAsStream("alt_icon.png")), null);
 		group.add(alternativeCTE);
 
-		CreationToolEntry collectionCTE = new CreationToolEntry(
+		/*CreationToolEntry collectionCTE = new CreationToolEntry(
 				"Collection ", "", new VCCollectionBoxFactory(),  new Icon(VContractGraphicalEditorPalette.class.getResourceAsStream("col_icon.png")), null);
-		group.add(collectionCTE);
+		group.add(collectionCTE);*/
 		
-		CreationToolEntry loopCTE = new CreationToolEntry(
+		
+		/*CreationToolEntry loopCTE = new CreationToolEntry(
 				"Loop ", "", new VCLoopBoxFactory(),  new Icon(VContractGraphicalEditorPalette.class.getResourceAsStream("loop_icon.png")), null);
-		group.add(loopCTE);
+		group.add(loopCTE);*/
 
 		ConnectionCreationToolEntry linkCreationEntry = new ConnectionCreationToolEntry(
 				"Connect", "Add link between objects", new VCLinkFactory(),new Icon(VContractGraphicalEditorPalette.class.getResourceAsStream("arrow_icon.png")), null);

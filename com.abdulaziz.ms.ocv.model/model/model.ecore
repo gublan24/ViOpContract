@@ -28,11 +28,11 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="UMLVariable">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="variableName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="variableType" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="umlClass" eType="#//UMLClass"
         eOpposite="#//UMLClass/classAttributes"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="vOperation" eType="#//VOperation"
         eOpposite="#//VOperation/operationParameters"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="variableType" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="UMLLink">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -57,7 +57,6 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="VOperation">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="operationName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="operationReturnType" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="operationParameters" upperBound="-1"
         eType="#//UMLVariable" containment="true" eOpposite="#//UMLVariable/vOperation"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="vSystem" eType="#//VSystemOperationDiagram"/>
@@ -79,12 +78,6 @@
         eType="#//VCLink" containment="true" eOpposite="#//VCLink/vcContract"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="VContractCondition" abstract="true">
-    <eOperations name="setVCEntityContract">
-      <eParameters name="vcEntity" eType="#//VCEntity"/>
-    </eOperations>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        defaultValueLiteral=""/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="constaint" eType="#//Rectangle"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="vcEntities" upperBound="-1"
         eType="#//VCEntity" containment="true"/>
   </eClassifiers>
@@ -125,12 +118,6 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="VCLinkPrePostCondition" eSuperTypes="#//VCLink"/>
   <eClassifiers xsi:type="ecore:EClass" name="VCEntity" abstract="true">
-    <eOperations name="setVContractCondition">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="body" value="vContractCondition.setVCEntityContract(this);"/>
-      </eAnnotations>
-      <eParameters name="vContractCondition" eType="#//VContractCondition"/>
-    </eOperations>
     <eOperations name="getContractCondition" eType="#//VContractCondition"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="incomingLinks" upperBound="-1"
@@ -142,15 +129,10 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="precondition" eType="#//VContractCondition"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="postcondition" eType="#//VContractCondition"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="VCValue" eSuperTypes="#//VCEntity">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="VCValue" eSuperTypes="#//VCEntity"/>
   <eClassifiers xsi:type="ecore:EClass" name="VCEquality" eSuperTypes="#//VCEntity">
     <eStructuralFeatures xsi:type="ecore:EReference" name="souceVCEntity" eType="#//VCEntity"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="targetValue" eType="#//VCEquality"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="meaning" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="displyedText" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="notes" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="VCInstance" eSuperTypes="#//VCEntity">
     <eStructuralFeatures xsi:type="ecore:EReference" name="umlClass" eType="#//UMLClass"
@@ -183,19 +165,15 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="vCInstance" eType="#//VCInstance"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="operationParameter" eType="#//UMLVariable"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="VCOperationBox" eSuperTypes="#//VCEntity">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="VCOperationBox" eSuperTypes="#//VCEntity"/>
   <eClassifiers xsi:type="ecore:EClass" name="VCReturn" eSuperTypes="#//VCEntity">
     <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="#//VCEntity"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="VCCollectionBox" eSuperTypes="#//VCEntity">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="vContractCollectionBox"
         eType="#//VContractCollectionBox" containment="true" eOpposite="#//VContractCollectionBox/vcCollectionBox"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="VCLoop" eSuperTypes="#//VCEntity">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="iteration" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="vcContractLoopBox" eType="#//VContractLoopBox"
         containment="true" eOpposite="#//VContractLoopBox/vcCollectionBox"/>
   </eClassifiers>

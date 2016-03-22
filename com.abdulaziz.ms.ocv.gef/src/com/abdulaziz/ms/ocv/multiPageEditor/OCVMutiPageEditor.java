@@ -139,7 +139,7 @@ public class OCVMutiPageEditor extends MultiPageEditorPart implements IResourceC
 			//GEF editor 
 			 SystemOperationGraphicalEditor sysOperationEditor = new SystemOperationGraphicalEditor(umlClassDiagram);
 			int index = addPage(sysOperationEditor, getEditorInput());
-			setPageText(index, "System Operation");
+			setPageText(index, "System Operations");
 			
 			
 			

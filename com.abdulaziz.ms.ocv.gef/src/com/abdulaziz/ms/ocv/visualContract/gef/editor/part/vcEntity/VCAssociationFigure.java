@@ -41,10 +41,11 @@ public class VCAssociationFigure extends Figure implements VCEntityFigure {
 
 	public void setColor(boolean linkExist)
 	{
-		if (linkExist)
+		/*if (linkExist)
 		fillColor = greenFillColor;
 		else 
-			fillColor = redFillColor;
+			fillColor = redFillColor;*/
+		fillColor = greenFillColor;
 
 			
 	}
