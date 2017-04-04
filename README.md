@@ -3,4 +3,4 @@ ViOpContract is a prototype tool that helps developers to draw visual operation 
 
 The main view of ViOpContract starts with two basic window tabs, or views. The first view helps to draw the domain model. The second view is the system operation view, which allows the addition of visual operation contracts to the system operations. Then, each visual operation contracts will have its own view. 
 
-You can find more about the tool by reading my master thesis: http://hdl.handle.net/10393/34976 , or http://dx.doi.org/10.20381/ruor-4935
+You can find more about the tool and its usage by reading my master thesis: http://hdl.handle.net/10393/34976 , or http://dx.doi.org/10.20381/ruor-4935
